@@ -125,10 +125,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
-STATIC_DIR = Path.joinpath(BASE_DIR,'static')
 STATICFILES_DIRS = [
-    STATIC_DIR,'templates'
+    STATIC_DIR,'static'
 ]
 
 # Default primary key field type
