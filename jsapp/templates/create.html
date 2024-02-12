@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>aaaa</h1>
+<noscript>JavaScriptが無効になっています！</noscript>
+
+<div class="form-control-lg">
+    <form action="{%url 'create' %}" method="POST">{% csrf_token %}
+        <div class="alert alert-light c shadow border border-dark" name="perform">
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="perform1" data-bs-toggle="collapse" href="#form1">
+                <label for="perform1">昼の部</label>
+            </div>
+        </div>
+        <script>
+            function buttonClick() {
+                form1_res = document.getElementById('form1');
+                if (this.checked) {
+                    form1_res.classList.add('show');
+                }
+            }
+        </script>
+        <div class="container-fluid">
+            <div class="collapse" id="form1">
+                <div class="ticketform alert alert-light shadow border border-dark" id="ticketform1">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" class="form-control" name="ticket1" id="ticket1_a"
+                            value="FC先行">
+                        <label for="ticket1_a" class="form-check-label">FC先行
+                        </label>
+                    </div>
+                    <div class="form-check ">
+                        <input class="form-check-input" type="radio" class="form-control" name="ticket1" id="ticket1_b"
+                            value="一般先行">
+                        <label for="ticket1_b" class="form-check-label">一般先行
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" class="form-control" name="ticket1" id="ticket1_c"
+                            value="追加販売">
+                        <label for="ticket1_c" class="form-check-label">追加販売
+                        </label>
+                    </div>
+                </div>
+
+                <div class="sheetform alert alert-light shadow border border-dark" id="sheetform">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" class="form-control" name="sheet1" id="sheet1_a"
+                            value="一般席">
+                        <label for="sheet1_a" class="form-check-label">一般席
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" class="form-control" name="sheet1" id="sheet1_b"
+                            value="女性エリア席">
+                        <label for="sheet1_b" class="form-check-label">女性エリア席
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" class="form-control" name="sheet1" id="sheet1_c"
+                            value="カメコエリア席">
+                        <label for="sheet1_c" class="form-check-label">カメコエリア席
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" class="form-control" name="sheet1" id="sheet1_d"
+                            value="着席指定席">
+                        <label for="sheet1_d" class="form-check-label">着席指定席
+                        </label>
+                    </div>
+                </div>
+
+                <div class="positionform alert alert-light shadow border border-dark" id="positionform1">
+                    <div id="floorform1">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" class="form-control" name="floor1"
+                                id="floor1_a" value="アリーナ">
+                            <label for="floor1_a" class="form-check-label">アリーナ
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" class="form-control" name="floor1"
+                                id="floor1_b" value="スタンド">
+                            <label for="floor1_b" class="form-check-label">スタンド
+                            </label>
+                        </div>
+                    </div>
+                    <label for="position1_a"></label>
+                    <div><input type="text" id="position1_a"></div>
+                </div>
+            </div>
+        </div>
+        <input type="checkbox" onclick="buttonClick()">
+        <input type="submit" value="送信">
+    </form>
+
+</div>
+
+{% endblock content %}

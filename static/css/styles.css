@@ -1,0 +1,147 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+html {
+    font-size: 62.5%;
+    height: 180%;
+    min-height: max-content;
+}
+
+body {
+    overflow: scroll;
+    height: 100%;
+    min-height: max-content;
+}
+
+.main_bg {
+    min-height: max-content;
+    height: 100%;
+    background-image: url("/static/a.svg");
+    background-size: auto 100%;
+    background-attachment: fixed;
+}
+
+
+.c {
+    border: 1px solid #828282;
+    border-radius: 0 0.2rem 0.2rem 0.2rem;
+    padding: 0.4rem;
+    margin-bottom: 1rem;
+    font-family: Consolas, "Meiryo UI";
+}
+
+label {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: calc(100vw/20);
+    color: #000;
+}
+
+
+.time {
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+.main {
+    height: 100%;
+    background-color: #fff;
+    padding: 10px 10em;
+    background: rgba(255, 255, 255, 0.5)
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    height: 10vh;
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px #ffffff00;
+    z-index: 1;
+}
+
+.box {
+    transition: max-height 1s, overflow 1s, visibility 1s;
+    max-height: 0;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.box.is-show {
+    max-height: 1000px;
+    visibility: visible;
+}
+
+.inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2vh 5vw;
+}
+
+.header p {
+    margin-bottom: 0rem;
+    font-family: "游ゴシック", "ヒラギノ角ゴ ProN", sans-serif;
+    font-weight: bold;
+}
+
+.header_title {
+    font-size: calc(100vw/40);
+}
+
+.header_ank {
+    font-size: calc(100vw/20);
+    padding-top: .5rem;
+}
+
+.header_inner {
+    padding-left: 3rem;
+}
+
+.position {
+    margin: 1rem;
+}
+
+@media screen and (min-width:768px) {
+    label {
+        font-size: 2rem;
+    }
+
+    .header_title {
+        font-size: 2rem;
+    }
+
+    .header_ank {
+        font-size: 2rem;
+    }
+}
+
+.eventform {
+    margin-top: 10vh;
+}
+
+.answerform {
+    margin-bottom: 1vh;
+}
+
+#submitbt {
+    padding: .5rem 1rem;
+    margin: 0, 2rem;
+    font-size: 1.5rem;
+    display: block;
+
+    text-align: center;
+    text-decoration: none;
+    width: 150px;
+    margin: auto;
+    padding: 1rem 4rem;
+    font-weight: bold;
+    border-color: #fff;
+    border-radius: 100px;
+    background: #ffffff;
+    color: #000000;
+    transition: 0.5s;
+}

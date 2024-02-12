@@ -1,0 +1,60 @@
+{% extends 'base.html'%}
+{% block header %}
+<div class="header_inner inner">
+    <p class="header_title">{{ title }}</p>
+    <p class="header_ank">{{ venue }} 配席アンケート</p>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div>
+    <h1>title</h1>
+</div>
+<div class="eventform text-dark form-control-lg" id="eventform">
+    <form action="" method="POST">{% csrf_token %}
+        <div class="formcheck alert alert-light shadow ">
+            <label for="timeform1">
+                <input type="checkbox" class="form-check-input" id="timeform1" onclick="checkEvent1()">
+                昼の部</label>
+            <label for="timeform2">
+                <input type="checkbox" class="form-check-input " id="timeform2" onclick="checkEvent2()">
+                夜の部</label>
+            <input type="hidden" id="timeformcheck1" name="matinee" value>
+            <input type="hidden" id="timeformcheck2" name="evening" value>
+            <input type="hidden" id="largeblock1" name="block1" value>
+            <input type="hidden" id="largeblock2" name="block2" value>
+        </div>
+
+        <div id="answerform1" class="box answerform">
+            <div class="container">
+                <div id="form1" class="">
+                    <p class="time">昼の部</p>
+                    <div class="ticketform alert alert-light shadow" id="ticketform1"></div>
+                    <div class="sheetform alert alert-light shadow" id="sheetform1"></div>
+                    <div class="positionform alert alert-light shadow" id="positionform1"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="answerform2" class="box answerform">
+            <div class="container">
+                <div id="form2" class="">
+                    <p class="time">夜の部</p>
+                    <div class=" ticketform alert alert-light shadow" id="ticketform2"></div>
+                    <div class="sheetform alert alert-light shadow" id="sheetform2"></div>
+                    <div class="positionform alert alert-light shadow" id="positionform2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <input type="submit" value="送信する" class="shadow border border-light" id="submitbt">
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+{% endblock content %}
