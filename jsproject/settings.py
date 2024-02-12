@@ -129,7 +129,7 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static/')
 
 STATIC_DIR = Path.joinpath(BASE_DIR,'static')
 STATICFILES_DIRS = [
-    STATIC_DIR,'template'
+    STATIC_DIR,'templates'
 ]
 
 # Default primary key field type
