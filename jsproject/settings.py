@@ -128,9 +128,9 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static/')
 
 STATIC_DIR = Path.joinpath(BASE_DIR,'static')
-STATICFILES_DIRS = [
-    STATIC_DIR,'templates'
-]
+#STATICFILES_DIRS = [
+#    STATIC_DIR,'templates'
+#]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
