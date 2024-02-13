@@ -1,8 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
+element.style {}
+
 html {
     font-size: 62.5%;
-    height: 180%;
+    height: auto;
     min-height: max-content;
 }
 
@@ -10,15 +12,12 @@ body {
     overflow: scroll;
     height: 100%;
     min-height: max-content;
-}
-
-.main_bg {
-    min-height: max-content;
-    height: 100%;
     background-image: url("/static/a.svg");
     background-size: auto 100%;
     background-attachment: fixed;
 }
+
+
 
 
 .c {
@@ -48,7 +47,7 @@ label {
 }
 
 .main {
-    height: 100%;
+    height: fixed;
     background-color: #fff;
     padding: 10px 10em;
     background: rgba(255, 255, 255, 0.5)
@@ -57,6 +56,7 @@ label {
 .header {
     position: fixed;
     top: 0;
+    left: 0;
     height: 10vh;
     width: 100%;
     background-color: #fff;
