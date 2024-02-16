@@ -136,7 +136,7 @@ function valueCheck() {
     const errormsg2 = '入力してください'
 
     if (!(matinee.checked || evening.checked)) {
-        errorform.innerHTML = "参加する公演にチェックを入れてください"
+        errorform1.innerHTML = "参加する公演にチェックを入れてください"
         return false
     }
 
