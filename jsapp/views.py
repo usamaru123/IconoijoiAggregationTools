@@ -34,7 +34,7 @@ class AnswerForm(CreateView):
         matinee = request.POST['matinee']
         evening = request.POST['evening']
         if (matinee == True) or (evening == True): 
-            return render(request,'index.html')
+            return render(request,'create2.html',{'error':'投稿成功'})
         else:
             return render(request,'create2.html',{'error':'公演を選択してください'})
 
