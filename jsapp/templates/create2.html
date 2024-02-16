@@ -11,10 +11,10 @@
     <form action="" method="POST">{% csrf_token %}
         <div class="formcheck alert alert-light shadow ">
             <label for="timeform1">
-                <input type="checkbox" class="form-check-input" id="timeform1" onclick="checkEvent1()">
+                <input type="checkbox" class="form-check-input" id="timeform1" onclick="checkEvent(1)">
                 昼の部</label>
             <label for="timeform2">
-                <input type="checkbox" class="form-check-input " id="timeform2" onclick="checkEvent2()">
+                <input type="checkbox" class="form-check-input " id="timeform2" onclick="checkEvent(2)">
                 夜の部</label>
             <input type="hidden" id="titlename" name="title" value="{{ title }}">
             <input type="hidden" id="venuename" name="venue" value="{{ venue }}">

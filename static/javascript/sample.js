@@ -49,14 +49,14 @@ function positionformfunc(i) {
 
     const position1 = `
         <div class="blockform">
-            <input pattern="[A-Za-z]{1}" class="col-3 block position" id="block${i}" placeholder="英字1文字"  oninput="inputChange()">
+            <input pattern="[A-Za-z]{1}" class="col-3 block position" id="block${i}" placeholder="英字1文字"  oninput="inputChange(${i})">
             <input type="number" min="1" max="10" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字">
-        <b style="font-size:1.5rem"> ブロック</b>      
+        <b style="font-size:1.5rem">ブロック</b>      
 
 
     </div>
         <div class="numberform">
-            <input type="number" min="1" max="1000" class="col-5 number position" id="number${i}" name="number${i}"
+            <input type="number" min="1" max="1000" class="col-3 number position" id="number${i}" name="number${i}"
             placeholder="半角数字">
         <b style="font-size:1.5rem">番</b>
         </div>
@@ -65,10 +65,10 @@ function positionformfunc(i) {
     const position2 = `
         <div class="blockform">
             <input pattern="[A-Za-z]{1}" class="col-3 block position" id="block${i}" placeholder="英字1文字"  oninput="inputChange()">
-            <b style="font-size:1.5rem"> ブロック</b>      
+            <b style="font-size:1.5rem">ブロック</b>      
         </div>
         <div class="numberform">
-            <input type="number" min="1" max="1000" class="col-5 number position" id="number${i}" name="number${i}" placeholder="半角数字">
+            <input type="number" min="1" max="1000" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字">
             <b style="font-size:1.5rem">番</b>
         </div>
     `;
@@ -99,14 +99,6 @@ function createRadioformfunc(formlabel, formname, values) {
     });
 };
 
-function checkEvent1() {
-    checkEvent(1);
-};
-
-function checkEvent2() {
-    checkEvent(2);
-};
-
 function checkEvent(num) {
     const timeform = document.querySelector(`#timeform${num}`);
     const answerform = document.querySelector(`#answerform${num}`);
@@ -119,22 +111,14 @@ function checkEvent(num) {
         answerform.classList.remove('is-show');
         timeformcheck.value = 'false'
     };
-
-
 };
 
+function inputChange(i) {
+    const blocktext = document.querySelector(`#block${i}`);
+    const largeblock = document.querySelector(`#largeblock${i}`);
+    const largeblocktext = blocktext.value.toUpperCase();
 
-function inputChange() {
-    const blocktext1 = document.querySelector('#block1');
-    const largeblock1 = document.querySelector('#largeblock1');
-    const blocktext2 = document.querySelector('#block2');
-    const largeblock2 = document.querySelector('#largeblock2');
-
-    const largeblocktext1 = blocktext1.value.toUpperCase();
-    const largeblocktext2 = blocktext2.value.toUpperCase();
-
-    largeblock1.value = largeblocktext1;
-    largeblock2.value = largeblocktext2;
+    largeblock.value = largeblocktext;
 };
 
 function positionform_change(num) {
