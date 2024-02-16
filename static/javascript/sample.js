@@ -6,12 +6,12 @@ window.onload = function () {
     for (let i = 0; i < 2; i++) {
         const ticketformlabel = document.querySelectorAll('.ticketform')[i];
         const sheetformlabel = document.querySelectorAll('.sheetform')[i];
-        const positionformlabel = document.querySelectorAll('.positionform')[i];
+        const floorformlabel = document.querySelectorAll('.positionform')[i];
 
         num = i + 1;
         ticketformfunc(ticketformlabel, num);
         sheetformfunc(sheetformlabel, num);
-        positionformfunc(positionformlabel, num);
+        floorformfunc(floorformlabel, num);
     }
 
 
@@ -30,15 +30,23 @@ function sheetformfunc(formlabel, i) {
     createRadioformfunc(formlabel, formname, values,)
 }
 
-function positionformfunc(formlabel, i) {
+function floorformfunc(formlabel, i) {
     const formname = 'floor' + i;
     const values = ['アリーナ', '3階席', '4階席'];
     createRadioformfunc(formlabel, formname, values, i);
+    formlabel.setAttribute(onclick, 'positionformfunc(i)')
+}
 
-    const position = `
+
+function positionformfunc(i) {
+
+    const floor = document.querySelector(`floor1_アリーナ`)
+    const numberform = document.querySelector(`number1`)
+
+    const position1 = `
         <div class="blockform">
-            <input pattern="[A-Za-z]{1}" class="col-4 block position" id="block${i}" placeholder="半角英字１文字"  oninput="inputChange()">
-            <input type="number" min="1" max="10" class="col-4 number position" id="number${i}" name="number${i}" placeholder="半角数字">
+            <input pattern="[A-Za-z]{1}" class="col-3 block position" id="block${i}" placeholder="英字1文字"  oninput="inputChange()">
+            <input type="number" min="1" max="10" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字">
         <b style="font-size:1.5rem"> ブロック</b>      
 
 
@@ -48,9 +56,27 @@ function positionformfunc(formlabel, i) {
             placeholder="半角数字">
         <b style="font-size:1.5rem">番</b>
         </div>
-`
-    formlabel.innerHTML += position;
-}
+    `
+
+    const position2 = `
+        <div class="blockform">
+            <input pattern="[A-Za-z]{1}" class="col-3 block position" id="block${i}" placeholder="英字1文字"  oninput="inputChange()">
+            <b style="font-size:1.5rem"> ブロック</b>      
+        </div>
+        <div class="numberform">
+            <input type="number" min="1" max="1000" class="col-5 number position" id="number${i}" name="number${i}" placeholder="半角数字">
+            <b style="font-size:1.5rem">番</b>
+        </div>
+    `
+
+    if (floor.checked) {
+        numberform.innerHTML = position1;
+    }
+    else {
+        numberform.innerHTML = position2;
+    }
+};
+
 
 function createRadioformfunc(formlabel, formname, values) {
 
@@ -67,7 +93,7 @@ function createRadioformfunc(formlabel, formname, values) {
             </div>`;
         formlabel.innerHTML += ticketformtext;
     });
-}
+};
 
 function checkEvent1() {
     checkEvent(1);
@@ -105,4 +131,9 @@ function inputChange() {
 
     largeblock1.value = largeblocktext1;
     largeblock2.value = largeblocktext2;
-}
+};
+
+function positionform_change(num) {
+    const positionformlabel = document.querySelectorAll('.positionform')[num];
+    positionformfunc(positionformlabel, num);
+};
