@@ -6,7 +6,7 @@ window.onload = function () {
     for (let i = 0; i < 2; i++) {
         const ticketformlabel = document.querySelectorAll('.ticketform')[i];
         const sheetformlabel = document.querySelectorAll('.sheetform')[i];
-        const floorformlabel = document.querySelectorAll('.positionform')[i];
+        const floorformlabel = document.querySelectorAll('.floorform')[i];
 
         num = i + 1;
         ticketformfunc(ticketformlabel, num);
