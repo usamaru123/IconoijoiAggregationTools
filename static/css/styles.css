@@ -50,7 +50,8 @@ label {
     height: fixed;
     background-color: #fff;
     padding: 10px 10em;
-    background: rgba(255, 255, 255, 0.5)
+    background: rgba(255, 255, 255, 0.5);
+    margin-top: 10vh;
 }
 
 .header {
@@ -117,10 +118,6 @@ label {
     .header_ank {
         font-size: 2rem;
     }
-}
-
-.eventform {
-    margin-top: 10vh;
 }
 
 .answerform {
