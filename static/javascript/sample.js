@@ -34,7 +34,7 @@ function floorformfunc(formlabel, i) {
     const formname = 'floor' + i;
     const values = ['アリーナ', '3階席', '4階席'];
     createRadioformfunc(formlabel, formname, values, i);
-    formlabel.setAttribute(onclick, 'positionformfunc(i)')
+    formlabel.setAttribute('onclick', `positionformfunc(${i})`)
 }
 
 
