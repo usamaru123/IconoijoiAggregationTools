@@ -44,7 +44,7 @@ function floorformfunc(formlabel, i) {
 
 function positionformfunc(i) {
     console.log(i);
-    const floor = document.querySelector(`.floor1_アリーナ`);
+    const floor = document.querySelector(`#floor1_アリーナ`);
     const numberform = document.querySelector(`#numberform1`);
 
     const position1 = `
@@ -73,8 +73,11 @@ function positionformfunc(i) {
         </div>
     `;
 
-
-    numberform.innerHTML += position1;
+    if (num)
+        numberform.innerHTML = position1;
+    else {
+        numberform.innerHTML = position2;
+    }
 
 };
 
