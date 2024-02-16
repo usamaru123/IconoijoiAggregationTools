@@ -44,8 +44,8 @@ function floorformfunc(formlabel, i) {
 
 function positionformfunc(i) {
     console.log(i);
-    const floor = document.querySelector(`#floor1_アリーナ`);
-    const numberform = document.querySelector(`#numberform1`);
+    const floor = document.querySelector(`#floor${i}_アリーナ`);
+    const numberform = document.querySelector(`#numberform${i}`);
 
     const position1 = `
         <div class="blockform">
