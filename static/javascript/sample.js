@@ -125,3 +125,19 @@ function positionform_change(num) {
     const positionformlabel = document.querySelectorAll('.positionform')[num];
     positionformfunc(positionformlabel, num);
 };
+
+function valueCheck() {
+    const matinee = document.querySelector('#timeform1')
+    const evening = document.querySelector('#timeform2')
+    const errorform1 = document.querySelector("#errorform1")
+    const errorform2 = document.querySelector(".errorform")
+
+    const errormsg1 = '参加公演にチェックを入れてください'
+    const errormsg2 = '入力してください'
+
+    if (!(matinee.checked || evening.checked)) {
+        errorform.innerHTML = "参加する公演にチェックを入れてください"
+        return false
+    }
+
+}

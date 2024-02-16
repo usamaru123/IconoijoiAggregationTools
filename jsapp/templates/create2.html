@@ -10,7 +10,8 @@
 <div class="eventform text-dark form-control-lg" id="eventform">
     <form action="" method="POST">{% csrf_token %}
         <div class="formcheck alert alert-light shadow ">
-            <div>{{ error }}</div>
+            <div id="errorform1">
+            </div>
             <label for="timeform1">
                 <input type="checkbox" class="form-check-input" id="timeform1" onclick="checkEvent(1)">
                 昼の部</label>
@@ -49,7 +50,8 @@
             </div>
         </div>
         <div class="container">
-            <input type="submit" value="送信する" class="shadow border border-light" id="submitbt">
+            <input type="submit" value="送信する" class="shadow border border-light" id="submitbt"
+                onclick="return valueCheck()">
         </div>
     </form>
 </div>

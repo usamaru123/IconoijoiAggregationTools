@@ -15,7 +15,7 @@ def index(request):
 
 
 
-class AnswerForm(CreateView):
+class AnswerCreate(CreateView):
     def get(self,request,*args,**kwargs):
         template_name = 'create2.html'
         model = MenberModel
@@ -29,12 +29,6 @@ class AnswerForm(CreateView):
         return render(request,template_name,context)
     
     def post(self,request,*args,**kwargs):
-        template_name='index.html'
-        results = MenberModel.objects.all()
-        matinee = request.POST['matinee']
-        evening = request.POST['evening']
-        if (matinee == True) or (evening == True): 
-            return render(request,'create2.html',{'error':'投稿成功'})
-        else:
-            return render(request,'create2.html',{'error':'公演を選択してください'})
+        render(request,'index.html',{'error':'投稿成功'})
+
 
