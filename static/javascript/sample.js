@@ -73,12 +73,9 @@ function positionformfunc(i) {
         </div>
     `;
 
-    if (floor.checked) {
-        numberform.innerHTML = position1;
-    }
-    else {
-        numberform.innerHTML = position2;
-    }
+
+    numberform.innerHTML = position1;
+
 };
 
 
