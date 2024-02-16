@@ -16,15 +16,25 @@ def index(request):
 
 
 class AnswerForm(CreateView):
-    template_name = 'create2.html'
-    model = MenberModel
-    fields = ('title','venue','matinee','evening','ticket1','sheet1','floor1','block1','number1','ticket2','sheet2','floor2','block2','number2',)
+    def get(self,request,*args,**kwargs):
+        template_name = 'create2.html'
+        model = MenberModel
+        fields = ('title','venue','matinee','evening','ticket1','sheet1','floor1','block1','number1','ticket2','sheet2','floor2','block2','number2',)
 
-    def get_context_data(self,**kwargs):
-        context= super().get_context_data(**kwargs)
-        context['title'] = '＝LOVEアリーナツアー2024 「Tell me what\'s more than \"LOVE\"」'
-        context['venue'] =  '東京公演'
-        return context
+        context = { 
+            'title' : '＝LOVEアリーナツアー2024 「Tell me what\'s more than \"LOVE\"」',
+            'venue' :  '東京公演'
+        }
+
+        return render(request,template_name,context)
     
+    def post(self,request,*args,**kwargs):
+        template_name='index.html'
+        results = MenberModel.objects.all()
+        matinee = request.POST['matinee']
+        evening = request.POST['evening']
+        if (matinee != "") or (evening != ""): 
+            return render(request,'index.html')
+        else:
+            return render(request,'create2.html',{'error':'公演を選択してください'})
 
-    success_url = reverse_lazy('index')
