@@ -90,7 +90,7 @@ function createRadioformfunc(formlabel, formname, values) {
         ticketformtext =
             `<div class="form-check">
                     <label for="${id}" class="form-check-label">
-                        <input class="form-check-input" type="${type}" class="form-control" name="${formname}"
+                        <input class="form-check-input form-control ${formname}" type="${type}" name="${formname}"
                     id="${id}" value="${value}" >
                     ${value}
                 </label>
