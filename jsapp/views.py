@@ -2,13 +2,14 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from .models import MenberModel
 from django.urls import reverse_lazy
+from django.http import HttpResponse
 
 def index(request):
+    resultsTitle = '＝LOVEアリーナツアー2024 「Tell me what\'s more than \"LOVE\"」'
+    results = MenberModel.objects.all()
     context = {
-        'title': '＝LOVEアリーナツアー2024 「Tell me what\'s more than \"LOVE\"」',
-        'venue': '東京公演'
-    }
-    
+        'results':results,
+    }   
     return render(request,'index.html',context)
 # Create your views here.
 

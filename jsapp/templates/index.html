@@ -10,4 +10,28 @@
 
 
 {% block content %}
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>チケット種別</th>
+                <th>座席種別</th>
+                <th>座席階層</th>
+                <th>座席ブロック</th>
+                <th>座席番号</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+            <tr>
+                <td>{{ result.ticket1 }}</td>
+                <td>{{ result.sheet1 }}</td>
+                <td>{{ result.floor1 }}</td>
+                <td>{{ result.block1 }}</td>
+                <td>{{ result.number1 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock content %}
