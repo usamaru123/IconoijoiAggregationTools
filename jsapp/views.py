@@ -29,6 +29,6 @@ class AnswerCreate(CreateView):
         return render(request,template_name,context)
     
     def post(self,request,*args,**kwargs):
-        render(request,'index.html',{'error':'投稿成功'})
+        return render(request,'index.html',{'error':'投稿成功'})
 
 
