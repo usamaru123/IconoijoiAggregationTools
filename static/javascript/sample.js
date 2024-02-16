@@ -26,22 +26,26 @@ function ticketformfunc(formlabel, i) {
 
 function sheetformfunc(formlabel, i) {
     const formname = 'sheet' + i;
-    const values = ['一般席', '女性エリア席', 'カメコエリア席', '着席指定席']
-    createRadioformfunc(formlabel, formname, values,)
+    const values = ['一般席', '女性エリア席', 'カメコエリア席', '着席指定席'];
+    createRadioformfunc(formlabel, formname, values,);
 }
 
 function floorformfunc(formlabel, i) {
     const formname = 'floor' + i;
     const values = ['アリーナ', '3階席', '4階席'];
     createRadioformfunc(formlabel, formname, values, i);
-    formlabel.setAttribute('onclick', `positionformfunc(${i})`)
+
+    floorbuttons = document.querySelectorAll(`.floor${i}`);
+    floorbuttons.forEach(function (floorbutton) {
+        floorbutton.setAttribute('onclick', `positionformfunc(${i})`);
+    });
 }
 
 
 function positionformfunc(i) {
 
-    const floor = document.querySelector(`floor1_アリーナ`)
-    const numberform = document.querySelector(`number1`)
+    const floor = document.querySelector(`floor1_アリーナ`);
+    const numberform = document.querySelector(`number1`);
 
     const position1 = `
         <div class="blockform">
@@ -56,7 +60,7 @@ function positionformfunc(i) {
             placeholder="半角数字">
         <b style="font-size:1.5rem">番</b>
         </div>
-    `
+    `;
 
     const position2 = `
         <div class="blockform">
@@ -67,7 +71,7 @@ function positionformfunc(i) {
             <input type="number" min="1" max="1000" class="col-5 number position" id="number${i}" name="number${i}" placeholder="半角数字">
             <b style="font-size:1.5rem">番</b>
         </div>
-    `
+    `;
 
     if (floor.checked) {
         numberform.innerHTML = position1;
