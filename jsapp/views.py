@@ -33,7 +33,7 @@ class AnswerForm(CreateView):
         results = MenberModel.objects.all()
         matinee = request.POST['matinee']
         evening = request.POST['evening']
-        if (matinee != "") or (evening != ""): 
+        if (matinee == True) or (evening == True): 
             return render(request,'index.html')
         else:
             return render(request,'create2.html',{'error':'公演を選択してください'})
