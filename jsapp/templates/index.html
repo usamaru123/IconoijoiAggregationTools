@@ -28,7 +28,7 @@
         <tbody>
             {% for result in results %}
             <tr>
-                <td>{{ result.timedate }} </td>
+                <td>{{ result.timedate|date:"Y-m-j H:i:s" }} </td>
                 <td>{{ result.pk }}</td>
                 <td>{{ result.ticket1 }}</td>
                 <td>{{ result.sheet1 }}</td>
