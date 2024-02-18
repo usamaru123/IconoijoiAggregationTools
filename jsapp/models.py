@@ -26,5 +26,8 @@ class EventModel(models.Model):
    group = models.CharField(max_length=10)
    eventtype = models.CharField(max_length=10)
    eventtitle = models.CharField(max_length=100)
+
+   def __str__(self):
+      return self.title
    
       

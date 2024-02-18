@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eventlist</title>
+</head>
+
+<body>
+    {% load static %}
+    {% for post in object_list %}
+    <div>
+        <div>{{ object_list.eventid }}</div>
+        <div>{{ object_list.group }}</div>
+        <div>{{ object_list.eventtype }}</div>
+        <div>{{ object_list.eventtitle }}</div>
+    </div>
+    {% endfor %}
+</body>
+
+</html>
