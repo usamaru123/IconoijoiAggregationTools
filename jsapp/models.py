@@ -39,3 +39,5 @@ class VenueModel(models.Model):
    venuedate = models.DateField()
    event = models.ForeignKey(EventModel,on_delete=models.CASCADE)
    prefecture = models.CharField(max_length=10)
+   venue = models.CharField(max_field=100)
+   
