@@ -25,14 +25,7 @@
             </thead>
             <tbody>
                 {% for post in object_list %}
-                <tr>
-                    <td>{{ post.venueid }}</td>
-                    <td>{{ post.event.group }}</td>
-                    <td>{{ post.event.eventtype }}</td>
-                    <td>{{ post.event.eventtitle }}</td>
-                    <td>{{ post.venuedate }}</td>
-                    <td>{{ post.prefecture }}</td>
-                </tr>
+                {{ post.venueid }}
                 {% endfor %}
             </tbody>
         </table>
