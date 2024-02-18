@@ -20,11 +20,11 @@ class AnswerCreate(CreateView):
     model = MenberModel
 
     fields = ('eventtitle','venue','matinee','evening','ticket1','sheet1','floor1','block1','number1','ticket2','sheet2','floor2','block2','number2',)
-    def get_context_data(self,pk,*args,**kwargs,):
+    def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs)
         ctx['eventtitle'] = '＝LOVEアリーナツアー2024 「Tell me what\'s more than \"LOVE\"」'
         ctx['venue'] ='東京公演'
-        ctx['value'] = pk
+        ctx['value'] = self.kwargs['num']
         return  ctx
 
     success_url = reverse_lazy('index')
