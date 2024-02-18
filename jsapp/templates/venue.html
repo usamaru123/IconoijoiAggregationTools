@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event登録画面</title>
+</head>
+
+<body>
+    {% load static %}
+    {% for post in event %}
+    <div>
+        イベントID：{{ post.eventid }} グループ：{{ post.group }} イベントタイプ：{{ post.eventtype }} タイトル：{{ post.eventtitle }}
+    </div>
+    {% endfor %}
+    <div>
+        <form action="" method="POST">{% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="登録">
+        </form>
+    </div>
+</body>
+
+</html>

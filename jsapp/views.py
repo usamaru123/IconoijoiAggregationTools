@@ -38,3 +38,18 @@ class EventList(ListView):
     template_name = 'eventlist.html'
     model = EventModel
     
+class VenueCreate(CreateView):
+    def get_context_data(self,*args,**kwargs,):
+        ctx = super().get_context_data(**kwargs)
+        ctx['event'] = EventModel.objects.all()
+        return  ctx 
+    
+    template_name= 'venue.html'
+    model = VenueModel
+    
+    fields = ('__all__')
+    success_url = ('venuelist')
+
+class VenueList(ListView):
+    template_name = 'venuelist.html'
+    model = VenueModel
