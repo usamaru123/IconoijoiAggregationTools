@@ -9,9 +9,9 @@
 
 <body>
     {% load static %}
-    {% for post in object_list %}
+
     <div>
-        <table>
+        <table class="table container">
             <thead>
                 <tr>
                     <th>公演ID</th>
@@ -24,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for result in results %}
+                {% for post in object_list %}
                 <tr>
                     <td>{{ post.venueid }}</td>
                     <td>{{ post.event.group }}</td>
