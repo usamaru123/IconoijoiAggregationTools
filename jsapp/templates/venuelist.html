@@ -11,7 +11,7 @@
     {% load static %}
 
     <div>
-        <table>
+        <table class="table container">
             <thead>
                 <tr>
                     <th>公演ID</th>
@@ -25,14 +25,20 @@
             </thead>
             <tbody>
                 {% for post in object_list %}
-                {{ post.venueid }}
+                <tr>
+                    <td>{{ post.venueid }}</td>
+                    <td>{{ post.event.group }}</td>
+                    <td>{{ post.event.eventtype }}</td>
+                    <td>{{ post.event.eventtitle }}</td>
+                    <td>{{ post.venuedate }}</td>
+                    <td>{{ post.prefecture }}</td>
+                </tr>
                 {% endfor %}
             </tbody>
         </table>
 
 
     </div>
-    {% endfor %}
 </body>
 
 </html>
