@@ -24,7 +24,7 @@ class AnswerCreate(CreateView):
         ctx = super().get_context_data(**kwargs)
         ctx['eventtitle'] = '＝LOVEアリーナツアー2024 「Tell me what\'s more than \"LOVE\"」'
         ctx['venue'] ='東京公演'
-        ctx['value'] = self.kwargs['num']
+        ctx['value'] = EventModel.objects.get(eventid=self.kwargs['num'])
         return  ctx
 
     success_url = reverse_lazy('index')
