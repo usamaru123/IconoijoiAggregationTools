@@ -27,9 +27,6 @@ class EventModel(models.Model):
    eventtype = models.CharField(max_length=10)
    eventtitle = models.CharField(max_length=100)
 
-
-
-
    def __str__(self):
       return self.eventtitle
    
@@ -40,4 +37,7 @@ class VenueModel(models.Model):
    event = models.ForeignKey(EventModel,on_delete=models.CASCADE)
    prefecture = models.CharField(max_length=10)
    venue = models.CharField(max_length=100)
+
+   def __str__(self):
+      return self.venue
 
