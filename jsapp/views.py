@@ -19,7 +19,7 @@ class AnswerCreate(CreateView):
     template_name = 'create2.html'
     model = MenberModel
 
-    def get(self,pk)
+    def get(self,pk):
         ctx={
             'pk':pk
         }
