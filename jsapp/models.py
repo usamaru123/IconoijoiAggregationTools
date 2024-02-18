@@ -35,5 +35,5 @@ class EventModel(models.Model):
    
       
 class VenueModel(models.Model):
-   event = models.ManyToManyField(EventModel,on_delete=models.CASCADE)
+   event = models.ForeignKey(EventModel,on_delete=models.CASCADE)
    prefecture = models.CharField(max_length=10)
