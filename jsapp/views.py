@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
-from .models import MenberModel
+from .models import MenberModel,EventModel
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 
@@ -28,4 +28,9 @@ class AnswerCreate(CreateView):
     success_url = reverse_lazy('index')
 
 
-
+class EventCreate(CreateView):
+    template_name = 'event.html'
+    model = EventModel
+    fields =('eventid','group','eventtype','eventtitle')
+    success_url = ('create')
+   

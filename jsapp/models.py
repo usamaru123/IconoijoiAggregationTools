@@ -3,7 +3,7 @@ from django.utils import timezone
 # Create your models here.
 class MenberModel(models.Model):
    timedate = models.DateTimeField(default=timezone.now)
-   title = models.CharField(max_length=100,blank=True)
+   eventtitle = models.CharField(max_length=100,blank=True)
    venue = models.CharField(max_length=100,blank=True)
 
    matinee = models.BooleanField(default=False)
@@ -20,3 +20,11 @@ class MenberModel(models.Model):
    floor2 = models.CharField(max_length=100,blank=True)
    block2 = models.CharField(max_length=100,blank=True)
    number2 = models.CharField(max_length=100,blank=True)
+
+class EventModel(models.Model):
+   eventid = models.IntegerField(primary_key=True)
+   group = models.CharField(max_length=10)
+   eventtype = models.CharField(max_length=10)
+   eventtitle = models.CharField(max_length=100)
+   
+      
