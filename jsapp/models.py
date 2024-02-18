@@ -35,5 +35,6 @@ class EventModel(models.Model):
    
       
 class VenueModel(models.Model):
+   venueid = models.IntegerField(primary_key=True)
    event = models.ForeignKey(EventModel,on_delete=models.CASCADE)
    prefecture = models.CharField(max_length=10)
