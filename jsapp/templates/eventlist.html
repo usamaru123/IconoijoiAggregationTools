@@ -11,25 +11,28 @@
     {% load static %}
     {% for post in object_list %}
     <div>
-        <thead>
-            <tr>
-                <th>イベントID</th>
-                <th>グループ</th>
-                <th>イベントタイプ</th>
-                <th>タイトル</th>
+        <table>
+            <thead>
+                <tr>
+                    <th>イベントID</th>
+                    <th>グループ</th>
+                    <th>イベントタイプ</th>
+                    <th>タイトル</th>
 
-            </tr>
-        </thead>
-        <tbody>
-            {% for result in results %}
-            <tr>
-                <td>{{ post.eventid }}</td>
-                <td>{{ post.group }}</td>
-                <td>{{ post.eventtype }}</td>
-                <td>{{ post.eventtitle }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr>
+                    <td>{{ post.eventid }}</td>
+                    <td>{{ post.group }}</td>
+                    <td>{{ post.eventtype }}</td>
+                    <td>{{ post.eventtitle }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
     </div>
     {% endfor %}
 </body>
