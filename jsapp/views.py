@@ -19,10 +19,7 @@ class AnswerCreate(CreateView):
     template_name = 'create2.html'
     model = MenberModel
 
-    def get(pk):
-        pk = pk   
-        print (pk)
-        return pk
+    print(pk)
 
     fields = ('title','venue','matinee','evening','ticket1','sheet1','floor1','block1','number1','ticket2','sheet2','floor2','block2','number2',)
     def get_context_data(self,*args,**kwargs):
