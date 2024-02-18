@@ -11,10 +11,10 @@
     {% load static %}
     {% for post in object_list %}
     <div>
-        <div>{{ object_list.eventid }}</div>
-        <div>{{ object_list.group }}</div>
-        <div>{{ object_list.eventtype }}</div>
-        <div>{{ object_list.eventtitle }}</div>
+        <div>{{ post.eventid }}</div>
+        <div>{{ post.group }}</div>
+        <div>{{ post.eventtype }}</div>
+        <div>{{ post.eventtitle }}</div>
     </div>
     {% endfor %}
 </body>

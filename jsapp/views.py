@@ -36,4 +36,5 @@ class EventCreate(CreateView):
    
 class EventList(ListView):
     template_name = 'eventlist.html'
-    model = EventModel
+    model = EventModel.objects.all()
+    
