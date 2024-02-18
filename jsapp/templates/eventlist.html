@@ -11,10 +11,7 @@
     {% load static %}
     {% for post in object_list %}
     <div>
-        <div>{{ post.eventid }}</div>
-        <div>{{ post.group }}</div>
-        <div>{{ post.eventtype }}</div>
-        <div>{{ post.eventtitle }}</div>
+        イベントID：{{ post.eventid }} グループ：{{ post.group }} イベントタイプ：{{ post.eventtype }} タイトル：{{ post.eventtitle }}
     </div>
     {% endfor %}
 </body>
