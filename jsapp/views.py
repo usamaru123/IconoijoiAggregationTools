@@ -32,9 +32,8 @@ class EventCreate(CreateView):
     template_name = 'event.html'
     model = EventModel
     fields =('eventid','group','eventtype','eventtitle')
-    success_url = ('create')
+    success_url = ('eventList')
    
 class EventList(ListView):
     template_name = 'eventlist.html'
     model = EventModel
-    
