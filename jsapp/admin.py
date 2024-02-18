@@ -3,4 +3,4 @@ from .models import MenberModel,EventModel,VenueModel
 # Register your models here.
 admin.site.register(MenberModel)
 admin.site.register(EventModel)
-admin.site.registar(VenueModel)
+admin.site.register(VenueModel)
