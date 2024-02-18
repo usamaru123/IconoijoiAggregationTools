@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
-from .models import MenberModel,EventModel
+from .models import MenberModel,EventModel,VenueModel
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 
@@ -22,7 +22,7 @@ class AnswerCreate(CreateView):
     fields = ('eventtitle','venue','matinee','evening','ticket1','sheet1','floor1','block1','number1','ticket2','sheet2','floor2','block2','number2',)
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs)
-        ctx['title'] = EventModel.objects.get(eventid=self.kwargs['num'])
+        ctx['title'] = VenueModel.objects.get(eventid=self.kwargs['num'])
         return  ctx
 
     success_url = reverse_lazy('index')
