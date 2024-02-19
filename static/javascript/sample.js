@@ -168,7 +168,7 @@ function valueCheck() {
 }
 
 function judgeform(formobjs, i) {
-    let num = i + 2;
+    let num = i + 1;
     const errormsg = '選択してください';
     const errorform = document.querySelector(`#errorform${num}`);
 
