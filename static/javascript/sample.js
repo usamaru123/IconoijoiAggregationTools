@@ -156,7 +156,7 @@ function valueCheck() {
     });
     if (is_ticket1 == false) {
         console.log('a')
-        error1_1.innetHTML = errormsg2;
+        error1_1.innerHTML = errormsg2;
         return false;
     }
 
