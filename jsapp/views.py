@@ -9,10 +9,7 @@ from django.http import HttpResponse
 class AnswerList(ListView):
     template_name = 'index.html'
     model = MenberModel
-    def get_context_data(self,*args,**kwargs,):
-        ctx = super().get_context_data(**kwargs)
-        ctx['title'] = MenberModel.objects.get(venueid=self.kwargs['num'])
-        return  ctx
+
 
 class AnswerCreate(CreateView):
     template_name = 'create2.html'
