@@ -140,34 +140,39 @@ function valueCheck() {
         errorform1.innerHTML = errormsg1;
         return false;
     }
-    flag = false;
+
+    flag1 = true;
+    flag2 = true;
+
     if (matinee.checked) {
+        flag1 = false;
         forms = ['ticket1', 'sheet1', 'floor1',];
-        flag = true;
 
         for (i = 0; i <= forms.length; i++) {
             num = i + 2;
             judge = judgeform(forms[i], num);
-            if (judge == false) {
-                flag = false;
+            if (judge == true) {
+                flag1 = true;
             }
         }
     }
 
     if (evening.checked) {
+        flag2 = false;
         forms = ['ticket2', 'sheet2', 'floor2',];
-        flag = true;
 
         for (i = 0; i <= forms.length; i++) {
             num = i + 5;
             judge = judgeform(forms[i], num);
-            if (judge == false) {
-                flag = false;
+            if (judge == true) {
+                flag2 = true;
             }
         }
     }
+    if (!(flag1 && flag2)) {
+        return false;
+    }
 
-    return flag;
 }
 
 function judgeform(formobjs, i) {
