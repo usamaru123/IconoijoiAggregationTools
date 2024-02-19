@@ -162,7 +162,7 @@ function valueCheck() {
         forms = ['ticket2', 'sheet2', 'floor2',];
 
         for (i = 0; i <= forms.length; i++) {
-            num = i + 5;
+            num = i;
             judge = judgeform(forms[i], num);
             if (judge == true) {
                 flag2 = true;
