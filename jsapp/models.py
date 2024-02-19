@@ -5,6 +5,7 @@ class MenberModel(models.Model):
    timedate = models.DateTimeField(default=timezone.now)
    eventtitle = models.CharField(max_length=100,blank=True)
    venue = models.CharField(max_length=100,blank=True)
+   venueid = models.IntegerField()
 
    matinee = models.BooleanField(default=False)
    evening = models.BooleanField(default=False)

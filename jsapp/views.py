@@ -11,7 +11,7 @@ class AnswerList(ListView):
     model = MenberModel
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs)
-        ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
+        ctx['title'] = MenberModel.objects.get(venueid=self.kwargs['num'])
         return  ctx
 
 class AnswerCreate(CreateView):
@@ -19,7 +19,10 @@ class AnswerCreate(CreateView):
     model = MenberModel
 
     fields = ('eventtitle','venue','matinee','evening','ticket1','sheet1','floor1','block1','number1','ticket2','sheet2','floor2','block2','number2',)
-
+    def get_context_data(self,*args,**kwargs,):
+        ctx = super().get_context_data(**kwargs)
+        ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
+        return  ctx
 
     success_url = reverse_lazy('index')
 
