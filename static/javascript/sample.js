@@ -147,7 +147,7 @@ function valueCheck() {
 
     const error1_1 = document.querySelector('#errorform1_1')
 
-    const is_ticket1 = false;
+    var is_ticket1 = false;
 
     ticket1s.forEach(function (ticket1) {
         if (ticket1.checked) {
