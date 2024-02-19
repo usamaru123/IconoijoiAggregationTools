@@ -141,13 +141,13 @@ function valueCheck() {
     }
 
     const ticket1 = document.querySelector('#ticket1_FC先行販売')
-    let flag = false;
+    let flag = 0;
 
     if (ticket1.checked) {
-        flag = true;
+        flag = 1;
     }
 
-    if (!flag) {
+    if (flag = 1) {
         errorform2.innerHTML = errormsg2;
         return false;
     }
