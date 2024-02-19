@@ -24,7 +24,8 @@ class AnswerCreate(CreateView):
         ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
         return  ctx
 
-    success_url = reverse_lazy('index')
+    def get_success_url(self):
+        return reverse_lazy('index',kwargs={"num":self.kwargs['num']})
 
 
 class EventCreate(CreateView):
