@@ -1,27 +1,6 @@
 from django.db import models
 from django.utils import timezone
 # Create your models here.
-class MenberModel(models.Model):
-   timedate = models.DateTimeField(default=timezone.now)
-   eventtitle = models.CharField(max_length=100,blank=True)
-   venue = models.CharField(max_length=100,blank=True)
-   venueid = models.IntegerField()
-
-   matinee = models.BooleanField(default=False)
-   evening = models.BooleanField(default=False)
-
-   ticket1 = models.CharField(max_length=100,blank=True)
-   sheet1 = models.CharField(max_length=100,blank=True)
-   floor1 = models.CharField(max_length=100,blank=True)
-   block1 = models.CharField(max_length=100,blank=True)
-   number1 = models.CharField(max_length=100,blank=True)
-
-   ticket2 = models.CharField(max_length=100,blank=True)
-   sheet2 = models.CharField(max_length=100,blank=True)
-   floor2 = models.CharField(max_length=100,blank=True)
-   block2 = models.CharField(max_length=100,blank=True)
-   number2 = models.CharField(max_length=100,blank=True)
-
 class EventModel(models.Model):
    eventid = models.IntegerField(primary_key=True)
    group = models.CharField(max_length=10)
@@ -42,3 +21,21 @@ class VenueModel(models.Model):
    def __str__(self):
       return self.venue
 
+class MenberModel(models.Model):
+   timedate = models.DateTimeField(default=timezone.now)
+   venue = models.ForeignKey(VenueModel,on_delete=models.CASCADE)
+
+   matinee = models.BooleanField(default=False)
+   evening = models.BooleanField(default=False)
+
+   ticket1 = models.CharField(max_length=100,blank=True)
+   sheet1 = models.CharField(max_length=100,blank=True)
+   floor1 = models.CharField(max_length=100,blank=True)
+   block1 = models.CharField(max_length=100,blank=True)
+   number1 = models.CharField(max_length=100,blank=True)
+
+   ticket2 = models.CharField(max_length=100,blank=True)
+   sheet2 = models.CharField(max_length=100,blank=True)
+   floor2 = models.CharField(max_length=100,blank=True)
+   block2 = models.CharField(max_length=100,blank=True)
+   number2 = models.CharField(max_length=100,blank=True)

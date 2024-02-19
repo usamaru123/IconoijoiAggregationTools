@@ -2,7 +2,9 @@
 {% block header %}
 <div class="header_inner inner">
     <p class="header_title" name="eventtitle">{{ title.event.eventtitle }}</p>
-    <p class="header_ank" name="venue">{{ title.venue }}公演　配席アンケート</p>
+    <p class="header_ank" name="venue">{{ title.prefecture }}公演　配席アンケート</p>
+    <p class="header_detail">日時：{{ title.venuedate }}</p>
+    <p class="header_detail">会場：{{ title.venue }}</p>
 </div>
 {% endblock header %}
 
