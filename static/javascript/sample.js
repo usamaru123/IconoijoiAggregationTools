@@ -127,8 +127,31 @@ function positionform_change(num) {
 };
 
 function valueCheck() {
+    /*
+    const matinee = document.querySelector('#timeform1');
+    const evening = document.querySelector('#timeform2');
+    const errorform1 = document.querySelector("#errorform1");
+    const errorform2 = document.querySelector(".errorform");
 
-    return true;
+    const errormsg1 = '参加公演にチェックを入れてください';
+    const errormsg2 = '入力してください';
+
+    if (!(matinee.checked || evening.checked)) {
+        errorform1.innerHTML = errormsg1;
+        return false;
+    }
+    */
+
+    const ticket1 = document.querySelector('#ticket1_FC先行販売')
+    var flag = 0;
+
+    if (ticket1.checked) {
+        flag = 1;
+    }
+
+    if (flag = 1) {
+        errorform2.innerHTML = errormsg2;
+        return false;
+    }
 }
-
 
