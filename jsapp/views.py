@@ -12,7 +12,7 @@ class AnswerList(ListView):
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs)
         ctx['results'] = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
-        ctx['title'] = VenueModel.objects.filter(venueid=self.kwargs['num']).all()
+        ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
         return  ctx
 
 class AnswerCreate(CreateView):
