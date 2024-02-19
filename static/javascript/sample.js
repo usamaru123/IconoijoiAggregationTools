@@ -154,7 +154,7 @@ function valueCheck() {
             is_ticket1 = true;
         }
     });
-    if (!is_ticket1) {
+    if (is_ticket1 == false) {
         error1_1.innetHTML = errormsg2;
         return false;
     }
