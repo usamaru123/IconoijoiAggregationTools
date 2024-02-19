@@ -22,6 +22,7 @@ class VenueModel(models.Model):
       return self.venue
 
 class MenberModel(models.Model):
+   venueid = models.IntegerField(blank=True)
    timedate = models.DateTimeField(default=timezone.now)
 
    matinee = models.BooleanField(default=False)
