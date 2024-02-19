@@ -142,14 +142,15 @@ function valueCheck() {
     }
 
     forms = ['ticket1', 'sheet1', 'floor1'];
-    flag = 0;
+    flag = true;
 
     for (i = 0; i <= forms.length; i++) {
         judge = judgeform(forms[i], i);
         if (judge == false) {
-            return false
+            flag = false;
         }
     }
+    return flag;
 }
 
 function judgeform(formobjs, i) {
