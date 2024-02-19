@@ -142,16 +142,16 @@ function valueCheck() {
 
     const ticket1 = document.querySelector('.form-check')
     let flag = false;
-    console.log(flag)
-    for (let i = 0; i < ticket1.length - 1; i++) {
+
+    ticket1.forEach(function (ticket1) {
         if (ticket1.checked) {
             flag = true;
             console.log(flag)
         }
-    }
+    })
     if (!flag) {
         errorform2.innerHTML = errormsg2
         return false;
     }
-
 }
+
