@@ -140,7 +140,7 @@ function valueCheck() {
         return false;
     }
 
-    const ticket1 = document.querySelector('.form-check')
+    const ticket1 = document.querySelector('.ticket1')
     let flag = false;
 
     ticket1.forEach(function (ticket1) {
