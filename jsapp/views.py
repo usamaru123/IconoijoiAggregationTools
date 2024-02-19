@@ -55,5 +55,5 @@ class VenueList(ListView):
     template_name = 'venuelist.html'
     def get_context_data(self,*args,**kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx['venue'] = VenueModel.objects.all()
+        ctx['venue'] = VenueModel.objects.order_by('venuedate')
         return ctx
