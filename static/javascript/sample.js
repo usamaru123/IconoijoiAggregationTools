@@ -128,16 +128,8 @@ function positionform_change(num) {
 
 function valueCheck() {
 
-    const ticket1 = document.querySelector('#ticket1_FC先行販売')
-    let flag = 0;
 
-    if (ticket1.checked) {
-        flag = 1;
-    }
+    return false;
 
-    if (flag = 0) {
-        errorform2.innerHTML = errormsg2;
-        return false;
-    }
 }
 
