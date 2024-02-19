@@ -141,58 +141,23 @@ function valueCheck() {
         return false;
     }
 
-    flag1 = true;
-    flag2 = true;
+    const ticket1s = document.querySelectorAll('.ticket1');
+    const sheet1s = document.querySelectorAll('.sheet1');
+    const floor1s = document.querySelectorAll('.floor1');
 
-    if (matinee.checked) {
-        flag1 = false;
-        forms = ['ticket1', 'sheet1', 'floor1',];
+    const error1_1 = document.querySelector('#errorform1_1')
 
-        for (i = 0; i <= forms.length; i++) {
-            num = i + 2;
-            judge = judgeform(forms[i], num);
-            if (judge == true) {
-                flag1 = true;
-            }
+    const is_ticket1 = false;
+
+    ticket1s.forEach(function (is_ticket1) {
+        if (ticket1.checked) {
+            is_ticket1 = true;
         }
+    });
+    if (!is_ticket1) {
+        error1_1.innetHTML = errormsg2;
     }
 
-    if (evening.checked) {
-        flag2 = false;
-        forms = ['ticket2', 'sheet2', 'floor2',];
 
-        for (i = 0; i <= 1; i++) {
-            num = i + 6;
-            judge = judgeform(forms[i], num);
-            if (judge == true) {
-                flag2 = true;
-            }
-        }
-    }
-    if (!(flag1 && flag2)) {
-        return false;
-    }
-
-}
-
-function judgeform(formobjs, i) {
-    const errormsg = '選択してください';
-    const errorform = document.querySelector(`#errorform${i}`);
-
-    formobjs = document.querySelectorAll(`.${formobjs}`);
-    var flag = 0;
-    formobjs.forEach(function (formobj) {
-        if (formobj.checked) {
-            flag = 1;
-        }
-    })
-
-    if (flag == 0) {
-        errorform.innerHTML = errormsg;
-        return false;
-    }
-    else {
-        return true;
-    }
 }
 
