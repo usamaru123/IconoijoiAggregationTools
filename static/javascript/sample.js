@@ -143,11 +143,10 @@ function valueCheck() {
     const ticket1 = document.querySelector('#ticket1_FC先行販売')
     let flag = false;
 
-    ticket1.forEach(function (ticket) {
-        if (ticket.checked) {
-            flag = true;
-        }
-    })
+    if (ticket1.checked) {
+        flag = true;
+    }
+
     if (!flag) {
         errorform2.innerHTML = errormsg2;
         return false;
