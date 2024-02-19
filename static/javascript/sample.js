@@ -145,7 +145,8 @@ function valueCheck() {
         flag = true;
 
         for (i = 0; i <= forms.length; i++) {
-            judge = judgeform(forms[i], i);
+            num = i + 2;
+            judge = judgeform(forms[i], num);
             if (judge == false) {
                 flag = false;
             }
@@ -157,7 +158,8 @@ function valueCheck() {
         flag = true;
 
         for (i = 0; i <= forms.length; i++) {
-            judge = judgeform(forms[i], i);
+            num = i + 5;
+            judge = judgeform(forms[i], num);
             if (judge == false) {
                 flag = false;
             }
@@ -168,9 +170,8 @@ function valueCheck() {
 }
 
 function judgeform(formobjs, i) {
-    let num = i + 1;
     const errormsg = '選択してください';
-    const errorform = document.querySelector(`#errorform${num}`);
+    const errorform = document.querySelector(`#errorform${i}`);
 
     formobjs = document.querySelectorAll(`.${formobjs}`);
     var flag = 0;
