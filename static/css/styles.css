@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-element.style {}
 
 html {
     font-size: 62.5%;
@@ -51,7 +50,7 @@ label {
     background-color: #fff;
     padding: 10px 10em;
     background: rgba(255, 255, 255, 0.5);
-    margin-top: 10vh;
+    margin-top: 32%;
 }
 
 .header {
@@ -95,7 +94,7 @@ label {
 
 .header_ank {
     font-size: calc(100vw/20);
-    padding-top: .5rem;
+    padding-top: 0;
 }
 
 .header_inner {
