@@ -23,7 +23,6 @@ class VenueModel(models.Model):
 
 class MenberModel(models.Model):
    timedate = models.DateTimeField(default=timezone.now)
-   venue = models.ForeignKey(VenueModel,on_delete=models.CASCADE)
 
    matinee = models.BooleanField(default=False)
    evening = models.BooleanField(default=False)
