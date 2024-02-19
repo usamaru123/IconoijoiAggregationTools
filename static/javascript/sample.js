@@ -140,11 +140,11 @@ function valueCheck() {
         return false;
     }
 
-    const ticket1 = document.querySelectorAll('.form-check')
+    const ticket1 = document.querySelector('.form-check')
     let flag = false;
     console.log(flag)
     for (let i = 0; i < ticket1.length - 1; i++) {
-        if (ticket1[i].checked) {
+        if (ticket1.checked) {
             flag = true;
             console.log(flag)
         }
@@ -152,7 +152,6 @@ function valueCheck() {
     if (!flag) {
         errorform2.innerHTML = errormsg2
         return false;
-        console.log(flag)
     }
 
 }
