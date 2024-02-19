@@ -29,11 +29,12 @@
             <tbody>
                 {% for post in object_list %}
                 <tr>
+                    <td>{{ post.venuedate|date:"Y-m-j" }}</td>
                     <td>{{ post.venueid }}</td>
                     <td>{{ post.event.group }}</td>
                     <td>{{ post.event.eventtype }}</td>
                     <td>{{ post.event.eventtitle }}</td>
-                    <td>{{ post.venuedate|date:"Y-m-j" }}</td>
+
                     <td>{{ post.prefecture }}</td>
                     <td>{{ post.venue }}</td>
                 </tr>

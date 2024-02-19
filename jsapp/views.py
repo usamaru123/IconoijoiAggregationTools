@@ -52,4 +52,7 @@ class VenueCreate(CreateView):
 
 class VenueList(ListView):
     template_name = 'venuelist.html'
-    model = VenueModel
+    def get_context_data(self,**kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['venue'] = VenueModel.objects.all().order_by('venuedate')
+        return ctx
