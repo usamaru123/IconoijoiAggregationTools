@@ -153,7 +153,7 @@ function valueCheck() {
 }
 
 function judgeform(formobjs, i) {
-    let num = i + 1;
+    let num = i + 2;
     const errormsg = '入力してください';
     const errorform = document.querySelector(`#errorform${num}`);
 
