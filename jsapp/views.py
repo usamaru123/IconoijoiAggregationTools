@@ -52,4 +52,4 @@ class VenueCreate(CreateView):
 
 class VenueList(ListView):
     template_name = 'venuelist.html'
-    model = VenueModel.order_by('venuedate')
+    model = VenueModel
