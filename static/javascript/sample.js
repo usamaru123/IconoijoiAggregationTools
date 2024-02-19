@@ -141,7 +141,7 @@ function valueCheck() {
         return false;
     }
 
-    forms = ['ticket1', 'sheet1', 'floor1', 'ticket2', 'sheet2', 'floor2',];
+    forms = ['ticket1', 'sheet1', 'floor1',];
     flag = true;
 
     for (i = 0; i <= forms.length; i++) {
