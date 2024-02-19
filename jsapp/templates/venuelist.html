@@ -29,7 +29,7 @@
             <tbody>
                 {% for post in venue %}
                 <tr>
-                    <td>{{ post.venuedate|date:"Y-m-j" }}</td>
+                    <td>{{ post.venuedate|date:"Y年m月j日" }}</td>
                     <td>{{ post.venueid }}</td>
                     <td>{{ post.event.group }}</td>
                     <td>{{ post.event.eventtype }}</td>
