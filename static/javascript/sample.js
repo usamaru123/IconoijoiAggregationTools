@@ -140,7 +140,7 @@ function valueCheck() {
         return false;
     }
 
-    const ticket1 = document.formtag.ticket1;
+    const ticket1 = document.querySelectorAll('.form-check')
     let flag = false;
     console.log(flag)
     for (let i = 0; i < ticket1.length - 1; i++) {
