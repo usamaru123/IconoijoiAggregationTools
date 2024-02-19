@@ -149,8 +149,7 @@ function valueCheck() {
         flag = 1;
     }
 
-    if (flag = 1) {
-        errorform2.innerHTML = errormsg2;
+    if (flag = 0) {
         return false;
     }
 }
