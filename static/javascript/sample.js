@@ -141,7 +141,7 @@ function valueCheck() {
         return false;
     }
 
-    forms = ['ticket1', 'sheet1', 'floor1'];
+    forms = ['ticket1', 'sheet1', 'floor1', 'ticket2', 'sheet2', 'floor2',];
     flag = true;
 
     for (i = 0; i <= forms.length; i++) {
@@ -155,7 +155,7 @@ function valueCheck() {
 
 function judgeform(formobjs, i) {
     let num = i + 2;
-    const errormsg = '入力してください';
+    const errormsg = '選択してください';
     const errorform = document.querySelector(`#errorform${num}`);
 
     formobjs = document.querySelectorAll(`.${formobjs}`);
