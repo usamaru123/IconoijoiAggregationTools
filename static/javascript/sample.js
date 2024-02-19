@@ -156,6 +156,7 @@ function valueCheck() {
     });
     if (!is_ticket1) {
         error1_1.innetHTML = errormsg2;
+        return false;
     }
 
 
