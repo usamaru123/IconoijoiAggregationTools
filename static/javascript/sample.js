@@ -140,6 +140,7 @@ function valueCheck() {
         errorform1.innerHTML = errormsg1;
         return false;
     }
+    flag = false;
     if (matinee.checked) {
         forms = ['ticket1', 'sheet1', 'floor1',];
         flag = true;
