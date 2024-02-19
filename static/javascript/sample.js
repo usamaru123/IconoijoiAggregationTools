@@ -128,8 +128,7 @@ function positionform_change(num) {
 
 function valueCheck() {
 
-
     return false;
-
 }
+
 
