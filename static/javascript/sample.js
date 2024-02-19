@@ -141,6 +141,9 @@ function valueCheck() {
         return false;
     }
 
+    if (matinee.checked) {
+
+    }
     const ticket1s = document.querySelectorAll('.ticket1');
     const sheet1s = document.querySelectorAll('.sheet1');
     const floor1s = document.querySelectorAll('.floor1');
@@ -159,7 +162,7 @@ function valueCheck() {
             error1_1.innerHTML = "";
         }
     });
-    if (is_ticket1 == false) {
+    if (!is_ticket1) {
         error1_1.innerHTML = errormsg2;
     }
 
