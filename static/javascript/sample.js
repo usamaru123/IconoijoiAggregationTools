@@ -156,6 +156,7 @@ function valueCheck() {
     ticket1s.forEach(function (ticket1) {
         if (ticket1.checked) {
             is_ticket1 = true;
+            error1_1.innerHTML = "";
         }
     });
     if (is_ticket1 == false) {
@@ -165,6 +166,7 @@ function valueCheck() {
     sheet1s.forEach(function (sheet1) {
         if (sheet1.checked) {
             is_sheet1 = true;
+            error1_2.innerHTML = "";
         }
     });
     if (is_sheet1 == false) {
@@ -174,6 +176,7 @@ function valueCheck() {
     floor1s.forEach(function (floor1) {
         if (floor1.checked) {
             is_floor1 = true;
+            error1_3.innerHTML = "";
         }
     });
     if (is_floor1 == false) {
