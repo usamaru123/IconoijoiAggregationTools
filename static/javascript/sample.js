@@ -146,8 +146,12 @@ function valueCheck() {
     const floor1s = document.querySelectorAll('.floor1');
 
     const error1_1 = document.querySelector('#errorform1_1')
+    const error1_2 = document.querySelector('#errorform1_2')
+    const error1_3 = document.querySelector('#errorform1_3')
 
     var is_ticket1 = false;
+    var is_sheet1 = false;
+    var is_floor1 = false;
 
     ticket1s.forEach(function (ticket1) {
         if (ticket1.checked) {
@@ -155,11 +159,30 @@ function valueCheck() {
         }
     });
     if (is_ticket1 == false) {
-        console.log('a')
         error1_1.innerHTML = errormsg2;
-        return false;
     }
 
+    sheet1s.forEach(function (sheet1) {
+        if (sheet1.checked) {
+            is_sheet1 = true;
+        }
+    });
+    if (is_sheet1 == false) {
+        error1_2.innerHTML = errormsg2;
+    }
+
+    floor1s.forEach(function (floor1) {
+        if (floor1.checked) {
+            is_floor1 = true;
+        }
+    });
+    if (is_floor1 == false) {
+        error1_3.innerHTML = errormsg2;
+    }
+
+    if (!(is_ticket1 == true | is_sheet1 == true | is_floor1 == true)) {
+        return false;
+    }
 
 }
 
