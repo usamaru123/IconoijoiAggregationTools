@@ -136,21 +136,20 @@ function valueCheck() {
     const errormsg2 = '入力してください';
 
     if (!(matinee.checked || evening.checked)) {
-        errorform1.innerHTML = errormsg1
+        errorform1.innerHTML = errormsg1;
         return false;
     }
 
-    const ticket1 = document.querySelector('.ticket1')
+    const ticket1 = document.querySelector('#ticket1_FC先行販売')
     let flag = false;
 
-    ticket1.forEach(function (ticket1) {
-        if (ticket1.checked) {
+    ticket1.forEach(function (ticket) {
+        if (ticket.checked) {
             flag = true;
-            console.log(flag)
         }
     })
     if (!flag) {
-        errorform2.innerHTML = errormsg2
+        errorform2.innerHTML = errormsg2;
         return false;
     }
 }
