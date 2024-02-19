@@ -149,7 +149,7 @@ function valueCheck() {
 
     const is_ticket1 = false;
 
-    ticket1s.forEach(function (is_ticket1) {
+    ticket1s.forEach(function (ticket1) {
         if (ticket1.checked) {
             is_ticket1 = true;
         }
