@@ -140,16 +140,30 @@ function valueCheck() {
         errorform1.innerHTML = errormsg1;
         return false;
     }
+    if (matinee.checked) {
+        forms = ['ticket1', 'sheet1', 'floor1',];
+        flag = true;
 
-    forms = ['ticket1', 'sheet1', 'floor1',];
-    flag = true;
-
-    for (i = 0; i <= forms.length; i++) {
-        judge = judgeform(forms[i], i);
-        if (judge == false) {
-            flag = false;
+        for (i = 0; i <= forms.length; i++) {
+            judge = judgeform(forms[i], i);
+            if (judge == false) {
+                flag = false;
+            }
         }
     }
+
+    if (evening.checked) {
+        forms = ['ticket1', 'sheet1', 'floor1',];
+        flag = true;
+
+        for (i = 0; i <= forms.length; i++) {
+            judge = judgeform(forms[i], i);
+            if (judge == false) {
+                flag = false;
+            }
+        }
+    }
+
     return flag;
 }
 
