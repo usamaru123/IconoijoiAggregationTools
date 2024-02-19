@@ -3,14 +3,14 @@
 <div class="header_inner inner">
     <p class="header_title" name="eventtitle">{{ title.event.eventtitle }}</p>
     <p class="header_ank" name="venue">{{ title.prefecture }}公演　配席アンケート</p>
-    <p class="header_detail">日時：{{ title.venue|date:"Y年m月j日" }}</p>
+    <p class="header_detail">日時：{{ title.venue|date:"Y年n月j日" }}</p>
     <p class="header_detail">会場：{{ title.venue }}</p>
 </div>
 {% endblock header %}
 
 {% block content %}
 <div class="eventform text-dark form-control-lg" id="eventform">
-    <form action="" method="POST">{% csrf_token %}
+    <form action="" method="POST" name="formtag">{% csrf_token %}
         <div class="formcheck alert alert-light shadow ">
             <div id="errorform1">
             </div>
@@ -32,10 +32,18 @@
             <div class="container">
                 <div id="form1" class="">
                     <p class="time">昼の部</p>
-                    <div class="ticketform alert alert-light shadow" id="ticketform1"></div>
-                    <div class="sheetform alert alert-light shadow" id="sheetform1"></div>
-                    <div class="floorform alert alert-light shadow" id="floorform1"></div>
-                    <div class="numberform alert alert-light shadow" id="numberform1"></div>
+                    <div class="ticketform alert alert-light shadow" id="ticketform1">
+                        <div id="errorform2"></div>
+                    </div>
+                    <div class="sheetform alert alert-light shadow" id="sheetform1">
+                        <div id="errorform3"></div>
+                    </div>
+                    <div class="floorform alert alert-light shadow" id="floorform1">
+                        <div id="errorform4"></div>
+                    </div>
+                    <div class="numberform alert alert-light shadow" id="numberform1">
+                        <div id="errorform5"></div>
+                    </div>
                 </div>
             </div>
         </div>
