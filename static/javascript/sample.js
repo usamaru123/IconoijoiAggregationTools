@@ -172,7 +172,7 @@ function valueCheck() {
             error1_2.innerHTML = "";
         }
     });
-    if (is_sheet1 == false) {
+    if (!is_sheet1) {
         error1_2.innerHTML = errormsg2;
     }
 
@@ -182,7 +182,7 @@ function valueCheck() {
             error1_3.innerHTML = "";
         }
     });
-    if (is_floor1 == false) {
+    if (!is_floor1) {
         error1_3.innerHTML = errormsg2;
     }
 
