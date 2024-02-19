@@ -142,14 +142,17 @@ function valueCheck() {
 
     const ticket1 = document.formtag.ticket1;
     let flag = false;
+    console.log(flag)
     for (let i = 0; i < ticket1.length - 1; i++) {
         if (ticket1[i].checked) {
             flag = true;
+            console.log(flag)
         }
     }
     if (!flag) {
         errorform2.innerHTML = errormsg2
         return false;
+        console.log(flag)
     }
 
 }
