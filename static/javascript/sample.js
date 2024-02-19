@@ -141,19 +141,35 @@ function valueCheck() {
         return false;
     }
 
+    forms = ['ticket1', 'sheet1', 'floor1'];
+    flag = false;
 
-    const ticket1 = document.querySelectorAll('.ticket1')
+    for (i = 1; i <= forms.length; i++) {
+        judge = judgeform(forms[i], i);
+        if (judge == false) {
+            return false
+        }
+    }
+}
 
+function judgeform(formobjs, i) {
+    const errormsg = '入力してください';
+    const errorform = document.querySelector(`#errorform${i}`);
+
+    formobjs = document.querySelectorAll(`.${formobjs}`);
     var flag = 0;
-    ticket1.forEach(function (ticket1) {
-        if (ticket1.checked) {
+    formobjs.forEach(function (formobj) {
+        if (formobj.checked) {
             flag = 1;
         }
     })
 
     if (flag == 0) {
-        errorform2.innerHTML = errormsg2;
+        errorform.innerHTML = errormsg;
         return false;
+    }
+    else {
+        return true;
     }
 }
 
