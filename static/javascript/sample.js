@@ -153,7 +153,7 @@ function valueCheck() {
     }
 
     if (evening.checked) {
-        forms = ['ticket1', 'sheet1', 'floor1',];
+        forms = ['ticket2', 'sheet2', 'floor2',];
         flag = true;
 
         for (i = 0; i <= forms.length; i++) {
