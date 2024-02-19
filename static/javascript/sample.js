@@ -142,52 +142,52 @@ function valueCheck() {
     }
 
     if (matinee.checked) {
+        const ticket1s = document.querySelectorAll('.ticket1');
+        const sheet1s = document.querySelectorAll('.sheet1');
+        const floor1s = document.querySelectorAll('.floor1');
 
-    }
-    const ticket1s = document.querySelectorAll('.ticket1');
-    const sheet1s = document.querySelectorAll('.sheet1');
-    const floor1s = document.querySelectorAll('.floor1');
+        const error1_1 = document.querySelector('#errorform1_1')
+        const error1_2 = document.querySelector('#errorform1_2')
+        const error1_3 = document.querySelector('#errorform1_3')
 
-    const error1_1 = document.querySelector('#errorform1_1')
-    const error1_2 = document.querySelector('#errorform1_2')
-    const error1_3 = document.querySelector('#errorform1_3')
+        var is_ticket1 = false;
+        var is_sheet1 = false;
+        var is_floor1 = false;
 
-    var is_ticket1 = false;
-    var is_sheet1 = false;
-    var is_floor1 = false;
-
-    ticket1s.forEach(function (ticket1) {
-        if (ticket1.checked) {
-            is_ticket1 = true;
-            error1_1.innerHTML = "";
+        ticket1s.forEach(function (ticket1) {
+            if (ticket1.checked) {
+                is_ticket1 = true;
+                error1_1.innerHTML = "";
+            }
+        });
+        if (!is_ticket1) {
+            error1_1.innerHTML = errormsg2;
         }
-    });
-    if (!is_ticket1) {
-        error1_1.innerHTML = errormsg2;
-    }
 
-    sheet1s.forEach(function (sheet1) {
-        if (sheet1.checked) {
-            is_sheet1 = true;
-            error1_2.innerHTML = "";
+        sheet1s.forEach(function (sheet1) {
+            if (sheet1.checked) {
+                is_sheet1 = true;
+                error1_2.innerHTML = "";
+            }
+        });
+        if (!is_sheet1) {
+            error1_2.innerHTML = errormsg2;
         }
-    });
-    if (!is_sheet1) {
-        error1_2.innerHTML = errormsg2;
-    }
 
-    floor1s.forEach(function (floor1) {
-        if (floor1.checked) {
-            is_floor1 = true;
-            error1_3.innerHTML = "";
+        floor1s.forEach(function (floor1) {
+            if (floor1.checked) {
+                is_floor1 = true;
+                error1_3.innerHTML = "";
+            }
+        });
+        if (!is_floor1) {
+            error1_3.innerHTML = errormsg2;
         }
-    });
-    if (!is_floor1) {
-        error1_3.innerHTML = errormsg2;
-    }
 
-    if (!(is_ticket1 == true && is_sheet1 == true && is_floor1 == true)) {
-        return false;
+        if (!(is_ticket1 == true && is_sheet1 == true && is_floor1 == true)) {
+            return false;
+        }
+
     }
 
 }
