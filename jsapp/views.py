@@ -51,6 +51,7 @@ class VenueCreate(CreateView):
     success_url = ('venuelist')
 
 class VenueList(ListView):
+    model = EventModel
     template_name = 'venuelist.html'
     def get_context_data(self,*args,**kwargs):
         ctx = super().get_context_data(**kwargs)
