@@ -12,9 +12,6 @@
 
 {% block content %}
 <div>
-    <div>
-        <h3>昼公演</h3>
-    </div>
     <table class="table container">
         <thead>
             <tr>
@@ -44,36 +41,6 @@
                 <td>{{ result.timedate|date:"Y-m-j H:i:s" }} </td>
                 <td>{{ result.pk }}</td>
                 <td>夜の部</td>
-                <td>{{ result.ticket2 }}</td>
-                <td>{{ result.sheet2 }}</td>
-                <td>{{ result.floor2 }}</td>
-                <td>{{ result.block2 }}</td>
-                <td>{{ result.number2 }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <table class="table container">
-        <div>
-            <h3>夜公演</h3>
-        </div>
-
-        <thead>
-            <tr>
-                <th>回答日時</th>
-                <th>回答No.</th>
-                <th>チケット種別</th>
-                <th>座席種別</th>
-                <th>座席階層</th>
-                <th>座席列数</th>
-                <th>座席番号</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for result in results %}
-            <tr>
-                <td>{{ result.timedate|date:"Y-m-j H:i:s" }} </td>
-                <td>{{ result.pk }}</td>
                 <td>{{ result.ticket2 }}</td>
                 <td>{{ result.sheet2 }}</td>
                 <td>{{ result.floor2 }}</td>
