@@ -16,7 +16,9 @@ body {
     background-attachment: fixed;
 }
 
-
+.eventform {
+    visibility: hidden;
+}
 
 
 .c {
@@ -140,8 +142,4 @@ label {
     background: #ffffff;
     color: #000000;
     transition: 0.5s;
-}
-
-.eventform {
-    display: none;
 }
