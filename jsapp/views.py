@@ -26,7 +26,7 @@ class AnswerCreate(CreateView):
         return  ctx
 
     def get_success_url(self):
-        return reverse_lazy('index',kwargs={"num":self.kwargs['num']})
+        return reverse_lazy('thanks',kwargs={"num":self.kwargs['num']})
 
 
 class EventCreate(CreateView):
@@ -58,3 +58,13 @@ class VenueList(ListView):
         ctx = super().get_context_data(**kwargs)
         ctx['venue'] = VenueModel.objects.order_by('venuedate')
         return ctx
+
+
+class ThanksView(ListView):
+    template_name = 'thanks.html'
+    model = EventModel
+    def get_context_data(self,*args,**kwargs,):
+        ctx = super().get_context_data(**kwargs)
+        ctx['results'] = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
+        ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
+        return  ctx

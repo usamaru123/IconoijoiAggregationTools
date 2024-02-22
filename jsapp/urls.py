@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import AnswerList,AnswerCreate,EventCreate,EventList,VenueCreate,VenueList
+from .views import AnswerList,AnswerCreate,EventCreate,EventList,VenueCreate,VenueList,ThanksView
 
 urlpatterns = [
     path('result/<int:num>',AnswerList.as_view(),name='index'),
@@ -8,4 +8,5 @@ urlpatterns = [
     path('eventlist',EventList.as_view(),name='eventlist'),
     path('venuecreate',VenueCreate.as_view(),name='venuecreate'),
     path('venuelist',VenueList.as_view(),name='venuelist'),
+    path('results/<int:num>',ThanksView.as_view(),name='thanks')
 ]
