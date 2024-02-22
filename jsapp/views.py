@@ -7,7 +7,7 @@ from django.http import HttpResponse
 
 
 class AnswerList(ListView):
-    template_name = 'index.html'
+    template_name = 'thanks.html'
     model = EventModel
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs)
