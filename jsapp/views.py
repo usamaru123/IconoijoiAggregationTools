@@ -18,11 +18,7 @@ class AnswerList(ListView):
 class AnswerCreate(CreateView):
     template_name = 'create2.html'
     model = MenberModel
-    def get(self,**kwargs):
-        if (self.kwargs['num']=='20240301'):
-            return reverse_lazy('thanks',kwargs={"num":self.kwargs['num']})
-
-
+    
     fields = ('venueid','matinee','evening','ticket1','sheet1','floor1','block1','number1','ticket2','sheet2','floor2','block2','number2',)
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs)
