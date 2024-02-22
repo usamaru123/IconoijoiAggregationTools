@@ -64,8 +64,8 @@ function positionformfunc(i) {
 
     const position2 = `
         <div class="blockform">
-            <input pattern="[A-Za-z]{1}" class="col-3 block position" id="block${i}" placeholder="英字1文字"  oninput="inputChange()">
-            <b style="font-size:1.5rem">ブロック</b>      
+        <input type="number" min="1" max="1000" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字">
+            <b style="font-size:1.5rem">列</b>      
         </div>
         <div class="numberform">
             <input type="number" min="1" max="1000" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字">
@@ -73,11 +73,9 @@ function positionformfunc(i) {
         </div>
     `;
 
-    if (floor.checked)
-        numberform.innerHTML = position1;
-    else {
-        numberform.innerHTML = position2;
-    }
+
+    numberform.innerHTML = position2;
+
 
 };
 
