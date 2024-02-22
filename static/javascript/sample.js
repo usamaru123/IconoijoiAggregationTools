@@ -203,7 +203,7 @@ function valueCheck() {
         var is_sheet2 = false;
         var is_floor2 = false;
 
-        ticket1s.forEach(function (ticket1) {
+        ticket2s.forEach(function (ticket2) {
             if (ticket2.checked) {
                 is_ticket2 = true;
                 error2_1.innerHTML = "";
