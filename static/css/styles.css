@@ -141,3 +141,7 @@ label {
     color: #000000;
     transition: 0.5s;
 }
+
+.eventform {
+    display: none;
+}
