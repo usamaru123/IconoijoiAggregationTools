@@ -188,7 +188,7 @@ function valueCheck() {
 
     }
 
-    if (venue.checked) {
+    if (evening.checked) {
         const ticket2s = document.querySelectorAll('.ticket2');
         const sheet2s = document.querySelectorAll('.sheet2');
         const floor2s = document.querySelectorAll('.floor2');
