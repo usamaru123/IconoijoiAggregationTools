@@ -32,7 +32,7 @@ function sheetformfunc(formlabel, i) {
 
 function floorformfunc(formlabel, i) {
     const formname = 'floor' + i;
-    const values = ['アリーナ', '3階席', '4階席'];
+    const values = ['1階席', '2階席'];
     createRadioformfunc(formlabel, formname, values, i);
 
     floorbuttons = document.querySelectorAll(`.floor${i}`);
@@ -51,7 +51,7 @@ function positionformfunc(i) {
         <div class="blockform">
             <input pattern="[A-Za-z]{1}" class="col-3 block position" id="block${i}" placeholder="英字1文字"  oninput="inputChange(${i})">
             <input type="number" min="1" max="10" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字">
-        <b style="font-size:1.5rem">ブロック</b>      
+        <b style="font-size:1.5rem">列</b>      
 
 
     </div>
