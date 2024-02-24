@@ -16,7 +16,7 @@ def Output_Graph():
 def Plot_Graph(x,y):
  #   int_y = []
   #  for i in range(len(y)):
-  #      int_y.append(int(y[i] or 0))
+  #      int_y.append(int(y[i] or 0)
     plt.switch_backend("AGG")
     plt.figure(figsize=(10,5))
     plt.plot(x,y)
@@ -25,23 +25,35 @@ def Plot_Graph(x,y):
     return graph
 
 
-def HeatMap(x,sheets):
-    int_sheet = []
+def HeatMap(rows,numbers,sheets):
+    int_rows,int_numbers,int_sheets = []
+
+
+    for r in range(len(rows)):
+        int_rows.append(int[r] or 0)
+
+    for n in range(len(numbers)):
+        int_numbers.append(int[n] or 0)
+
     for i in range(len(sheets)):
-        if sheets[i] == '一般席':
-            int_sheet.append(1)
+        if int_sheets[i] == '一般席':
+            int_sheets.append(1)
         elif sheets[i] == 'カメコエリア席':
-            int_sheet.append(2)
+            int_sheets.append(2)
         elif sheets[i] == '女性エリア席':
-            int_sheet.append(3)
+            int_sheets.append(3)
         elif sheets[i] == '着席指定席':
-            int_sheet.append(2)
+            int_sheets.append(2)
         else :
             int_sheet.append(0)
         print (sheets[i])
 
     sheetlist = [[0 for h in range(50)] for w in range(90)]
-    sheetlist[15][20] = 10
+    for s in range(len(int_sheets)):
+        row = int_rows[s]
+        number = int_numbers[s]
+        sheetlist[row][number] = sheets[s]
+   
     fig,ax = plt.subplots()
     im = ax.imshow(sheetlist)
     graph = Output_Graph()
