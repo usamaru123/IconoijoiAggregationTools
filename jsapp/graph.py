@@ -47,14 +47,15 @@ def HeatMap(rows,numbers,sheets):
         elif sheets[i] == '着席指定席':
             int_sheets.append(2)
         else :
-            int_sheets.append("")
+            int_sheets.append(0)
         print (sheets[i])
 
     sheetlist = [[0 for h in range(100)] for w in range(100)]
     for s in range(len(int_sheets)):
-        row = int_rows[s]
-        number = int_numbers[s]
-        sheetlist[row][number] = int_sheets[s]
+        if int_sheets[s] != 0:
+            row = int_rows[s]
+            number = int_numbers[s]
+            sheetlist[row][number] = int_sheets[s]
    
     fig,ax = plt.subplots()
     im = ax.imshow(sheetlist)
