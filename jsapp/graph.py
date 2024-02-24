@@ -38,7 +38,7 @@ def HeatMap(rows,numbers,sheets):
         int_numbers.append(int(numbers[n] or 0))
 
     for i in range(len(sheets)):
-        if int_sheets[i] == '一般席':
+        if sheets[i] == '一般席':
             int_sheets.append(1)
         elif sheets[i] == 'カメコエリア席':
             int_sheets.append(2)
