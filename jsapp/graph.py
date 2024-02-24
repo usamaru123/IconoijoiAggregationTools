@@ -45,7 +45,7 @@ def HeatMap(rows,numbers,sheets):
         elif sheets[i] == '女性エリア席':
             int_sheets.append(3)
         elif sheets[i] == '着席指定席':
-            int_sheets.append(2)
+            int_sheets.append(4)
         else :
             int_sheets.append(0)
         print (sheets[i])
