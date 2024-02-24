@@ -55,7 +55,7 @@ def HeatMap(rows,numbers,sheets):
         if int_sheets[s] != 0:
             row = int_rows[s]
             number = int_numbers[s]
-            sheetlist[row][number] = int_sheets[s]
+            sheetlist[number][row] = int_sheets[s]
    
     fig,ax = plt.subplots()
     im = ax.imshow(sheetlist)
