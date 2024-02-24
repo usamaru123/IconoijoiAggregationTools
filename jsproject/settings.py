@@ -71,7 +71,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'jsproject.wsgi.application'
 
-LOG_BASE_DIR = os.path.join("/var", "log", "app")
 
 
 # Database
