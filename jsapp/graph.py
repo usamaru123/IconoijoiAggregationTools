@@ -45,7 +45,7 @@ def HeatMap(rows,numbers,sheets):
         elif sheets[i] == '着席指定席':
             int_sheets.append(2)
         else :
-            int_sheet.append(0)
+            int_sheets.append(0)
         print (sheets[i])
 
     sheetlist = [[0 for h in range(50)] for w in range(90)]
