@@ -19,5 +19,6 @@ def Plot_Graph(x,y):
     plt.switch_backend("AGG")
     plt.figure(figsize=(10,5))
     plt.plot(x,y)
+    plt.legend(prop={'family':'MS Gothic'})
     graph = Output_Graph()
     return graph
