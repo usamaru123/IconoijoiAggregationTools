@@ -4,7 +4,7 @@ from .models import MenberModel,EventModel,VenueModel
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.shortcuts import redirect
-from matplotlib import pyplot
+from matplotlib import pyplot as plt
 
 class AnswerList(ListView):
     template_name = 'index.html'
