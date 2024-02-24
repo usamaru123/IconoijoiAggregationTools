@@ -71,6 +71,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'jsproject.wsgi.application'
 
+LOG_BASE_DIR = os.path.join("/var", "log", "app")
+
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
