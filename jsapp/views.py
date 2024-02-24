@@ -15,7 +15,7 @@ class AnswerList(ListView):
         qs = MenberModel.objects.all()
         x = [x.venueid for x in qs]
         y = [y.timedate for y in qs]
-        chart = graph.Plot_graph(x,y)
+        chart = graph.Plot_Graph(x,y)
         ctx['chart'] = chart
         ctx['results'] = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
