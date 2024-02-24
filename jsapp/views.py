@@ -12,8 +12,7 @@ class AnswerList(ListView):
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs)
         qs = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
-        x = [x.venuedate for x in qs]
-        y = [y.venueid for y in qs]
+
 
         return  ctx
 
