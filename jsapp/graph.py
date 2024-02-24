@@ -41,7 +41,7 @@ def HeatMap(x,sheets):
         print (sheets[i])
 
     sheetlist = [[0 for h in range(50)] for w in range(90)]
-    sheetlist[1][1] = 10
+    sheetlist[1] = 10
     fig,ax = plt.subplots()
     im = ax.imshow(sheetlist)
     graph = Output_Graph()
