@@ -11,9 +11,8 @@ class AnswerList(ListView):
     model = EventModel
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs)
-        qs = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
-
-
+        ctx['result'] = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
+        ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
         return  ctx
 
 class AnswerCreate(CreateView):
