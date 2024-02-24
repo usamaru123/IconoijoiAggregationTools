@@ -15,6 +15,6 @@ def Output_Graph():
 def Plot_Graph(x,y):
     plt.switch_backend("AGG")
     plt.figure(figsize=(10,5))
-    plt.bar(x,y)
+    plt.plot(x,y)
     graph = Output_Graph()
     return graph
