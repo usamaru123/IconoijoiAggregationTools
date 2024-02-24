@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<div class="header_inner inner">
+    <p class="header_title" name="eventtitle">{{ title.event.eventtitle }}</p>
+    <p class="header_ank" name="venue">配席アンケート結果確認画面</p>
+    <p class="header_detail">日時：{{ title.venuedate|date:"Y年n月j日" }}</p>
+    <p class="header_detail">会場：{{ title.venue }}</p>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div>
+    <table class="table container">
+        <thead>
+            <tr>
+                <th>回答日時</th>
+                <th>回答No.</th>
+                <th>公演時間</th>
+                <th>チケット種別</th>
+                <th>座席種別</th>
+                <th>座席階層</th>
+                <th>座席列数</th>
+                <th>座席番号</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+            <tr>
+                <td>{{ result.timedate|date:"Y-m-j H:i:s" }} </td>
+                <td>{{ result.pk }}</td>
+                <td>昼の部</td>
+                <td>{{ result.ticket1 }}</td>
+                <td>{{ result.sheet1 }}</td>
+                <td>{{ result.floor1 }}</td>
+                <td>{{ result.block1 }}</td>
+                <td>{{ result.number1 }}</td>
+            </tr>
+            <tr>
+                <td>{{ result.timedate|date:"Y-m-j H:i:s" }} </td>
+                <td>{{ result.pk }}</td>
+                <td>夜の部</td>
+                <td>{{ result.ticket2 }}</td>
+                <td>{{ result.sheet2 }}</td>
+                <td>{{ result.floor2 }}</td>
+                <td>{{ result.block2 }}</td>
+                <td>{{ result.number2 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

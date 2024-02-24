@@ -1,0 +1,82 @@
+{% extends 'base.html'%}eventform
+{% block header %}
+<div class="header_inner inner">
+    <p class="header_title" name="eventtitle">{{ title.event.eventtitle }}</p>
+    <p class="header_ank" name="venue">配席アンケート</p>
+    <p class="header_detail">日時：{{ title.venuedate|date:"Y年n月j日" }}</p>
+    <p class="header_detail">会場：{{ title.venue }}</p>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class="eventform text-dark form-control-lg" id="eventform">
+    <form action="" method="POST" name="formtag">{% csrf_token %}
+        <div class="formcheck alert alert-light shadow ">
+            <div id="errorform1">
+            </div>
+            <label for="timeform1">
+                <input type="checkbox" class="form-check-input" id="timeform1" onclick="checkEvent(1)">
+                昼の部</label>
+            <label for="timeform2">
+                <input type="checkbox" class="form-check-input " id="timeform2" onclick="checkEvent(2)">
+                夜の部</label>
+            <input type="hidden" id="titlename" name="title" value="{{ title }}">
+            <input type="hidden" id="venueid" name="venueid" value="{{ title.venueid }}">
+            <input type="hidden" id="timeformcheck1" name="matinee" value>
+            <input type="hidden" id="timeformcheck2" name="evening" value>
+            <input type="hidden" id="largeblock1" name="block1" value>
+            <input type="hidden" id="largeblock2" name="block2" value>
+        </div>
+
+        <div id="answerform1" class="box answerform">
+            <div class="container">
+                <div id="form1" class="">
+                    <p class="time">昼の部</p>
+                    <div class="ticketform alert alert-light shadow" id="ticketform1">
+                        <div id="errorform1_1"></div>
+                    </div>
+                    <div class="sheetform alert alert-light shadow" id="sheetform1">
+                        <div id="errorform1_2"></div>
+                    </div>
+                    <div class="floorform alert alert-light shadow" id="floorform1">
+                        <div id="errorform1_3"></div>
+                    </div>
+                    <div class="numberform alert alert-light shadow" id="numberform1">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="answerform2" class="box answerform">
+            <div class="container">
+                <div id="form2" class="">
+                    <p class="time">夜の部</p>
+                    <div class=" ticketform alert alert-light shadow" id="ticketform2">
+                        <div id="errorform2_1"></div>
+                    </div>
+                    <div class="sheetform alert alert-light shadow" id="sheetform2">
+                        <div id="errorform2_2"></div>
+                    </div>
+                    <div class="floorform alert alert-light shadow" id="floorform2">
+                        <div id="errorform2_3"></div>
+                    </div>
+                    <div class="numberform alert alert-light shadow" id="numberform2">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <input type="submit" value="送信する" class="shadow border border-light" id="submitbt"
+                onclick="return valueCheck()">
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+{% endblock content %}
