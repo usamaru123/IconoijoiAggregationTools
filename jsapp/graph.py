@@ -50,7 +50,7 @@ def HeatMap(rows,numbers,sheets):
             int_sheets.append(0)
         print (sheets[i])
 
-    sheetlist = [[0 for h in range(100)] for w in range(43)]
+    sheetlist = [[0 for h in range(100)] for w in range(50)]
     for s in range(len(int_sheets)):
         if (int_sheets[s] != 0)and(int_numbers[s] != 0):
             row = int_rows[s]
