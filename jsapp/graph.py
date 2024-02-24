@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import base64
 from io import BytesIO
+import Japanize_matplotlib
 
 def Output_Graph():
     buffer = BytesIO()
