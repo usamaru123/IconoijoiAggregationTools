@@ -13,6 +13,7 @@ def Output_Graph():
     return graph
 
 def Plot_Graph(x,y):
+    y = int(y)
     plt.switch_backend("AGG")
     plt.figure(figsize=(10,5))
     plt.plot(x,y)
