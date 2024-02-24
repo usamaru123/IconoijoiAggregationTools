@@ -15,7 +15,7 @@ def Output_Graph():
 def Plot_Graph(x,y):
     int_y = []
     for i in range(len(y)):
-        int_y.append(int(y[i] or ""))
+        int_y.append(int(y[i] or 0))
     plt.switch_backend("AGG")
     plt.figure(figsize=(10,5))
     plt.plot(x,int_y)
