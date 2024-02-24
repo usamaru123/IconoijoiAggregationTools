@@ -59,7 +59,6 @@ def HeatMap(rows,numbers,sheets):
             number = int_numbers[s]
             sheetlist[row][number] = int_sheets[s]
 
-    fig, ax = plt.subplots(1,2,figsize=(8,3),dpi=130)
     sns.heatmap(sheetlist,cbar=False)
     graph = Output_Graph()
     return graph
