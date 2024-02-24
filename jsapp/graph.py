@@ -18,7 +18,7 @@ def Plot_Graph(x,y):
   #  for i in range(len(y)):
   #      int_y.append(int(y[i] or 0)
     plt.switch_backend("AGG")
-    plt.figure(figsize=(5,10))
+    plt.figure(figsize=(2,6))
     plt.plot(x,y)
     plt.legend(prop={'family':'MS Gothic'})
     graph = Output_Graph()
@@ -50,7 +50,7 @@ def HeatMap(rows,numbers,sheets):
             int_sheets.append(0)
         print (sheets[i])
 
-    sheetlist = [[0 for h in range(100)] for w in range(50)]
+    sheetlist = [[0 for h in max(int_numbers)] for w in max(int_rows)]
     for s in range(len(int_sheets)):
         if (int_sheets[s] != 0)and(int_numbers[s] != 0):
             row = int_rows[s]
