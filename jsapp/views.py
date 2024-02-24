@@ -12,11 +12,11 @@ class AnswerList(ListView):
     model = EventModel
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs) 
-        qs = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
+        qs = MenberModel.objects.filter(venueid=self.kwargs['num'],floor1='1階席').all()
         row = [row.block1 for row in qs]
         number = [number.number1 for number in qs]
         sheet = [sheet.sheet1 for sheet in qs ]
-        
+
         chart = graph.HeatMap(row,number,sheet)
         ctx['chart'] = chart
         ctx['results'] = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
