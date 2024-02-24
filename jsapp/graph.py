@@ -13,9 +13,11 @@ def Output_Graph():
     return graph
 
 def Plot_Graph(x,y):
-    y = int(y)
+    int_y = []
+    for i in range(len(y)):
+        int_y.append(int(y[i]))
     plt.switch_backend("AGG")
     plt.figure(figsize=(10,5))
-    plt.plot(x,y)
+    plt.plot(x,int_y)
     graph = Output_Graph()
     return graph
