@@ -4,6 +4,7 @@ from .models import MenberModel,EventModel,VenueModel
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.shortcuts import redirect
+from . import graph
 
 
 class AnswerList(ListView):
@@ -11,8 +12,14 @@ class AnswerList(ListView):
     model = EventModel
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs)
-        ctx['results'] = MenberModel.objects.filter(venueid=self.kwargs['num'],block1__isnull=False,).all()
+        qs = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
+        x = [x.venuedate for x in qs]
+        y = [y.venueid for y in qs]
+        chart = graph.Plot_Graph(x,y)
+
         ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
+        ctx['chart'] = chart
+        ctx['result'] = qs
         return  ctx
 
 class AnswerCreate(CreateView):
