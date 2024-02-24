@@ -59,5 +59,6 @@ def HeatMap(rows,numbers,sheets):
    
     fig,ax = plt.subplots()
     im = ax.imshow(sheetlist)
+    plt.colorbar(im)
     graph = Output_Graph()
     return graph
