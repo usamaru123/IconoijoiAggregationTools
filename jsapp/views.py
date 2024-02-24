@@ -14,7 +14,7 @@ class AnswerList(ListView):
         ctx = super().get_context_data(**kwargs) 
         qs = MenberModel.objects.all()
         x = [x.timedate for x in qs]
-        y = [y.pk for y in qs]
+        y = [y.block1 for y in qs]
         chart = graph.Plot_Graph(x,y)
         ctx['chart'] = chart
         ctx['results'] = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
