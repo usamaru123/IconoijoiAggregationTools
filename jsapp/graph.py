@@ -23,3 +23,25 @@ def Plot_Graph(x,y):
     plt.legend(prop={'family':'MS Gothic'})
     graph = Output_Graph()
     return graph
+
+
+def HeatMap(x,sheets):
+    int_sheet = []
+    for i in range(len(sheets)):
+        if sheets[i] == '一般席':
+            int_sheet.append(1)
+        elif sheets[i] == 'カメコエリア席':
+            int_sheet.append(2)
+        elif sheets[i] == '女性エリア席':
+            int_sheet.append(3)
+        elif sheets[i] == '着席指定席':
+            int_sheet.append(2)
+        else :
+            int_sheet.append(0)
+
+    sheetlist = [[0 for h in range(50)] for w in range(90)]
+
+    fig,ax = plt.subplots()
+    im = ax.imshow(sheetlist)
+    graph = Output_Graph()
+    return graph
