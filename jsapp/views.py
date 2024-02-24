@@ -16,6 +16,7 @@ class AnswerList(ListView):
         row = [row.block1 for row in qs]
         number = [number.number1 for number in qs]
         sheet = [sheet.sheet1 for sheet in qs ]
+        
         chart = graph.HeatMap(row,number,sheet)
         ctx['chart'] = chart
         ctx['results'] = MenberModel.objects.filter(venueid=self.kwargs['num']).all()

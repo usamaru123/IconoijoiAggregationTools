@@ -26,7 +26,9 @@ def Plot_Graph(x,y):
 
 
 def HeatMap(rows,numbers,sheets):
-    int_rows,int_numbers,int_sheets = []
+    int_rows = []
+    int_numbers = []
+    int_sheets = []
 
 
     for r in range(len(rows)):
