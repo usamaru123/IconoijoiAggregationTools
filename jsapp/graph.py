@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import base64
 from io import BytesIO
 import japanize_matplotlib
+import seaborn as sns
+sns.set()
 
 def Output_Graph():
     buffer = BytesIO()
@@ -50,15 +52,13 @@ def HeatMap(rows,numbers,sheets):
             int_sheets.append(0)
         print (sheets[i])
 
-    sheetlist = [[0 for h in range(max(int_numbers)+1)] for w in range(max(int_rows)+1)]
+    sheetlist = [[0 for h in range(1,max(int_numbers)+1)] for w in range(1,max(int_rows)+1)]
     for s in range(len(int_sheets)):
         if (int_sheets[s] != 0)and(int_numbers[s] != 0):
             row = int_rows[s]
             number = int_numbers[s]
             sheetlist[row][number] = int_sheets[s]
    
-    fig,ax = plt.subplots()
-    im = ax.imshow(sheetlist)
-    plt.colorbar(im)
+    sns.heatmap(sheetlist)
     graph = Output_Graph()
     return graph
