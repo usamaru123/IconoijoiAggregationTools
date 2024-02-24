@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from matplotlib import pyplot as plt
+from . import graph
 
 class AnswerList(ListView):
     template_name = 'index.html'
@@ -26,6 +27,7 @@ class AnswerCreate(CreateView):
         qs = MenberModel.objects.all()
         x = [x.venueid for x in qs]
         y = [y.venuedate for y in qs]
+        chart = graph.Plot_graph(x,y)
         ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
         ctx['results'] = MenberModel.objects.filter(venueid=self.kwargs['num'],block1__isnull=False,).all()
         return  ctx
