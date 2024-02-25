@@ -58,7 +58,8 @@ def HeatMap(rows,numbers,sheets):
             row = int_rows[s]
             number = int_numbers[s]
             sheetlist[row][number] = int_sheets[s]
-    
-    sns.heatmap(sheetlist,square=True,cbar=False,cmap="brg")
+            
+    cmap = sns.dark_palette("palegreen", as_cmap=True)
+    sns.heatmap(sheetlist,square=True,cbar=False,cmap=cmap)
     graph = Output_Graph()
     return graph
