@@ -24,8 +24,6 @@ class VenueModel(models.Model):
    venuedate = models.DateField()
    event = models.ForeignKey(EventModel,on_delete=models.CASCADE)
    hallinfo = models.ForeignKey(HallInfoModel,on_delete=models.CASCADE,default=1)
-   prefecture = models.CharField(max_length=10)
-   venue = models.CharField(max_length=100)
 
 
    def __str__(self):
