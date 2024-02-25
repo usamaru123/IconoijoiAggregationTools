@@ -37,7 +37,6 @@ function floorformfunc(formlabel, i) {
     for (let b = 0; b < blocks.length; b++) {
         block[b] = blocks[b].value
     }
-    console.log(blocks[1])
 
     const formname = 'floor' + i;
 
