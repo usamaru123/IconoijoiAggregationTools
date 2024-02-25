@@ -49,7 +49,7 @@ class MenberModel(models.Model):
    ticket1 = models.CharField(max_length=100,blank=True)
    sheet1 = models.CharField(max_length=100,blank=True)
    floor1 = models.CharField(max_length=100,blank=True)
-   block1 = models.CharField(max_length=100,blank=True)
+   row1 = models.CharField(max_length=100,blank=True)
    number1 = models.CharField(max_length=100,blank=True)
 
    ticket2 = models.CharField(max_length=100,blank=True)
