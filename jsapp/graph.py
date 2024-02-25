@@ -94,11 +94,12 @@ def Arena_HeatMap(rows,columns,sheets):
 
 def listcreate():
     alphabets = ['A','B','C','D','E','F','G','H','I','J']
+    numbers = ['1','2','3','4','5','6']
     list = {}
 
     for block_r in alphabets:
         list[block_r] = {}
-        for i in range(1,10):
-            list[block_r][i] = 0
+        for number in numbers:
+            list[block_r][number] = 0
     return list
     
