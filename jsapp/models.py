@@ -13,7 +13,7 @@ class EventModel(models.Model):
 class HallInfo(models.Model):
    hallname = models.CharField(max_length=100,primary_key=True)
    halltype = models.CharField(max_length=100)
-   hallfloor1 = models.IntegerField()
+   floor = models.IntegerField()
    blocks = models.IntegerField(blank=True)
    rows = models.IntegerField(blank=True)
    numbers = models.BigIntegerField()
