@@ -32,6 +32,7 @@ function sheetformfunc(formlabel, i) {
 }
 
 function floorformfunc(formlabel, i) {
+    block = [];
     var blocks = document.querySelectorAll('.blocks')
     for (let b = 0; b < blocks.length; b++) {
         block[b] = blocks[b].value
