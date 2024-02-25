@@ -71,6 +71,7 @@ def Arena_HeatMap(rows,columns,sheets):
     kamekolist = listcreate()
     joseilist = listcreate()
     chakusekilist = listcreate()
+    points = listcreate()
 
     int_sheets = []
     int_columns = []
@@ -103,10 +104,11 @@ def Arena_HeatMap(rows,columns,sheets):
                 else :
                     int_sheets.append(0)
 
-    
+    for i in range(len(blocklist)):
+        for j in range(len(blocklist[i])):
+            points[i][j] = ippanlist[i][j]+kamekolist[i][j]+joseilist[i][j]+chakusekilist[i][j]
 
-    for s in range(len(sheets)):
-        if (sheets[s] != '')and(columns[s] != '')and(rows[s] != ''):
+    for s in range(len(int_rows)):
             int_column = int_columns[s]
             blocklist[int_column][rows[s]] = int_sheets[s]
     sheetdf = pd.DataFrame(blocklist)
