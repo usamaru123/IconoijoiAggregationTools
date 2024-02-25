@@ -136,7 +136,7 @@ def Arena_HeatMap(rows,columns,sheets):
         fmt=""
     )
     plt.yticks(rotation=0)
-    sns.set(font='IPAexGothic')
+    sns.set(font='MS Gothic')
     graph = Output_Graph()
     return graph
 
