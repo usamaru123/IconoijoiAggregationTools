@@ -13,12 +13,14 @@ class AnswerList(ListView):
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs) 
         qs = MenberModel.objects.filter(venueid=self.kwargs['num'],floor1='アリーナ席').all()
-        row = [row.block_r1 for row in qs]
-        column = [number.block_c1 for number in qs]
-        sheet = [sheet.sheet1 for sheet in qs ]
+        row1 = [row.block_r1 for row in qs]
+        column1 = [number.block_c1 for number in qs]
+        sheet1 = [sheet.sheet1 for sheet in qs ]
+        chart1 = graph.Arena_HeatMap(row1,column1,sheet1)
+        sheetratio1 = graph.Sheet_Ratio(sheet1)
 
-        chart = graph.Arena_HeatMap(row,column,sheet)
-        ctx['chart'] = chart
+        ctx['chart1'] = chart1
+        ctx['sheetratio1'] = sheetratio1
         ctx['results'] = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
         return  ctx

@@ -15,6 +15,7 @@ def Output_Graph():
     graph = graph.decode("utf-8")
     buffer.close()
     return graph
+    sns.set(font="AppleGothic")
 
 def Plot_Graph(x,y):
  #   int_y = []
@@ -139,7 +140,6 @@ def Arena_HeatMap(rows,columns,sheets):
     )
     plt.yticks(rotation=0)
     plt.legend(prop={'family':'MS Gothic'})
-    sns.set(font='MS Gothic')
     plt.title("STAGE")
     graph = Output_Graph()
     return graph
@@ -154,3 +154,23 @@ def listcreate():
             list[i][block_r] = 0
     return list
     
+def sheetratio(sheets):
+    sheetlist = ['一般席','カメコエリア席','女性エリア席','着席指定席']
+    sheet_count = {}
+
+    general = sheets.count('一般席')
+    camera = sheets.count('カメコエリア席')
+    lady = sheets.count('女性エリア席')
+    sit = sheets.count('着席指定席')
+    
+    valsheetlist = [general,camera,lady,sit]
+    
+    for i in range(len(sheetlist)):
+        sheet_count[sheetlist[i]] = valsheetlist[i]
+
+    sheet_countdf = pd.DataFrame(sheet_count)
+    plt.pie(sheet_countdf,
+            counterclock=False.as_integer_ratio,            
+            )
+    graph = Output_Graph()
+    return graph
