@@ -81,8 +81,14 @@ function positionformfunc(i) {
         </div>
     `;
 
+    if (numberform.value == 'アリーナ席') {
+        numberform.innerHTML = position1;
+    }
+    else {
+        numberform.innerHTML = position2;
+    }
 
-    numberform.innerHTML = position2;
+
 
 
 };
