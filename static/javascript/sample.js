@@ -1,7 +1,7 @@
 const venue = '東京公演';
 const anktext = ' 配席アンケート'
 blocks.forEach(function (block) {
-    console.log(block);
+    console.log(block + "a");
 });
 
 
