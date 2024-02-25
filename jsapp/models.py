@@ -55,6 +55,6 @@ class MenberModel(models.Model):
    ticket2 = models.CharField(max_length=100,blank=True)
    sheet2 = models.CharField(max_length=100,blank=True)
    floor2 = models.CharField(max_length=100,blank=True)
-   block2 = models.CharField(max_length=100,blank=True)
+   row2 = models.CharField(max_length=100,blank=True)
    number2 = models.CharField(max_length=100,blank=True)
 
