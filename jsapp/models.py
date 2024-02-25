@@ -44,10 +44,5 @@ class MenberModel(models.Model):
    
 class HallInfoModel(models.Model):
    hallname = models.CharField(max_length=100,blank=True,primary_key=True)
-   halltype = models.CharField(max_length=100,blank=True)
-   floor = models.IntegerField(blank=True)
-   blocks = models.IntegerField(blank=True)
-   rows = models.IntegerField(blank=True)
-   numbers = models.BigIntegerField(blank=True)
-   prefecture = models.CharField(max_length=100,blank=True)
+
       
