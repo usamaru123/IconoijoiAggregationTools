@@ -21,7 +21,6 @@
             <thead>
                 <tr>
                     <th>回答日時</th>
-                    <th>回答No.</th>
                     <th>公演時間</th>
                     <th>チケット種別</th>
                     <th>座席種別</th>
@@ -34,22 +33,22 @@
                 {% for result in results %}
                 <tr>
                     <td>{{ result.timedate|date:"Y-m-j H:i:s" }} </td>
-                    <td>{{ result.pk }}</td>
                     <td>昼の部</td>
                     <td>{{ result.ticket1 }}</td>
                     <td>{{ result.sheet1 }}</td>
                     <td>{{ result.floor1 }}</td>
-                    <td>{{ result.block1 }}</td>
+                    <td>{{ result.block_r1 }}-{{ result.block_c1 }}</td>
+                    <td>{{ result.row1 }}</td>
                     <td>{{ result.number1 }}</td>
                 </tr>
                 <tr>
                     <td>{{ result.timedate|date:"Y-m-j H:i:s" }} </td>
-                    <td>{{ result.pk }}</td>
                     <td>夜の部</td>
                     <td>{{ result.ticket2 }}</td>
                     <td>{{ result.sheet2 }}</td>
                     <td>{{ result.floor2 }}</td>
-                    <td>{{ result.block2 }}</td>
+                    <td>{{ result.row2 }}</td>
+                    <td>{{ result.block_r2 }}-{{ result.block_c2 }}</td>
                     <td>{{ result.number2 }}</td>
                 </tr>
                 {% endfor %}
