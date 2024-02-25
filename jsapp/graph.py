@@ -93,7 +93,7 @@ def Arena_HeatMap(rows,columns,sheets):
             blocklist[int_column][row] = int_sheets[s]
     sheetdf = pd.DataFrame(blocklist)
     sns.heatmap(sheetdf,square=True,cbar=False,cmap='nipy_spectral_r',linewidths=0.5,vmax=5.0,vmin=0)
-    plt.xticks(rotation=90)
+    plt.yticks(rotation=270)
     graph = Output_Graph()
     return graph
 
