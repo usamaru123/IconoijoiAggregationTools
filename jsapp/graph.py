@@ -109,7 +109,7 @@ def Arena_HeatMap(rows,columns,sheets):
     for i in range(1,len(blocklist)+1):
         for j in alphabets:
             d = {'a': ippanlist[i][j], 'b': kamekolist[i][j], 'c': joseilist[i][j], 'd': chakusekilist[i][j]}
-            points[i][j] = (ippanlist[i][j]+kamekolist[i][j]+joseilist[i][j]+chakusekilist[i][j])
+            points[i][j] = max(d.values())
 
     sheetdf = pd.DataFrame(points)
     sns.heatmap(sheetdf,square=True,cbar=False,cmap='nipy_spectral_r',linewidths=0.5,vmax=5.0,vmin=0,annot=True)
