@@ -20,7 +20,7 @@ def Plot_Graph(x,y):
   #  for i in range(len(y)):
   #      int_y.append(int(y[i] or 0)
     plt.switch_backend("AGG")
-    plt.figure(figsize=(10,6))
+    plt.figure(figsize=(20,10))
     plt.plot(x,y)
     plt.legend(prop={'family':'MS Gothic'})
     graph = Output_Graph()
