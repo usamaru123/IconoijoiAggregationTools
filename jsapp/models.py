@@ -25,7 +25,7 @@ class VenueModel(models.Model):
    event = models.ForeignKey(EventModel,on_delete=models.CASCADE)
    prefecture = models.CharField(max_length=10)
    venue = models.CharField(max_length=100)
-   hallinfo = models.ForeignKey(HallInfo,on_delete=models.CASCADE)
+   hallinfo = models.ForeignKey(HallInfoModel,on_delete=models.CASCADE)
 
    def __str__(self):
       return self.venue
