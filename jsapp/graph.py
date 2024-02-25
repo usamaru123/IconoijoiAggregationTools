@@ -111,7 +111,9 @@ def Arena_HeatMap(rows,columns,sheets):
         for j in alphabets:
             d = {'a': ippanlist[i][j], 'b': kamekolist[i][j], 'c': joseilist[i][j], 'd': chakusekilist[i][j]}
             points[i][j] = max(d.values())
-            if max(d,key=d.get)=='a':
+            if max(d.values()) == 0:
+                text[i][j] = ''
+            elif max(d,key=d.get)=='a':
                 text[i][j] = 'I'
             elif max(d,key=d.get)=='b':
                 text[i][j] = 'C'
