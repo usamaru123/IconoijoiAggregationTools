@@ -82,7 +82,7 @@ def Arena_HeatMap(rows,columns,sheets):
 
     sheetlist = {}
     for s in range(len(sheets)):
-        if (sheets[s] != '')and(columns[s] != '')and(rows[s] != 0):
+        if (sheets[s] != '')and(columns[s] != '')and(rows[s] != ''):
             row = rows[s]
             column = columns[s]
             sheetlist[s] = int_sheets[s]
