@@ -30,13 +30,13 @@ function sheetformfunc(formlabel, i) {
     const values = ['一般席', '女性エリア席', 'カメコエリア席', '着席指定席'];
     createRadioformfunc(formlabel, formname, values,);
 }
-
+a_blocks = []
 function floorformfunc(formlabel, i) {
     var blocks = document.querySelectorAll('.blocks')
     for (let b = 0; b < blocks.length; b++) {
-        blocks[b] = blocks[b].value
+        a_blocks[b] = blocks[b].value
     }
-    console.log(blocks)
+    console.log(a_blocks[1])
 
     const formname = 'floor' + i;
 
