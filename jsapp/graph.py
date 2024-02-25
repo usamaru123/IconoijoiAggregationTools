@@ -96,19 +96,20 @@ def Arena_HeatMap(rows,columns,sheets):
                     int_sheets.append(1)
                 elif sheets[i] == 'カメコエリア席':
                     int_sheets.append(2)
-                    kamekolist[int_column][row] += 2
+                    kamekolist[int_column][row] += 1
                 elif sheets[i] == '女性エリア席':
                     int_sheets.append(3)
-                    joseilist[int_column][row] += 3
+                    joseilist[int_column][row] += 1
                 elif sheets[i] == '着席指定席':
                     int_sheets.append(4)
-                    chakusekilist[int_column][row] += 4
+                    chakusekilist[int_column][row] += 1
                 else :
                     int_sheets.append(0)
 
     for i in range(1,len(blocklist)+1):
         for j in alphabets:
-            points[i][j] = (ippanlist[i][j]+kamekolist[i][j]+joseilist[i][j]+chakusekilist[i][j])/blocklist[i][j]
+            d = {'a': ippanlist[i][j], 'b': kamekolist[i][j], 'c': joseilist[i][j], 'd': chakusekilist[i][j]}
+            points[i][j] = (ippanlist[i][j]+kamekolist[i][j]+joseilist[i][j]+chakusekilist[i][j])
 
     sheetdf = pd.DataFrame(points)
     sns.heatmap(sheetdf,square=True,cbar=False,cmap='nipy_spectral_r',linewidths=0.5,vmax=5.0,vmin=0,annot=True)
