@@ -69,8 +69,8 @@ def Arena_HeatMap(rows,columns,sheets):
     blocklist = listcreate()
     int_sheets = []
     int_columns = []
-    for i in (len(columns)):
-        int_columns.append(int(column[i]))
+    for i in range(len(columns)):
+        int_columns.append(int(columns[i]))
 
     for i in range(len(sheets)):
         if sheets[i] == '一般席':
