@@ -25,15 +25,16 @@ function ticketformfunc(formlabel, i) {
 }
 
 function sheetformfunc(formlabel, i) {
+
     const formname = 'sheet' + i;
     const values = ['一般席', '女性エリア席', 'カメコエリア席', '着席指定席'];
     createRadioformfunc(formlabel, formname, values,);
 }
 
 function floorformfunc(formlabel, i) {
+    blocks = document.querySelectorAll('.block')
     const formname = 'floor' + i;
-    const values = ['1階席', '2階席'];
-    createRadioformfunc(formlabel, formname, values, i);
+    createRadioformfunc(formlabel, formname, blocks, i);
 
     floorbuttons = document.querySelectorAll(`.floor${i}`);
     floorbuttons.forEach(function (floorbutton) {
