@@ -92,7 +92,7 @@ def Arena_HeatMap(rows,columns,sheets):
                 row = int_rows[i]
 
                 if sheets[i] == '一般席':
-                    ippanlist[int_column][row] += 1
+                    ippanlist[int_column][row] += 0.1
                     int_sheets.append(1)
                 elif sheets[i] == 'カメコエリア席':
                     int_sheets.append(2)
