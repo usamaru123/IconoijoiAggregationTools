@@ -10,7 +10,7 @@ class EventModel(models.Model):
    def __str__(self):
       return self.eventtitle
    
-class HallInfo(models.Model):
+class HallInfoModel(models.Model):
    hallname = models.CharField(max_length=100,primary_key=True)
    halltype = models.CharField(max_length=100)
    floor = models.IntegerField()
