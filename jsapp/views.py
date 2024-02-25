@@ -30,9 +30,12 @@ class AnswerCreate(CreateView):
     fields = ('venueid','matinee','evening','ticket1','sheet1','floor1','block1','number1','ticket2','sheet2','floor2','block2','number2',)
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs)
-       
+        answerObj =  MenberModel.objects.filter(venueid=self.kwargs['num']).all()
+        c_answer = answerObj.count()
+
+        ctx['count'] = c_answer
         ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
-        ctx['results'] = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
+        ctx['results'] = answerObj
         return  ctx
 
     def get_success_url(self):

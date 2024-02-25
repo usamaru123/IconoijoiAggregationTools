@@ -10,14 +10,20 @@ class EventModel(models.Model):
    def __str__(self):
       return self.eventtitle
    
+class HallTypeModel(models.Model):
+   halltype = models.charField(max_length=100)
+   blockname = models.charField(max_length=100)
+   
+   
 class HallInfoModel(models.Model):
    hallid = models.IntegerField(primary_key=True)
    hallname = models.CharField(max_length=100)
    hallprefecture = models.CharField(max_length=100)
+   halltype = models.ManyToManyField(HallTypeModel,default=1)
    def __str__(self):
       return self.hallname
    
-      
+
 
 class VenueModel(models.Model):
    venueid = models.IntegerField(primary_key=True)
