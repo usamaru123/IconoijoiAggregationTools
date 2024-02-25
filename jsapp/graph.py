@@ -92,7 +92,7 @@ def Arena_HeatMap(rows,columns,sheets):
                     int_sheets.append(1)
                 elif sheets[i] == 'カメコエリア席':
                     int_sheets.append(2)
-                    kamekolist[int_column][rows] += 1
+                    kamekolist[int_column][row] += 1
                 elif sheets[i] == '女性エリア席':
                     int_sheets.append(3)
                     joseilist[int_column][row] += 1
