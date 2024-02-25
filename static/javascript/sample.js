@@ -32,7 +32,7 @@ function sheetformfunc(formlabel, i) {
 }
 
 function floorformfunc(formlabel, i) {
-    var blocks = document.querySelectorAll('.block').value
+    var blocks = document.querySelectorAll('.blocks').value
     console.log(blocks)
     const formname = 'floor' + i;
 
