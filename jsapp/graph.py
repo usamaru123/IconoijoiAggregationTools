@@ -92,7 +92,7 @@ def Arena_HeatMap(rows,columns,sheets):
             int_column = int_columns[s]
             blocklist[row][int_column] = int_sheets[s]
     sheetdf = pd.DataFrame(blocklist)
-    sns.heatmap(sheetdf,square=True,cbar=True,cmap='brg',linewidths=0.5)
+    sns.heatmap(sheetdf,square=True,cbar=False,cmap='brg',linewidths=0.5)
     graph = Output_Graph()
     return graph
 
