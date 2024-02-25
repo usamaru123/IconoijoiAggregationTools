@@ -78,9 +78,10 @@ def Arena_HeatMap(rows,columns,sheets):
          
 
     for i in range(len(sheets)):
-        int_columns.append(int(columns[i] or 0))
-        int_column = int_columns[i]
-        row = rows[i]
+        if (sheets[i] != '')and(columns[i] != '')and(rows[i] != ''):
+            int_columns.append(int(columns[i] or 0))
+            int_column = int_columns[i]
+            row = rows[i]
 
         if sheets[i] == '一般席':
             ippanlist[int_column][row] += 1
