@@ -32,7 +32,7 @@ class AnswerCreate(CreateView):
         ctx = super().get_context_data(**kwargs)
         answerObj =  MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         venueObj = VenueModel.objects.get(venueid=self.kwargs['num'])
-        blocks = venueObj.hallinfo.halltype.blockname.all()
+        blocks = venueObj.hallinfo.halltype
         c_answer = answerObj.count()
         
 
