@@ -106,7 +106,7 @@ def Arena_HeatMap(rows,columns,sheets):
                 else :
                     int_sheets.append(0)
 
-    for i in range(len(blocklist)):
+    for i in range(1,len(blocklist)+1):
         for j in alphabets:
             points[i][j] = ippanlist[i][j]+kamekolist[i][j]+joseilist[i][j]+chakusekilist[i][j]
 
