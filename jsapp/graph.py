@@ -108,10 +108,7 @@ def Arena_HeatMap(rows,columns,sheets):
         for j in range(len(blocklist[i])):
             points[i][j] = ippanlist[i][j]+kamekolist[i][j]+joseilist[i][j]+chakusekilist[i][j]
 
-    for s in range(len(int_rows)):
-            int_column = int_columns[s]
-            blocklist[int_column][rows[s]] = int_sheets[s]
-    sheetdf = pd.DataFrame(blocklist)
+    sheetdf = pd.DataFrame(points)
     sns.heatmap(sheetdf,square=True,cbar=False,cmap='nipy_spectral_r',linewidths=0.5,vmax=5.0,vmin=0)
     plt.yticks(rotation=0)
     graph = Output_Graph()
