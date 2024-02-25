@@ -76,9 +76,10 @@ def Arena_HeatMap(rows,columns,sheets):
     int_columns = []
 
     for i in range(len(columns)):
-        int_columns.append(int(columns[i] or 0)) 
+         
 
     for i in range(len(sheets)):
+        int_columns.append(int(columns[i] or 0))
         int_column = int_columns[i]
         row = rows[i]
 
@@ -96,6 +97,8 @@ def Arena_HeatMap(rows,columns,sheets):
             chakusekilist[int_column][row] += 1
         else :
             int_sheets.append(0)
+
+    
 
     for s in range(len(sheets)):
         if (sheets[s] != '')and(columns[s] != '')and(rows[s] != ''):
