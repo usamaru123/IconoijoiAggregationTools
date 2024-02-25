@@ -30,7 +30,7 @@ class VenueModel(models.Model):
       return self.event.eventtitle + self.hallinfo.hallname 
 
 class MenberModel(models.Model):
-   venueid = models.IntegerField(blank=True)
+   venueid = models.ForeignKey(VenueModel,blank=True,on_delete=models.CASCADE,default=20240301)
    timedate = models.DateTimeField(default=timezone.now)
 
    matinee = models.BooleanField(default=False)
