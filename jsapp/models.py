@@ -2,10 +2,10 @@ from django.db import models
 from django.utils import timezone
 # Create your models here.
 class EventModel(models.Model):
-   eventid = models.IntegerField()
+   eventid = models.IntegerField(primary_key=True)
    group = models.CharField(max_length=10)
    eventtype = models.CharField(max_length=10)
-   eventtitle = models.CharField(max_length=100,primary_key=True)
+   eventtitle = models.CharField(max_length=100,)
 
    def __str__(self):
       return self.eventtitle
