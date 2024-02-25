@@ -32,7 +32,7 @@ class AnswerCreate(CreateView):
         ctx = super().get_context_data(**kwargs)
        
         ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
-        ctx['results'] = MenberModel.objects.filter(venueid=self.kwargs['num'],block1__isnull=False,).all()
+        ctx['results'] = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         return  ctx
 
     def get_success_url(self):
