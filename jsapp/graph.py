@@ -140,7 +140,7 @@ def Arena_HeatMap(rows,columns,sheets):
     plt.yticks(rotation=0)
     plt.legend(prop={'family':'MS Gothic'})
     sns.set(font='MS Gothic')
-    sns.title('tofu - 豆腐f')
+    plt.title("Height vs Weight")
     graph = Output_Graph()
     return graph
 
