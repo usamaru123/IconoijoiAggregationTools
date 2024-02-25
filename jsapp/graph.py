@@ -84,7 +84,7 @@ def Arena_HeatMap(rows,columns,sheets):
         if (sheets[s] != '')and(columns[s] != '')and(rows[s] != 0):
             row = rows[s]
             column = columns[s]
-            sheetlist[row[s]+column[s]] = sheets[s]
+            sheetlist[row[s]+column[s]] = int_sheets[s]
             
     sns.heatmap(sheetlist,square=True,cbar=False,)
     graph = Output_Graph()
