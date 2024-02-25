@@ -86,7 +86,6 @@ def Arena_HeatMap(rows,columns,sheets):
             row = rows[s]
             column = columns[s]
         #    sheetlist[row][column] = int_sheets[s]
-    sheetdf = {'a': {'x': 1, 'y': 2, 'z': 1}, 'b':  {'x': 1, 'y': 2, 'z': 1}, 'c':  {'x': 1, 'y': 2, 'z': 1}}
-    sns.heatmap(sheetdf,square=True,cbar=False,)
+    sheetdf = pd.DataFrame({'a': {'x': 1, 'y': 2, 'z': 1}, 'b':  {'x': 1, 'y': 2, 'z': 1}, 'c':  {'x': 1, 'y': 2, 'z': 1}},)
     graph = Output_Graph()
     return graph
