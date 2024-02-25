@@ -169,7 +169,7 @@ def sheetratio(sheets):
         sheet_count[sheetlist[i]] = valsheetlist[i]
 
     sheet_countdf = pd.DataFrame(sheet_count)
-    plt.pie(sheet_countdf,
+    plt.pie(valsheetlist,
             counterclock=False.as_integer_ratio,            
             )
     graph = Output_Graph()
