@@ -40,5 +40,6 @@ class MenberModel(models.Model):
    block2 = models.CharField(max_length=100,blank=True)
    number2 = models.CharField(max_length=100,blank=True)
 
-
+class HallInfoModel(models.Model):
+   hallid = models.IntegerField(primary_key=True)
       
