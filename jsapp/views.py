@@ -13,7 +13,7 @@ class AnswerList(ListView):
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs) 
         qs = MenberModel.objects.filter(venueid=self.kwargs['num'],floor1='1階席').all()
-        row = [row.block1 for row in qs]
+        row = [row.row1 for row in qs]
         number = [number.number1 for number in qs]
         sheet = [sheet.sheet1 for sheet in qs ]
 
@@ -27,7 +27,7 @@ class AnswerCreate(CreateView):
     template_name = 'create2.html'
     model = MenberModel
     
-    fields = ('venueid','matinee','evening','ticket1','sheet1','floor1','row1','number1','ticket2','sheet2','floor2','row2','number2',)
+    fields = ('venueid','matinee','evening','ticket1','sheet1','floor1','row1','block_r1','block_c1','number1','ticket2','sheet2','floor2','row2','block_r2','block_c2','number2',)
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs)
         answerObj =  MenberModel.objects.filter(venueid=self.kwargs['num']).all()
