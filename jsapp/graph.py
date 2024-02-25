@@ -59,7 +59,7 @@ def HeatMap(rows,numbers,sheets):
             number = int_numbers[s]
             sheetlist[row][number] = int_sheets[s]
             
-    cmap = sns.palplot(sns.hls_palette(24, l=0.5, s=1))
+    cmap = sns.palplot(sns.hls_palette(3, l=0.5, s=1))
     sns.heatmap(sheetlist,square=True,cbar=False,cmap=cmap)
     graph = Output_Graph()
     return graph
