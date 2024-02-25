@@ -111,7 +111,7 @@ def Arena_HeatMap(rows,columns,sheets):
             points[i][j] = ippanlist[i][j]+kamekolist[i][j]+joseilist[i][j]+chakusekilist[i][j]
 
     sheetdf = pd.DataFrame(points)
-    sns.heatmap(sheetdf,square=True,cbar=False,cmap='nipy_spectral_r',linewidths=0.5,vmax=5.0,vmin=0)
+    sns.heatmap(sheetdf,square=True,cbar=False,cmap='nipy_spectral_r',linewidths=0.5,vmax=5.0,vmin=0,annot=True)
     plt.yticks(rotation=0)
     graph = Output_Graph()
     return graph
