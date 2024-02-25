@@ -60,9 +60,7 @@ function positionformfunc(i) {
             <input pattern="[A-Za-z]{1}" class="col-3 block position" id="block${i}" placeholder="英字1文字"  oninput="inputChange(${i})">
             <input type="number" min="1" max="10" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字">
         <b style="font-size:1.5rem">列</b>      
-
-
-    </div>
+        </div>
         <div class="numberform">
             <input type="number" min="1" max="1000" class="col-3 number position" id="number${i}" name="number${i}"
             placeholder="半角数字">
@@ -81,7 +79,7 @@ function positionformfunc(i) {
         </div>
     `;
 
-    if (numberform.value == 'アリーナ席') {
+    if (floor.checked) {
         numberform.innerHTML = position1;
     }
     else {
