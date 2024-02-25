@@ -81,20 +81,19 @@ def Arena_HeatMap(rows,columns,sheets):
     for i in range(len(sheets)):
         if (sheets[i] != '')and(columns[i] != '')and(rows[i] != ''):
             int_column = int_columns[i]
-            row = rows[i]
-
+            
             if sheets[i] == '一般席':
-                ippanlist[int_column][row] += 1
+                ippanlist[int_column][rows[i]] += 1
                 int_sheets.append(1)
             elif sheets[i] == 'カメコエリア席':
                 int_sheets.append(2)
-                kamekolist[int_column][row] += 1
+                kamekolist[int_column][rows[i]] += 1
             elif sheets[i] == '女性エリア席':
                 int_sheets.append(3)
-                joseilist[int_column][row] += 1
+                joseilist[int_column][rows[i]] += 1
             elif sheets[i] == '着席指定席':
                 int_sheets.append(4)
-                chakusekilist[int_column][row] += 1
+                chakusekilist[int_column][rows[i]] += 1
             else :
                 int_sheets.append(0)
 
