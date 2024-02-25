@@ -27,7 +27,7 @@ class AnswerCreate(CreateView):
     template_name = 'create2.html'
     model = MenberModel
     
-    fields = ('venueid','matinee','evening','ticket1','sheet1','floor1','block1','number1','ticket2','sheet2','floor2','block2','number2',)
+    fields = ('venueid','matinee','evening','ticket1','sheet1','floor1','row1','number1','ticket2','sheet2','floor2','row2','number2',)
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs)
         answerObj =  MenberModel.objects.filter(venueid=self.kwargs['num']).all()

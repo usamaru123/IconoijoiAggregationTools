@@ -50,11 +50,15 @@ class MenberModel(models.Model):
    sheet1 = models.CharField(max_length=100,blank=True)
    floor1 = models.CharField(max_length=100,blank=True)
    row1 = models.CharField(max_length=100,blank=True)
+   block_r1 = models.CharField(max_length=100,blank=True)
+   block_c1 = models.CharField(max_length=100,blank=True)
    number1 = models.CharField(max_length=100,blank=True)
 
    ticket2 = models.CharField(max_length=100,blank=True)
    sheet2 = models.CharField(max_length=100,blank=True)
    floor2 = models.CharField(max_length=100,blank=True)
    row2 = models.CharField(max_length=100,blank=True)
+   block_r2 = models.CharField(max_length=100,blank=True)
+   block_c2 = models.CharField(max_length=100,blank=True)
    number2 = models.CharField(max_length=100,blank=True)
 
