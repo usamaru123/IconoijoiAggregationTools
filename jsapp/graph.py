@@ -112,13 +112,13 @@ def Arena_HeatMap(rows,columns,sheets):
             d = {'a': ippanlist[i][j], 'b': kamekolist[i][j], 'c': joseilist[i][j], 'd': chakusekilist[i][j]}
             points[i][j] = max(d.values())
             if max(d,key=d.get)=='a':
-                text[i][j] = '一般席'
+                text[i][j] = 'I'
             elif max(d,key=d.get)=='b':
-                text[i][j] = 'カメコエリア席'
+                text[i][j] = 'C'
             elif max(d,key=d.get)=='c':
-                text[i][j] = '女性エリア席'
+                text[i][j] = 'L'
             elif max(d,key=d.get)=='d':
-                text[i][j] = '着席指定席'
+                text[i][j] = 'R'
             else:
                 text[i][j] = ''
 
