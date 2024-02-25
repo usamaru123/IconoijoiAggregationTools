@@ -97,7 +97,7 @@ def Arena_HeatMap(rows,columns,sheets):
     return graph
 
 def listcreate():
-    alphabets = ['A','B','C','D','E','F','G','H','I','J']
+    alphabets = ['A','B','C','D','E','F','G']
     list = {}
 
     for block_r in alphabets:
