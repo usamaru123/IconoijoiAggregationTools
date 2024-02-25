@@ -59,6 +59,6 @@ def HeatMap(rows,numbers,sheets):
             number = int_numbers[s]
             sheetlist[row][number] = int_sheets[s]
     
-    sns.heatmap(sheetlist,square=True,cmap="coolwarm")
+    sns.heatmap(sheetlist,square=True,cmap="coolwarm",linewidths=0.5)
     graph = Output_Graph()
     return graph
