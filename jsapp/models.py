@@ -11,8 +11,8 @@ class EventModel(models.Model):
       return self.eventtitle
    
 class HallTypeModel(models.Model):
-   halltype = models.charField(max_length=100)
-   blockname = models.charField(max_length=100)
+   halltype = models.CharField(max_length=100)
+   blockname = models.CharField(max_length=100)
    
    
 class HallInfoModel(models.Model):
