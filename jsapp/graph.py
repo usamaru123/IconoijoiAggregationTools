@@ -114,7 +114,8 @@ def Arena_HeatMap(rows,columns,sheets):
             text[j][i] = max(d,key=d.get)
 
     sheetdf = pd.DataFrame(points)
-    sns.heatmap(sheetdf,square=True,cbar=False,cmap='nipy_spectral_r',linewidths=0.5,vmax=5.0,vmin=0,annot=text)
+    textdf = pd.DataFrame(text)
+    sns.heatmap(sheetdf,square=True,cbar=False,cmap='nipy_spectral_r',linewidths=0.5,vmax=5.0,vmin=0,annot=textdf)
     plt.yticks(rotation=0)
     graph = Output_Graph()
     return graph
