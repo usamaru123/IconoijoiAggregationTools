@@ -136,7 +136,7 @@ def Arena_HeatMap(rows,columns,sheets):
         fmt=""
     )
     plt.yticks(rotation=0)
-    plt.legend(prop={'family':'MS Gothic'})
+    sns.set(font='IPAexGothic')
     graph = Output_Graph()
     return graph
 
