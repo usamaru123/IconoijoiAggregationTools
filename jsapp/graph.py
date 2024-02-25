@@ -90,7 +90,7 @@ def Arena_HeatMap(rows,columns,sheets):
         if (sheets[s] != '')and(columns[s] != '')and(rows[s] != ''):
             row = rows[s]
             int_column = int_columns[s]
-            blocklist[row][int_column] = int_sheets[s]
+            blocklist[int_column][row] = int_sheets[s]
     sheetdf = pd.DataFrame(blocklist)
     sns.heatmap(sheetdf,square=True,cbar=False,cmap='nipy_spectral_r',linewidths=0.5,vmax=5.0,vmin=0)
     graph = Output_Graph()
@@ -100,9 +100,9 @@ def listcreate():
     alphabets = ['A','B','C','D','E','F','G']
     list = {}
 
-    for block_r in alphabets:
-        list[block_r] = {}
-        for i in range(1,10):
-            list[block_r][i] = 0
+    for i in range(1,10):
+        list[i] = {}
+        for block_r in alphabets:
+            list[i][block_r] = 0
     return list
     
