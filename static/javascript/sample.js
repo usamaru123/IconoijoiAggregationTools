@@ -32,8 +32,9 @@ function sheetformfunc(formlabel, i) {
 }
 
 function floorformfunc(formlabel, i) {
-    blocks = document.querySelectorAll('.block')
+    var blocks = document.querySelectorAll('.block').value
     const formname = 'floor' + i;
+
     createRadioformfunc(formlabel, formname, blocks, i);
 
     floorbuttons = document.querySelectorAll(`.floor${i}`);
