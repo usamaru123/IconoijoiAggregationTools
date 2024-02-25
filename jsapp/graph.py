@@ -81,7 +81,7 @@ def Arena_HeatMap(rows,columns,sheets):
     for i in range(len(sheets)):
         if (sheets[i] != '')and(columns[i] != '')and(rows[i] != ''):
             int_column = int_columns[i]
-            
+
             if sheets[i] == '一般席':
                 ippanlist[int_column][rows[i]] += 1
                 int_sheets.append(1)
@@ -101,9 +101,8 @@ def Arena_HeatMap(rows,columns,sheets):
 
     for s in range(len(sheets)):
         if (sheets[s] != '')and(columns[s] != '')and(rows[s] != ''):
-            row = rows[s]
             int_column = int_columns[s]
-            blocklist[int_column][row] = int_sheets[s]
+            blocklist[int_column][rows[s]] = int_sheets[s]
     sheetdf = pd.DataFrame(blocklist)
     sns.heatmap(sheetdf,square=True,cbar=False,cmap='nipy_spectral_r',linewidths=0.5,vmax=5.0,vmin=0)
     plt.yticks(rotation=0)
