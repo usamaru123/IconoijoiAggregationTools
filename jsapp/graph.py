@@ -66,7 +66,7 @@ def HeatMap1(rows,numbers,sheets):
 
 
 def Arena_HeatMap(rows,columns,sheets):
-    blocklist = {listcreate()}
+    blocklist = listcreate()
     int_sheets = []
     int_columns = []
     for i in (len(columns)):
