@@ -1,8 +1,6 @@
 const venue = '東京公演';
 const anktext = ' 配席アンケート'
-blocks.forEach(function (block) {
-    console.log(block + "a");
-});
+
 
 
 window.onload = function () {
@@ -17,7 +15,9 @@ window.onload = function () {
         sheetformfunc(sheetformlabel, num);
         floorformfunc(floorformlabel, num);
     }
-
+    blocks.forEach(function (block) {
+        console.log(block + "a");
+    });
 
 }
 
