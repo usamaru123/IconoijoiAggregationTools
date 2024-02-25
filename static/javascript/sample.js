@@ -69,7 +69,7 @@ function positionformfunc(i) {
 
     const position2 = `
         <div class="blockform">
-        <input pattern="[A-Na-n]{1}" class="col-3 block position" id="block_r${i}"  placeholder="英字1文字"  oninput="inputChange(${i})">
+        <input pattern="[A-N]{1}" class="col-3 block position" id="block_r${i}"  placeholder="英字1文字"  oninput="inputChange(${i})">
             <b style="font-size:1.5rem">ブロック</b>      
         </div>
         <div class="rowform">
