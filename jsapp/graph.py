@@ -111,7 +111,14 @@ def Arena_HeatMap(rows,columns,sheets):
         for j in alphabets:
             d = {'a': ippanlist[i][j], 'b': kamekolist[i][j], 'c': joseilist[i][j], 'd': chakusekilist[i][j]}
             points[i][j] = max(d.values())
-            text[i][j] = max(d,key=d.get)
+            if max(d,key=d.get)=='a':
+                text[i][j] = 'a'
+            elif max(d,key=d.get)=='b':
+                text[i][j] = 'a'
+            elif max(d,key=d.get)=='c':
+                text[i][j] = 'a'
+            else:
+                text[i][j] = 'b'
 
     sheetdf = pd.DataFrame(points)
     textdf = pd.DataFrame(text)
