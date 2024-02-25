@@ -75,7 +75,6 @@ def Arena_HeatMap(rows,columns,sheets):
     int_sheets = []
     int_columns = []
 
-    for i in range(len(columns)):
          
 
     for i in range(len(sheets)):
