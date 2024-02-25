@@ -127,8 +127,8 @@ function checkEvent(num) {
 };
 
 function inputChange(i) {
-    const blocktext = document.querySelector(`#block${i}`);
-    const largeblock = document.querySelector(`#largeblock${i}`);
+    const blocktext = document.querySelector(`#block_r${i}`);
+    const largeblock = document.querySelector(`#largeblock_r${i}`);
     const largeblocktext = blocktext.value.toUpperCase();
 
     largeblock.value = largeblocktext;
