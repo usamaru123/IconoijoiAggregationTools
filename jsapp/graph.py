@@ -68,6 +68,10 @@ def HeatMap1(rows,numbers,sheets):
 def Arena_HeatMap(rows,columns,sheets):
     blocklist = {listcreate()}
     int_sheets = []
+    int_columns = []
+    for i in (len(columns)):
+        int_columns.append(int(column[i]))
+
     for i in range(len(sheets)):
         if sheets[i] == '一般席':
             int_sheets.append(1)
@@ -85,8 +89,8 @@ def Arena_HeatMap(rows,columns,sheets):
     for s in range(len(sheets)):
         if (sheets[s] != '')and(columns[s] != '')and(rows[s] != ''):
             row = rows[s]
-            column = columns[s]
-            blocklist[row][column] = int_sheets[s]
+            int_column = int_columns[s]
+            blocklist[row][int_column] = int_sheets[s]
     sheetdf = pd.DataFrame(blocklist)
     sns.heatmap(sheetdf,square=True,cbar=False,)
     graph = Output_Graph()
@@ -94,12 +98,11 @@ def Arena_HeatMap(rows,columns,sheets):
 
 def listcreate():
     alphabets = ['A','B','C','D','E','F','G','H','I','J']
-    numbers = ['1','2','3','4','5','6']
     list = {}
 
     for block_r in alphabets:
         list[block_r] = {}
-        for number in numbers:
-            list[block_r][number] = 0
+        for i in range(1,10):
+            list[block_r][i] = 0
     return list
     
