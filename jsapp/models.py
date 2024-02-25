@@ -9,16 +9,7 @@ class EventModel(models.Model):
 
    def __str__(self):
       return self.eventtitle
-   
-class HallInfoModel(models.Model):
-   hallname = models.CharField(max_length=100,blank=True)
-   halltype = models.CharField(max_length=100,blank=True)
-   floor = models.IntegerField(blank=True)
-   blocks = models.IntegerField(blank=True)
-   rows = models.IntegerField(blank=True)
-   numbers = models.BigIntegerField(blank=True)
-   prefecture = models.CharField(max_length=100,blank=True)
-      
+
 class VenueModel(models.Model):
    venueid = models.IntegerField(primary_key=True)
    venuedate = models.DateField()
@@ -54,3 +45,13 @@ class MenberModel(models.Model):
    def __str__(self):
       return self.hallname
 
+   
+class HallInfoModel(models.Model):
+   hallname = models.CharField(max_length=100,blank=True,primary_key=True)
+   halltype = models.CharField(max_length=100,blank=True)
+   floor = models.IntegerField(blank=True)
+   blocks = models.IntegerField(blank=True)
+   rows = models.IntegerField(blank=True)
+   numbers = models.BigIntegerField(blank=True)
+   prefecture = models.CharField(max_length=100,blank=True)
+      
