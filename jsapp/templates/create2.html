@@ -7,7 +7,7 @@
     <p class="header_detail">会場：{{ title.venue }}</p>
     <p class="header_detail">会場：
         {% for block in blocks.all %}
-        {{ block.blockname }}
+        <input type="input" id="blocks" name="blocks" value=`{{ block }}`>
         {% endfor %}
     </p>
     {% endblock header %}

@@ -15,8 +15,6 @@ window.onload = function () {
         sheetformfunc(sheetformlabel, num);
         floorformfunc(floorformlabel, num);
     }
-    blocks = "{{ blocks | safe }}";
-    console.log(blocks + "a");
 }
 
 
