@@ -30,7 +30,6 @@ class VenueModel(models.Model):
       return self.event.eventtitle + self.hallinfo.hallname 
 
 class MenberModel(models.Model):
-   answerid = models.BigIntegerField(primary_key=True)
    venueid = models.ForeignKey(VenueModel,blank=True,on_delete=models.CASCADE,default=20240301)
    timedate = models.DateTimeField(default=timezone.now)
 
