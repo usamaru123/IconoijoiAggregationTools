@@ -79,7 +79,7 @@ function positionformfunc(i) {
         </div>
     `;
 
-    if (floor.checked) {
+    if (floor.checked == True) {
         numberform.innerHTML = position1;
     }
     else {
