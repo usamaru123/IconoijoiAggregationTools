@@ -31,11 +31,15 @@ class AnswerCreate(CreateView):
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs)
         answerObj =  MenberModel.objects.filter(venueid=self.kwargs['num']).all()
+        venueObj = VenueModel.objects.get(venueid=self.kwargs['num'])
+        blocks = venueObj.hallinfo.halltype
         c_answer = answerObj.count()
+        
 
         ctx['count'] = c_answer
-        ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
+        ctx['title'] = venueObj
         ctx['results'] = answerObj
+        ctx['blocks'] = blocks
         return  ctx
 
     def get_success_url(self):
