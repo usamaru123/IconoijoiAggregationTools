@@ -27,7 +27,7 @@ class VenueModel(models.Model):
 
 
    def __str__(self):
-      return self.hallinfo.hallname
+      return self.event.eventtitle + self.hallinfo.hallname 
 
 class MenberModel(models.Model):
    venueid = models.IntegerField(blank=True)
