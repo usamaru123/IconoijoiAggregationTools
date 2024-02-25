@@ -14,6 +14,8 @@ class HallInfoModel(models.Model):
    hallid = models.IntegerField(primary_key=True)
    hallname = models.CharField(max_length=100)
    hallprefecture = models.CharField(max_length=100)
+   def __str__(self):
+      return self.hallname
    
       
 
@@ -21,6 +23,7 @@ class VenueModel(models.Model):
    venueid = models.IntegerField(primary_key=True)
    venuedate = models.DateField()
    event = models.ForeignKey(EventModel,on_delete=models.CASCADE)
+   hallinfo = models.ForeignKey(HallInfoModel,on_delete=models.CASCADE,default=1)
    prefecture = models.CharField(max_length=10)
    venue = models.CharField(max_length=100)
 
