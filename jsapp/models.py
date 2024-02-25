@@ -41,10 +41,6 @@ class MenberModel(models.Model):
    number2 = models.CharField(max_length=100,blank=True)
 
 
-
-   def __str__(self):
-      return self.hallname
-
    
 class HallInfoModel(models.Model):
    hallname = models.CharField(max_length=100,blank=True,primary_key=True)
