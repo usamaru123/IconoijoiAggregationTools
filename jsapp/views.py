@@ -17,7 +17,7 @@ class AnswerList(ListView):
         column1 = [number.block_c1 for number in qs]
         sheet1 = [sheet.sheet1 for sheet in qs ]
         chart1 = graph.Arena_HeatMap(row1,column1,sheet1)
-        sheetratio1 = graph.Sheet_Ratio(sheet1)
+        sheetratio1 = graph.sheetratio(sheet1)
 
         ctx['chart1'] = chart1
         ctx['sheetratio1'] = sheetratio1
