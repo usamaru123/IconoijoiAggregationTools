@@ -69,8 +69,12 @@ function positionformfunc(i) {
 
     const position2 = `
         <div class="blockform">
-        <input type="number" min="1" max="1000" class="col-3 block position" id="block_r${i}" name="block${i}" placeholder="半角数字">
+        <input pattern="[A-Za-z]{1}" class="col-3 block position" id="block_r${i}" name="block_r${i}" placeholder="英字1文字"  oninput="inputChange(${i})">
             <b style="font-size:1.5rem">ブロック</b>      
+        </div>
+        <div class="rowform">
+        <input type="number" min="1" max="1000" class="col-3 number position" id="row${i}" name="row${i}" placeholder="半角数字">
+            <b style="font-size:1.5rem">列</b>      
         </div>
         <div class="numberform">
             <input type="number" min="1" max="1000" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字">
