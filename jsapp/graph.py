@@ -3,6 +3,7 @@ import base64
 from io import BytesIO
 import japanize_matplotlib
 import seaborn as sns
+import pandas as pd
 sns.set()
 
 def Output_Graph():
@@ -85,7 +86,7 @@ def Arena_HeatMap(rows,columns,sheets):
             row = rows[s]
             column = columns[s]
             sheetlist[row[s]+column[s]] = int_sheets[s]
-            
-    sns.heatmap(sheetlist,square=True,cbar=False,)
+    sheetdf = pd.DataFrame(sheetlist) 
+    sns.heatmap(sheetdf,square=True,cbar=False,)
     graph = Output_Graph()
     return graph
