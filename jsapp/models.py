@@ -22,10 +22,10 @@ class HallInfo(models.Model):
 class VenueModel(models.Model):
    venueid = models.IntegerField(primary_key=True)
    venuedate = models.DateField()
-   event = models.ForeignKey(EventModel,on_delete=models.RESTRICT)
+   event = models.ForeignKey(EventModel,on_delete=models.CASCADE)
    prefecture = models.CharField(max_length=10)
    venue = models.CharField(max_length=100)
-   hallinfo = models.ForeignKey(HallInfo,on_delete=models.RESTRICT)
+   hallinfo = models.ForeignKey(HallInfo,on_delete=models.CASCADE)
 
    def __str__(self):
       return self.venue
