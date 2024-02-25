@@ -168,7 +168,7 @@ def sheetratio(sheets):
     for i in range(len(sheetlist)):
         sheet_count[sheetlist[i]] = valsheetlist[i]
 
-    sheet_countdf = pd.DataFrame(sheet_count)
+    sheet_countdf = pd.DataFrame(sheet_count,index=[0])
     plt.pie(valsheetlist,
             counterclock=False.as_integer_ratio,            
             )
