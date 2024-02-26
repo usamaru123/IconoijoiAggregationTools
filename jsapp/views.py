@@ -22,7 +22,7 @@ class AnswerList(ListView):
        # sheetratio1 = graph.sheetratio(sheet1)
         evening = self.request.GET.get('evening')
         if evening:
-            qs = MenberModel.objects.filter(venueid=self.kwargs['num'],venue__icontains = evening).all()
+            qs = MenberModel.objects.filter(venueid=self.kwargs['num'],ticket1 = "").all()
         else:
             qs = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
 
