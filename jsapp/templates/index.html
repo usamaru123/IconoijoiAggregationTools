@@ -12,11 +12,14 @@
 
 {% block content %}
 <div>
+
     <div class="alert alert-light">
         <img class="container-fluid" src="data:image/png;base64,{{ chart1 | safe }}" alt="">
     </div>
     <div class="alert alert-light">
-        <img class="container-fluid" src="data:image/png?aaa;base64,{{ sheetratio1 | safe }}" alt="">
+        <script>
+            document.write('<img class="container-fluid" src="data:image/png;base64,{{ sheetratio1 | safe }}" alt="">')
+        </script>
     </div>
 
     <div class="alert alert-light">
