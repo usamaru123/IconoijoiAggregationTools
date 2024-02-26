@@ -20,9 +20,9 @@ class AnswerList(ListView):
        # sheet1 = [sheet.sheet1 for sheet in qs ]
        # chart1 = graph.Arena_HeatMap(row1,column1,sheet1)
        # sheetratio1 = graph.sheetratio(sheet1)
-        venue = self.request.GET.get('venue')
-        if venue:
-            qs = MenberModel.objects.filter(venueid=self.kwargs['num'],venue__icontains = venue).all()
+        evening = self.request.GET.get('evening')
+        if evening:
+            qs = MenberModel.objects.filter(venueid=self.kwargs['num'],venue__icontains = evening).all()
         else:
             qs = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
 

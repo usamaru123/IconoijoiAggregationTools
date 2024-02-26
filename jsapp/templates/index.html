@@ -21,11 +21,13 @@
     </script>
 </div>
 -->
+    <div class="alert alert-light">
+        <form action="" method="GET">
+            <input name=evening type="text" value="{{ request.GET.evening }}">
+            <input type="submit" value="検索する">
+        </form>
+    </div>
 
-    <form action="" method="GET">
-        <input name=venue type="text" value="{{ request.GET.venue }}">
-        <input type="submit" value="検索する">
-    </form>
 
     <div class="alert alert-light">
         <table class="table">
