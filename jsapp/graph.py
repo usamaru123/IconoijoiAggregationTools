@@ -4,7 +4,7 @@ from io import BytesIO
 import japanize_matplotlib
 import seaborn as sns
 import pandas as pd
-sns.set()
+sns.set(font="MS Gothic")
 
 def Output_Graph():
     buffer = BytesIO()
@@ -15,7 +15,7 @@ def Output_Graph():
     graph = graph.decode("utf-8")
     buffer.close()
     return graph
-    sns.set(font="AppleGothic")
+    
 
 def Plot_Graph(x,y):
  #   int_y = []
@@ -147,6 +147,7 @@ def Arena_HeatMap(rows,columns,sheets):
 def listcreate():
     alphabets = ['A','B','C','D','E','F','G']
     list = {}
+   
 
     for i in range(1,10):
         list[i] = {}
@@ -156,7 +157,8 @@ def listcreate():
     
 def sheetratio(sheets):
     sheetlist = ['一般席','カメコエリア席','女性エリア席','着席指定席']
-    sheet_count = {}
+    sheet_count = {} 
+    colorlist = ["pink", "yellow", "skyblue", "orange"]
 
     general = sheets.count('一般席')
     camera = sheets.count('カメコエリア席')
@@ -171,7 +173,10 @@ def sheetratio(sheets):
     sheet_countdf = pd.DataFrame(sheet_count,index=[0])
     plt.pie(valsheetlist,
             labels=sheetlist,
-            counterclock=False.as_integer_ratio,            
+            counterclock=True,
+            autopct="%1.1f%%",
+            colors=colorlist,          
             )
+    plt.legend(prop={'family':'MS Gothic'})
     graph = Output_Graph()
     return graph
