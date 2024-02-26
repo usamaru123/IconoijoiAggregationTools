@@ -10,6 +10,11 @@ from . import graph
 class AnswerList(ListView):
     template_name = 'index.html'
     model = EventModel
+
+    def get(self,request,*args,**kwargs):
+        request.session.clear()
+        return render(request,"index.html")
+
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs) 
         qs = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
