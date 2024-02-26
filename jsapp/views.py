@@ -21,7 +21,7 @@ class AnswerList(ListView):
        # chart1 = graph.Arena_HeatMap(row1,column1,sheet1)
        # sheetratio1 = graph.sheetratio(sheet1)
         evening = self.request.GET.get('evening')
-        qs = MenberModel.objects.get(venueid=self.kwargs['num'])
+        qs = MenberModel.objects.filter(venueid=self.kwargs['num'])
 
         #    qs = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
 
