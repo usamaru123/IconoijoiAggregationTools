@@ -11,22 +11,23 @@ class AnswerList(ListView):
     template_name = 'index.html'
     model = EventModel
 
-    def get(self,request,*args,**kwargs):
-        request.session.clear()
-        request.session.flush()
-        return render(request,"index.html")
+
 
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs) 
-        qs = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         row1 = [row.block_r1 for row in qs]
         column1 = [number.block_c1 for number in qs]
         sheet1 = [sheet.sheet1 for sheet in qs ]
        # chart1 = graph.Arena_HeatMap(row1,column1,sheet1)
-        sheetratio1 = graph.sheetratio(sheet1)
+       # sheetratio1 = graph.sheetratio(sheet1)
+        query = self.request.GET.get('query')
+        if query:
+            qs = MenberModel.objects.filter(venueid=self.kwargs['num'],sheet1_icontains =query).all()
+        else:
+            qs = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
 
        # ctx['chart1'] = chart1
-        ctx['sheetratio1'] = sheetratio1
+       # ctx['sheetratio1'] = sheetratio1
         ctx['results'] = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
         return  ctx

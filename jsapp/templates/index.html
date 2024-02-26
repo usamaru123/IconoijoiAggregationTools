@@ -12,15 +12,20 @@
 
 {% block content %}
 <div>
-
-    <div class="alert alert-light">
+    <!-- <div class="alert alert-light">
         <img class="container-fluid" src="data:image/png;base64,{{ chart1 | safe }}" alt="">
-    </div>
-    <div class="alert alert-light">
-        <script>
-            document.write('<img class="container-fluid" src="data:image/png?' + new Date().getTime() + ';base64,{{ sheetratio1 | safe }}" alt="">')
-        </script>
-    </div>
+</div>
+<div class="alert alert-light">
+    <script>
+        document.write('<img class="container-fluid" src="data:image/png?' + new Date().getTime() + ';base64,{{ sheetratio1 | safe }}" alt="">')
+    </script>
+</div>
+-->
+
+    <form action="" method="GET">
+        <input name=query type="text" value="{{ request.GET.query }}">
+        <input type="submit" value="検索する">
+    </form>
 
     <div class="alert alert-light">
         <table class="table">
