@@ -19,7 +19,7 @@ class AnswerList(ListView):
         chart1 = graph.Arena_HeatMap(row1,column1,sheet1)
         sheetratio1 = graph.sheetratio(sheet1)
 
-        ctx['chart1'] = chart1
+       # ctx['chart1'] = chart1
         ctx['sheetratio1'] = sheetratio1
         ctx['results'] = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
