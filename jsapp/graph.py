@@ -175,8 +175,9 @@ def sheetratio(sheets):
             labels=sheetlist,
             counterclock=True,
             autopct="%1.1f%%",
-            colors=colorlist,          
+            colors=colorlist,      
+            fontname="Meiryo",
             )
-    plt.legend(prop={'family':'MS Gothic'})
+
     graph = Output_Graph()
     return graph
