@@ -12,7 +12,7 @@ class AnswerList(ListView):
     model = EventModel
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs) 
-        qs = MenberModel.objects.filter(venueid=self.kwargs['num'],floor1='アリーナ席').all()
+        qs = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         row1 = [row.block_r1 for row in qs]
         column1 = [number.block_c1 for number in qs]
         sheet1 = [sheet.sheet1 for sheet in qs ]
