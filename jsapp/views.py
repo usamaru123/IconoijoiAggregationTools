@@ -13,6 +13,7 @@ class AnswerList(ListView):
 
     def get(self,request,*args,**kwargs):
         request.session.clear()
+        request.session.flush()
         return render(request,"index.html")
 
     def get_context_data(self,*args,**kwargs,):
