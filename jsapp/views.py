@@ -22,7 +22,7 @@ class AnswerList(ListView):
        # sheetratio1 = graph.sheetratio(sheet1)
         query = self.request.GET.get('query')
         if query:
-            qs = MenberModel.objects.filter(venueid=self.kwargs['num'],sheet1_icontains =query).all()
+            qs = MenberModel.objects.filter(venueid=self.kwargs['num'],sheet1__icontains = query).all()
         else:
             qs = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
 
