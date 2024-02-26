@@ -21,7 +21,7 @@ def Plot_Graph(x,y):
   #  for i in range(len(y)):
   #      int_y.append(int(y[i] or 0)
     plt.switch_backend("AGG")
-    plt.figure(figsize=(3,7))
+    plt.figure(figsize=(20,40))
     plt.plot(x,y)
     graph = Output_Graph()
     return graph
