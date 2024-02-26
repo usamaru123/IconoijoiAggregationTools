@@ -175,6 +175,6 @@ def sheetratio(sheets):
             autopct="%1.1f%%",
             colors=colorlist, 
             )
-    plt.figure(dpi=120)
+    plt.figure(dpi=200)
     graph = Output_Graph()
     return graph
