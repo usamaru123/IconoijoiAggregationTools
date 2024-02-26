@@ -4,7 +4,6 @@ from io import BytesIO
 import japanize_matplotlib
 import seaborn as sns
 import pandas as pd
-sns.set(font="MS Gothic")
 
 def Output_Graph():
     buffer = BytesIO()
@@ -12,7 +11,7 @@ def Output_Graph():
     buffer.seek(0)
     img = buffer.getvalue()
     graph  =base64.b64encode(img)
-    graph = graph.decode("utf-8")
+    graph = graph.decode('utf-8')
     buffer.close()
     return graph
     
@@ -24,7 +23,6 @@ def Plot_Graph(x,y):
     plt.switch_backend("AGG")
     plt.figure(figsize=(20,10))
     plt.plot(x,y)
-    plt.legend(prop={'family':'MS Gothic'})
     graph = Output_Graph()
     return graph
 
