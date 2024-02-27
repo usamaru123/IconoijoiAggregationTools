@@ -164,8 +164,10 @@ def sheetratio(sheets):
     sit = sheets.count('着席指定席')
     
     valsheetlist = [general,camera,lady,sit]
+
+    sheetdf = pd.DataFrame(data=valsheetlist,columns=sheetlist)
     
-    fig = go.Figure()
+    fig = px.pie(sheetdf,values='sheetlist')
     fig.add_trace(go.Pie(
         hole = .4,
         labels=sheetlist,
