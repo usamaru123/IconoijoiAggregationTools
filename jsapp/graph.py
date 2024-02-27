@@ -170,7 +170,8 @@ def sheetratio(sheets):
         go.Pie(
             labels=sheetlist,
             values=valsheetlist,
-            title = 'aaa'
+            title = 'aaa',
+            marker={'colors':['#CB4335','#2E86C1','#64C12E']},
                ),
     )
 
