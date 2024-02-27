@@ -99,11 +99,20 @@ def Arena_HeatMap(rows,columns,sheets):
                 '着':chakusekilist[column][row]
                 }
             
-            maxsheet = max(comparesheet.values())
-            if maxsheet == 0:
+            maxsheetval = max(comparesheet.values())
+            maxsheet = max(comparesheet,key=comparesheet.get)
+            if maxsheetval == 0:
                 points[column][row] = 0
             else:
-                points[column][row] = maxsheet
+                if maxsheet == '一般席':
+                    points[column][row] = 1
+                if maxsheet == 'カメコエリア席':
+                    points[column][row] = 2
+                if maxsheet == '女性エリア席':
+                    points[column][row] = 3
+                if maxsheet == '着席指定席':
+                    points[column][row] = 4
+                    
 
     sheetdf = pd.DataFrame(points)
     textdf = pd.DataFrame(text)
