@@ -168,15 +168,7 @@ def sheetratio(sheets):
     sheetdf = pd.DataFrame(data=valsheetlist)
     
     fig = px.pie(sheetdf)
-    fig.add_trace(go.Pie(
-        hole = .4,
-        labels=sheetlist,
-        values=valsheetlist,
-        textinfo='percent+label',
-        marker=dict(line=dict(
-            color = '#ffffff',
-            width = 2
-        ))))
+
     
     fig.update_layout(
         showlegend = False,
