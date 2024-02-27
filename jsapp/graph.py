@@ -133,6 +133,11 @@ def Arena_HeatMap(rows,columns,sheets):
         zmin = -2, 
         )
     )
+    fig.add_annotation(
+        x=textdf.columns,
+        y=textdf.index,
+        text=np.array(textdf),
+    )
     
     fig.update_layout(
         legend=dict(
@@ -173,10 +178,6 @@ def sheetratio(sheets):
             color = '#ffffff',
             width = 2
         ))))
-    
-    fig.add_annotation(text="注釈付きヒートマップ",
-                  xref="paper", yref="paper",
-                  x=0.5, y=-0.15, showarrow=False)
     
     fig.update_layout(
         showlegend = False,
