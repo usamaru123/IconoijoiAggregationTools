@@ -160,12 +160,12 @@ def sheetratio(sheets):
     fig = go.Figure()
     fig.add_trace(go.Pie(
         hole = .4,
-        color_discrete_sequence=px.colors.sequential.Plasma,
+        color_discrete_sequence=["red", "green", "blue"]),
         labels=sheetlist,
         values=valsheetlist,
         textinfo='percent+label',
         marker=dict(line=dict(
-              color = '#ffffff',
+            color = '#ffffff',
             width = 2
         ))))
     
