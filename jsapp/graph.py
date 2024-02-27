@@ -165,13 +165,13 @@ def sheetratio(sheets):
     
     valsheetlist = [general,camera,lady,sit]
 
-    fig = go.Figure()
+    fig = go.Figure(layout={'title':'Nested Pie Chart'})
     fig.add_trace(
         go.Pie(
             labels=sheetlist,
             values=valsheetlist,
             title = 'aaa',
-            marker={'colors':['#CB4335','#2E86C1','#64C12E']},
+            marker={'colors':['#98DBC6','#5BC8AC','#E6D72A','#F18D9E']},
                ),
     )
 
