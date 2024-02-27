@@ -54,7 +54,7 @@ def Arena_HeatMap(rows,columns,sheets):
 
     alphabets = ['A','B','C','D','E','F','G']
 
-    sheetlist = [[0 for h in range(10)] for w in range(10)]
+    sheetlist = [[0 for h in range(6)] for w in range(10)]
 
     
     for i in range(len(sheets)):
@@ -89,7 +89,10 @@ def Arena_HeatMap(rows,columns,sheets):
     textdf = pd.DataFrame(text)
     
     fig = go.Figure()
-    fig.add_trace(go.Heatmap(z=sheetlist))
+    fig.add_trace(go.Heatmap(
+        x=alphabets,
+        z=sheetlist,
+        ))
     graph = fig.to_html(include_plotlyjs=False)
     return graph
  
