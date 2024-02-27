@@ -108,8 +108,10 @@ def Arena_HeatMap(rows,columns,sheets):
                 if maxsheet == '着':
                     points[column][row] = 2
 
-        text = textlist.values()
-
+        text1 = textlist.values()
+        text2 = []
+        for i in range(text1):
+            text2.append(text1[i].values())
 
 
     sheetdf = pd.DataFrame(points)
