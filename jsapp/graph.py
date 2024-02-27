@@ -113,11 +113,10 @@ def Arena_HeatMap(rows,columns,sheets):
     sheetdf = pd.DataFrame(points)
     textdf = pd.DataFrame(textlist)
     anotext = textdf.values.tolist()
-    
 
     x=sheetdf.columns.tolist(),
     y=sheetdf.index.tolist(),
-    z=sheetdf.tolist(),
+    z=sheetdf.values.tolist(),
     colorscale='Spectral',
     zmax = 2,
     zmin = -2, 
