@@ -41,8 +41,8 @@ def HeatMap(rows,numbers,sheets):
 
 
 def Arena_HeatMap(rows,columns,sheets):
-    rowlist = []
-    columnlist = ['A','B','C','D','E','F','G']
+    columnlist = []
+    rowlist = ['A','B','C','D','E','F','G']
 
     for i in range(0,10):
         rowlist.append(i+1)
