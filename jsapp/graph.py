@@ -165,7 +165,7 @@ def sheetratio(sheets):
     
     valsheetlist = [general,camera,lady,sit]
 
-    fig = go.Figure(layout={'title':'Nested Pie Chart'})
+    fig = go.Figure()
     fig.add_trace(
         go.Pie(
             labels=sheetlist,
