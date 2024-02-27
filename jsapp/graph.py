@@ -140,7 +140,9 @@ def Arena_HeatMap(rows,columns,sheets):
         margin_l=0,
         margin_r=0
     )
-    fig.update_yaxes(autorange='reversed')
+    fig.update_xaxes(gridcolor='black')
+    fig.update_yaxes(autorange='reversed',gridcolor='black')
+
     graph = fig.to_html(include_plotlyjs=False)
     return graph
  
