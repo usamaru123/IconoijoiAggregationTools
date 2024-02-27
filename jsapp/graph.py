@@ -81,28 +81,28 @@ def Arena_HeatMap(rows,columns,sheets):
 
             
             if sheets[i] == '一般席':
-                ippanlist[int_column][row] += 1
+                ippanlist[row][int_column] += 1
             elif sheets[i] == 'カメコエリア席':
-                kamekolist[int_column][row] += 3
+                kamekolist[row][int_column] += 3
             elif sheets[i] == '女性エリア席':
-                joseilist[int_column][row] += 5
+                joseilist[row][int_column] += 5
             elif sheets[i] == '着席指定席':
-                chakusekilist[int_column][row] += 7
+                chakusekilist[row][int_column] += 7
 
     #すべてのリストでフィールドを参照し，一番集計数が多い座席種別をblocksheetに代入する
-    for int_column in range(len(int_columns)):
+    for column in range(len(int_columns)):
         for row in range(len(int_rows)):
             comparesheet = {
-                '一':ippanlist[int_column][row],
-                'カ':kamekolist[int_column][row],
-                '女':joseilist[int_column][row],
-                '着':chakusekilist[int_column][row]
+                '一':ippanlist[row][column],
+                'カ':kamekolist[row][column],
+                '女':joseilist[row][column],
+                '着':chakusekilist[row][column]
                 }
             maxsheet = max(comparesheet.values())
             if maxsheet == 0:
-                points[int_column][row] = 0
+                points[row][column] = 0
             else:
-                points[int_column][row] = maxsheet
+                points[row][column] = maxsheet
 
     sheetdf = pd.DataFrame(points)
     textdf = pd.DataFrame(text)
