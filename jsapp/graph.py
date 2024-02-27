@@ -163,6 +163,7 @@ def sheetratio(sheets):
             xanchor='center',
             yanchor='bottom',
             orientation='h',
+            y=0.9
         ),
         margin_l=0,
         margin_r=0
