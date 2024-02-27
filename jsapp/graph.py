@@ -165,9 +165,9 @@ def sheetratio(sheets):
     
     valsheetlist = [general,camera,lady,sit]
 
-    sheetdf = pd.DataFrame(data=valsheetlist)
+    sheetdf = pd.DataFrame(data=valsheetlist,columns="a")
     
-    fig = px.pie(sheetdf)
+    fig = px.pie(sheetdf,values="a")
 
     
     fig.update_layout(
