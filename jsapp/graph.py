@@ -99,7 +99,7 @@ def Arena_HeatMap(rows,columns,sheets):
         for int_row in int_rows:
             comparesheet = {'一':ippan,'カ':kameko,'女':josei,'着':chakuseki}
             maxsheet = max(comparesheet.values())
-            blocklist[int_row][int_column] = maxsheet
+            blocklist[int_column][int_row] = maxsheet
 
     sheetdf = pd.DataFrame(blocklist)
     textdf = pd.DataFrame(text)
