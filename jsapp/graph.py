@@ -159,7 +159,6 @@ def sheetratio(sheets):
     fig = go.Figure()
     fig.add_trace(go.Pie(
         labels=sheetlist,values=valsheetlist,
-        values='sheetlist+percent',
 
         ))
     
