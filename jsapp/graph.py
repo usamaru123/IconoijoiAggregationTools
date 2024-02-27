@@ -41,45 +41,59 @@ def HeatMap(rows,numbers,sheets):
 
 
 def Arena_HeatMap(rows,columns,sheets):
-    blocklist = listcreate()
-    ippanlist = listcreate()
-    kamekolist = listcreate()
-    joseilist = listcreate()
-    chakusekilist = listcreate()
-    points = listcreate()
-    text = listcreate()
+    rowlist = []
+    columnlist = ['A','B','C','D','E','F','G']
+
+    for i in range(0,10):
+        rowlist[i] = i+1
+
+    blocklist = listcreate(rowlist,columnlist)
+    ippanlist = listcreate(rowlist,columnlist)
+    kamekolist = listcreate(rowlist,columnlist)
+    joseilist = listcreate(rowlist,columnlist)
+    chakusekilist = listcreate(rowlist,columnlist)
+    points = listcreate(rowlist,columnlist)
+    text = listcreate(rowlist,columnlist)
+    
+
+    ippan = ippanlist[int_column][row]
+    kameko = kamekolist[int_column][row]
+    josei = joseilist[int_column][row]
+    chakuseki = chakusekilist[int_column][row]
 
     int_sheets = []
     int_columns = []
     int_rows = []
 
-    alphabets = ['A','B','C','D','E','F','G']
 
     sheetlist = [[0 for h in range(6)] for w in range(10)]
 
-    
+    #列と行をint型に変換
     for i in range(len(sheets)):
         if (sheets[i] != '')and(columns[i] != '')and(rows[i] != ''):        
                 int_columns.append(int(columns[i] or 0))
                 int_rows.append(rows[i])
 
-
+    #座席種別ごとのリストに集計
     for i in range(len(int_rows)):
         if (sheets[i] != '')and(columns[i] != '')and(rows[i] != ''):
                 int_column = int_columns[i]
                 row = int_rows[i]
 
                 if sheets[i] == '一般席':
-                    ippanlist[int_column][row] += 1
+                    ippan += 1
                 elif sheets[i] == 'カメコエリア席':
-                    kamekolist[int_column][row] += 1
+                    kameko += 1
                 elif sheets[i] == '女性エリア席':
-                    joseilist[int_column][row] += 1
+                    josei += 1
                 elif sheets[i] == '着席指定席':
-                    chakusekilist[int_column][row] += 1
+                    chakuseki += 1
 
-
-
+    #すべてのリストでフィールドを参照し，一番集計数が多い座席種別をblocksheetに代入する
+    for int_column in range(len(int_columns)):
+        for row in range(len()):
+            comparesheet = [ippan,kameko,josei,chakuseki]
+            maxsheet = max(comparesheet.values())
 
     sheetdf = pd.DataFrame(ippanlist)
     textdf = pd.DataFrame(text)
@@ -89,21 +103,20 @@ def Arena_HeatMap(rows,columns,sheets):
         x=sheetdf.columns,
         y=sheetdf.index,
         z=np.array(sheetdf),
-        colorscale='Spectral'
+        colorscale='Spectral',
         ))
     graph = fig.to_html(include_plotlyjs=False)
     return graph
  
 
-def listcreate():
-    alphabets = ['A','B','C','D','E','F','G']
+def listcreate(rowlist,columnlist):
     list = {}
    
 
-    for i in range(1,10):
-        list[i] = {}
-        for block_r in alphabets:
-            list[i][block_r] = 0
+    for block_c in rowlist:
+        list[block_c] = {}
+        for block_r in columnlist:
+            list[block_c][block_r] = 0
     return list
     
 def sheetratio(sheets):
