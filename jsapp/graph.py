@@ -117,7 +117,7 @@ def Arena_HeatMap(rows,columns,sheets):
     x=sheetdf.columns.tolist()
     y=sheetdf.index.tolist()
     z=sheetdf.values.tolist()
-    colorscale='Spectral'
+    
     zmax = 2
     zmin = -2
 
@@ -127,6 +127,7 @@ def Arena_HeatMap(rows,columns,sheets):
         x=x,
         y=y,
         annotation_text=anotext,
+        colorscale='Spectral',
         )
     
     fig.update_layout(
