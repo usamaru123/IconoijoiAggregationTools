@@ -22,14 +22,14 @@ class AnswerList(ListView):
         time = self.request.GET.get('time')
         if time == 'matinee':
             qs = qs1
-            block_r = block_r1
-            block_c = block_c1
-            sheet = sheet1
+            block_r = 'block_r1'
+            block_c = 'block_c1'
+            sheet = 'sheet1'
         elif time == 'evening':
             qs = qs2
-            block_r = block_r2
-            block_c = block_c2
-            sheet = sheet2
+            block_r = 'block_r2'
+            block_c = 'block_c2'
+            sheet = 'sheet2'
         else:
             qs = qsmodel
 
