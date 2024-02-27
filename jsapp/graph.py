@@ -167,7 +167,7 @@ def sheetratio(sheets):
 
     sheetdf = pd.DataFrame(data=valsheetlist,columns="a")
     
-    fig = px.pie(sheetdf,values="a")
+    fig = px.pie(sheetdf,values=["a"])
 
     
     fig.update_layout(
