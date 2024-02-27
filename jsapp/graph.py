@@ -167,7 +167,7 @@ def sheetratio(sheets):
         marker=dict(line=dict(
             color = '#ffffff',
             width = 2
-        ))))
+        )))
     
     fig.update_layout(
         showlegend = False,
