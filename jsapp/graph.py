@@ -123,7 +123,7 @@ def Arena_HeatMap(rows,columns,sheets):
     zmin = -2, 
 
 
-    fig = ff.create_annotated_heatmap(z,x=x,y=y,)
+    fig = ff.create_annotated_heatmap(z,x=rowlist,y=columnlist,)
     
     fig.update_layout(
         legend=dict(
