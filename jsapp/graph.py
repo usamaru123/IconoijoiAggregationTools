@@ -128,7 +128,7 @@ def Arena_HeatMap(rows,columns,sheets):
         annotation_text=anotext,
         colorscale='Picnic',   
         zmax = 2,
-        zmin = -2.
+        zmin = -2,
         font_colors = 'black',
         )
     
