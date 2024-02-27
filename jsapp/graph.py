@@ -1,4 +1,4 @@
-import plotly.express as px
+import plotly.graph_objects as go
 import pandas as pd
 
 
@@ -132,7 +132,8 @@ def sheetratio(sheets):
         sheet_count[sheetlist[i]] = valsheetlist[i]
 
     sheet_countdf = pd.DataFrame(sheet_count,index=[0])
-    fig = px.pie(sheet_countdf)
+    fig = go.Figure()
+    fig.add_trace(go.Pie(labels=sheetlist,values=valsheetlist))
     fig.show()
     graph = fig.to_html(include_plotlyjs=False)
     return graph
