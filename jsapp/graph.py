@@ -95,8 +95,8 @@ def Arena_HeatMap(rows,columns,sheets):
                 chakuseki += 1
 
     #すべてのリストでフィールドを参照し，一番集計数が多い座席種別をblocksheetに代入する
-    for int_column in range(len(int_columns)):
-        for row in range(len()):
+    for int_columns in range(len(int_columns)):
+        for rows in range(len()):
             comparesheet = [ippan,kameko,josei,chakuseki]
             maxsheet = max(comparesheet.values())
 
