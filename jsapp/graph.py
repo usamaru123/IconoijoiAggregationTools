@@ -55,7 +55,7 @@ def Arena_HeatMap(rows,columns,sheets):
     joseilist = listcreate(rowlist,columnlist)
     chakusekilist = listcreate(rowlist,columnlist)
     points = listcreate(rowlist,columnlist)
-    textlist = listcreate(rowlist,columnlist)
+    textlist = [[0 for row in range(len(rowlist))] for column in range(len(columnlist))]
 
     int_sheets = []
     int_columns = []
@@ -128,16 +128,13 @@ def Arena_HeatMap(rows,columns,sheets):
         x=sheetdf.columns,
         y=sheetdf.index,
         z=np.array(sheetdf),
+        annotation_text=textlist,
         colorscale='Spectral',
         zmax = 2,
         zmin = -2, 
         )
     )
-    fig.add_annotation(
-        x=textdf.columns,
-        y=textdf.index,
-        text=np.array(sheetdf),
-    )
+
     
     fig.update_layout(
         legend=dict(
