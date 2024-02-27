@@ -1,4 +1,4 @@
-import plotly.figure_factory as ff
+import plotly.express as px
 import pandas as pd
 
 
@@ -132,5 +132,7 @@ def sheetratio(sheets):
         sheet_count[sheetlist[i]] = valsheetlist[i]
 
     sheet_countdf = pd.DataFrame(sheet_count,index=[0])
-    graph = ff.create_gantt(sheet_countdf)
+    fig = px.pie(sheet_countdf)
+    fig.show()
+    graph = plot(fig,output_type='div',include_plotlyjs=False)
     return graph
