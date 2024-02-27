@@ -132,11 +132,5 @@ def sheetratio(sheets):
         sheet_count[sheetlist[i]] = valsheetlist[i]
 
     sheet_countdf = pd.DataFrame(sheet_count,index=[0])
-    plt.pie(valsheetlist,
-            labels=sheetlist,
-            counterclock=True,
-            autopct="%1.1f%%",
-            colors=colorlist, 
-            )
-    graph = Output_Graph()
+    graph = ff.create_gantt(sheet_countdf)
     return graph
