@@ -54,17 +54,18 @@ def Arena_HeatMap(rows,columns,sheets):
     chakusekilist = listcreate(rowlist,columnlist)
     points = listcreate(rowlist,columnlist)
     text = listcreate(rowlist,columnlist)
-    
-
-    ippan = ippanlist[int_column][row]
-    kameko = kamekolist[int_column][row]
-    josei = joseilist[int_column][row]
-    chakuseki = chakusekilist[int_column][row]
 
     int_sheets = []
     int_columns = []
     int_rows = []
 
+    int_column = int_columns[i]
+    row = int_rows[i]
+
+    ippan = ippanlist[int_column][row]
+    kameko = kamekolist[int_column][row]
+    josei = joseilist[int_column][row]
+    chakuseki = chakusekilist[int_column][row]
 
     sheetlist = [[0 for h in range(6)] for w in range(10)]
 
@@ -74,11 +75,12 @@ def Arena_HeatMap(rows,columns,sheets):
                 int_columns.append(int(columns[i] or 0))
                 int_rows.append(rows[i])
 
+    
+
     #座席種別ごとのリストに集計
     for i in range(len(int_rows)):
         if (sheets[i] != '')and(columns[i] != '')and(rows[i] != ''):
-                int_column = int_columns[i]
-                row = int_rows[i]
+
 
                 if sheets[i] == '一般席':
                     ippan += 1
