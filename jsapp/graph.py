@@ -181,7 +181,7 @@ def sheetratio(sheets):
     )
 
     fig.update_traces(
-        textinfo='label'
+        textinfo='label+value+percent'
 
     )
     graph = fig.to_html(include_plotlyjs=False)
