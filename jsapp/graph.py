@@ -90,7 +90,7 @@ def Arena_HeatMap(rows,columns,sheets):
     
     fig = go.Figure()
     fig.add_trace(go.Heatmap(
-        x=alphabets,
+        x=sheetdf.columns,
         z=sheetlist,
         ))
     graph = fig.to_html(include_plotlyjs=False)
