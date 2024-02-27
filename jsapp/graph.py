@@ -174,6 +174,10 @@ def sheetratio(sheets):
             width = 2
         ))))
     
+    fig.add_annotation(text="注釈付きヒートマップ",
+                  xref="paper", yref="paper",
+                  x=0.5, y=-0.15, showarrow=False)
+    
     fig.update_layout(
         showlegend = False,
         margin=dict(
