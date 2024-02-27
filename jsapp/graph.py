@@ -158,6 +158,14 @@ def sheetratio(sheets):
     
     fig = go.Figure()
     fig.add_trace(go.Pie(labels=sheetlist,values=valsheetlist))
-    fig.show()
+    fig.update_layout(
+        legend=dict(
+            xanchor='left',
+            yanchor='bottom',
+            orientation='h'
+        ),
+        margin_l=0,
+        margin_r=0
+    )
     graph = fig.to_html(include_plotlyjs=False)
     return graph
