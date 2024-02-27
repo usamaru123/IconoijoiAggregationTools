@@ -45,7 +45,7 @@ def Arena_HeatMap(rows,columns,sheets):
     rowlist = ['A','B','C','D','E','F','G']
 
     for i in range(0,10):
-        rowlist.append(i+1)
+        columnlist.append(i+1)
 
     blocklist = listcreate(rowlist,columnlist)
     ippanlist = listcreate(rowlist,columnlist)
@@ -119,7 +119,7 @@ def Arena_HeatMap(rows,columns,sheets):
  
 
 def listcreate(rowlist,columnlist):
-    list = {column:{row:0 for row in rowlist} for column in range(1,9)}
+    list = {column:{row:0 for row in rowlist} for column in columnlist}
     return list
     
 def sheetratio(sheets):
