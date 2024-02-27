@@ -123,7 +123,7 @@ def Arena_HeatMap(rows,columns,sheets):
     zmin = -2, 
 
 
-    fig = ff.create_annotated_heatmap(z,x=x,y=y,annotation_text=anotext,)
+    fig = ff.create_annotated_heatmap(z,x=x,y=y,)
     
     fig.update_layout(
         legend=dict(
@@ -132,7 +132,7 @@ def Arena_HeatMap(rows,columns,sheets):
             orientation='h'
         ),
         margin_l=0,
-        margin_r=x
+        margin_r=0
     )
     graph = fig.to_html(include_plotlyjs=False)
     return graph
