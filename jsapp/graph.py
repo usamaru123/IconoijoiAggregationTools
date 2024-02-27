@@ -112,13 +112,14 @@ def Arena_HeatMap(rows,columns,sheets):
 
     sheetdf = pd.DataFrame(points)
     textdf = pd.DataFrame(textlist)
+    text = textdf.values.tolist()
     
     fig = go.Figure()
     fig.add_trace(go.Heatmap(
         x=sheetdf.columns,
         y=sheetdf.index,
         z=np.array(sheetdf),
-        z_text=textdf.values.tolist(),
+        z_text=text
         colorscale='Spectral',
         zmax = 2,
         zmin = -2, 
