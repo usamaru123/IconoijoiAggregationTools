@@ -167,7 +167,7 @@ def sheetratio(sheets):
 
     fig = go.Figure()
     fig.add_trace(
-        go.Pie(labels=colorlist,values=sheetlist)
+        go.Pie(labels=sheetlist,values=valsheetlist)
     )
 
     fig.update_layout(
