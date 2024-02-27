@@ -124,8 +124,8 @@ def Arena_HeatMap(rows,columns,sheets):
         y=sheetdf.index,
         z=np.array(sheetdf),
         colorscale='Spectral',
-        cmax = 2
-        cmin = -2        
+        cmax = 2,
+        cmin = -2, 
         ))
     graph = fig.to_html(include_plotlyjs=False)
     return graph
