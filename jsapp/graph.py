@@ -171,7 +171,7 @@ def sheetratio(sheets):
             'sheetlist':pd.Series(sheetlist),
               }),
     
-    fig = px.pie(sheetdf,values="value",names="sheetlist")
+    fig = px.pie(sheetdf,values="value",)
 
     
     fig.update_layout(
