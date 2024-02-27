@@ -33,8 +33,7 @@ def HeatMap1(rows,numbers,sheets):
             number = int_numbers[s]
             sheetlist[row][number] = int_sheets[s]
             
-    sns.heatmap(sheetlist,square=True,cbar=False,)
-    graph = Output_Graph()
+
     return graph
 
 
@@ -100,6 +99,7 @@ def Arena_HeatMap(rows,columns,sheets):
     sheetdf = pd.DataFrame(points)
     textdf = pd.DataFrame(text)
     
+    graph = ff.create_gantt(sheetdf)
 
 
     return graph
