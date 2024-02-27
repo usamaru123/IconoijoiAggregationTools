@@ -167,7 +167,7 @@ def sheetratio(sheets):
 
     sheetdf = pd.DataFrame(data=valsheetlist,index=sheetlist)
     
-    fig = px.pie(sheetdf,values='sheetlist')
+    fig = px.pie(sheetdf,values=0)
     fig.add_trace(go.Pie(
         hole = .4,
         labels=sheetlist,
