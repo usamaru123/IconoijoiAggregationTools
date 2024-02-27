@@ -102,7 +102,7 @@ def Arena_HeatMap(rows,columns,sheets):
     textdf = pd.DataFrame(text)
     
     fig = go.Figure()
-    fig.add_trace(go.Heatmap(ippanlist))    
+    fig.add_trace(go.Heatmap(sheetdf))    
     graph = fig.to_html(include_plotlyjs=False)
     return graph
  
