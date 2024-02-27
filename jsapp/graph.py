@@ -54,7 +54,7 @@ def Arena_HeatMap(rows,columns,sheets):
     joseilist = listcreate(rowlist,columnlist)
     chakusekilist = listcreate(rowlist,columnlist)
     points = listcreate(rowlist,columnlist)
-    text = listcreate(rowlist,columnlist)
+    textlist = listcreate(rowlist,columnlist)
 
     int_sheets = []
     int_columns = []
@@ -104,6 +104,7 @@ def Arena_HeatMap(rows,columns,sheets):
             maxsheet = max(comparesheet,key=comparesheet.get)
             if maxsheetval == 0:
                 points[column][row] = 0
+                textlist[column][row] = ''
             else:
                 if maxsheet == '一':
                     points[column][row] = -2
@@ -114,16 +115,19 @@ def Arena_HeatMap(rows,columns,sheets):
                 if maxsheet == '着':
                     points[column][row] = 2
 
+                textlist[column][row] = maxsheet
+
 
 
     sheetdf = pd.DataFrame(points)
-    textdf = pd.DataFrame(text)
+    textdf = pd.DataFrame(textlist)
     
     fig = go.Figure()
     fig.add_trace(go.Heatmap(
         x=sheetdf.columns,
         y=sheetdf.index,
         z=np.array(sheetdf),
+        annotation_text = np.array(textdf),
         colorscale='Spectral',
         zmax = 2,
         zmin = -2, 
