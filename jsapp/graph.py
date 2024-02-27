@@ -119,7 +119,7 @@ def Arena_HeatMap(rows,columns,sheets):
  
 
 def listcreate(rowlist,columnlist):
-    list = {row:{column:0 for column in columnlist} for row in rowlist}
+    {column:{row:0 for row in rowlist} for column in columnlist}
     return list
     
 def sheetratio(sheets):
