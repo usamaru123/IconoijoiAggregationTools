@@ -45,7 +45,7 @@ def Arena_HeatMap(rows,columns,sheets):
     columnlist = ['A','B','C','D','E','F','G']
 
     for i in range(0,10):
-        rowlist[i] = i+1
+        rowlist.append(i+1)
 
     blocklist = listcreate(rowlist,columnlist)
     ippanlist = listcreate(rowlist,columnlist)
