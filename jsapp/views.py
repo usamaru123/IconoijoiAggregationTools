@@ -18,8 +18,8 @@ class AnswerList(ListView):
         qsmodel = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         qs1 = qsmodel.exclude(ticket1__exact="")
         qs2 = qsmodel.exclude(ticket2__exact="")
-        
         time = self.request.GET.get('time')
+        
         if time == 'matinee':
             qs = qs1
             row = [row.block_r1 for row in qs]
