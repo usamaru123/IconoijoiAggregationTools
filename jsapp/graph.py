@@ -136,10 +136,12 @@ def Arena_HeatMap(rows,columns,sheets):
             xanchor='left',
             yanchor='bottom',
             orientation='h',
-            font_color = "blue",
+            
         ),
         margin_l=0,
-        margin_r=0
+        margin_r=0,
+        font_color = "blue",
+        font_family='MS Gothic'
     )
     fig.update_xaxes(gridcolor='black',linecolor='black')
     fig.update_yaxes(autorange='reversed',gridcolor='black',linecolor='black')
