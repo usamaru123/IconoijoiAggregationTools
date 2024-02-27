@@ -35,7 +35,7 @@ class AnswerList(ListView):
 
         row = [row.block_r for row in qs]
         column = [number.block_c for number in qs]
-        sheet = [sheet.sheet1 for sheet in qs ]
+        sheet = [sheet.sheet for sheet in qs ]
 
         chart = graph.sheetratio(sheet)
         heatmap = graph.Arena_HeatMap(row,column,sheet)
