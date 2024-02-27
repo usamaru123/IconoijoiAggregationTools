@@ -95,11 +95,19 @@ def Arena_HeatMap(rows,columns,sheets):
                 chakuseki += 7
 
     #すべてのリストでフィールドを参照し，一番集計数が多い座席種別をblocksheetに代入する
-    for i in range(len(int_columns)):
-        for j in range(len(int_rows)):
-            comparesheet = {'一':ippan,'カ':kameko,'女':josei,'着':chakuseki}
+    for int_column in range(len(int_columns)):
+        for row in range(len(int_rows)):
+            comparesheet = {
+                '一':ippanlist[int_column][row],
+                'カ':kamekolist[int_column][row],
+                '女':joseilist[int_column][row],
+                '着':chakusekilist[int_column][row]
+                }
             maxsheet = max(comparesheet.values())
-            points[1]['A'] = maxsheet
+            if maxsheet == 0:
+                points[int_column][row] = 0
+            else:
+                points[int_column][row] = maxsheet
 
     sheetdf = pd.DataFrame(points)
     textdf = pd.DataFrame(text)
