@@ -127,9 +127,9 @@ def listcreate(rowlist,columnlist):
     list = {}
    
 
-    for block_c in rowlist:
+    for block_r in rowlist:
         list[block_c] = {}
-        for block_r in columnlist:
+        for block_c in columnlist:
             list[block_c][block_r] = 0
     return list
     
