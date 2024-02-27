@@ -128,7 +128,6 @@ def Arena_HeatMap(rows,columns,sheets):
         zmin = -2, 
         ))
     fig.update_layout(
-        autosize=True,
         margin_l=0,
         margin_r=0
     )
