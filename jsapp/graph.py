@@ -83,23 +83,7 @@ def Arena_HeatMap(rows,columns,sheets):
                 else :
                     int_sheets.append(0)
 
-    for i in range(1,len(blocklist)+1):
-        for j in alphabets:
-            d = {'a': ippanlist[i][j], 'b': kamekolist[i][j], 'c': joseilist[i][j], 'd': chakusekilist[i][j]}
-            points[i][j] = max(d.values())
-            sheetlist[i][j] = max(d.values())
-            if max(d.values()) == 0:
-                text[i][j] = ''
-            elif max(d,key=d.get)=='a':
-                text[i][j] = 'I'
-            elif max(d,key=d.get)=='b':
-                text[i][j] = 'C'
-            elif max(d,key=d.get)=='c':
-                text[i][j] = 'L'
-            elif max(d,key=d.get)=='d':
-                text[i][j] = 'R'
-            else:
-                text[i][j] = ''
+
 
     sheetdf = pd.DataFrame(points)
     textdf = pd.DataFrame(text)
