@@ -166,7 +166,7 @@ def sheetratio(sheets):
     valsheetlist = [general,camera,lady,sit]
 
     
-    fig = go.pie(labels=colorlist,values=valsheetlist)
+    fig = go.Pie(labels=colorlist,values=valsheetlist)
 
     fig.update_layout(
         showlegend = False,
