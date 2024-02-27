@@ -128,6 +128,11 @@ def Arena_HeatMap(rows,columns,sheets):
         zmin = -2, 
         ))
     fig.update_layout(
+        legend=dict(
+            xanchor='left',
+            yanchor='bottom',
+            orientation='h'
+        ),
         margin_l=0,
         margin_r=0
     )
