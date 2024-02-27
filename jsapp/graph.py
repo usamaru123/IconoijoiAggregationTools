@@ -1,4 +1,5 @@
 import plotly.graph_objects as go
+import plotly.figure_factory as ff
 import plotly.express as px
 import pandas as pd
 import numpy as np
@@ -122,8 +123,7 @@ def Arena_HeatMap(rows,columns,sheets):
     sheetdf = pd.DataFrame(points)
     textdf = pd.DataFrame(textlist)
     
-    fig = go.Figure()
-    fig.add_trace(go.Heatmap(
+    fig = ff.create_annotated_heatmap(
         x=sheetdf.columns,
         y=sheetdf.index,
         z=np.array(sheetdf),
@@ -131,7 +131,8 @@ def Arena_HeatMap(rows,columns,sheets):
         colorscale='Spectral',
         zmax = 2,
         zmin = -2, 
-        ))
+        )
+    
     fig.update_layout(
         legend=dict(
             xanchor='left',
