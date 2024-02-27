@@ -72,11 +72,11 @@ def Arena_HeatMap(rows,columns,sheets):
                 if sheets[i] == '一般席':
                     ippanlist[int_column][row] += 1
                 elif sheets[i] == 'カメコエリア席':
-                    ippanlist[int_column][row] += 2
+                    kamekolist[int_column][row] += 1
                 elif sheets[i] == '女性エリア席':
-                    ippanlist[int_column][row] += 3
+                    joseilist[int_column][row] += 1
                 elif sheets[i] == '着席指定席':
-                    ippanlist[int_column][row] += 4
+                    chakusekilist[int_column][row] += 1
 
 
 
@@ -88,7 +88,8 @@ def Arena_HeatMap(rows,columns,sheets):
     fig.add_trace(go.Heatmap(
         x=sheetdf.columns,
         y=sheetdf.index,
-        z=np.array(sheetdf)
+        z=np.array(sheetdf),
+        colorscale='Spectral'
         ))
     graph = fig.to_html(include_plotlyjs=False)
     return graph
