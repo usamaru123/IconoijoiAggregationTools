@@ -1,30 +1,4 @@
-import matplotlib.pyplot as plt
-import base64
-from io import BytesIO
-import japanize_matplotlib
-import seaborn as sns
-import pandas as pd
-
-def Output_Graph():
-    buffer = BytesIO()
-    plt.savefig(buffer,format="png")
-    buffer.seek(0)
-    img = buffer.getvalue()
-    graph  =base64.b64encode(img)
-    graph = graph.decode('utf-8')
-    buffer.close()
-    return graph
-    
-
-def Plot_Graph(x,y):
- #   int_y = []
-  #  for i in range(len(y)):
-  #      int_y.append(int(y[i] or 0)
-    plt.switch_backend("AGG")
-    plt.figure(figsize=(20,40))
-    plt.plot(x,y)
-    graph = Output_Graph()
-    return graph
+import plotly.figure_factory as ff
 
 
 def HeatMap1(rows,numbers,sheets):
@@ -125,21 +99,9 @@ def Arena_HeatMap(rows,columns,sheets):
 
     sheetdf = pd.DataFrame(points)
     textdf = pd.DataFrame(text)
-    sns.heatmap(
-        sheetdf,
-        square=True,
-        cbar=False,
-        cmap='nipy_spectral_r',
-        linewidths=0.5,
-        vmax=5.0,
-        vmin=0,
-        annot=textdf,
-        fmt=""
-    )
-    plt.yticks(rotation=0)
-    plt.legend(prop={'family':'MS Gothic'})
-    plt.title("STAGE")
-    graph = Output_Graph()
+    
+
+
     return graph
 
 def listcreate():
