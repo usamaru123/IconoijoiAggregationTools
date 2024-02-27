@@ -1,5 +1,6 @@
 import plotly.graph_objects as go
 import pandas as pd
+import numpy as np
 
 
 def HeatMap(rows,numbers,sheets):
@@ -91,7 +92,8 @@ def Arena_HeatMap(rows,columns,sheets):
     fig = go.Figure()
     fig.add_trace(go.Heatmap(
         x=sheetdf.columns,
-        z=sheetlist,
+        y=sheetdf.index
+        z=np.array(sheetdf)
         ))
     graph = fig.to_html(include_plotlyjs=False)
     return graph
