@@ -104,13 +104,13 @@ def Arena_HeatMap(rows,columns,sheets):
             if maxsheetval == 0:
                 points[column][row] = 0
             else:
-                if maxsheet == '一般席':
+                if maxsheet == '一':
                     points[column][row] = 1
-                if maxsheet == 'カメコエリア席':
+                if maxsheet == 'カ':
                     points[column][row] = 2
-                if maxsheet == '女性エリア席':
+                if maxsheet == '女':
                     points[column][row] = 3
-                if maxsheet == '着席指定席':
+                if maxsheet == '着':
                     points[column][row] = 4
                 else:
                     points[column][row] = 10
