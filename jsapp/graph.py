@@ -118,8 +118,7 @@ def Arena_HeatMap(rows,columns,sheets):
     y=sheetdf.index.tolist()
     z=sheetdf.values.tolist()
     
-    zmax = 2
-    zmin = -2
+
 
 
     fig = ff.create_annotated_heatmap(
@@ -127,7 +126,9 @@ def Arena_HeatMap(rows,columns,sheets):
         x=x,
         y=y,
         annotation_text=anotext,
-        colorscale='Picnic',
+        colorscale='Picnic',   
+        zmax = 2,
+        zmin = -2
         )
     
     fig.update_layout(
