@@ -128,10 +128,6 @@ def sheetratio(sheets):
     
     valsheetlist = [general,camera,lady,sit]
     
-    for i in range(len(sheetlist)):
-        sheet_count[sheetlist[i]] = valsheetlist[i]
-
-    sheet_countdf = pd.DataFrame(sheet_count,index=[0])
     fig = go.Figure()
     fig.add_trace(go.Pie(labels=sheetlist,values=valsheetlist))
     fig.show()
