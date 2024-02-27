@@ -25,7 +25,6 @@ def HeatMap(rows,numbers,sheets):
             int_sheets.append(4)
         else :
             int_sheets.append(0)
-        print (sheets[i])
 
     sheetlist = [[0 for h in range(1,max(int_numbers)+2)] for w in range(1,max(int_rows)+2)]
     for s in range(len(int_sheets)):
