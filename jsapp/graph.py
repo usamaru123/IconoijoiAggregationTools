@@ -83,11 +83,11 @@ def Arena_HeatMap(rows,columns,sheets):
             if sheets[i] == '一般席':
                 ippanlist[column][row] += 1
             elif sheets[i] == 'カメコエリア席':
-                kamekolist[column][row] += 3
+                kamekolist[column][row] += 1
             elif sheets[i] == '女性エリア席':
-                joseilist[column][row] += 5
+                joseilist[column][row] += 1
             elif sheets[i] == '着席指定席':
-                chakusekilist[column][row] += 7
+                chakusekilist[column][row] += 1
 
     #すべてのリストでフィールドを参照し，一番集計数が多い座席種別をblocksheetに代入する
     for column in int_columns:
@@ -113,7 +113,7 @@ def Arena_HeatMap(rows,columns,sheets):
                 if maxsheet == '着':
                     points[column][row] = 4
                 else:
-                    points[column][row] = x
+                    points[column][row] = 5
 
 
     sheetdf = pd.DataFrame(points)
