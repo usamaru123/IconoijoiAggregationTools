@@ -128,7 +128,6 @@ def Arena_HeatMap(rows,columns,sheets):
         y=y,
         annotation_text=anotext,
         colorscale='Spectral',
-        yaxis=dict(autorange='reversed')
         )
     
     fig.update_layout(
@@ -140,6 +139,7 @@ def Arena_HeatMap(rows,columns,sheets):
         margin_l=0,
         margin_r=0
     )
+    fig.update_yaxes(autorange='reversed')
     graph = fig.to_html(include_plotlyjs=False)
     return graph
  
