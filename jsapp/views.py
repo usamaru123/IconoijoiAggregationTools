@@ -25,7 +25,7 @@ class AnswerList(ListView):
 
         
 
-       # ctx['chart1'] = chart1
+        ctx['chart1'] = chart1
        # ctx['sheetratio1'] = sheetratio1
         ctx['results'] = qs
         ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
