@@ -158,7 +158,8 @@ def sheetratio(sheets):
     
     fig = go.Figure()
     fig.add_trace(go.Pie(
-        colorscale='Oryel',
+        hole = .4,
+        color_discrete_sequence= go.colors.sequential.RdBu,
         labels=sheetlist,
         values=valsheetlist,
         textinfo='percent+label',
