@@ -19,13 +19,14 @@ class AnswerList(ListView):
         row1 = [row.block_r1 for row in qs]
         column1 = [number.block_c1 for number in qs]
         sheet1 = [sheet.sheet1 for sheet in qs ]
-        chart1 = graph.sheetratio(sheet1)
-       # sheetratio1 = graph.sheetratio(sheet1)
+        chart = graph.sheetratio(sheet1)
+        heatmap = graph.HeatMap(sheet1)
         evening = self.request.GET.get('evening')
 
         
 
-        ctx['chart1'] = chart1
+        ctx['chart'] = chart
+        ctx['heatmap'] = heatmap
        # ctx['sheetratio1'] = sheetratio1
         ctx['results'] = qs
         ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])

@@ -2,7 +2,7 @@ import plotly.graph_objects as go
 import pandas as pd
 
 
-def HeatMap1(rows,numbers,sheets):
+def HeatMap(rows,numbers,sheets):
     int_rows = []
     int_numbers = []
     int_sheets = []
@@ -33,8 +33,10 @@ def HeatMap1(rows,numbers,sheets):
             row = int_rows[s]
             number = int_numbers[s]
             sheetlist[row][number] = int_sheets[s]
-            
 
+    fig = go.Figure()
+    fig.add_trace(go.Heatmap(sheetlist))    
+    graph = fig.to_html(include_plotlyjs=False)
     return graph
 
 
