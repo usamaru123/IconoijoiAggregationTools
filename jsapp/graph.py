@@ -54,6 +54,8 @@ def Arena_HeatMap(rows,columns,sheets):
 
     alphabets = ['A','B','C','D','E','F','G']
 
+    sheetlist = [[0 for h in range(10)] for w in range(10)]
+
     
     for i in range(len(sheets)):
         if (sheets[i] != '')and(columns[i] != '')and(rows[i] != ''):        
@@ -85,6 +87,7 @@ def Arena_HeatMap(rows,columns,sheets):
         for j in alphabets:
             d = {'a': ippanlist[i][j], 'b': kamekolist[i][j], 'c': joseilist[i][j], 'd': chakusekilist[i][j]}
             points[i][j] = max(d.values())
+            sheetlist[i][j] = max(d.values())
             if max(d.values()) == 0:
                 text[i][j] = ''
             elif max(d,key=d.get)=='a':
@@ -102,10 +105,7 @@ def Arena_HeatMap(rows,columns,sheets):
     textdf = pd.DataFrame(text)
     
     fig = go.Figure()
-    fig.add_trace(go.Heatmap(                    
-                    z=[[1, 100, 3],
-                    [100, 1, 20],
-                    [60, 50, 1]]))
+    fig.add_trace(go.Heatmap(z=sheetlist))
     graph = fig.to_html(include_plotlyjs=False)
     return graph
  
