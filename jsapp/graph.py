@@ -134,5 +134,5 @@ def sheetratio(sheets):
     sheet_countdf = pd.DataFrame(sheet_count,index=[0])
     fig = px.pie(sheet_countdf)
     fig.show()
-    graph = plot(fig,output_type='div',include_plotlyjs=False)
+    graph = fig.to_html(include_plotlyjs=False)
     return graph
