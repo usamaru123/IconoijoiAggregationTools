@@ -15,15 +15,21 @@ class AnswerList(ListView):
 
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs)
-        qs = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
+        qsmodel = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
+        qs1 = qs.exclude(ticket1__exact="")
+        qs2 = qs.exclude(ticket2__exact="")
+        
+        chart = graph.sheetratio(sheet)
+        heatmap = graph.Arena_HeatMap(row,column,sheet)
+        time = self.request.GET.get('time')
+        if time == 'matinee':
+            qs = qs1
+        else:
+            qs = qs2
+
         row = [row.block_r1 for row in qs]
         column = [number.block_c1 for number in qs]
         sheet = [sheet.sheet1 for sheet in qs ]
-        chart = graph.sheetratio(sheet)
-        heatmap = graph.Arena_HeatMap(row,column,sheet)
-        evening = self.request.GET.get('evening')
-
-        
 
         ctx['chart'] = chart
         ctx['heatmap'] = heatmap
