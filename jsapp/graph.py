@@ -173,12 +173,16 @@ def sheetratio(sheets):
     
     fig = px.pie(labels=sheetlist,values=valsheetlist)
 
-    
     fig.update_layout(
         showlegend = False,
         margin=dict(
             t=5,b=5,l=0,r=0
         ),
+    )
+
+    fig.update_traces(
+        textinfo='labels'
+        
     )
     graph = fig.to_html(include_plotlyjs=False)
     return graph
