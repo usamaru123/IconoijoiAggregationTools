@@ -159,11 +159,7 @@ def sheetratio(sheets):
     fig = go.Figure()
     fig.add_trace(go.Pie(labels=sheetlist,values=valsheetlist))
     fig.update_layout(
-        legend=dict(
-            xanchor='center',
-            yanchor='bottom',
-            orientation='h',
-        ),
+        showlegend = False,
         margin=dict(
             t=5,b=5,l=0,r=0
         ),
