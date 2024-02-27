@@ -162,8 +162,8 @@ def sheetratio(sheets):
         legend=dict(
             xanchor='center',
             yanchor='bottom',
-            orientation='h'
-            y=
+            orientation='h',
+            y=1.02
         ),
         margin_l=0,
         margin_r=0
