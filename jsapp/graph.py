@@ -167,7 +167,7 @@ def sheetratio(sheets):
 
     fig = go.Figure()
     fig.add_trace(
-        go.Pie(labels=colorlist,values=valsheetlist)
+        go.Pie(labels=colorlist,values=sheetlist)
     )
 
     fig.update_layout(
@@ -178,7 +178,7 @@ def sheetratio(sheets):
     )
 
     fig.update_traces(
-        textinfo='label+value+percent'
+        textinfo='label+percent'
 
     )
     graph = fig.to_html(include_plotlyjs=False)
