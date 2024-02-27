@@ -135,7 +135,8 @@ def Arena_HeatMap(rows,columns,sheets):
         legend=dict(
             xanchor='left',
             yanchor='bottom',
-            orientation='h'
+            orientation='h',
+            font_color = "blue",
         ),
         margin_l=0,
         margin_r=0
