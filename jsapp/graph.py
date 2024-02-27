@@ -128,6 +128,7 @@ def Arena_HeatMap(rows,columns,sheets):
         y=y,
         annotation_text=anotext,
         colorscale='Spectral',
+        yaxis=dict(autorange='reversed')
         )
     
     fig.update_layout(
