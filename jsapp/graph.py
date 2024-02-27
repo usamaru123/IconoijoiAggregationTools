@@ -76,18 +76,18 @@ def Arena_HeatMap(rows,columns,sheets):
     #座席種別ごとのリストに集計
     for i in range(len(int_rows)):
 
-            int_column = int_columns[i]
+            column = int_columns[i]
             row = int_rows[i]
 
             
             if sheets[i] == '一般席':
-                ippanlist[row][int_column] += 1
+                ippanlist[row][column] += 1
             elif sheets[i] == 'カメコエリア席':
-                kamekolist[row][int_column] += 3
+                kamekolist[row][column] += 3
             elif sheets[i] == '女性エリア席':
-                joseilist[row][int_column] += 5
+                joseilist[row][column] += 5
             elif sheets[i] == '着席指定席':
-                chakusekilist[row][int_column] += 7
+                chakusekilist[row][column] += 7
 
     #すべてのリストでフィールドを参照し，一番集計数が多い座席種別をblocksheetに代入する
     for column in range(len(int_columns)):
