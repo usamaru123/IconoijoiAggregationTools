@@ -123,7 +123,8 @@ def Arena_HeatMap(rows,columns,sheets):
     sheetdf = pd.DataFrame(points)
     textdf = pd.DataFrame(textlist)
     
-    fig = ff.create_annotated_heatmap(
+    fig = go.Figure()
+    fig.add_trace(go.heatmap(
         x=sheetdf.columns,
         y=sheetdf.index,
         z=np.array(sheetdf),
@@ -131,6 +132,7 @@ def Arena_HeatMap(rows,columns,sheets):
         zmax = 2,
         zmin = -2, 
         )
+    )
     
     fig.update_layout(
         legend=dict(
