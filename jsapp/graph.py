@@ -136,7 +136,7 @@ def Arena_HeatMap(rows,columns,sheets):
     fig.add_annotation(
         x=textdf.columns,
         y=textdf.index,
-        text=np.array(textdf),
+        text=np.array(sheetdf),
     )
     
     fig.update_layout(
