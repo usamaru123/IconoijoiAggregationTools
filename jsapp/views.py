@@ -19,7 +19,7 @@ class AnswerList(ListView):
         row1 = [row.block_r1 for row in qs]
         column1 = [number.block_c1 for number in qs]
         sheet1 = [sheet.sheet1 for sheet in qs ]
-        chart1 = graph.Arena_HeatMap(row1,column1,sheet1)
+        chart1 = graph.sheetratio(sheet1)
        # sheetratio1 = graph.sheetratio(sheet1)
         evening = self.request.GET.get('evening')
 
