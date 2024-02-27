@@ -101,10 +101,11 @@ def Arena_HeatMap(rows,columns,sheets):
     sheetdf = pd.DataFrame(points)
     textdf = pd.DataFrame(text)
     
-    graph = ff.create_gantt(sheetdf)
-
-
+    fig = go.Figure()
+    fig.add_trace(go.Heatmap(ippanlist))    
+    graph = fig.to_html(include_plotlyjs=False)
     return graph
+ 
 
 def listcreate():
     alphabets = ['A','B','C','D','E','F','G']
