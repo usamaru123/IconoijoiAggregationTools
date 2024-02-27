@@ -124,7 +124,7 @@ def Arena_HeatMap(rows,columns,sheets):
     textdf = pd.DataFrame(textlist)
     
     fig = go.Figure()
-    fig.add_trace(go.heatmap(
+    fig.add_trace(go.Heatmap(
         x=sheetdf.columns,
         y=sheetdf.index,
         z=np.array(sheetdf),
