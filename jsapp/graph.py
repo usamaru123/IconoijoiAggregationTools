@@ -129,7 +129,7 @@ def Arena_HeatMap(rows,columns,sheets):
         colorscale='Picnic',   
         zmax = 2,
         zmin = -2.
-        textcolor = 'black',
+        font_colors = 'black',
         )
     
     fig.update_layout(
