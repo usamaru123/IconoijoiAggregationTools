@@ -22,20 +22,21 @@ class AnswerList(ListView):
         time = self.request.GET.get('time')
         if time == 'matinee':
             qs = qs1
-            block_r = 'block_r1'
-            block_c = 'block_c1'
-            sheet = 'sheet1'
+            row = [row.block_r1 for row in qs]
+            column = [number.block_c1 for number in qs]
+            sheet = [sheet.sheet1 for sheet in qs ]
+            
         elif time == 'evening':
             qs = qs2
-            block_r = 'block_r2'
-            block_c = 'block_c2'
-            sheet = 'sheet2'
+            row = [row.block_r2 for row in qs]
+            column = [number.block_c2 for number in qs]
+            sheet = [sheet.sheet2 for sheet in qs ]
+
         else:
             qs = qsmodel
-
-        row = [row.block_r for row in qs]
-        column = [number.block_c for number in qs]
-        sheet = [sheet.sheet for sheet in qs ]
+            row = [row.block_r1 for row in qs]
+            column = [number.block_c1 for number in qs]
+            sheet = [sheet.sheet1 for sheet in qs ]
 
         chart = graph.sheetratio(sheet)
         heatmap = graph.Arena_HeatMap(row,column,sheet)
