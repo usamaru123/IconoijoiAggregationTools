@@ -177,4 +177,4 @@ def sheetratio(sheets):
         ),
     )
     graph = fig.to_html(include_plotlyjs=False)
-    return x
+    return graph
