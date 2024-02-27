@@ -22,7 +22,7 @@ class AnswerList(ListView):
        # sheetratio1 = graph.sheetratio(sheet1)
         evening = self.request.GET.get('evening')
 
-        qs = MenberModel.objects.filter(venueid=self.kwargs['num']).all().exclude(number1="")
+        qs = MenberModel.objects.filter(venueid=self.kwargs['num']).all().exclude(number1__exact="")
 
        # ctx['chart1'] = chart1
        # ctx['sheetratio1'] = sheetratio1
