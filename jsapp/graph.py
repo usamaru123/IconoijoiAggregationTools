@@ -126,7 +126,7 @@ def Arena_HeatMap(rows,columns,sheets):
         z,
         x=x,
         y=y,
-        anotation_text=anotext,
+        annotation_text=anotext,
         )
     
     fig.update_layout(
