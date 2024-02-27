@@ -112,8 +112,7 @@ def Arena_HeatMap(rows,columns,sheets):
                     points[column][row] = 3
                 if maxsheet == '着':
                     points[column][row] = 4
-                else:
-                    points[column][row] = 5
+
 
 
     sheetdf = pd.DataFrame(points)
