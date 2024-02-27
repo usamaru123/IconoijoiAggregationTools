@@ -55,17 +55,12 @@ def Arena_HeatMap(rows,columns,sheets):
     joseilist = listcreate(rowlist,columnlist)
     chakusekilist = listcreate(rowlist,columnlist)
     points = listcreate(rowlist,columnlist)
-    textlist = [[0 for row in range(len(rowlist))] for column in range(len(columnlist))]
+    textlist = listcreate(rowlist,columnlist)
 
     int_sheets = []
     int_columns = []
     int_rows = []
 
-
-
-
-
-    sheetlist = [[0 for h in range(6)] for w in range(10)]
 
     #列と行をint型に変換
     for i in range(len(sheets)):
@@ -73,14 +68,11 @@ def Arena_HeatMap(rows,columns,sheets):
                 int_columns.append(int(columns[i] or 0))
                 int_rows.append(rows[i])
 
-
-
     #座席種別ごとのリストに集計
     for i in range(len(int_rows)):
 
             column = int_columns[i]
             row = int_rows[i]
-
             
             if sheets[i] == '一般席':
                 ippanlist[column][row] += 1
@@ -116,7 +108,7 @@ def Arena_HeatMap(rows,columns,sheets):
                 if maxsheet == '着':
                     points[column][row] = 2
 
-                textlist[column][row] = maxsheet
+        text = textlist.values()
 
 
 
