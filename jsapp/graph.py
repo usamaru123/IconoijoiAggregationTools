@@ -127,6 +127,10 @@ def Arena_HeatMap(rows,columns,sheets):
         zmax = 2,
         zmin = -2, 
         ))
+    fig.update_layout(
+        width=1000,
+        height=1000
+    )
     graph = fig.to_html(include_plotlyjs=False)
     return graph
  
