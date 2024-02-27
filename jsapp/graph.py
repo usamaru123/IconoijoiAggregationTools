@@ -164,8 +164,9 @@ def sheetratio(sheets):
             yanchor='bottom',
             orientation='h',
         ),
-        margin_l=0,
-        margin_r=0
+        margin=dict(
+            t=5,b=5,l=0,r=0
+        ),
     )
     graph = fig.to_html(include_plotlyjs=False)
     return graph
