@@ -160,7 +160,7 @@ def sheetratio(sheets):
     fig.add_trace(go.Pie(labels=sheetlist,values=valsheetlist))
     fig.update_layout(
         legend=dict(
-            xanchor='left',
+            xanchor='center',
             yanchor='bottom',
             orientation='h'
         ),
