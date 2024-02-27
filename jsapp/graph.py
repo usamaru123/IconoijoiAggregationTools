@@ -75,7 +75,6 @@ def Arena_HeatMap(rows,columns,sheets):
 
     #座席種別ごとのリストに集計
     for i in range(len(int_rows)):
-        if (sheets[i] != '')and(columns[i] != '')and(rows[i] != ''):
 
             int_column = int_columns[i]
             row = int_rows[i]
@@ -120,12 +119,7 @@ def Arena_HeatMap(rows,columns,sheets):
  
 
 def listcreate(rowlist,columnlist):
-    list = {}
-   
-    for block_c in columnlist:
-        list[block_c] = {}
-        for block_r in rowlist:
-            list[block_c][block_r] = 0
+    list = {{0 for c in columnlist} for r in rowlist}
     return list
     
 def sheetratio(sheets):
