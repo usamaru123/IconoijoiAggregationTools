@@ -95,7 +95,7 @@ def Arena_HeatMap(rows,columns,sheets):
             comparesheet = [ippan,kameko,josei,chakuseki]
             maxsheet = max(comparesheet.values())
 
-    sheetdf = pd.DataFrame(ippanlist)
+    sheetdf = pd.DataFrame(kamekolist)
     textdf = pd.DataFrame(text)
     
     fig = go.Figure()
