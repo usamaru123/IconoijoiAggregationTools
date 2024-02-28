@@ -246,7 +246,7 @@ function valueCheck() {
             }
         });
 
-        if (block_r2.value != "") {
+        if (block_r2.value == null) {
             is_block_r2 = true;
             error2_4 = "";
         }
