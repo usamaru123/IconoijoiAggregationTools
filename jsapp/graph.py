@@ -125,7 +125,7 @@ def Arena_HeatMap(rows,columns,sheets):
         annotation_text=anotext,
         colorscale='Edge',   
         zmax = 2,
-        zmin = -2,
+        zmin = -x,
         )
     
     fig.update_layout(
