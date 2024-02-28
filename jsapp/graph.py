@@ -155,11 +155,7 @@ def Arena_HeatMap(rows,columns,sheets):
    
     
     fig.update_layout(
-        legend=dict(
-            xanchor='left',
-            yanchor='bottom',
-            orientation='h',
-        ),
+        showlegend = False
         height=1000,
         margin_l=0,
         margin_r=0,
