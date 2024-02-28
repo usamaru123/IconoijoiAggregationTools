@@ -114,17 +114,14 @@ def Arena_HeatMap(rows,columns,sheets):
     textdf = pd.DataFrame(blocklist)
     anotext = textdf.values.tolist()
 
-    x=sheetdf.columns.tolist()
-    y=sheetdf.index.tolist()
-    z=sheetdf.values.tolist()
-    
+
 
 
 
     fig = ff.create_annotated_heatmap(
-        z,
-        x=x,
-        y=y,
+        z=sheetdf.values.tolist(),
+        x=sheetdf.columns.tolist(),
+        y=sheetdf.index.tolist(),
         annotation_text=anotext,
         colorscale='Edge',   
         zmax = 2,
