@@ -120,6 +120,7 @@ def Arena_HeatMap(rows,columns,sheets):
 
 
     fig = go.figure(
+        data=go.Heatmap(
         z=sheetdf.values.tolist(),
         x=sheetdf.columns.tolist(),
         y=sheetdf.index.tolist(),
@@ -127,7 +128,7 @@ def Arena_HeatMap(rows,columns,sheets):
         colorscale='Edge',   
         zmax = 2,
         zmin = -2,
-        )
+        ))
     
    
     
