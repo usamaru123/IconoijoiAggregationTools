@@ -148,6 +148,7 @@ def Arena_HeatMap(rows,columns,sheets):
         z=kamekodf.values.tolist(),
         x=sheetdf.columns.tolist(),
         y=sheetdf.index.tolist(),
+        
         colorscale='Edge',   
         zmax = 2,
         zmin = -2,
@@ -158,9 +159,9 @@ def Arena_HeatMap(rows,columns,sheets):
         height=1000,
         margin_l=0,
         margin_r=0,
+        showscale=False,
         font_family='MS Gothic'
     )
-    fig.update_traces(showscale=False)
     fig.update_yaxes(autorange='reversed')
 
     graph = fig.to_html(include_plotlyjs=False)
