@@ -181,7 +181,7 @@ def Arena_HeatMap(rows,columns,sheets):
         ),row=5,col=1)
     
     fig.update_layout(
-        height=1000,
+        height=1500,
         margin_l=0,
         margin_r=0,
         font_family='MS Gothic'
