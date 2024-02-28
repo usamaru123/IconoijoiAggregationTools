@@ -199,12 +199,13 @@ function valueCheck() {
         if (!is_floor1) {
             error1_3.innerHTML = errormsg2;
         }
+
         if (block_r1.value === "") {
             is_block_r1 = true;
             error1_4.innerHTML = errormsg2;
         }
 
-        if (!(is_ticket1 == true && is_sheet1 == true && is_floor1 == true)) {
+        if (is_ticket1 == true && is_sheet1 == true && is_floor1 == true) {
             return false;
         }
 
