@@ -160,7 +160,7 @@ def Arena_HeatMap(rows,columns,sheets):
         margin_r=0,
         font_family='MS Gothic'
     )
-    fig.update_layout(showlegend=False)
+    fig.update_traces(showscale=False)
     fig.update_yaxes(autorange='reversed')
 
     graph = fig.to_html(include_plotlyjs=False)
