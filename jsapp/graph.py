@@ -186,7 +186,6 @@ def Arena_HeatMap(rows,columns,sheets):
         font_family='sans-seif'
     )
     fig.update_traces(showscale=False)
-    fig.add_annotation(text=anotext)
     fig.update_yaxes(autorange='reversed',dtick=1)
     fig.update_xaxes(dtick=1)
 
