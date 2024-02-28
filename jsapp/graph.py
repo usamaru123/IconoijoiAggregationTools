@@ -109,6 +109,7 @@ def Arena_HeatMap(rows,columns,sheets):
                     points[column][row] = 1
                 if maxsheet == '着':
                     points[column][row] = 2
+                textlist[column][row] = maxsheet
 
 
     sheetdf = pd.DataFrame(points)
@@ -116,7 +117,7 @@ def Arena_HeatMap(rows,columns,sheets):
     kamekodf = pd.DataFrame(kamekolist)
     joseidf = pd.DataFrame(joseilist)
     chakusekidf = pd.DataFrame(chakusekilist)
-    textdf = pd.DataFrame(ippanlist)
+    textdf = pd.DataFrame(textlist)
     text = textdf.values.tolist()
 
 
