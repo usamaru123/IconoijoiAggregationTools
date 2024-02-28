@@ -164,12 +164,17 @@ def sheetratio(sheets):
     sit = sheets.count('着席指定席')
     
     valsheetlist = [general,camera,lady,sit]
+    
+    return piecreate(sheetlist,valsheetlist)
+
+
+def piecreate(label,value):
 
     fig = go.Figure()
     fig.add_trace(
         go.Pie(
-            labels=sheetlist,
-            values=valsheetlist,
+            labels=label,
+            values=value,
             title = '座席種別',
             marker={'colors':['#98DBC6','#5BC8AC','#E6D72A','#F18D9E']},
                ),
