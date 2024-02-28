@@ -155,7 +155,7 @@ def Arena_HeatMap(rows,columns,sheets):
    
     
     fig.update_layout(
-        showlegend = False
+        showlegend = False,
         height=1000,
         margin_l=0,
         margin_r=0,
