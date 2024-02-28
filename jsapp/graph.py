@@ -120,7 +120,11 @@ def Arena_HeatMap(rows,columns,sheets):
     anotext = textdf.values.tolist()
 
 
-    fig = make_subplots(rows=3,cols=1,subplot_titles=['全座席種別','一般席','カメコ席','女性エリア席','着席指定席',])
+    fig = make_subplots(
+        rows=4,
+        cols=1,
+        subplot_titles=['全座席種別','一般席','カメコ席','女性エリア席','着席指定席',]
+        )
 
 
     fig.add_trace(
@@ -141,7 +145,7 @@ def Arena_HeatMap(rows,columns,sheets):
         colorscale='Tropic',   
         zmax = 1,
         zmin = -1,
-        ),row=4,col=1)
+        ),row=2,col=1)
     
     fig.add_trace(
         go.Heatmap(
