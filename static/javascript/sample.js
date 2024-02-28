@@ -163,6 +163,7 @@ function valueCheck() {
         const error1_1 = document.querySelector('#errorform1_1')
         const error1_2 = document.querySelector('#errorform1_2')
         const error1_3 = document.querySelector('#errorform1_3')
+        const error1_4 = document.querySelector('#errorform1_4')
 
         var is_ticket1 = false;
         var is_sheet1 = false;
@@ -197,6 +198,8 @@ function valueCheck() {
         if (!is_floor1) {
             error1_3.innerHTML = errormsg2;
         }
+
+        error1_4.innerHTML = errormsg2;
 
         if (!(is_ticket1 == true && is_sheet1 == true && is_floor1 == true)) {
             return false;
