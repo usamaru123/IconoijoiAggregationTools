@@ -225,10 +225,10 @@ function valueCheck() {
         var is_sheet2 = false;
         var is_floor2 = false;
 
-        ticket1s.forEach(function (ticket2) {
+        ticket2s.forEach(function (ticket2) {
             if (ticket2.checked) {
                 is_ticket2 = true;
-                error1_1.innerHTML = "";
+                error2_1.innerHTML = "";
             }
         });
         if (!is_ticket2) {
