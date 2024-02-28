@@ -68,7 +68,7 @@ function positionformfunc(i) {
     `;
 
     const position2 = `
-        <div id="errorform${i}_4">ff</div>
+        <div id="errorform${i}_4"></div>
         <div class="blockform">
             <input pattern="[A-N]{1}" class="col-3 block position" id="block_r${i}"  placeholder="英字1文字"  oninput="inputChange(${i})">
                 <b style="font-size:1.5rem">ブロック</b>      
@@ -251,7 +251,7 @@ function valueCheck() {
 
         if (block_r2.value === "") {
             is_block_r2 = true;
-            error2_4.innerHTML = "";
+            error2_4.innerHTML = errormsg2;
         }
 
 
