@@ -118,7 +118,7 @@ def Arena_HeatMap(rows,columns,sheets):
 
 
     fig = make_subplots(
-        
+        rows=1,cols=1
     )
 
     fig.add_trace(ff.create_annotated_heatmap(
