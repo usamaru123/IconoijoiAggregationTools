@@ -97,17 +97,17 @@ def Arena_HeatMap(rows,columns,sheets):
             maxsheet = max(comparesheet,key=comparesheet.get)
             if maxsheetval == 0:
                 points[column][row] = 0
-                textlist[column][row] = ''
+                textlist[column][row] = 0
             else:
                 if maxsheet == '一':
-                    points[column][row] = -2
+                    points[column][row] += -2
                 if maxsheet == 'カ':
-                    points[column][row] = -1
+                    points[column][row] += -1
                 if maxsheet == '女':
-                    points[column][row] = 1
+                    points[column][row] += 1
                 if maxsheet == '着':
-                    points[column][row] = 2
-                textlist[column][row] = maxsheet
+                    points[column][row] += 2
+                textlist[column][row] += 1
 
 
     sheetdf = pd.DataFrame(points)
@@ -153,8 +153,6 @@ def listcreate(rowlist,columnlist):
     
 def sheetratio(sheets):
     sheetlist = ['一般席','カメコエリア席','女性エリア席','着席指定席'] 
-    colorlist = ["pink", "yellow", "skyblue", "orange"]
-
     general = sheets.count('一般席')
     camera = sheets.count('カメコエリア席')
     lady = sheets.count('女性エリア席')
