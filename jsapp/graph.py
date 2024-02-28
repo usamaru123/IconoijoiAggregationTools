@@ -121,7 +121,7 @@ def Arena_HeatMap(rows,columns,sheets):
 
 
     fig = make_subplots(
-        rows=4,
+        rows=5,
         cols=1,
         subplot_titles=['全座席種別','一般席','カメコ席','女性エリア席','着席指定席',]
         )
