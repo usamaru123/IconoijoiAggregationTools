@@ -119,7 +119,7 @@ def Arena_HeatMap(rows,columns,sheets):
 
 
 
-    fig = go.figure(
+    fig = go.Figure(
         data=go.Heatmap(
         z=sheetdf.values.tolist(),
         x=sheetdf.columns.tolist(),
