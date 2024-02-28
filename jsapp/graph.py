@@ -116,10 +116,10 @@ def Arena_HeatMap(rows,columns,sheets):
     anotext = textdf.values.tolist()
 
 
+    fig = make_subplots(rows=2,cols=1)
 
 
-
-    fig = go.Figure(
+    fig.add_trace(
         data=go.Heatmap(
         z=sheetdf.values.tolist(),
         x=sheetdf.columns.tolist(),
@@ -127,8 +127,17 @@ def Arena_HeatMap(rows,columns,sheets):
         colorscale='Edge',   
         zmax = 2,
         zmin = -2,
-        ))
+        ),row=1,cols=1)
     
+    fig.add_trace(
+        data=go.Heatmap(
+        z=sheetdf.values.tolist(),
+        x=sheetdf.columns.tolist(),
+        y=sheetdf.index.tolist(),
+        colorscale='Edge',   
+        zmax = 2,
+        zmin = -2,
+        ),row=2,cols=1)
    
     
     fig.update_layout(
