@@ -129,7 +129,9 @@ def Arena_HeatMap(rows,columns,sheets):
         colorscale='Edge',   
         zmax = 2,
         zmin = -2,
-        ))
+        ),
+        row=1,col=1,
+        )
     
     fig.update_layout(
         legend=dict(
