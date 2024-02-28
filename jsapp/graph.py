@@ -121,7 +121,11 @@ def Arena_HeatMap(rows,columns,sheets):
     text = textdf.values.tolist()
 
 
-    fig = go.Figure()
+    fig = make_subplots(
+        rows=5,
+        cols=1,
+        subplot_titles=['全座席種別','一般席','カメコ席','女性エリア席','着席指定席',]
+        )
 
 
     fig.add_trace(
@@ -133,11 +137,61 @@ def Arena_HeatMap(rows,columns,sheets):
         zmax = 2,
         zmin = -2,
         text=text,  # 追加するテキスト
-        texttemplate="%{text}",  # ホバーに追加する文字
-        ))
+        texttemplate="%{label}",  # ホバーに追加する文字
+        textfont={"size": 20}
+        ),row=1,col=1)
     
+    fig.add_trace(
+        go.Heatmap(
+        z=ippandf.values.tolist(),
+        x=sheetdf.columns.tolist(),
+        y=sheetdf.index.tolist(),
+        colorscale='Tropic',   
+        zmax = 1,
+        zmin = -1,
+        ),row=2,col=1)
     
-
+    fig.add_trace(
+        go.Heatmap(
+        z=kamekodf.values.tolist(),
+        x=sheetdf.columns.tolist(),
+        y=sheetdf.index.tolist(),
+        
+        colorscale='Tropic',   
+        zmax = 1,
+        zmin = -1,
+        ),row=3,col=1)
+   
+    fig.add_trace(
+        go.Heatmap(
+        z=joseidf.values.tolist(),
+        x=sheetdf.columns.tolist(),
+        y=sheetdf.index.tolist(),
+        
+        colorscale='Tropic',   
+        zmax = 1,
+        zmin = -1,
+        ),row=4,col=1)
+       
+    fig.add_trace(
+        go.Heatmap(
+        z=chakusekidf.values.tolist(),
+        x=sheetdf.columns.tolist(),
+        y=sheetdf.index.tolist(),
+        colorscale='Tropic',   
+        zmax = 1,
+        zmin = -1,
+        ),row=5,col=1)
+    
+    fig.update_layout(
+        height=1500,
+        margin_l=0,
+        margin_r=0,
+        font_family='sans-seif',
+    )
+    fig.update_traces(showscale=False)
+    fig.update_yaxes(autorange='reversed',dtick=1)
+    fig.update_xaxes(dtick=1)
 
     graph = fig.to_html(include_plotlyjs=False)
     return graph
