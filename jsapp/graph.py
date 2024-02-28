@@ -141,7 +141,7 @@ def Arena_HeatMap(rows,columns,sheets):
         colorscale='Tropic',   
         zmax = 1,
         zmin = -1,
-        ),row=2,col=1)
+        ),row=4,col=1)
     
     fig.add_trace(
         go.Heatmap(
