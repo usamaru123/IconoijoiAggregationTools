@@ -12,6 +12,16 @@
 
 {% block content %}
 <div>
+    <div class="alert alert-light">
+        <form action="" method="GET">
+            <select name="time" id="" value="{{ request.GET.time }}">
+                <option value="matinee">昼の部</option>
+                <option value="evening">夜の部</option>
+            </select>
+            <input type="submit" value="公演変更">
+        </form>
+    </div>
+
     {% autoescape off %}
     <div class="alert alert-light">
         {{ chart }}
@@ -22,12 +32,6 @@
         {{ heatmap }}
     </div>
 
-    <div class="alert alert-light">
-        <form action="" method="GET">
-            <input name=time type="text" value="{{ request.GET.time }}">
-            <input type="submit" value="検索する">
-        </form>
-    </div>
 
 
     <div class="alert alert-light">
