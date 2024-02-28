@@ -250,10 +250,7 @@ function valueCheck() {
         if (!is_floor2) {
             error2_3.innerHTML = errormsg2;
         }
-        if (block_r2.value === "") {
-            is_block_r2 = true;
-            error2_4.innerHTML = errormsg2;
-        }
+
 
         if (!(is_ticket2 == true && is_sheet2 == true && is_floor2 == true)) {
             return false;
