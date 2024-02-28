@@ -134,8 +134,7 @@ def Arena_HeatMap(rows,columns,sheets):
         zmin = -2,
         text=text,  # 追加するテキスト
         texttemplate="%{label}",  # ホバーに追加する文字
-        textposition = "inside",
-        ),row=1,col=1)
+        ))
     
     
     fig.update_traces(showscale=False)
