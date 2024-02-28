@@ -59,7 +59,7 @@ function positionformfunc(i) {
             <input pattern="[A-Ga-g]{1}" class="col-3 block position" id="block_r${i}" placeholder="英字1文字"  oninput="inputChange(${i})">
             <input type="number" min="1" max="9" class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字">
         <b style="font-size:1.5rem">ブロック</b>      
-        </div>
+        </div><div id="errorform1_4">ff</div>
         <div class="numberform">
             <input type="number" min="1" max="1000" class="col-3 number position" id="number${i}" name="number${i}"
             placeholder="半角数字">
@@ -68,15 +68,15 @@ function positionformfunc(i) {
     `;
 
     const position2 = `
-        <div id="errorform1_4"></div>
+        <div id="errorform1_4">ff</div>
         <div class="blockform">
             <input pattern="[A-N]{1}" class="col-3 block position" id="block_r${i}"  placeholder="英字1文字"  oninput="inputChange(${i})">
                 <b style="font-size:1.5rem">ブロック</b>      
-        </div>
-        <div class="rowform">
+        </div><div id="errorform1_4">ff</div>
+        <div class="rowform"><div id="errorform1_4">ff</div>
         <input type="number" min="1" max="1000" class="col-3 number position" id="row${i}" name="row${i}" placeholder="半角数字">
             <b style="font-size:1.5rem">列</b>      
-        </div>
+        </div><div id="errorform1_4">ff</div>
         <div class="numberform">
             <input type="number" min="1" max="1000" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字">
             <b style="font-size:1.5rem">番</b>
