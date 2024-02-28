@@ -249,11 +249,10 @@ function valueCheck() {
             }
         });
 
-        if (block_r2.value == null) {
+        if (block_r2.value === "") {
             is_block_r2 = true;
             error2_4.innerHTML = "";
         }
-        error2_4.innerHTML = errormsg2;
 
 
         if (!is_floor2) {
