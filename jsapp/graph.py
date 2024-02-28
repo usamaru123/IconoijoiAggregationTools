@@ -117,11 +117,9 @@ def Arena_HeatMap(rows,columns,sheets):
 
 
 
-    fig = make_subplots(
-        rows=1,cols=1
-    )
 
-    fig.add_trace(ff.create_annotated_heatmap(
+
+    fig = go.figure(
         z=sheetdf.values.tolist(),
         x=sheetdf.columns.tolist(),
         y=sheetdf.index.tolist(),
@@ -129,8 +127,6 @@ def Arena_HeatMap(rows,columns,sheets):
         colorscale='Edge',   
         zmax = 2,
         zmin = -2,
-        ),
-        row=1,col=1,
         )
     
    
