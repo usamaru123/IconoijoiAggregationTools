@@ -127,7 +127,7 @@ def Arena_HeatMap(rows,columns,sheets):
         colorscale='Edge',   
         zmax = 2,
         zmin = -2,
-        ),row=1,cols=1)
+        ),row=1,col=1)
     
     fig.add_trace(
         go.Heatmap(
@@ -137,7 +137,7 @@ def Arena_HeatMap(rows,columns,sheets):
         colorscale='Edge',   
         zmax = 2,
         zmin = -2,
-        ),row=2,cols=1)
+        ),row=2,col=1)
    
     
     fig.update_layout(
