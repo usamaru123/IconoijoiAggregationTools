@@ -139,11 +139,9 @@ def Arena_HeatMap(rows,columns,sheets):
         ),
         margin_l=0,
         margin_r=0,
-        font_color = "blue",
         font_family='MS Gothic'
     )
-    fig.update_xaxes(gridcolor='black',linecolor='black')
-    fig.update_yaxes(autorange='reversed',gridcolor='black',linecolor='black')
+    fig.update_yaxes(autorange='reversed')
 
     graph = fig.to_html(include_plotlyjs=False)
     return graph
@@ -154,8 +152,7 @@ def listcreate(rowlist,columnlist):
     return list
     
 def sheetratio(sheets):
-    sheetlist = ['一般席','カメコエリア席','女性エリア席','着席指定席']
-    sheet_count = {} 
+    sheetlist = ['一般席','カメコエリア席','女性エリア席','着席指定席'] 
     colorlist = ["pink", "yellow", "skyblue", "orange"]
 
     general = sheets.count('一般席')
@@ -164,7 +161,7 @@ def sheetratio(sheets):
     sit = sheets.count('着席指定席')
     
     valsheetlist = [general,camera,lady,sit]
-    
+
     return piecreate(sheetlist,valsheetlist)
 
 
