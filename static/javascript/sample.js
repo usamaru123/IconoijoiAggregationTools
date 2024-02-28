@@ -225,10 +225,10 @@ function valueCheck() {
         var is_sheet2 = false;
         var is_floor2 = false;
 
-        ticket2s.forEach(function (ticket2) {
+        ticket1s.forEach(function (ticket2) {
             if (ticket2.checked) {
                 is_ticket2 = true;
-                error2_1.innerHTML = "";
+                error1_1.innerHTML = "";
             }
         });
         if (!is_ticket2) {
@@ -251,22 +251,17 @@ function valueCheck() {
                 error2_3.innerHTML = "";
             }
         });
-        error2_4.innerHTML = errormsg2
+        if (!is_floor2) {
+            error2_3.innerHTML = errormsg2;
+        }
         if (block_r2.value === "") {
             is_block_r2 = true;
             error2_4.innerHTML = errormsg2;
         }
 
-
-        if (!is_floor2) {
-            error2_3.innerHTML = errormsg2;
-        }
-
-        if (!(is_ticket2 == false && is_sheet2 == false && is_floor2 == false)) {
+        if (!(is_ticket2 == true && is_sheet2 == true && is_floor2 == true)) {
             return false;
         }
 
     }
-
 }
-
