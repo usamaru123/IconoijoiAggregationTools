@@ -159,7 +159,7 @@ function valueCheck() {
         const ticket1s = document.querySelectorAll('.ticket1');
         const sheet1s = document.querySelectorAll('.sheet1');
         const floor1s = document.querySelectorAll('.floor1');
-        const block_r1 = document.querySelectorAll('#block_r1')
+        const block_r1 = document.querySelector('#block_r1')
 
         const error1_1 = document.querySelector('#errorform1_1')
         const error1_2 = document.querySelector('#errorform1_2')
@@ -214,7 +214,7 @@ function valueCheck() {
         const ticket2s = document.querySelectorAll('.ticket2');
         const sheet2s = document.querySelectorAll('.sheet2');
         const floor2s = document.querySelectorAll('.floor2');
-        const block_r2 = document.querySelectorAll('#block_r2')
+        const block_r2 = document.querySelector('#block_r2')
 
         const error2_1 = document.querySelector('#errorform2_1')
         const error2_2 = document.querySelector('#errorform2_2')
