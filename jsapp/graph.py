@@ -174,7 +174,7 @@ def Arena_HeatMap(rows,columns,sheets):
         z=chakusekidf.values.tolist(),
         x=sheetdf.columns.tolist(),
         y=sheetdf.index.tolist(),
-        
+        text = chakusekidf.values.tolist(),
         colorscale='Tropic',   
         zmax = 1,
         zmin = -1,
