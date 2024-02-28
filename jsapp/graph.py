@@ -132,8 +132,6 @@ def Arena_HeatMap(rows,columns,sheets):
         z=sheetdf.values.tolist(),
         x=sheetdf.columns.tolist(),
         y=sheetdf.index.tolist(),
-        text = anotext,
-         textfont={"size": 20},
         colorscale='Edge',   
         zmax = 2,
         zmin = -2,
@@ -188,6 +186,7 @@ def Arena_HeatMap(rows,columns,sheets):
         font_family='sans-seif'
     )
     fig.update_traces(showscale=False)
+    fig.add_annotation(text=anotext)
     fig.update_yaxes(autorange='reversed',dtick=1)
     fig.update_xaxes(dtick=1)
 
