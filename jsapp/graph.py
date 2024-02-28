@@ -162,6 +162,7 @@ def Arena_HeatMap(rows,columns,sheets):
         showscale=False,
         font_family='MS Gothic'
     )
+    fig.update_traces(showscale=False)
     fig.update_yaxes(autorange='reversed',dtick=1)
     fig.update_xaxes(dtick=1)
 
