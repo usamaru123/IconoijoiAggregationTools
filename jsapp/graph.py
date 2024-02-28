@@ -135,6 +135,9 @@ def Arena_HeatMap(rows,columns,sheets):
         colorscale='Edge',   
         zmax = 2,
         zmin = -2,
+        text=anotext,  # 追加するテキスト
+        texttemplate="%{text}",  # ホバーに追加する文字
+        textfont={"size": 20}
         ),row=1,col=1)
     
     fig.add_trace(
@@ -184,7 +187,6 @@ def Arena_HeatMap(rows,columns,sheets):
         margin_l=0,
         margin_r=0,
         font_family='sans-seif',
-        font_size =20
     )
     fig.update_traces(showscale=False)
     fig.update_yaxes(autorange='reversed',dtick=1)
