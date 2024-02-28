@@ -111,7 +111,11 @@ def Arena_HeatMap(rows,columns,sheets):
                     points[column][row] = 2
 
 
-    sheetdf = pd.DataFrame(ippanlist)
+    sheetdf = pd.DataFrame(points)
+    ippandf = pd.DataFrame(ippanlist)
+    kamekodf = pd.DataFrame(kamekolist)
+    joseidf = pd.DataFrame(joseilist)
+    chakusekidf = pd.DataFrame(chakusekilist)
     textdf = pd.DataFrame(ippanlist)
     anotext = textdf.values.tolist()
 
@@ -131,7 +135,7 @@ def Arena_HeatMap(rows,columns,sheets):
     
     fig.add_trace(
         go.Heatmap(
-        z=sheetdf.values.tolist(),
+        z=ippandf.values.tolist(),
         x=sheetdf.columns.tolist(),
         y=sheetdf.index.tolist(),
         colorscale='Edge',   
