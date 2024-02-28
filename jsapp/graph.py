@@ -1,5 +1,6 @@
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
+from plotly.subplots import make_subplots
 import plotly.express as px
 import pandas as pd
 import numpy as np
@@ -116,9 +117,11 @@ def Arena_HeatMap(rows,columns,sheets):
 
 
 
+    fig = make_subplots(
+        
+    )
 
-
-    fig = ff.create_annotated_heatmap(
+    fig.add_trace(ff.create_annotated_heatmap(
         z=sheetdf.values.tolist(),
         x=sheetdf.columns.tolist(),
         y=sheetdf.index.tolist(),
@@ -126,7 +129,7 @@ def Arena_HeatMap(rows,columns,sheets):
         colorscale='Edge',   
         zmax = 2,
         zmin = -2,
-        )
+        ))
     
     fig.update_layout(
         legend=dict(
