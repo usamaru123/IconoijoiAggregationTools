@@ -246,7 +246,7 @@ function valueCheck() {
             }
         });
 
-        if (block_r2 != "") {
+        if (block_r2.value != "") {
             is_block_r2 = true;
             error2_4 = "";
         }
@@ -259,7 +259,7 @@ function valueCheck() {
             error2_3.innerHTML = errormsg2;
         }
 
-        if (!(is_ticket2 == true && is_sheet2 == true && is_floor2 == true)) {
+        if (!(is_ticket2 == false && is_sheet2 == false && is_floor2 == false)) {
             return false;
         }
 
