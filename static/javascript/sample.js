@@ -248,10 +248,10 @@ function valueCheck() {
 
         if (block_r2.value == null) {
             is_block_r2 = true;
-            error2_4 = "";
+            error2_4.innerHTML = "";
         }
         else {
-            error2_4 = errormsg2
+            error2_4.innerHTML = errormsg2;
         }
 
 
