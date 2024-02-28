@@ -35,7 +35,7 @@
     </div>
 
 
-
+    {% if request.GET.time == 'matinee' %}
     <div class="alert alert-light">
         <table class="table">
             <thead>
@@ -64,7 +64,7 @@
             </tbody>
         </table>
     </div>
-
+    {% else %}
     <div class="alert alert-light">
         <table class="table">
             <thead>
@@ -93,6 +93,8 @@
             </tbody>
         </table>
     </div>
+    {% endif %}
+
     {% endautoescape %}
 </div>
 {% endblock content %}
