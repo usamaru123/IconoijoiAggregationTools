@@ -117,7 +117,7 @@ def Arena_HeatMap(rows,columns,sheets):
     joseidf = pd.DataFrame(joseilist)
     chakusekidf = pd.DataFrame(chakusekilist)
     textdf = pd.DataFrame(ippanlist)
-    anotext = textdf.values.tolist()
+    text = textdf.values.tolist()
 
 
     fig = make_subplots(
@@ -135,7 +135,7 @@ def Arena_HeatMap(rows,columns,sheets):
         colorscale='Edge',   
         zmax = 2,
         zmin = -2,
-        text=sheetdf.values.tolist(),  # 追加するテキスト
+        text=text,  # 追加するテキスト
         texttemplate="%{text}",  # ホバーに追加する文字
         textfont={"size": 20}
         ),row=1,col=1)
