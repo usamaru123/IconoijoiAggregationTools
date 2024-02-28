@@ -111,7 +111,7 @@ def Arena_HeatMap(rows,columns,sheets):
 
 
     sheetdf = pd.DataFrame(points)
-    textdf = pd.DataFrame(blocklist)
+    textdf = pd.DataFrame(ippanlist)
     anotext = textdf.values.tolist()
 
 
