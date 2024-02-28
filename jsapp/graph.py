@@ -120,7 +120,7 @@ def Arena_HeatMap(rows,columns,sheets):
     anotext = textdf.values.tolist()
 
 
-    fig = make_subplots(rows=2,cols=1)
+    fig = make_subplots(rows=3,cols=1)
 
 
     fig.add_trace(
@@ -142,6 +142,16 @@ def Arena_HeatMap(rows,columns,sheets):
         zmax = 2,
         zmin = -2,
         ),row=2,col=1)
+    
+    fig.add_trace(
+        go.Heatmap(
+        z=kamekodf.values.tolist(),
+        x=sheetdf.columns.tolist(),
+        y=sheetdf.index.tolist(),
+        colorscale='Edge',   
+        zmax = 2,
+        zmin = -2,
+        ),row=3,col=1)
    
     
     fig.update_layout(
@@ -150,6 +160,7 @@ def Arena_HeatMap(rows,columns,sheets):
             yanchor='bottom',
             orientation='h',
         ),
+        height=2000,
         margin_l=0,
         margin_r=0,
         font_family='MS Gothic'
