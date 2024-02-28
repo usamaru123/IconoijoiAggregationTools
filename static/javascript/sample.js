@@ -159,6 +159,7 @@ function valueCheck() {
         const ticket1s = document.querySelectorAll('.ticket1');
         const sheet1s = document.querySelectorAll('.sheet1');
         const floor1s = document.querySelectorAll('.floor1');
+        const block_r1 = document.querySelectorAll('#block_r1')
 
         const error1_1 = document.querySelector('#errorform1_1')
         const error1_2 = document.querySelector('#errorform1_2')
@@ -198,8 +199,10 @@ function valueCheck() {
         if (!is_floor1) {
             error1_3.innerHTML = errormsg2;
         }
-
-        error1_4.innerHTML = errormsg2;
+        if (block_r1.value === "") {
+            is_block_r1 = true;
+            error1_4.innerHTML = errormsg2;
+        }
 
         if (!(is_ticket1 == true && is_sheet1 == true && is_floor1 == true)) {
             return false;
@@ -248,7 +251,7 @@ function valueCheck() {
                 error2_3.innerHTML = "";
             }
         });
-
+        error2_4.innerHTML = errormsg2
         if (block_r2.value === "") {
             is_block_r2 = true;
             error2_4.innerHTML = errormsg2;
