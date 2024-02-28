@@ -129,7 +129,7 @@ def Arena_HeatMap(rows,columns,sheets):
         x=sheetdf.columns.tolist(),
         y=sheetdf.index.tolist(),
         colorscale='Edge',   
-        zmax = 1,
+        zmax = 2,
         zmin = -2,
         ),row=1,col=1)
     
@@ -140,7 +140,7 @@ def Arena_HeatMap(rows,columns,sheets):
         y=sheetdf.index.tolist(),
         colorscale='Edge',   
         zmax = 1,
-        zmin = -2,
+        zmin = -1,
         ),row=2,col=1)
     
     fig.add_trace(
@@ -151,7 +151,7 @@ def Arena_HeatMap(rows,columns,sheets):
         
         colorscale='Edge',   
         zmax = 1,
-        zmin = -2,
+        zmin = -1,
         ),row=3,col=1)
    
     
