@@ -65,7 +65,6 @@ function positionformfunc(i) {
             placeholder="半角数字">
         <b style="font-size:1.5rem">番</b>
         </div>
-        <div id="errorform1_4"></div>
     `;
 
     const position2 = `
@@ -85,10 +84,10 @@ function positionformfunc(i) {
     `;
 
     if (floor.checked) {
-        numberform.innerHTML = position1;
+        numberform.innerHTML += position1;
     }
     else {
-        numberform.innerHTML = position2;
+        numberform.innerHTML += position2;
     }
 
 
