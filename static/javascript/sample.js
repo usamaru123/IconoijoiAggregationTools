@@ -56,6 +56,7 @@ function positionformfunc(i) {
 
     const position1 = `
         <div class="blockform">
+            <div id="errorform${i}_4"></div>
             <input pattern="[A-Ga-g]{1}" class="col-3 block position" id="block_r${i}" placeholder="英字1文字"  oninput="inputChange(${i})">
             <input type="number" min="1" max="9" class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字">
         <b style="font-size:1.5rem">ブロック</b>      
@@ -207,10 +208,12 @@ function valueCheck() {
         const ticket2s = document.querySelectorAll('.ticket2');
         const sheet2s = document.querySelectorAll('.sheet2');
         const floor2s = document.querySelectorAll('.floor2');
+        const block_r2 = document.querySelectorAll('#block_r2')
 
         const error2_1 = document.querySelector('#errorform2_1')
         const error2_2 = document.querySelector('#errorform2_2')
         const error2_3 = document.querySelector('#errorform2_3')
+        const error2_4 = document.querySelector('#errorform2_4')
 
         var is_ticket2 = false;
         var is_sheet2 = false;
@@ -242,6 +245,16 @@ function valueCheck() {
                 error2_3.innerHTML = "";
             }
         });
+
+        if (block_r2 != "") {
+            is_block_r2 = true;
+            error2_4 = "";
+        }
+        else {
+            error2_4 = errormsg2
+        }
+
+
         if (!is_floor2) {
             error2_3.innerHTML = errormsg2;
         }
