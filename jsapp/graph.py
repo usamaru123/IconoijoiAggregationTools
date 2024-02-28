@@ -110,7 +110,7 @@ def Arena_HeatMap(rows,columns,sheets):
                     points[column][row] = 2
 
 
-    sheetdf = pd.DataFrame(points)
+    sheetdf = pd.DataFrame(ippanlist)
     textdf = pd.DataFrame(ippanlist)
     anotext = textdf.values.tolist()
 
