@@ -160,7 +160,7 @@ def Arena_HeatMap(rows,columns,sheets):
             yanchor='bottom',
             orientation='h',
         ),
-        height=2000,
+        height=1000,
         margin_l=0,
         margin_r=0,
         font_family='MS Gothic'
