@@ -138,7 +138,7 @@ def Arena_HeatMap(rows,columns,sheets):
         z=ippandf.values.tolist(),
         x=sheetdf.columns.tolist(),
         y=sheetdf.index.tolist(),
-        colorscale='Edge',   
+        colorscale='Tropic',   
         zmax = 1,
         zmin = -1,
         ),row=2,col=1)
@@ -149,7 +149,7 @@ def Arena_HeatMap(rows,columns,sheets):
         x=sheetdf.columns.tolist(),
         y=sheetdf.index.tolist(),
         
-        colorscale='Edge',   
+        colorscale='Tropic',   
         zmax = 1,
         zmin = -1,
         ),row=3,col=1)
