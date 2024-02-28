@@ -137,7 +137,7 @@ def Arena_HeatMap(rows,columns,sheets):
         zmax = 2,
         zmin = -2,
         text=text,  # 追加するテキスト
-        texttemplate="%{text}",  # ホバーに追加する文字
+        texttemplate="%{label}",  # ホバーに追加する文字
         textfont={"size": 20}
         ),row=1,col=1)
     
