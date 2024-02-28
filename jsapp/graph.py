@@ -120,7 +120,7 @@ def Arena_HeatMap(rows,columns,sheets):
 
 
     fig.add_trace(
-        data=go.Heatmap(
+        go.Heatmap(
         z=sheetdf.values.tolist(),
         x=sheetdf.columns.tolist(),
         y=sheetdf.index.tolist(),
@@ -130,7 +130,7 @@ def Arena_HeatMap(rows,columns,sheets):
         ),row=1,cols=1)
     
     fig.add_trace(
-        data=go.Heatmap(
+        go.Heatmap(
         z=sheetdf.values.tolist(),
         x=sheetdf.columns.tolist(),
         y=sheetdf.index.tolist(),
