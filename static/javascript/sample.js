@@ -205,7 +205,7 @@ function valueCheck() {
             error1_4.innerHTML = errormsg2;
         }
 
-        if (is_ticket1 == true || is_sheet1 == true || is_floor1 == true) {
+        if (!(is_ticket1 == true || is_sheet1 == true || is_floor1 == true)) {
             return false;
         }
 
