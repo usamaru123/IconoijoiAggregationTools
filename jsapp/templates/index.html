@@ -6,7 +6,9 @@
     <p class="header_title" name="eventtitle">{{ title.event.eventtitle }}</p>
     <p class="header_ank" name="venue">配席アンケート結果確認画面</p>
     <p class="header_detail">日時：{{ title.venuedate|date:"Y年n月j日" }}</p>
-    <p class="header_detail">会場：{{ title.venue }}</p>
+    <p class="header_detail">会場：{{ title.venue }}
+        {{ request.GET.time }}
+    </p>
 </div>
 {% endblock header %}
 
