@@ -250,9 +250,7 @@ function valueCheck() {
             is_block_r2 = true;
             error2_4.innerHTML = "";
         }
-        else {
-            error2_4.innerHTML = errormsg2;
-        }
+        error2_4.innerHTML = errormsg2;
 
 
         if (!is_floor2) {
