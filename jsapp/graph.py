@@ -162,7 +162,8 @@ def Arena_HeatMap(rows,columns,sheets):
         showscale=False,
         font_family='MS Gothic'
     )
-    fig.update_yaxes(autorange='reversed')
+    fig.update_yaxes(autorange='reversed',dtick=1)
+    fig.update_xaxes(dtick=1)
 
     graph = fig.to_html(include_plotlyjs=False)
     return graph
