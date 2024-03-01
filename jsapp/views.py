@@ -69,7 +69,8 @@ class AnswerCreate(CreateView):
         return  ctx
 
     def get_success_url(self):
-        return reverse_lazy('thanks',kwargs={"num":self.kwargs['num']})
+       # return reverse_lazy('thanks',kwargs={"num":self.kwargs['num']})
+        return reverse_lazy('createvenue')
 
 
 class EventCreate(CreateView):
