@@ -211,6 +211,7 @@ function valueCheck() {
         }
         else {
             error1_4.innerHTML = errormsg2;
+            is_blockr1 = false;
         }
         if (is_blockr1 = false) {
             return false
