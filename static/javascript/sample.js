@@ -201,15 +201,15 @@ function valueCheck() {
             error1_3.innerHTML = errormsg2;
         }
 
-        if (block_r1.value == '') {
+        if (block_r1.value != '') {
             is_block1 = true;
-            error1_4.innerHTML = errormsg2;
-        }
-        else {
             error1_4.innerHTML = "";
         }
+        else {
+            error1_4.innerHTML = errormsg2;
+        }
 
-        if (!(is_ticket1 == true && is_sheet1 == true && is_floor1 == true && is_block1 == true)) {
+        if (!(is_ticket1 == false && is_sheet1 == false && is_floor1 == false && is_block1 == false)) {
             return false;
         }
 
