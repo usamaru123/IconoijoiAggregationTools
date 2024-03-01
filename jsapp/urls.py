@@ -4,7 +4,7 @@ from .views import AnswerList,AnswerCreate,EventCreate,EventList,VenueCreate,Ven
 app_name = 'jsapp'
 
 urlpatterns = [
-    path('result/<int:num>',AnswerList.as_view(),name='index'),
+    path('result/<int:num>',AnswerList.as_view(),name='index'),e
     path('<int:num>/',AnswerCreate.as_view(),name='create'),
     path('eventcreate',EventCreate.as_view(),name='eventcreate'),
     path('eventlist',EventList.as_view(),name='eventlist'),
@@ -12,4 +12,5 @@ urlpatterns = [
     path('venuelist',VenueList.as_view(),name='venuelist'),
     path('results/<int:num>',ThanksView.as_view(),name='thanks'),
     path('export/',csv_export,name=("export")),
+    
 ]
