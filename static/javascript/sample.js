@@ -157,10 +157,10 @@ function valueCheck() {
     }
 
     if (matinee.checked) {
-        formcheck(1);
+        return formcheck(1);
     }
     if (evening.checked) {
-        formcheck(2);
+        return formcheck(2);
     }
 }
 
