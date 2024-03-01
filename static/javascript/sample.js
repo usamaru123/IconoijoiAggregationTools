@@ -157,10 +157,13 @@ function valueCheck() {
     }
 
     if (matinee.checked) {
-        return formcheck(1);
+        form1 = formcheck(1);
     }
     if (evening.checked) {
-        return formcheck(2);
+        form2 = formcheck(2);
+    }
+    if (!form1 || !form2) {
+        return false
     }
 }
 
