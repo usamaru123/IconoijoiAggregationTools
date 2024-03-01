@@ -147,10 +147,9 @@ function valueCheck() {
     const matinee = document.querySelector('#timeform1');
     const evening = document.querySelector('#timeform2');
     const errorform1 = document.querySelector("#errorform1");
-    const errorform2 = document.querySelector("#errorform2");
 
     const errormsg1 = '参加公演にチェックを入れてください';
-    const errormsg2 = '入力してください';
+
 
     if (!(matinee.checked || evening.checked)) {
         errorform1.innerHTML = errormsg1;
@@ -158,140 +157,97 @@ function valueCheck() {
     }
 
     if (matinee.checked) {
-        const ticket1s = document.querySelectorAll('.ticket1');
-        const sheet1s = document.querySelectorAll('.sheet1');
-        const floor1s = document.querySelectorAll('.floor1');
-        const block_r1 = document.querySelector('#block_r1');
-        const block_c1 = document.querySelector('#block_c1');
-        const row1 = document.querySelector('#row1')
-
-        const error1_1 = document.querySelector('#errorform1_1');
-        const error1_2 = document.querySelector('#errorform1_2');
-        const error1_3 = document.querySelector('#errorform1_3');
-        const error1_4 = document.querySelector('#errorform1_4');
-
-        var is_ticket1 = false;
-        var is_sheet1 = false;
-        var is_floor1 = false;
-        var is_blockr1 = false;
-        var is_blockc1 = false;
-        var is_row1 = false;
-
-        ticket1s.forEach(function (ticket1) {
-            if (ticket1.checked) {
-                is_ticket1 = true;
-                error1_1.innerHTML = "";
-            }
-        });
-        if (!is_ticket1) {
-            error1_1.innerHTML = errormsg2;
-        }
-
-        sheet1s.forEach(function (sheet1) {
-            if (sheet1.checked) {
-                is_sheet1 = true;
-                error1_2.innerHTML = "";
-            }
-        });
-        if (!is_sheet1) {
-            error1_2.innerHTML = errormsg2;
-        }
-
-        floor1s.forEach(function (floor1) {
-            if (floor1.checked) {
-                is_floor1 = true;
-                error1_3.innerHTML = "";
-            }
-        });
-        if (!is_floor1) {
-            error1_3.innerHTML = errormsg2;
-        }
-
-        if (!is_ticket1 || !is_sheet1 || !is_floor1) {
-            return false;
-        }
-
-        if (block_r1.value != '') {
-            is_blockr1 = true;
-        }
-
-        if (block_c1) {
-            if (block_c1.value != '') {
-                is_blockc1 = true;
-            }
-        }
-        else {
-            is_blockc1 = true;
-        }
-
-        if (row1) {
-            if (row1.value != '') {
-                is_row1 = true;
-            }
-        }
-        else {
-            is_row1 = true;
-        }
-
-        if (!is_blockr1 || !is_blockc1 || !is_row1) {
-            error1_4.innerHTML = errormsg2;
-            return false;
-        }
-        else {
-            error1_4.innerHTML = "";
-        }
-
+        formcheck(1);
     }
-
     if (evening.checked) {
-        const ticket2s = document.querySelectorAll('.ticket2');
-        const sheet2s = document.querySelectorAll('.sheet2');
-        const floor2s = document.querySelectorAll('.floor2');
-        const block_r2 = document.querySelector('#block_r2');
-
-        const error2_1 = document.querySelector('#errorform2_1');
-        const error2_2 = document.querySelector('#errorform2_2');
-        const error2_3 = document.querySelector('#errorform2_3');
-        const error2_4 = document.querySelector('#errorform2_4');
-
-        var is_ticket2 = false;
-        var is_sheet2 = false;
-        var is_floor2 = false;
-
-        ticket2s.forEach(function (ticket2) {
-            if (ticket2.checked) {
-                is_ticket2 = true;
-                error2_1.innerHTML = "";
-            }
-        });
-        if (!is_ticket2) {
-            error2_1.innerHTML = errormsg2;
-        }
-
-        sheet2s.forEach(function (sheet2) {
-            if (sheet2.checked) {
-                is_sheet2 = true;
-                error2_2.innerHTML = "";
-            }
-        });
-        if (!is_sheet2) {
-            error2_2.innerHTML = errormsg2;
-        }
-
-        floor2s.forEach(function (floor2) {
-            if (floor2.checked) {
-                is_floor2 = true;
-                error2_3.innerHTML = "";
-            }
-        });
-        if (!is_floor2) {
-            error2_3.innerHTML = errormsg2;
-        }
-
-
-        if (!(is_ticket2 == true && is_sheet2 == true && is_floor2 == true)) {
-            return false;
-        }
-
+        formcheck(2);
     }
+}
+
+function formcheck(i) {
+    const errormsg2 = '入力してください';
+
+    const tickets = document.querySelectorAll(`.ticke${i}`);
+    const sheets = document.querySelectorAll(`.sheet${i}`);
+    const floors = document.querySelectorAll(`.floor${i}`);
+    const block_r = document.querySelector(`#block_r${i}`);
+    const block_c = document.querySelector(`#block_c${i}`);
+    const row = document.querySelector(`#row${i}`)
+
+    const error1 = document.querySelector(`#errorform${i}_1`);
+    const error2 = document.querySelector(`#errorform${i}_2`);
+    const error3 = document.querySelector(`#errorform${i}_3`);
+    const error4 = document.querySelector(`#errorform${i}_4`);
+
+    var is_ticket = false;
+    var is_sheet = false;
+    var is_floor = false;
+    var is_blockr = false;
+    var is_blockc = false;
+    var is_row = false;
+
+    tickets.forEach(function (ticket) {
+        if (ticket.checked) {
+            is_ticket = true;
+            error1.innerHTML = "";
+        }
+    });
+    if (!is_ticket) {
+        error1.innerHTML = errormsg2;
+    }
+
+    sheets.forEach(function (sheet) {
+        if (sheet.checked) {
+            is_sheet = true;
+            error2.innerHTML = "";
+        }
+    });
+    if (!is_sheet) {
+        error2.innerHTML = errormsg2;
+    }
+
+    floors.forEach(function (floor) {
+        if (floor.checked) {
+            is_floor = true;
+            error3.innerHTML = "";
+        }
+    });
+    if (!is_floor) {
+        error3.innerHTML = errormsg2;
+    }
+
+    if (!is_ticket || !is_sheet || !is_floor) {
+        return false;
+    }
+
+    if (block_r.value != '') {
+        is_blockr = true;
+    }
+
+    if (block_c) {
+        if (block_c.value != '') {
+            is_blockc = true;
+        }
+    }
+    else {
+        is_blockc = true;
+    }
+
+    if (row) {
+        if (row.value != '') {
+            is_row = true;
+        }
+    }
+    else {
+        is_row = true;
+    }
+
+    if (!is_blockr || !is_blockc || !is_row) {
+        error4.innerHTML = errormsg2;
+        return false;
+    }
+    else {
+        error4.innerHTML = "";
+    }
+
 }
