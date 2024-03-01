@@ -201,6 +201,10 @@ function valueCheck() {
             error1_3.innerHTML = errormsg2;
         }
 
+        if (is_ticket1 == false || is_sheet1 == false || is_floor1 == false) {
+            return false;
+        }
+
         if (block_r1.value != '') {
             is_blockr1 = true;
             error1_4.innerHTML = "";
@@ -208,13 +212,6 @@ function valueCheck() {
         else {
             error1_4.innerHTML = errormsg2;
         }
-
-
-
-        if (is_ticket1 == false || is_sheet1 == false || is_floor1 == false || is_blockr1 == false) {
-            return false;
-        }
-
     }
 
     if (evening.checked) {
