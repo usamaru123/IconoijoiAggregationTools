@@ -205,6 +205,9 @@ function valueCheck() {
             is_block1 = true;
             error1_4.innerHTML = errormsg2;
         }
+        else {
+            error1_4.innerHTML = "";
+        }
 
         if (!(is_ticket1 == true && is_sheet1 == true && is_floor1 == true && is_block1 == true)) {
             return false;
