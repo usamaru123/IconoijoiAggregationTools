@@ -69,15 +69,14 @@ class AnswerCreate(CreateView):
         return  ctx
 
     def get_success_url(self):
-       # return reverse_lazy('thanks',kwargs={"num":self.kwargs['num']})
-        return reverse_lazy('jsapp:venuecreate')
+        return reverse_lazy('jsapp:thanks',kwargs={"num":self.kwargs['num']})
 
 
 class EventCreate(CreateView):
     template_name = 'event.html'
     model = EventModel
     fields =('eventid','group','eventtype','eventtitle')
-    success_url = ('eventlist')
+    success_url = ('jsapp:eventlist')
    
 class EventList(ListView):
     template_name = 'eventlist.html'
@@ -93,7 +92,7 @@ class VenueCreate(CreateView):
     model = VenueModel
     
     fields = ('__all__')
-    success_url = ('venuelist')
+    success_url = ('jsapp:venuelist')
 
 class VenueList(ListView):
     model = EventModel
