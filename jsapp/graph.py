@@ -91,28 +91,31 @@ def Arena_HeatMap(rows,columns,sheets):
     #すべてのリストでフィールドを参照し，一番集計数が多い座席種別をblocksheetに代入する
     for column in int_columns:
         for row in int_rows:
-            comparesheet = {
-                '一':ippanlist[column][row],
-                'カ':kamekolist[column][row],
-                '女':joseilist[column][row],
-                '着':chakusekilist[column][row]
-                }
-            
-            maxsheetval = max(comparesheet.values())
-            maxsheet = max(comparesheet,key=comparesheet.get)
-            if maxsheetval == 0:
-                points[column][row] = 0
-                textlist[column][row] = 0
-            else:
-                if maxsheet == '一':
-                    points[column][row] = -2
-                if maxsheet == 'カ':
-                    points[column][row] = -1
-                if maxsheet == '女':
-                    points[column][row] = 1
-                if maxsheet == '着':
-                    points[column][row] = 2
-                textlist[column][row] = maxsheet
+            try:
+                comparesheet = {
+                    '一':ippanlist[column][row],
+                    'カ':kamekolist[column][row],
+                    '女':joseilist[column][row],
+                    '着':chakusekilist[column][row]
+                    }
+                
+                maxsheetval = max(comparesheet.values())
+                maxsheet = max(comparesheet,key=comparesheet.get)
+                if maxsheetval == 0:
+                    points[column][row] = 0
+                    textlist[column][row] = 0
+                else:
+                    if maxsheet == '一':
+                        points[column][row] = -2
+                    if maxsheet == 'カ':
+                        points[column][row] = -1
+                    if maxsheet == '女':
+                        points[column][row] = 1
+                    if maxsheet == '着':
+                        points[column][row] = 2
+                    textlist[column][row] = maxsheet
+            except:
+                print("")
 
 
     sheetdf = pd.DataFrame(points)
