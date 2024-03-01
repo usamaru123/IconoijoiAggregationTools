@@ -170,7 +170,10 @@ function valueCheck() {
     }
 
     if (!form1 || !form2) {
-        return false
+        return false;
+    }
+    else {
+        return true;
     }
 }
 
