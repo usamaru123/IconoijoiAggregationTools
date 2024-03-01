@@ -156,6 +156,9 @@ function valueCheck() {
         return false;
     }
 
+    form1 = true;
+    form2 = true;
+
     if (matinee.checked) {
         form1 = formcheck(1);
     }
