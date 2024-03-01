@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import AnswerList,AnswerCreate,EventCreate,EventList,VenueCreate,VenueList,ThanksView,csv_export
+from .views import AnswerList,AnswerCreate,EventCreate,EventList,VenueCreate,VenueList,ThanksView,csv_export,DeleteRecords
 
 app_name = 'jsapp'
 
@@ -12,4 +12,5 @@ urlpatterns = [
     path('venuelist',VenueList.as_view(),name='venuelist'),
     path('results/<int:num>',ThanksView.as_view(),name='thanks'),
     path('export/',csv_export,name=("export")),
+    path('delete',DeleteRecords.as_view())
 ]
