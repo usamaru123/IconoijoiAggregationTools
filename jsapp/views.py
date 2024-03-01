@@ -130,8 +130,6 @@ class ThanksView(ListView):
         ctx = super().get_context_data(**kwargs)
         ctx['results'] = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
-        if(time):
-            time = self.request.GET.get('time')
         return  ctx
     
 def csv_export(request):
