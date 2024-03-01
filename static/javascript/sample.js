@@ -201,7 +201,7 @@ function valueCheck() {
             error1_3.innerHTML = errormsg2;
         }
 
-        if (block_r1 != '') {
+        if (block_r1.value != '') {
             is_block1 = true;
         }
         error1_4.innerHTML = is_block1;
