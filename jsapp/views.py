@@ -70,7 +70,7 @@ class AnswerCreate(CreateView):
 
     def get_success_url(self):
        # return reverse_lazy('thanks',kwargs={"num":self.kwargs['num']})
-        return reverse_lazy('venuecreate')
+        return reverse_lazy('jsapp:venuecreate')
 
 
 class EventCreate(CreateView):
