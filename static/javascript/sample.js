@@ -169,6 +169,7 @@ function valueCheck() {
         var is_ticket1 = false;
         var is_sheet1 = false;
         var is_floor1 = false;
+        var is_block1 = false;
 
         ticket1s.forEach(function (ticket1) {
             if (ticket1.checked) {
@@ -200,7 +201,12 @@ function valueCheck() {
             error1_3.innerHTML = errormsg2;
         }
 
-        if (!(is_ticket1 == true && is_sheet1 == true && is_floor1 == true)) {
+        if (block_r1.value == '') {
+            is_block1 = true;
+            error1_4.innerHTML = errormsg2;
+        }
+
+        if (!(is_ticket1 == true && is_sheet1 == true && is_floor1 == true && is_block1 == true)) {
             return false;
         }
 
