@@ -161,19 +161,21 @@ function valueCheck() {
         const ticket1s = document.querySelectorAll('.ticket1');
         const sheet1s = document.querySelectorAll('.sheet1');
         const floor1s = document.querySelectorAll('.floor1');
-        const block_r1 = document.querySelector('#block_r1')
-        const block_c1 = document.querySelector('#block_c1')
+        const block_r1 = document.querySelector('#block_r1');
+        const block_c1 = document.querySelector('#block_c1');
+        const row1 = document.querySelector('#row1')
 
-        const error1_1 = document.querySelector('#errorform1_1')
-        const error1_2 = document.querySelector('#errorform1_2')
-        const error1_3 = document.querySelector('#errorform1_3')
-        const error1_4 = document.querySelector('#errorform1_4')
+        const error1_1 = document.querySelector('#errorform1_1');
+        const error1_2 = document.querySelector('#errorform1_2');
+        const error1_3 = document.querySelector('#errorform1_3');
+        const error1_4 = document.querySelector('#errorform1_4');
 
         var is_ticket1 = false;
         var is_sheet1 = false;
         var is_floor1 = false;
         var is_blockr1 = false;
         var is_blockc1 = false;
+        var is_row1 = false;
 
         ticket1s.forEach(function (ticket1) {
             if (ticket1.checked) {
@@ -211,27 +213,32 @@ function valueCheck() {
 
         if (block_r1.value != '') {
             is_blockr1 = true;
-            error1_4.innerHTML = "";
-        }
-        else {
-            error1_4.innerHTML = errormsg2;
         }
 
         if (block_c1) {
             if (block_c1.value != '') {
                 is_blockc1 = true;
-                error1_4.innerHTML = "";
-            }
-            else {
-                error1_4.innerHTML = errormsg2;
             }
         }
         else {
             is_blockc1 = true;
         }
 
-        if (!is_blockr1 || !is_blockc1) {
+        if (row1) {
+            if (row1.value != '') {
+                is_row1 = true;
+            }
+        }
+        else {
+            is_row1 = true;
+        }
+
+        if (!is_blockr1 || !is_blockc1 || !is_row1) {
+            error1_4.innerHTML = errormsg2;
             return false;
+        }
+        else {
+            error1_4.innerHTML = "";
         }
 
     }
