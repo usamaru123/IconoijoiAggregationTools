@@ -12,5 +12,5 @@ urlpatterns = [
     path('venuelist',VenueList.as_view(),name='venuelist'),
     path('results/<int:num>',ThanksView.as_view(),name='thanks'),
     path('export/',csv_export,name=("export")),
-    path('delete',DeleteRecords.as_view(),name='delete')
+    #path('delete',DeleteRecords.as_view(),name='delete')
 ]
