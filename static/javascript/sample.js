@@ -201,8 +201,10 @@ function valueCheck() {
             error1_3.innerHTML = errormsg2;
         }
 
-
-        error1_4.innerHTML = is_block1
+        if (block_r1 != '') {
+            is_block1 = true;
+        }
+        error1_4.innerHTML = is_block1;
 
 
         if (is_ticket1 == false || is_sheet1 == false || is_floor1 == false) {
