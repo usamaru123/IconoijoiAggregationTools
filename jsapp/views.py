@@ -28,6 +28,8 @@ class AnswerList(ListView):
 
         time = self.request.GET.get('time')
 
+        count = qsmodel.count()
+
            
         if time == 'evening':
             qs = qs2
@@ -61,6 +63,7 @@ class AnswerList(ListView):
        # ctx['sheetratio1'] = sheetratio1
         ctx['results'] = qs
         ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
+        ctx['count'] = count
         return  ctx
 
 class AnswerCreate(CreateView):
