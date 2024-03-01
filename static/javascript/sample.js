@@ -202,9 +202,8 @@ function valueCheck() {
         }
 
 
-        else {
-            error1_4.innerHTML = errormsg2;
-        }
+        error1_4.innerHTML = is_block1.value
+
 
         if (is_ticket1 == false || is_sheet1 == false || is_floor1 == false) {
             return false;
