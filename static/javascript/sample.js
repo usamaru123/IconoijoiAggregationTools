@@ -212,6 +212,9 @@ function valueCheck() {
         else {
             error1_4.innerHTML = errormsg2;
         }
+        if (is_blockr1 = false) {
+            return false
+        }
     }
 
     if (evening.checked) {
