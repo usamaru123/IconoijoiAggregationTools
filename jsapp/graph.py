@@ -62,12 +62,14 @@ def Arena_HeatMap(rows,columns,sheets):
     int_columns = []
     int_rows = []
 
-
+    try:
     #列と行をint型に変換
-    for i in range(len(sheets)):
-        if (sheets[i] != '')and(columns[i] != '')and(rows[i] != ''):        
-                int_columns.append(int(columns[i] or 0))
-                int_rows.append(rows[i])
+        for i in range(len(sheets)):
+            if (sheets[i] != '')and(columns[i] != '')and(rows[i] != ''):        
+                    int_columns.append(int(columns[i] or 0))
+                    int_rows.append(rows[i])
+    except:
+        print("")
 
 
     #座席種別ごとのリストに集計
