@@ -161,7 +161,7 @@ function valueCheck() {
         const sheet1s = document.querySelectorAll('.sheet1');
         const floor1s = document.querySelectorAll('.floor1');
         const block_r1 = document.querySelector('#block_r1')
-        const block_c1 = documnet.querySelector('#block_c1')
+        const block_c1 = document.querySelector('#block_c1')
 
         const error1_1 = document.querySelector('#errorform1_1')
         const error1_2 = document.querySelector('#errorform1_2')
