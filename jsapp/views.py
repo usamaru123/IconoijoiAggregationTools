@@ -26,7 +26,10 @@ class AnswerList(ListView):
         qs1floor = qs1.exclude(floor1__exact="")
         qs2floor = qs2.exclude(floor1__exact="")
 
-        time = self.request.GET.get('time')
+        time = 'matinee'
+
+        if(time):
+            time = self.request.GET.get('time')
 
         count = qsmodel.count()
 
