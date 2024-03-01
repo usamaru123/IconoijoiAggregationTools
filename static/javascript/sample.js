@@ -55,11 +55,12 @@ function positionformfunc(i) {
     const numberform = document.querySelector(`#numberform${i}`);
 
     const position1 = `
+        </div><div id="errorform${i}_4"></div>
         <div class="blockform">
             <input pattern="[A-Ga-g]{1}" class="col-3 block position" id="block_r${i}" placeholder="英字1文字"  oninput="inputChange(${i})">
             <input type="number" min="1" max="9" class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字">
         <b style="font-size:1.5rem">ブロック</b>      
-        </div><div id="errorform${i}_4">ff</div>
+        
         <div class="numberform">
             <input type="number" min="1" max="1000" class="col-3 number position" id="number${i}" name="number${i}"
             placeholder="半角数字">
