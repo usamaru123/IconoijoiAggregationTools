@@ -16,7 +16,9 @@ body {
     background-attachment: fixed;
 }
 
-
+.timeselect {
+    margin-top: 2rem;
+}
 
 
 .c {
