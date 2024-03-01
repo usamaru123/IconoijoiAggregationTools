@@ -172,6 +172,7 @@ function valueCheck() {
         var is_sheet1 = false;
         var is_floor1 = false;
         var is_blockr1 = false;
+        var is_blockc1 = false;
 
         ticket1s.forEach(function (ticket1) {
             if (ticket1.checked) {
@@ -215,7 +216,17 @@ function valueCheck() {
             error1_4.innerHTML = errormsg2;
         }
 
-        if (!is_blockr1) {
+        if (block_c1) {
+            if (block_c1.value != '') {
+                is_blockc1 = true;
+                error1_4.innerHTML = "";
+            }
+            else {
+                error1_4.innerHTML = errormsg2;
+            }
+        }
+
+        if (!is_blockr1 || !is_blockc1) {
             return false;
         }
 
@@ -225,12 +236,12 @@ function valueCheck() {
         const ticket2s = document.querySelectorAll('.ticket2');
         const sheet2s = document.querySelectorAll('.sheet2');
         const floor2s = document.querySelectorAll('.floor2');
-        const block_r2 = document.querySelector('#block_r2')
+        const block_r2 = document.querySelector('#block_r2');
 
-        const error2_1 = document.querySelector('#errorform2_1')
-        const error2_2 = document.querySelector('#errorform2_2')
-        const error2_3 = document.querySelector('#errorform2_3')
-        const error2_4 = document.querySelector('#errorform2_4')
+        const error2_1 = document.querySelector('#errorform2_1');
+        const error2_2 = document.querySelector('#errorform2_2');
+        const error2_3 = document.querySelector('#errorform2_3');
+        const error2_4 = document.querySelector('#errorform2_4');
 
         var is_ticket2 = false;
         var is_sheet2 = false;
