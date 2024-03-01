@@ -265,5 +265,5 @@ function formcheck(i) {
     else {
         error4.innerHTML = "";
     }
-
+    return true
 }
