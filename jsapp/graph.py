@@ -69,12 +69,13 @@ def Arena_HeatMap(rows,columns,sheets):
                 int_columns.append(int(columns[i] or 0))
                 int_rows.append(rows[i])
 
+
     #座席種別ごとのリストに集計
     for i in range(len(int_rows)):
 
-            column = int_columns[i]
-            row = int_rows[i]
-            
+        column = int_columns[i]
+        row = int_rows[i]
+        try:
             if sheets[i] == '一般席':
                 ippanlist[column][row] += 1
             elif sheets[i] == 'カメコエリア席':
@@ -84,6 +85,8 @@ def Arena_HeatMap(rows,columns,sheets):
             elif sheets[i] == '着席指定席':
                 chakusekilist[column][row] += 1
             blocklist[column][row] +=1
+        except:
+            print("座席がリスト外")
 
     #すべてのリストでフィールドを参照し，一番集計数が多い座席種別をblocksheetに代入する
     for column in int_columns:
