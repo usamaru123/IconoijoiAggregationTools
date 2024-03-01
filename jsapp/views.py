@@ -19,28 +19,42 @@ class AnswerList(ListView):
         qsmodel = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         qs1 = qsmodel.exclude(ticket1__exact="")
         qs2 = qsmodel.exclude(ticket2__exact="")
+
+        qs1arena  = qs1.exclude(block_r1__exact="")
+        qs2arena  = qs2.exclude(block_r1__exact="")
+
+        qs1floor = qs1.exclude(floor1__exact="")
+        qs2floor = qs2.exclude(floor1__exact="")
+
         time = self.request.GET.get('time')
 
-        if time == 'matinee':
-            qs = qs1
-            row = [row.block_r1 for row in qs]
-            column = [number.block_c1 for number in qs]
-            sheet = [sheet.sheet1 for sheet in qs ]
-            
-        elif time == 'evening':
+           
+        if time == 'evening':
             qs = qs2
-            row = [row.block_r2 for row in qs]
-            column = [number.block_c2 for number in qs]
+            qsarena = qs2arena
+            qsfloor = qs2floor
+
+            block = [block.block_r2 for block in qsarena]
+            floor = [floor.floor2 for floor in qsfloor]
+            column = [column.block_c2 for column in qsarena]
             sheet = [sheet.sheet2 for sheet in qs ]
+            number = [number.number2 for number in qsfloor]
+
 
         else:
-            qs = qsmodel
-            row = [row.block_r1 for row in qs]
-            column = [number.block_c1 for number in qs]
+            qs = qs1
+            qsarena = qs1arena
+            qsfloor = qs1floor
+
+            block = [block.block_r1 for block in qsarena]
+            floor = [floor.floor1 for floor in qsfloor]
+            column = [column.block_c1 for column in qsfloor]
             sheet = [sheet.sheet1 for sheet in qs ]
+            number = [number.number1 for number in qsfloor]
 
         chart = graph.sheetratio(sheet)
-        heatmap = graph.Arena_HeatMap(row,column,sheet)
+        heatmap = graph.Arena_HeatMap(block,column,sheet)
+        #floorheatmap = graph.Floor_HeatMap(floor,number)
 
         ctx['chart'] = chart
         ctx['heatmap'] = heatmap
