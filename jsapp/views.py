@@ -119,5 +119,5 @@ def csv_export(request):
     response['Content-Disposition'] = 'attachment; filename="{}"'.format(filename)
     write = csv.writer(response)
     for result in MenberModel.objects.all():
-        result.writerow([result.timedate,result.ticket1,result.sheet1,result.floor1,result.row1])
+        write.writerow([result.timedate,result.ticket1,result.sheet1,result.floor1,result.row1])
     return response
