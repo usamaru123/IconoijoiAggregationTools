@@ -82,12 +82,13 @@ function positionformfunc(i) {
             <b style="font-size:1.5rem">番</b>
         </div>
     `;
-
-    if (floor.checked) {
-        numberform.innerHTML = position1;
-    }
-    else {
-        numberform.innerHTML = position2;
+    if (floor) {
+        if (floor.checked) {
+            numberform.innerHTML = position1;
+        }
+        else {
+            numberform.innerHTML = position2;
+        }
     }
 
 
@@ -201,7 +202,7 @@ function valueCheck() {
             error1_3.innerHTML = errormsg2;
         }
 
-        if (is_ticket1 == false || is_sheet1 == false || is_floor1 == false) {
+        if (!is_ticket1 || !is_sheet1 || !is_floor1) {
             return false;
         }
 
