@@ -156,15 +156,19 @@ function valueCheck() {
         return false;
     }
 
-    form1 = true;
-    form2 = true;
-
     if (matinee.checked) {
         form1 = formcheck(1);
+    }
+    else {
+        form1 = true;
     }
     if (evening.checked) {
         form2 = formcheck(2);
     }
+    else {
+        form2 = true;
+    }
+
     if (!form1 || !form2) {
         return false
     }
