@@ -146,7 +146,7 @@ def Arena_HeatMap(rows,columns,sheets):
         zmax = 2,
         zmin = -2,
         text=text,  # 追加するテキスト
-        texttemplate="%{label}",  # ホバーに追加する文字
+        texttemplate="%{text}",  # ホバーに追加する文字
         textfont={"size": 20}
         ),row=1,col=1)
     
@@ -156,6 +156,8 @@ def Arena_HeatMap(rows,columns,sheets):
         x=sheetdf.columns.tolist(),
         y=sheetdf.index.tolist(),
         colorscale='Tropic',   
+        text=ippandf.values.tolist(),  # 追加するテキスト
+        texttemplate="%{text}", 
         zmax = 1,
         zmin = -1,
         ),row=2,col=1)
@@ -165,7 +167,8 @@ def Arena_HeatMap(rows,columns,sheets):
         z=kamekodf.values.tolist(),
         x=sheetdf.columns.tolist(),
         y=sheetdf.index.tolist(),
-        
+        text=kamekodf.values.tolist(),  # 追加するテキスト
+        texttemplate="%{text}", 
         colorscale='Tropic',   
         zmax = 1,
         zmin = -1,
@@ -176,7 +179,8 @@ def Arena_HeatMap(rows,columns,sheets):
         z=joseidf.values.tolist(),
         x=sheetdf.columns.tolist(),
         y=sheetdf.index.tolist(),
-        
+        text=joseidf.values.tolist(),  # 追加するテキスト
+        texttemplate="%{text}",  
         colorscale='Tropic',   
         zmax = 1,
         zmin = -1,
@@ -188,6 +192,8 @@ def Arena_HeatMap(rows,columns,sheets):
         x=sheetdf.columns.tolist(),
         y=sheetdf.index.tolist(),
         colorscale='Tropic',   
+        text=chakusekidf.values.tolist(),  # 追加するテキスト
+        texttemplate="%{text}", 
         zmax = 1,
         zmin = -1,
         ),row=5,col=1)

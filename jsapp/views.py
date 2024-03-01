@@ -143,7 +143,3 @@ def csv_export(request):
     for result in MenberModel.objects.filter(venueid=20240301):
         write.writerow([result.timedate,result.ticket1,result.sheet1,result.floor1,result.row1,result.number1])
     return response
-
-class DeleteRecords(View):
-    MenberModel.objects.filter(venueid=20240101).delete()
-    success_url = ('jsapp:venuecreate')
