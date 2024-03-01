@@ -45,9 +45,9 @@ def Floor_HeatMap(rows,numbers,sheets):
 
 def Arena_HeatMap(rows,columns,sheets):
     columnlist = []
-    rowlist = ['A','B','C','D','E','F','G','H']
+    rowlist = ['A','B','C','D']
 
-    for i in range(0,9):
+    for i in range(0,7):
         columnlist.append(i+1)
 
     blocklist = listcreate(rowlist,columnlist)
