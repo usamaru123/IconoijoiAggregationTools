@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from matplotlib import pyplot as plt
 from . import graph
+import csv,urllib
 
 class AnswerList(ListView):
     template_name = 'index.html'
@@ -19,7 +20,7 @@ class AnswerList(ListView):
         qs1 = qsmodel.exclude(ticket1__exact="")
         qs2 = qsmodel.exclude(ticket2__exact="")
         time = self.request.GET.get('time')
-        
+
         if time == 'matinee':
             qs = qs1
             row = [row.block_r1 for row in qs]
@@ -110,3 +111,13 @@ class ThanksView(ListView):
         ctx['results'] = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
         return  ctx
+    
+def csv_export(request):
+    response = HttpResponse(content_type='text\csv; charset=Shift-JIS')
+    f = '集計結果.csv'
+    filename = urllib.parse.quote((f).encode('utf-8'))
+    response['Content-Disposition'] = 'attachment; filename="{}"'.format(filename)
+    write = csv.writer(response)
+    for result in MenberModel.objects.all():
+        result.writerow([result.timedate,result.ticket1,result.sheet1,result.floor1,result.row1])
+    return response

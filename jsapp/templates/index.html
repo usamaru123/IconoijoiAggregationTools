@@ -37,6 +37,10 @@
         {{ heatmap }}
     </div>
 
+    <div>
+        <a href="{% url 'jsapp:export' %}" class="btn btn-primary">csv export</a>
+    </div>
+
 
     {% if request.GET.time == 'matinee' %}
     <div class="alert alert-light">
