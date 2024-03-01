@@ -158,6 +158,7 @@ function valueCheck() {
 
     if (matinee.checked) {
         form1 = formcheck(1);
+        console.log(form1);
     }
     else {
         form1 = true;
@@ -167,6 +168,7 @@ function valueCheck() {
     }
     else {
         form2 = true;
+        console.log(form2);
     }
 
     if (!form1 || !form2) {
@@ -175,6 +177,7 @@ function valueCheck() {
     else {
         return true;
     }
+
 }
 
 function formcheck(i) {
