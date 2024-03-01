@@ -225,6 +225,9 @@ function valueCheck() {
                 error1_4.innerHTML = errormsg2;
             }
         }
+        else {
+            is_blockc1 = true;
+        }
 
         if (!is_blockr1 || !is_blockc1) {
             return false;
