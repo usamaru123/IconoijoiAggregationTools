@@ -196,7 +196,7 @@ def Arena_HeatMap(rows,columns,sheets):
     fig.update_layout(
         height=1500,
         margin_l=0,
-        margin_r=0,
+        margin_r=ｘ,
         font_family='sans-seif',
     )
     fig.update_traces(showscale=False)
