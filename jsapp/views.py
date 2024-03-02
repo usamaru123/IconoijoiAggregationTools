@@ -135,11 +135,27 @@ class ThanksView(ListView):
 def csv_export(request):
     response = HttpResponse(content_type='text\csv; charset=Shift-JIS')
     f = '集計結果.csv'
-    header = ['日時','チケット','座席','階層','列','番号']
+    header = ['日時','昼チケット','昼座席','昼フロア','昼縦ブロック','昼横ブロック','昼列','昼番号','夜チケット','夜座席','夜フロア','夜縦ブロック','夜横ブロック','夜列','夜番号']
     filename = urllib.parse.quote((f).encode('utf-8'))
     response['Content-Disposition'] = 'attachment; filename="{}"'.format(filename)
     write = csv.writer(response)
     write.writerow(header)
     for result in MenberModel.objects.filter(venueid=20240301):
-        write.writerow([result.timedate,result.ticket1,result.sheet1,result.floor1,result.row1,result.number1])
+        write.writerow([
+            result.timedate,
+            result.ticket1,
+            result.sheet1,
+            result.floor1,
+            result.block_r1,
+            result.block_c1,
+            result.row1,
+            result.number1,
+            result.ticket2,
+            result.sheet2,
+            result.floor2,
+            result.block_r2,
+            result.block_c2,
+            result.row2,
+            result.number2,
+            ])
     return response
