@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import AnswerList,AnswerCreate,EventCreate,EventList,VenueCreate,VenueList,ThanksView,csv_export,DeleteRecords
+from .views import AnswerList,AnswerCreate,EventCreate,EventList,VenueCreate,VenueList,ThanksView,csv_export
 
 app_name = 'jsapp'
 
