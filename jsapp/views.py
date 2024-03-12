@@ -20,8 +20,8 @@ class AnswerList(ListView):
         qs1 = qsmodel.exclude(ticket1__exact="")
         qs2 = qsmodel.exclude(ticket2__exact="")
 
-        qs1arena  = qs1.exclude(block_r1__exact="")
-        qs2arena  = qs2.exclude(block_r2__exact="")
+        qs1arena  = qs1.exclude(block_c1__exact="")
+        qs2arena  = qs2.exclude(block_c2__exact="")
 
         qs1floor = qs1.exclude(floor1__exact="")
         qs2floor = qs2.exclude(floor2__exact="")
