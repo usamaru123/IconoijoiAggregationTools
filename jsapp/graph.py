@@ -144,10 +144,10 @@ def Arena_HeatMap(rows,columns,sheets):
         z=sheetdf.values.tolist(),
         x=sheetdf.columns.tolist(),
         y=sheetdf.index.tolist(),
+        annotation_text=sheetdf.values.tolist(),
         colorscale='Edge',   
         zmax = 2,
         zmin = -2,
-
         textfont={"size": 20}
         ),row=1,col=1)
     
@@ -157,7 +157,6 @@ def Arena_HeatMap(rows,columns,sheets):
         x=ippandf.columns.tolist(),
         y=ippandf.index.tolist(),
         colorscale='Tropic',   
-
         zmax = 1,
         zmin = -1,
         ),row=2,col=1)
@@ -167,7 +166,6 @@ def Arena_HeatMap(rows,columns,sheets):
         z=kamekodf.values.tolist(),
         x=kamekodf.columns.tolist(),
         y=kamekodf.index.tolist(),
-
         colorscale='Tropic',   
         zmax = 1,
         zmin = -1,
@@ -178,7 +176,6 @@ def Arena_HeatMap(rows,columns,sheets):
         z=joseidf.values.tolist(),
         x=joseidf.columns.tolist(),
         y=joseidf.index.tolist(),
-  
         colorscale='Tropic',   
         zmax = 1,
         zmin = -1,
@@ -190,7 +187,6 @@ def Arena_HeatMap(rows,columns,sheets):
         x=chakusekidf.columns.tolist(),
         y=chakusekidf.index.tolist(),
         colorscale='Tropic',   
-
         zmax = 1,
         zmin = -1,
         ),row=5,col=1)
