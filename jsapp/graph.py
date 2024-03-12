@@ -186,6 +186,7 @@ def Arena_HeatMap(rows,columns,sheets):
         zmin = -1,
         xgap=2,
         ygap=2,
+        texttemplate="%{z}",
         ),row=4,col=1)
        
     fig.add_trace(
