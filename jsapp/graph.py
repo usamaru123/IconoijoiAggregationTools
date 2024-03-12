@@ -10,6 +10,7 @@ def Floor_HeatMap(rows,numbers,sheets):
     int_rows = []
     int_numbers = []
     int_sheets = []
+    
 
 
     for r in range(len(rows)):
@@ -46,8 +47,9 @@ def Floor_HeatMap(rows,numbers,sheets):
 def Arena_HeatMap(rows,columns,sheets):
     columnlist = []
     rowlist = ['A','B','C','D']
+    columnmax = 7
 
-    for i in range(0,x):
+    for i in range(0,columnmax):
         columnlist.append(i+1)
 
     blocklist = listcreate(rowlist,columnlist)
@@ -196,7 +198,7 @@ def Arena_HeatMap(rows,columns,sheets):
     fig.update_layout(
         height=1500,
         margin_l=0,
-        margin_r=0,
+        margin_r=c,
         font_family='sans-seif',
     )
     fig.update_traces(showscale=False)
