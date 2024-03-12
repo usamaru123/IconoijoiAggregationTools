@@ -55,7 +55,7 @@ class AnswerList(ListView):
 
             block = [block.block_r1 for block in qsarena]
             column = [column.block_c1 for column in qsfloor]
-            arenasheet = [sheet.sheet2 for sheet in qsarena]
+            arenasheet = [sheet.sheet1 for sheet in qsarena]
 
             floor = [floor.floor1 for floor in qsfloor]
             sheet = [sheet.sheet1 for sheet in qs ]
