@@ -40,8 +40,10 @@ class AnswerList(ListView):
             qsfloor = qs2floor
 
             block = [block.block_r2 for block in qsarena]
-            floor = [floor.floor2 for floor in qsfloor]
             column = [column.block_c2 for column in qsarena]
+            arenasheet = [sheet.sheet2 for sheet in qsarena]
+
+            floor = [floor.floor2 for floor in qsfloor]
             sheet = [sheet.sheet2 for sheet in qs ]
             number = [number.number2 for number in qsfloor]
 
@@ -52,13 +54,15 @@ class AnswerList(ListView):
             qsfloor = qs1floor
 
             block = [block.block_r1 for block in qsarena]
-            floor = [floor.floor1 for floor in qsfloor]
             column = [column.block_c1 for column in qsfloor]
+            arenasheet = [sheet.sheet2 for sheet in qsarena]
+
+            floor = [floor.floor1 for floor in qsfloor]
             sheet = [sheet.sheet1 for sheet in qs ]
             number = [number.number1 for number in qsfloor]
 
         chart = graph.sheetratio(sheet)
-        heatmap = graph.Arena_HeatMap(block,column,sheet)
+        heatmap = graph.Arena_HeatMap(block,column,arenasheet)
         #floorheatmap = graph.Floor_HeatMap(floor,number)
 
         ctx['chart'] = chart
