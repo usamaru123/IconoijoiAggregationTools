@@ -144,10 +144,11 @@ def Arena_HeatMap(rows,columns,sheets):
         z=sheetdf.values.tolist(),
         x=sheetdf.columns.tolist(),
         y=sheetdf.index.tolist(),
-        annotation_text=sheetdf.values.tolist(),
         colorscale='Edge',   
         zmax = 2,
         zmin = -2,
+        xgap=2,
+        ygap=2,
         textfont={"size": 20}
         ),row=1,col=1)
     
