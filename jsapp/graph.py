@@ -169,7 +169,7 @@ def Arena_HeatMap(rows,columns,sheets):
         z=kamekodf.values.tolist(),
         x=kamekodf.columns.tolist(),
         y=kamekodf.index.tolist(),
-        colorscale='Greens',   
+        colorscale='BuGn',   
         zmax = 10,
         zmin = 0,
         xgap=2,
