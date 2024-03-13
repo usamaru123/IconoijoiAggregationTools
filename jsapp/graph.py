@@ -151,7 +151,6 @@ def Arena_HeatMap(rows,columns,sheets):
         ygap=2,
         texttemplate="Price: %{z:$.2f}",
         textfont=dict(color='white', size=12),
-        textfont={"size": 20}
         ),row=1,col=1)
     
     fig.add_trace(
