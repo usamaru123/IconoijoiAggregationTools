@@ -149,6 +149,8 @@ def Arena_HeatMap(rows,columns,sheets):
         zmin = -2,
         xgap=2,
         ygap=2,
+        texttemplate="Price: %{z:$.2f}",
+        textfont=dict(color='white', size=12),
         textfont={"size": 20}
         ),row=1,col=1)
     
@@ -162,6 +164,8 @@ def Arena_HeatMap(rows,columns,sheets):
         zmin = 0,
         xgap=2,
         ygap=2,
+        texttemplate="Price: %{x:$.2f}",
+        textfont=dict(color='white', size=12),
         ),row=2,col=1)
     
     fig.add_trace(
@@ -174,6 +178,8 @@ def Arena_HeatMap(rows,columns,sheets):
         zmin = 0,
         xgap=2,
         ygap=2,
+        texttemplate="Price: %{y:$.2f}",
+        textfont=dict(color='white', size=12),
         ),row=3,col=1)
    
     fig.add_trace(
