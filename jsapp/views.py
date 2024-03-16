@@ -156,8 +156,9 @@ class ThanksView(ListView):
     
 def csv_export(request,num):
     response = HttpResponse(content_type='text\csv; charset=Shift-JIS')
-    downloadtime = datetime.datetime.now()
-    f = str(num) + '集計結果：' + str(downloadtime) +  '.csv'
+    now = datetime.datetime.now()
+    downloadtime = now.strftime('%Y%m%d %H:%M:%S')
+    f = str(num) + '集計結果：' + downloadtime +  '.csv'
     header = [
         '日時',
         '昼チケット',
