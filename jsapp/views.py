@@ -27,6 +27,8 @@ class AnswerList(ListView):
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs)
         qsmodel = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
+        venuemodel = VenueModel.objects.get(venueid=self.kwargs['num'])
+        
         qs1 = qsmodel.exclude(ticket1__exact="")
         qs2 = qsmodel.exclude(ticket2__exact="")
 
@@ -36,7 +38,11 @@ class AnswerList(ListView):
         qs1floor = qs1.exclude(floor1__exact="")
         qs2floor = qs2.exclude(floor2__exact="")
 
+        rowmax = venuemodel.rowmax
+        columnmax = venuemodel.columnmax
+
         time = 'matinee'
+        
 
         if(time):
             time = self.request.GET.get('time')
@@ -72,14 +78,14 @@ class AnswerList(ListView):
             number = [number.number1 for number in qsfloor]
 
         chart = graph.sheetratio(sheet)
-        heatmap = graph.Arena_HeatMap(block,column,arenasheet)
+        heatmap = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
         floorheatmap = graph.Floor_HeatMap(floor,number)
 
         ctx['chart'] = chart
         ctx['heatmap'] = heatmap
        # ctx['sheetratio1'] = sheetratio1
         ctx['results'] = qs
-        ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
+        ctx['title'] = venuemodel
         ctx['count'] = count
         return  ctx
 

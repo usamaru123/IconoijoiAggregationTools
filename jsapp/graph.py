@@ -9,13 +9,17 @@ import numpy as np
 def Floor_HeatMap(rows,numbers):
    return 
 
-def Arena_HeatMap(rows,columns,sheets):
+def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
     columnlist = []
-    rowlist = ['A','B','C','D']
-    columnmax = 15
+    rowlist = []
+
+    row = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N']
 
     for i in range(0,columnmax):
         columnlist.append(i+1)
+
+    for i in range(0,rowmax):
+        rowlist[i].append(row[i])
 
     blocklist = listcreate(rowlist,columnlist)
     ippanlist = listcreate(rowlist,columnlist)
