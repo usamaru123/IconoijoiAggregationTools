@@ -11,10 +11,12 @@ import csv,urllib
 
 class Toppage(ListView):
     template_name = 'index.html'
+    model = EventModel
+
     def get_context_data(self,**kwargs):
         ctx = super().get_context_data(**kwargs)
-        model = VenueModel.objects.all().order_by('venuedate')
-        ctx['model'] = model
+        models = VenueModel.objects.all().order_by('venuedate')
+        ctx['model'] = models
         return ctx
 
 class AnswerList(ListView):
