@@ -87,6 +87,7 @@ class AnswerList(ListView):
         ctx['results'] = qs
         ctx['title'] = venuemodel
         ctx['count'] = count
+        ctx['num'] = self.kwargs['num']
         return  ctx
 
 class AnswerCreate(CreateView):
