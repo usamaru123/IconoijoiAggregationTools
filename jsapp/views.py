@@ -16,7 +16,7 @@ class Toppage(ListView):
     def get_context_data(self,**kwargs):
         ctx = super().get_context_data(**kwargs)
         models = VenueModel.objects.all().order_by('venuedate')
-        ctx['model'] = models
+        ctx['models'] = models
         return ctx
 
 class AnswerList(ListView):
