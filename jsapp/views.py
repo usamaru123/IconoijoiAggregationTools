@@ -152,9 +152,9 @@ class ThanksView(ListView):
         ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
         return  ctx
     
-def csv_export(request,self):
+def csv_export(request,self,**kwargs):
     response = HttpResponse(content_type='text\csv; charset=Shift-JIS')
-    f = '集計結果.csv'
+    f = '集計結果.csv'+self.kwargs['num']
     header = [
         '日時',
         '昼チケット',
