@@ -9,7 +9,7 @@ from . import graph
 import csv,urllib
 
 
-class Toppage(View):
+class Toppage(ListView):
     template_name = 'index.html'
     def get_context_data(self,**kwargs):
         ctx = super().get_context_data(**kwargs)
