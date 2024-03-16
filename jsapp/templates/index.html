@@ -12,7 +12,9 @@
 <div>
     <div class="alert alert-light form-control-lg">
         {% for model in object_list %}
-        <a href="https://ico-graph.com/result/{{ model.venueid }}">{{ model.venueid }}</a>
+        <div>
+            <a href="https://ico-graph.com/result/{{ model.venueid }}">{{ model.event.eventtitle }}</a>
+        </div>
         {% endfor %}
     </div>
     {% endblock %}
