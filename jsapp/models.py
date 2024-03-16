@@ -64,6 +64,4 @@ class MenberModel(models.Model):
    block_c2 = models.CharField(max_length=100,blank=True)
    number2 = models.CharField(max_length=100,blank=True)
 
-   def __str__(self):
-      return self.answerid
 

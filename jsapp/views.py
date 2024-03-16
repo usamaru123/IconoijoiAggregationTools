@@ -10,7 +10,7 @@ import csv,urllib
 
 
 class Toppage(ListView):
-    template_name = 'toppage.html'
+    template_name = 'index.html'
     model = MenberModel
 
 class AnswerList(ListView):
