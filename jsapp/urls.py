@@ -4,7 +4,7 @@ from .views import Toppage,AnswerList,AnswerCreate,EventCreate,EventList,VenueCr
 app_name = 'jsapp'
 
 urlpatterns = [
-    path('',Toppage.as_View(),name='toppage'),
+    path('/',Toppage.as_view(),name='toppage'),
     path('result/<int:num>',AnswerList.as_view(),name='index'),
     path('<int:num>/',AnswerCreate.as_view(),name='create'),
     path('eventcreate',EventCreate.as_view(),name='eventcreate'),
