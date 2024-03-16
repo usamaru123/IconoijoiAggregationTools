@@ -9,9 +9,13 @@ from . import graph
 import csv,urllib
 
 
-class Toppage(ListView):
+class Toppage(View):
     template_name = 'index.html'
-    model = VenueModel
+    def get_context_data(self,**kwargs):
+        ctx = super().get_context_data(**kwargs)
+        model = VenueModel.objects.all().order_by('venuedate')
+        ctx['model'] = model
+        return ctx
 
 class AnswerList(ListView):
     template_name = 'result.html'
