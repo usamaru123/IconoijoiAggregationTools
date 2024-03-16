@@ -10,11 +10,14 @@
 
 {% block content %}
 <div>
-    <div class="alert alert-light form-control-lg">
-        {% for model in object_list %}
-        <div>
-            <a href="https://ico-graph.com/result/{{ model.venueid }}">{{ model.event.eventtitle }}</a>
-        </div>
-        {% endfor %}
+    {% for model in object_list %}
+    <div class="alert alert-light form-control-lg linkbox">
+        <h2>
+            {{ model.event.eventtitle }}
+            会場：{{ model.hallinfo.hallname }}
+            日付：{{ model.venuedate }}
+            <a href="https://ico-graph.com/result/{{ model.venueid }}"></a>
+        </h2>
     </div>
+    {% endfor %}
     {% endblock %}
