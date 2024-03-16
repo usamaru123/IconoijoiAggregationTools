@@ -65,5 +65,5 @@ class MenberModel(models.Model):
    number2 = models.CharField(max_length=100,blank=True)
 
    def __str__(self):
-      return "No." + self.answerid + ",time:" + self.timedate 
+      return "No." + str(self.answerid) + ",time:" + str(self.timedate)
 
