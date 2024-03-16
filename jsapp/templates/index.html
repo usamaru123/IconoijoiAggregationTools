@@ -11,6 +11,8 @@
 {% block content %}
 <div>
     <div class="alert alert-light form-control-lg">
-        ああ
+        {% for model in models %}
+        <a href="https://icograph.com/result/{{ model.venueid }}">{{ model.venueid }}</a>
+        {% endfor %}
     </div>
     {% endblock %}

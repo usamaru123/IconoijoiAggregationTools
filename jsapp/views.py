@@ -11,7 +11,7 @@ import csv,urllib
 
 class Toppage(ListView):
     template_name = 'index.html'
-    model = MenberModel
+    model = VenueModel
 
 class AnswerList(ListView):
     template_name = 'result.html'
