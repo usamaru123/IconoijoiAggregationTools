@@ -152,7 +152,7 @@ class ThanksView(ListView):
         ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
         return  ctx
     
-def csv_export(request):
+def csv_export(request,self):
     response = HttpResponse(content_type='text\csv; charset=Shift-JIS')
     f = '集計結果.csv'
     header = [
@@ -176,7 +176,7 @@ def csv_export(request):
     response['Content-Disposition'] = 'attachment; filename="{}"'.format(filename)
     write = csv.writer(response)
     write.writerow(header)
-    for result in MenberModel.objects.filter(venueid=20240201):
+    for result in MenberModel.objects.filter(venueid=self.kwargs['num']):
         write.writerow([
             result.timedate,
             result.ticket1,
