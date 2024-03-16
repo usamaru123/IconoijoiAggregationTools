@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 
 
-def Floor_HeatMap(rows,numbers,):
+def Floor_HeatMap(rows,numbers):
    return 
 
 def Arena_HeatMap(rows,columns,sheets):
