@@ -177,7 +177,7 @@ def csv_export(request,num):
     response['Content-Disposition'] = 'attachment; filename="{}"'.format(filename)
     write = csv.writer(response)
     write.writerow(header)
-    for result in MenberModel.objects.filter(venueid=self.kwargs['num']):
+    for result in MenberModel.objects.filter(venueid=num):
         write.writerow([
             result.timedate,
             result.ticket1,
