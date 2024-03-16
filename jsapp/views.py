@@ -13,7 +13,7 @@ class Toppage(ListView):
     template_name = 'index.html'
     model = EventModel
 
-    def get_context_data(self,**kwargs):
+    def get_context_data(self,*args,**kwargs):
         ctx = super().get_context_data(**kwargs)
         model = VenueModel.objects.all()
         ctx['models'] = model
