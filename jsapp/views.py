@@ -155,11 +155,13 @@ class ThanksView(ListView):
         return  ctx
     
 def csv_export(request,num):
+    No = 1
     response = HttpResponse(content_type='text\csv; charset=Shift-JIS')
     now = datetime.datetime.now()
     downloadtime = now.strftime('%Y%m%d_%H%M%S')
     f = str(num) + '集計結果：' + downloadtime +  '.csv'
     header = [
+        'No.',
         '日時',
         '昼チケット',
         '昼座席',
@@ -182,6 +184,7 @@ def csv_export(request,num):
     write.writerow(header)
     for result in MenberModel.objects.filter(venueid=num).order_by('timedate'):
         write.writerow([
+            No,
             result.timedate,
             result.ticket1,
             result.sheet1,
@@ -198,4 +201,5 @@ def csv_export(request,num):
             result.row2,
             result.number2,
             ])
+        No = No + 1
     return response
