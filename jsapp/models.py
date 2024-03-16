@@ -32,6 +32,8 @@ class VenueModel(models.Model):
    venueid = models.IntegerField(primary_key=True)
    venuedate = models.DateField()
    event = models.ForeignKey(EventModel,on_delete=models.CASCADE)
+   rowmax = models.IntegerField(default=1,blank=True)
+   columnmax = models.IntegerField(default=1,blank=True)
    hallinfo = models.ForeignKey(HallInfoModel,on_delete=models.CASCADE,default=1)
 
 
@@ -61,4 +63,7 @@ class MenberModel(models.Model):
    block_r2 = models.CharField(max_length=100,blank=True)
    block_c2 = models.CharField(max_length=100,blank=True)
    number2 = models.CharField(max_length=100,blank=True)
+
+   def __str__(self):
+      return "No." + self.answerid + ",time:" + self.timedate 
 

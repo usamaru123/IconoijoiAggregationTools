@@ -7,47 +7,12 @@ import numpy as np
 
 
 def Floor_HeatMap(rows,numbers,sheets):
-    int_rows = []
-    int_numbers = []
-    int_sheets = []
-    
-
-
-    for r in range(len(rows)):
-        int_rows.append(int(rows[r] or 0))
-
-    for n in range(len(numbers)):
-        int_numbers.append(int(numbers[n] or 0))
-
-    for i in range(len(sheets)):
-        if sheets[i] == '一般席':
-            int_sheets.append(1)
-        elif sheets[i] == 'カメコエリア席':
-            int_sheets.append(2)
-        elif sheets[i] == '女性エリア席':
-            int_sheets.append(3)
-        elif sheets[i] == '着席指定席':
-            int_sheets.append(4)
-        else :
-            int_sheets.append(0)
-
-    sheetlist = [[0 for h in range(1,max(int_numbers)+2)] for w in range(1,max(int_rows)+2)]
-    for s in range(len(int_sheets)):
-        if (int_sheets[s] != 0)and(int_numbers[s] != 0):
-            row = int_rows[s]
-            number = int_numbers[s]
-            sheetlist[row][number] = int_sheets[s]
-
-    fig = go.Figure()
-    fig.add_trace(go.Heatmap(sheetlist))    
-    graph = fig.to_html(include_plotlyjs=False)
-    return graph
-
+   return 
 
 def Arena_HeatMap(rows,columns,sheets):
     columnlist = []
     rowlist = ['A','B','C','D']
-    columnmax = 7
+    columnmax = 15
 
     for i in range(0,columnmax):
         columnlist.append(i+1)

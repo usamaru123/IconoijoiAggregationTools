@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<div class="header_inner inner">
+    <p class="header_title" name="eventtitle">{{ title.event.eventtitle }}</p>
+    {% if request.GET.time == 'matinee' %}
+    <p class="header_ank" name="venue">昼の部 配席アンケート結果確認画面</p>
+    {% elif request.GET.time == 'evening' %}
+    <p class="header_ank" name="venue">夜の部 配席アンケート結果確認画面</p>
+    {% else %}
+    <p class="header_ank" name="venue">配席アンケート結果確認画面</p>
+    {% endif %}
+    <p class="header_detail">日時：{{ title.venuedate|date:"Y年n月j日" }}</p>
+    <p class="header_detail">会場：{{ title.hallinfo.hallname }}
+    </p>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div>
+    <div class="alert alert-light form-control-lg">
+        <h2>現在の回答数：{{ count }}</h2>
+        <div class="timeselect">
+            <form action="" method="GET">
+                公演選択　
+                <button type="submit" class="btn btn-lg btn-primary" name="time" value="matinee">昼の部</button>
+                <button type="submit" class="btn btn-lg btn-primary" name="time" value="evening">夜の部</button>
+            </form>
+        </div>
+    </div>
+
+    {% autoescape off %}
+    <div class="alert alert-light">
+        <h2>座席種別ごとの回答割合</h2>
+        {{ chart }}
+    </div>
+
+    <div class="alert alert-light">
+        <h2>アリーナ席ブロック集計結果</h2>
+        {{ heatmap }}
+    </div>
+
+    <div>
+        <a href="{% url 'jsapp:export' %}" class="btn btn-primary">csv export</a>
+    </div>
+
+
+    {% if request.GET.time == 'matinee' %}
+    <div class="alert alert-light">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>回答日時</th>
+                    <th>チケット種別</th>
+                    <th>座席種別</th>
+                    <th>座席階層</th>
+                    <th>ブロック</th>
+                    <th>座席列数</th>
+                    <th>座席番号</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr>
+                    <td>{{ result.timedate|date:"Y-m-j H:i:s" }} </td>
+                    <td>{{ result.ticket1 }}</td>
+                    <td>{{ result.sheet1 }}</td>
+                    <td>{{ result.floor1 }}</td>
+                    <td>{{ result.block_r1 }}-{{ result.block_c1 }}</td>
+                    <td>{{ result.row1 }}</td>
+                    <td>{{ result.number1 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="alert alert-light">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>回答日時</th>
+                    <th>チケット種別</th>
+                    <th>座席種別</th>
+                    <th>座席階層</th>
+                    <th>ブロック</th>
+                    <th>座席列数</th>
+                    <th>座席番号</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr>
+                    <td>{{ result.timedate|date:"Y-m-j H:i:s" }} </td>
+                    <td>{{ result.ticket2 }}</td>
+                    <td>{{ result.sheet2 }}</td>
+                    <td>{{ result.floor2 }}</td>
+                    <td>{{ result.block_r2 }}-{{ result.block_c2 }}</td>
+                    <td>{{ result.row2 }}</td>
+                    <td>{{ result.number2 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+
+    {% endautoescape %}
+</div>
+{% endblock content %}

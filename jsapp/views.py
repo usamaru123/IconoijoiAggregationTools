@@ -8,8 +8,12 @@ from matplotlib import pyplot as plt
 from . import graph
 import csv,urllib
 
+
+class Toppage(ListView):
+    template_name = 'toppage.html'
+
 class AnswerList(ListView):
-    template_name = 'index.html'
+    template_name = 'result.html'
     model = EventModel
 
 
@@ -63,7 +67,7 @@ class AnswerList(ListView):
 
         chart = graph.sheetratio(sheet)
         heatmap = graph.Arena_HeatMap(block,column,arenasheet)
-        #floorheatmap = graph.Floor_HeatMap(floor,number)
+        floorheatmap = graph.Floor_HeatMap(floor,number)
 
         ctx['chart'] = chart
         ctx['heatmap'] = heatmap
