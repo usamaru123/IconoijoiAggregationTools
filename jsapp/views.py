@@ -7,6 +7,7 @@ from django.shortcuts import redirect
 from matplotlib import pyplot as plt
 from . import graph
 import csv,urllib
+import datetime
 
 
 class Toppage(ListView):
@@ -155,7 +156,8 @@ class ThanksView(ListView):
     
 def csv_export(request,num):
     response = HttpResponse(content_type='text\csv; charset=Shift-JIS')
-    f = '集計結果' + str(num) + '.csv'
+    downloadtime = datetime.datetime.now()
+    f = str(num) + '集計結果_DownloadTime:' + str(downloadtime) +  '.csv'
     header = [
         '日時',
         '昼チケット',
