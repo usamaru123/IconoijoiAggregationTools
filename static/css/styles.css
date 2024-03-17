@@ -50,9 +50,8 @@ label {
 .main {
     height: fixed;
     background-color: #fff;
-    padding: 10px 10em;
+    padding: 10px 1em;
     background: rgba(255, 255, 255, 0.5);
-    margin-top: 32%;
 }
 
 .header {
