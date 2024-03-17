@@ -11,18 +11,18 @@
 {% block content %}
 <div>
 
-    <div class="alert alert-light form-control-lg linkbox">
+    <div class="alert alert-light form-control">
 
         <div class="container">
             <h2>配席アンケート集計結果一覧</h2>
-            {% for model in title %}
-            <h3>
-                {{ model.event.eventtitle }}
-            </h3>
-            <div>会場：{{ model.hallinfo.hallname }}</div>
-            <div>日付：{{ model.venuedate|date:"Y年n月j日" }}</div>
-            <a href="https://ico-graph.com/result/{{ model.venueid }}?time=matinee"></a>
-            {% endfor %}
+            <div class="linkbox">
+                {% for model in title %}
+                <h3>{{ model.event.eventtitle }}</h3>
+                <div>会場：{{ model.hallinfo.hallname }}</div>
+                <div>日付：{{ model.venuedate|date:"Y年n月j日" }}</div>
+                <a href="https://ico-graph.com/result/{{ model.venueid }}?time=matinee"></a>
+                {% endfor %}
+            </div>
         </div>
 
     </div>
