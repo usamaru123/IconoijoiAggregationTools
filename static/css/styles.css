@@ -38,6 +38,10 @@ label {
     color: #000;
 }
 
+h2 {
+    margin: 1rem;
+}
+
 
 .time {
     font-weight: bold;
