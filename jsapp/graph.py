@@ -180,14 +180,16 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         xgap=2,
         ygap=2,
         texttemplate="%{z}",
-        textfont={"size":15},
+        textfont=dict(
+            family="sans serif",
+            size=18,
+            ),
         ),row=5,col=1)
     
     fig.update_layout(
         height=1500,
         margin_l=0,
         margin_r=0,
-        font_family='Hiragino Sans',
     )
     fig.update_traces(showscale=False)
     fig.update_yaxes(autorange='reversed',dtick=1)
