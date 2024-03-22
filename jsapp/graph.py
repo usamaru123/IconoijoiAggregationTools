@@ -137,7 +137,7 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         zmin = 0,
         xgap=2,
         ygap=2,
-        texttemplate="%{Z}",
+        texttemplate="%{z}",
         textfont={"size":20},
         ),row=2,col=1)
     
@@ -151,7 +151,7 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         zmin = 0,
         xgap=2,
         ygap=2,
-        texttemplate="%{Z}",
+        texttemplate="%{z}",
         textfont={"size":20},
         ),row=3,col=1)
    
@@ -165,7 +165,7 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         zmin = 0,
         xgap=2,
         ygap=2,
-        texttemplate="%{Z}",
+        texttemplate="%{z}",
         textfont={"size":20},
         ),row=4,col=1)
        
@@ -179,7 +179,7 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         zmin = 0,
         xgap=2,
         ygap=2,
-        texttemplate="%{Z}",
+        texttemplate="%{z}",
         textfont={"size":20},
         ),row=5,col=1)
     
