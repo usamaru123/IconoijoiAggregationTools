@@ -193,7 +193,7 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         ),row=5,col=1)
     
     fig.update_layout(
-        height=1500,
+        height=2300,
         margin_l=0,
         margin_r=0,
     )
