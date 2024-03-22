@@ -26,6 +26,11 @@
                 公演選択　
                 <button type="submit" class="btn btn-lg btn-primary" name="time" value="matinee">昼の部</button>
                 <button type="submit" class="btn btn-lg btn-primary" name="time" value="evening">夜の部</button>
+                {% if request.GET.time == 'matinee' %}
+                <p class="header_ank" name="venue">昼の部</p>
+                {% elif request.GET.time == 'evening' %}
+                <p class="header_ank" name="venue">夜の部</p>
+                {% endif %}
             </form>
         </div>
     </div>
