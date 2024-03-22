@@ -139,6 +139,7 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         ygap=2,
         texttemplate="%{z}",
         textfont={"size":20},
+        subplot_titles=['ブロックの中で一番多かった座席種別を表示'],
         ),row=2,col=1)
     
     fig.add_trace(
