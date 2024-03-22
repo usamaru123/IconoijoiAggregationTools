@@ -66,8 +66,10 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
             print("座席がリスト外")
 
     #すべてのリストでフィールドを参照し，一番集計数が多い座席種別をblocksheetに代入する
-    for column in range(1,columnmax+1):
-        for row in range(1,rowmax+1):
+    for i in range(1,columnmax+1):
+        for j in range(1,rowmax+1):
+            column = int_columns[i]
+            row = int_rows[j]
             try:
                 comparesheet = {
                     '一':ippanlist[column][row],
@@ -119,7 +121,7 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         y=sheetdf.index.tolist(),
         text = text,
         colorscale='Edge',   
-        zmax = c,
+        zmax = 2,
         zmin = -2,
         xgap=2,
         ygap=2,
