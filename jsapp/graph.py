@@ -174,7 +174,7 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         z=chakusekidf.values.tolist(),
         x=chakusekidf.columns.tolist(),
         y=chakusekidf.index.tolist(),
-        colorscale='Purples',   
+        colorscale='Purples',
         zmax = 10,
         zmin = 0,
         xgap=2,
