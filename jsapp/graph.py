@@ -124,9 +124,6 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         xgap=2,
         ygap=2,
         texttemplate="%{text}",
-        textfont=dict(
-            family="sans serif",
-            ),
         ),row=1,col=1)
     
     fig.add_trace(
