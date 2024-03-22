@@ -66,35 +66,33 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
             print("座席がリスト外")
 
     #すべてのリストでフィールドを参照し，一番集計数が多い座席種別をblocksheetに代入する
-    for i in range(1,columnmax+1):
-        for j in range(1,rowmax+1):
-            column = int_columns[i]
-            row = int_rows[j]
-            try:
-                comparesheet = {
-                    '一':ippanlist[column][row],
-                    'カ':kamekolist[column][row],
-                    '女':joseilist[column][row],
-                    '着':chakusekilist[column][row]
-                    }
-                
-                maxsheetval = max(comparesheet.values())
-                maxsheet = max(comparesheet,key=comparesheet.get)
-                if (maxsheetval != 0):
-                    if maxsheet == '一':
-                        points[column][row] = -1.5
-                    if maxsheet == 'カ':
-                        points[column][row] = -0.8
-                    if maxsheet == '女':
-                        points[column][row] = 1
-                    if maxsheet == '着':
-                        points[column][row] = 1.5
-                    textlist[column][row] = 'a'
+    for column in columns:
+            for row in rows:
+                try:
+                    comparesheet = {
+                        '一':ippanlist[column][row],
+                        'カ':kamekolist[column][row],
+                        '女':joseilist[column][row],
+                        '着':chakusekilist[column][row]
+                        }
+                    
+                    maxsheetval = max(comparesheet.values())
+                    maxsheet = max(comparesheet,key=comparesheet.get)
+                    if (maxsheetval != 0):
+                        if maxsheet == '一':
+                            points[column][row] = -1.5
+                        if maxsheet == 'カ':
+                            points[column][row] = -0.8
+                        if maxsheet == '女':
+                            points[column][row] = 1
+                        if maxsheet == '着':
+                            points[column][row] = 1.5
+                        textlist[column][row] = 'a'
 
-                else:
-                    textlist[column][row] = "4"
-            except:
-                print("")
+                    else:
+                        textlist[column][row] = "4"
+                except:
+                    print("")
 
 
     sheetdf = pd.DataFrame(points)
