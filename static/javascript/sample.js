@@ -58,7 +58,7 @@ function positionformfunc(i) {
         </div><div id="errorform${i}_4"></div>
         <div class="blockform">
             <input pattern="[A-Za-g]{1}" class="col-3 block position" id="block_r${i}" placeholder="英字1文字"  oninput="inputChange(${i})">
-            <input type="number" min="1" max="9" class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字">
+            <input type="number" min="1" max="30" class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字">
         <b style="font-size:1.5rem">ブロック</b>      
         
         <div class="numberform">
