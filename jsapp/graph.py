@@ -133,7 +133,7 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         z=blockdf.values.tolist(),
         x=blockdf.columns.tolist(),
         y=blockdf.index.tolist(),
-        colorscale='Blues',   
+        colorscale='Oranges',   
         zmax = 10,
         zmin = 0,
         xgap=2,
