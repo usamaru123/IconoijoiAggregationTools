@@ -80,7 +80,7 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
                 maxsheet = max(comparesheet,key=comparesheet.get)
                 if maxsheetval == 0:
                     points[column][row] = 0
-                    textlist[column][row] = 0
+                    textlist[column][row] = ""
                 else:
                     if maxsheet == '一':
                         points[column][row] = -1.5
