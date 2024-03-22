@@ -137,10 +137,6 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         xgap=2,
         ygap=2,
         texttemplate="%{z}",
-        textfont=dict(
-            family="sans serif",
-            size=18,
-            ),
         ),row=2,col=1)
     
     fig.add_trace(
@@ -154,10 +150,6 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         xgap=2,
         ygap=2,
         texttemplate="%{z}",
-        textfont=dict(
-            family="sans serif",
-            size=18,
-            ),
         ),row=3,col=1)
    
     fig.add_trace(
@@ -171,10 +163,6 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         xgap=2,
         ygap=2,
         texttemplate="%{z}",
-        textfont=dict(
-            family="sans serif",
-            size=18,
-            ),
         ),row=4,col=1)
        
     fig.add_trace(
@@ -188,10 +176,6 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         xgap=2,
         ygap=2,
         texttemplate="%{z}",
-        textfont=dict(
-            family="sans serif",
-            size=18,
-            ),
         ),row=5,col=1)
     
     fig.update_layout(
