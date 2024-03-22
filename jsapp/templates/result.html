@@ -23,13 +23,11 @@
         <h2>現在の回答数：{{ count }}</h2>
         <div class="timeselect">
             <form action="" method="GET">
-                <h3>
-                    {% if request.GET.time == 'matinee' %}
-                    昼の部
-                    {% elif request.GET.time == 'evening' %}
-                    夜の部
-                    {% endif %}
-                </h3>
+                {% if request.GET.time == 'matinee' %}
+                <b>昼の部</b>
+                {% elif request.GET.time == 'evening' %}
+                <b>夜の部</b>
+                {% endif %}
                 <button type="submit" class="btn btn-lg btn-primary timeselect" name="time" value="matinee">昼の部</button>
                 <button type="submit" class="btn btn-lg btn-primary timeselect" name="time" value="evening">夜の部</button>
             </form>
