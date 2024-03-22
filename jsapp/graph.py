@@ -100,15 +100,16 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
     kamekodf = pd.DataFrame(kamekolist)
     joseidf = pd.DataFrame(joseilist)
     chakusekidf = pd.DataFrame(chakusekilist)
+    blockdf = pd.DataFrame(blocklist)
     textdf = pd.DataFrame(textlist)
     text = textdf.values.tolist()
 
 
     fig = make_subplots(
-        rows=5,
+        rows=6,
         cols=1,
         vertical_spacing = 0.1,
-        subplot_titles=['ブロックの中で一番多かった座席種別を表示','一般席','カメコエリア席','女性エリア席','着席指定席'],
+        subplot_titles=['ブロックの中で一番多かった座席種別を表示','合計','一般席','カメコエリア席','女性エリア席','着席指定席'],
         )
 
 
@@ -125,6 +126,19 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         ygap=2,
         texttemplate="%{text}",
         ),row=1,col=1)
+    
+    fig.add_trace(
+        go.Heatmap(
+        z=blockdf.values.tolist(),
+        x=blockdf.columns.tolist(),
+        y=blockdf.index.tolist(),
+        colorscale='Blues',   
+        zmax = 10,
+        zmin = 0,
+        xgap=2,
+        ygap=2,
+        texttemplate="%{z}",
+        ),row=2,col=1)
     
     fig.add_trace(
         go.Heatmap(
