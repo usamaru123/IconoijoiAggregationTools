@@ -116,7 +116,7 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         z=sheetdf.values.tolist(),
         x=sheetdf.columns.tolist(),
         y=sheetdf.index.tolist(),
-        text = text
+        text = text,
         colorscale='Edge',   
         zmax = 2,
         zmin = -2,
