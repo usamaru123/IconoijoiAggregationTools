@@ -90,7 +90,7 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
                     textlist[column][row] = maxsheet
 
                 if (points[column][row] == 0):
-                    textlist[column][row] = ""
+                    textlist[column][row] = "4"
             except:
                 print("")
 
