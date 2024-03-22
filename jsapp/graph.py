@@ -70,10 +70,10 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         for row in int_rows:
             try:
                 comparesheet = {
-                    '一':ippanlist[column][row],
-                    'カ':kamekolist[column][row],
-                    '女':joseilist[column][row],
-                    '着':chakusekilist[column][row]
+                    '一般':ippanlist[column][row],
+                    'カメコ':kamekolist[column][row],
+                    '女エリ':joseilist[column][row],
+                    '着席':chakusekilist[column][row]
                     }
                 
                 maxsheetval = max(comparesheet.values())
