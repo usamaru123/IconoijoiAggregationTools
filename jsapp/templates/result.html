@@ -24,9 +24,9 @@
         <div class="timeselect">
             <form action="" method="GET">
                 {% if request.GET.time == 'matinee' %}
-                <font size="20">昼の部</font>
+                <b size="2rem">昼の部</b>
                 {% elif request.GET.time == 'evening' %}
-                <font size="20">夜の部</font>
+                <b size="2rem">夜の部</b>
                 {% endif %}
                 <button type="submit" class="btn btn-lg btn-primary" name="time" value="matinee">昼の部</button>
                 <button type="submit" class="btn btn-lg btn-primary" name="time" value="evening">夜の部</button>
