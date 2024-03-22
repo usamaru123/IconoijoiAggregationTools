@@ -187,7 +187,7 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         height=1500,
         margin_l=0,
         margin_r=0,
-        font_family='sans-seif',
+        font_family='Hiragino Sans',
     )
     fig.update_traces(showscale=False)
     fig.update_yaxes(autorange='reversed',dtick=1)
