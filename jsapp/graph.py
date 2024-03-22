@@ -82,13 +82,13 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
                     points[column][row] = ""
                     textlist[column][row] = ""
                 else:
-                    if maxsheet == '一':
+                    if maxsheet == '一般':
                         points[column][row] = -1.5
-                    if maxsheet == 'カ':
+                    if maxsheet == 'カメコ':
                         points[column][row] = -0.8
-                    if maxsheet == '女':
+                    if maxsheet == '女エリ':
                         points[column][row] = 1
-                    if maxsheet == '着':
+                    if maxsheet == '着席':
                         points[column][row] = 1.5
                     textlist[column][row] = maxsheet
             except:
