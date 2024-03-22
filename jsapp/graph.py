@@ -10,6 +10,9 @@ def Floor_HeatMap(rows,numbers):
    return 
 
 def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
+    if (rows is None):
+        return
+        
     columnlist = []
     rowlist = []
 
