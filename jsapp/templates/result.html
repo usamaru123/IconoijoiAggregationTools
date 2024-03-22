@@ -28,10 +28,8 @@
                 {% elif request.GET.time == 'evening' %}
                 <b class="header_inner">夜の部</b>
                 {% endif %}
-                <button type="submit" class="btn btn-lg btn-primary header_inner" name="time"
-                    value="matinee">昼の部</button>
-                <button type="submit" class="btn btn-lg btn-primary header_inner" name="time"
-                    value="evening">夜の部</button>
+                <button type="submit" class="btn btn-lg btn-primary timeselect" name="time" value="matinee">昼の部</button>
+                <button type="submit" class="btn btn-lg btn-primary timeselect" name="time" value="evening">夜の部</button>
             </form>
         </div>
     </div>
