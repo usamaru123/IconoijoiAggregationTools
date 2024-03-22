@@ -61,7 +61,6 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
                 joseilist[column][row] += 1
             elif sheets[i] == '着席指定席':
                 chakusekilist[column][row] += 1
-            blocklist[column][row] +=1
         except:
             print("座席がリスト外")
 
@@ -88,6 +87,7 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
                     if maxsheet == '着':
                         points[column][row] = 1.5
                     textlist[column][row] = maxsheet
+                    blocklist[column][row] +=1
 
                 if (points[column][row] == 0):
                     textlist[column][row] = ""
