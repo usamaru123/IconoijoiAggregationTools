@@ -123,7 +123,7 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         zmax = 2,
         zmin = -2,
         xgap=2,
-        ygap=2,
+        ygap=2c,
         texttemplate="%{text}",
         ),row=1,col=1)
     
