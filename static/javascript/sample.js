@@ -20,7 +20,7 @@ window.onload = function () {
 
 function ticketformfunc(formlabel, i) {
     const formname = 'ticket' + i;
-    const values = ['FC先行販売', '一般先行販売', '一般2次先', '追加販売', 'プレイガイド受付'];
+    const values = ['FC先行販売', '一般先行販売', '一般2次先行', '追加販売', 'プレイガイド受付'];
     createRadioformfunc(formlabel, formname, values, i)
 }
 
