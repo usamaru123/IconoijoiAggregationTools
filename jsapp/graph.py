@@ -235,5 +235,5 @@ def piecreate(label,value):
         hole = .4,
     )
 
-    graph = fig.to_html(include_plotlyjs=False)
+    graph = fig.to_html(output_type='div',include_plotlyjs=True)
     return graph
