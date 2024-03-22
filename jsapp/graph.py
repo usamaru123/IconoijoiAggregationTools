@@ -134,7 +134,7 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         y=ippandf.index.tolist(),
         colorscale='Blues',   
         zmax = 10,
-        zmin = x,
+        zmin = 0,
         xgap=2,
         ygap=2,
         texttemplate="%{z}",
