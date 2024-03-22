@@ -24,12 +24,12 @@
         <div class="timeselect">
             <form action="" method="GET">
                 {% if request.GET.time == 'matinee' %}
-                <b>昼の部</b>
-                {% elif request.GET.time == 'evening' %}
-                <b>夜の部</b>
-                {% endif %}
-                <button type="submit" class="btn btn-lg btn-primary" name="time" value="matinee">昼の部</button>
-                <button type="submit" class="btn btn-lg btn-primary" name="time" value="evening">夜の部</button>
+                <fontsize="20">昼の部</fontsize>
+                    {% elif request.GET.time == 'evening' %}
+                    <fontsize="20">夜の部</fontsize>
+                        {% endif %}
+                        <button type="submit" class="btn btn-lg btn-primary" name="time" value="matinee">昼の部</button>
+                        <button type="submit" class="btn btn-lg btn-primary" name="time" value="evening">夜の部</button>
             </form>
         </div>
     </div>
