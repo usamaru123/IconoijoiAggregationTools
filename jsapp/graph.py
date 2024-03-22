@@ -87,7 +87,7 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
                         points[column][row] = 1
                     if maxsheet == '着':
                         points[column][row] = 1.5
-                    textlist[column][row] = maxsheet
+                    textlist[column][row] = 'a'
 
                 if (points[column][row] == 0):
                     textlist[column][row] = "4"
