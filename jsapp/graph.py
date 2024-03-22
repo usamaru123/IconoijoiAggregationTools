@@ -31,7 +31,7 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
     joseilist = listcreate(rowlist,columnlist)
     chakusekilist = listcreate(rowlist,columnlist)
     points = listcreate(rowlist,columnlist)
-    textlist = listcreate(rowlist,columnlist)
+    textlist = textlistcreate(rowlist,columnlist)
 
     int_sheets = []
     int_columns = []
@@ -193,6 +193,10 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
 
 def listcreate(rowlist,columnlist):
     list = {column:{row:0 for row in rowlist} for column in columnlist}
+    return list
+
+def textlistcreate(rowlist,columnlist):
+    list = {column:{row:"" for row in rowlist} for column in columnlist}
     return list
     
 def sheetratio(sheets):
