@@ -240,11 +240,6 @@ function formcheck(i) {
         is_blockr = true;
     }
 
-    if (block_c) {
-        if (block_c.value != '') {
-            is_blockc = true;
-        }
-    }
     else {
         is_blockc = true;
     }
