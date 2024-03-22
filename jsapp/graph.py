@@ -126,7 +126,6 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         texttemplate="%{text}",
         textfont=dict(
             family="sans serif",
-            size=18,
             ),
         ),row=1,col=1)
     
