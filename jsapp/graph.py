@@ -2,6 +2,7 @@ import plotly.graph_objects as go
 import plotly.figure_factory as ff
 from plotly.subplots import make_subplots
 import plotly.express as px
+from plotly.offline import plot
 import pandas as pd
 import numpy as np
 
@@ -235,5 +236,5 @@ def piecreate(label,value):
         hole = .4,
     )
 
-    graph = fig.to_html(output_type='div',include_plotlyjs=True)
+    graph = plot(fig, output_type='div', include_plotlyjs=False)
     return graph
