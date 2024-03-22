@@ -107,7 +107,7 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
     fig = make_subplots(
         rows=5,
         cols=1,
-        subplot_titles=['一般:青 女エリ:橙 カメコ:水色 着席:赤','【一般席】','【カメコ席】','【女性エリア席】','【着席指定席】',],
+        subplot_titles=['ブロックの中で一番多かった種別を表示'],
         vertical_spacing = 0.1
         )
 
