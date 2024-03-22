@@ -108,6 +108,7 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         rows=5,
         cols=1,
         vertical_spacing = 0.1
+        subplot_titles=['ブロックの中で一番多かった座席種別を表示','一般席','カメコエリア席','女性エリア席','着席指定席'],
         )
 
 
@@ -124,7 +125,6 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         ygap=2,
         texttemplate="%{text}",
         textfont={"size":20},
-        subplot_titles=['ブロックの中で一番多かった座席種別を表示'],
         ),row=1,col=1)
     
     fig.add_trace(
@@ -139,7 +139,6 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
         ygap=2,
         texttemplate="%{z}",
         textfont={"size":20},
-        subplot_titles=['ブロックの中で一番多かった座席種別を表示'],
         ),row=2,col=1)
     
     fig.add_trace(
