@@ -253,7 +253,7 @@ function formcheck(i) {
         is_row = true;
     }
 
-    if (!is_blockr || !is_blockc || !is_row) {
+    if (!is_blockr || !is_row) {
         error4.innerHTML = errormsg2;
         return false;
     }
