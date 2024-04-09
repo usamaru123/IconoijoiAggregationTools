@@ -19,7 +19,9 @@
                 </div>
                 <label for="timeform1">
                     <input type="checkbox" class="form-check-input" id="timeform1" onclick="checkEvent(1)">
-                    昼の部</label>
+                    {% for perform_time in title.m_TimePerform.timeperform %}
+                    {{ perform_time }}
+                </label>
                 <label for="timeform2">
                     <input type="checkbox" class="form-check-input " id="timeform2" onclick="checkEvent(2)">
                     夜の部</label>
