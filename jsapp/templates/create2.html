@@ -17,15 +17,12 @@
             <div class="formcheck alert alert-light shadow ">
                 <div id="errorform1">
                 </div>
-                <label for="timeform1">
-                    <input type="checkbox" class="form-check-input" id="timeform1" onclick="checkEvent(1)">
-                    {% for perform_time in title.perform_time.all %}
-                    {{ perform_time }}
-                    {% endfor %}
-                </label>
+                {% for perform_time in title.perform_time.all %}
                 <label for="timeform2">
                     <input type="checkbox" class="form-check-input " id="timeform2" onclick="checkEvent(2)">
-                    夜の部</label>
+                    {{ perform_time }}
+                </label>
+                {% endfor %}
                 <input type="hidden" id="titlename" name="title" value="{{ title }}">
                 <input type="hidden" id="venueid" name="venueid" value="{{ title.venueid }}">
                 <input type="hidden" id="timeformcheck1" name="matinee" value>
