@@ -156,32 +156,39 @@ function valueCheck() {
 
     const errormsg1 = '参加公演にチェックを入れてください';
 
-    if (!matinee) {
-        matinee.checked = true
+
+
+    if (matinee) {
+        is_matinee = matinee.checked
+        if (matinee.checked) {
+            form1 = formcheck(1);
+        }
+        else {
+            form1 = true;
+        }
     }
-    if (!evening) {
-        evening.checked = true
+    else {
+        is_matinee = true
+    }
+    if (evening) {
+        is_evening = evening.checked
+        if (evening.checked) {
+            form2 = formcheck(2);
+        }
+        else {
+            form2 = true;
+            console.log(form2);
+        }
+    }
+    else {
+        is_evening = true
     }
 
-    if (!(matinee.checked || evening.checked)) {
+    if (!(is_matinee || is_evening)) {
         errorform1.innerHTML = errormsg1;
         return false;
     }
 
-    if (matinee.checked) {
-        form1 = formcheck(1);
-        console.log(form1);
-    }
-    else {
-        form1 = true;
-    }
-    if (evening.checked) {
-        form2 = formcheck(2);
-    }
-    else {
-        form2 = true;
-        console.log(form2);
-    }
 
     if (!form1 || !form2) {
         return false;
