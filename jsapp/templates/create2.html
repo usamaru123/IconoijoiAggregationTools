@@ -18,9 +18,9 @@
                 <div id="errorform1">
                 </div>
                 {% for perform_time in title.perform_time.all %}
+                {% forloop.counter = i %}
                 <label for="timeform2">
-                    <input type="checkbox" class="form-check-input " id="timeform2" onclick=`checkEvent({{
-                        forloop.counter }})`>
+                    <input type="checkbox" class="form-check-input " id="timeform2" onclick="checkEvent(1)">
                     {{ perform_time }}
                 </label>
                 {% endfor %}
