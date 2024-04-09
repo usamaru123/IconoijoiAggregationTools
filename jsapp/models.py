@@ -27,6 +27,8 @@ class HallInfoModel(models.Model):
       return self.hallname
    
 
+class m_PerformTime(models.Model):
+   perform_time = models.CharField(max_length=100)
 
 class VenueModel(models.Model):
    venueid = models.IntegerField(primary_key=True)
@@ -35,7 +37,7 @@ class VenueModel(models.Model):
    rowmax = models.IntegerField(default=1,blank=True)
    columnmax = models.IntegerField(default=1,blank=True)
    hallinfo = models.ForeignKey(HallInfoModel,on_delete=models.CASCADE,default=1)
-
+   perform_time = models.ManyToManyField(m_PerformTime,default="")
 
    def __str__(self):
       return self.event.eventtitle + self.hallinfo.hallname 
@@ -63,5 +65,4 @@ class MenberModel(models.Model):
    block_r2 = models.CharField(max_length=100,blank=True)
    block_c2 = models.CharField(max_length=100,blank=True)
    number2 = models.CharField(max_length=100,blank=True)
-
 
