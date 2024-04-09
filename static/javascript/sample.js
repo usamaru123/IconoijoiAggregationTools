@@ -156,6 +156,12 @@ function valueCheck() {
 
     const errormsg1 = '参加公演にチェックを入れてください';
 
+    if (!matinee) {
+        matinee.checked = true
+    }
+    if (!evening) {
+        evening.checked = true
+    }
 
     if (!(matinee.checked || evening.checked)) {
         errorform1.innerHTML = errormsg1;
