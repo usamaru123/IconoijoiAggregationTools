@@ -29,6 +29,8 @@ class HallInfoModel(models.Model):
 
 class m_PerformTime(models.Model):
    perform_time = models.CharField(max_length=100)
+   def __str__(self):
+      return self.perform_time
 
 class VenueModel(models.Model):
    venueid = models.IntegerField(primary_key=True)
