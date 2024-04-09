@@ -84,17 +84,22 @@ function positionformfunc(i) {
             <b style="font-size:1.5rem">番</b>
         </div>
     `;
-    if (floor_arena || floor_1) {
-        if (floor_arena.checked || floor_1.checked) {
+    if (floor_arena) {
+        if (floor_arena.checked) {
             numberform.innerHTML = position1;
         }
         else {
             numberform.innerHTML = position2;
         }
     }
-
-
-
+    if (floor_1) {
+        if (floor_1.checked) {
+            numberform.innerHTML = position1;
+        }
+        else {
+            numberform.innerHTML = position2;
+        }
+    }
 
 };
 
