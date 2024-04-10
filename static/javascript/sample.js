@@ -164,7 +164,7 @@ function valueCheck() {
             form1 = formcheck(1);
         }
         else {
-            form1 = true;
+            form1 = false;
         }
     }
     else {
@@ -176,7 +176,7 @@ function valueCheck() {
             form2 = formcheck(2);
         }
         else {
-            form2 = true;
+            form2 = false;
             console.log(form2);
         }
     }
