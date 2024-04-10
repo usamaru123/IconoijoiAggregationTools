@@ -14,6 +14,7 @@ window.onload = function () {
         ticketformfunc(ticketformlabel, num);
         sheetformfunc(sheetformlabel, num);
         floorformfunc(floorformlabel, num);
+        checkEvent(1)
     }
 }
 
