@@ -52,7 +52,7 @@ function floorformfunc(formlabel, i) {
 
 function positionformfunc(i) {
     console.log(i);
-    const floor_arena = document.querySelector(`#floor${i}_アリーナ席`);
+    const floor_arena = document.querySelector(`#floor${i}_１階アリーナ席`);
     const floor_1 = document.querySelector(`#floor${i}_１階席`)
     const numberform = document.querySelector(`#numberform${i}`);
 
