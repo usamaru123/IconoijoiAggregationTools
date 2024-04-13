@@ -28,7 +28,7 @@ class SheetModel(models.Model): #座席の属性を保存するマスタです
    postname = models.CharField(max_length=10,blank=True)
    sheettype = models.ForeignKey(SheetValMaster,on_delete=models.CASCADE)
    def __str__(self):
-      return self.priority + "." + self.sheetname + ": " + self.prename +  self.sheettype.valname +  self.postname 
+      return str(self.priority) + "." + self.sheetname + ": " + self.prename +  self.sheettype.valname +  self.postname 
 
 class HallTypeModel(models.Model): #会場の属性を保存するマスタです
    priority = models.IntegerField(default = 1)
@@ -36,7 +36,7 @@ class HallTypeModel(models.Model): #会場の属性を保存するマスタで�
    blockname = models.CharField(max_length=100)
    sheet = models.ManyToManyField(SheetModel,default=[1])
    def __str__(self):
-      return str(self.id) + "." + self.blockname
+      return  self.blockname
    
    
 class HallInfoModel(models.Model): #会場の情報を保存するマスタです
@@ -45,7 +45,7 @@ class HallInfoModel(models.Model): #会場の情報を保存するマスタで�
    hallprefecture = models.CharField(max_length=100)
    halltype = models.ManyToManyField(HallTypeModel,default=[1])
    def __str__(self):
-      return self.hallname
+      return str(self.id) + "." + self.hallname
    
 
 
