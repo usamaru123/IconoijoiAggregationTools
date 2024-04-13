@@ -33,7 +33,7 @@ class SheetModel(models.Model): #座席の属性を保存するマスタです
    sheetname = models.CharField(max_length=10)
    sheettype = models.IntegerField()
    def __str__(self):
-      return self.sheetname
+      return self.sheetname + self.sheettype
 
 class m_PerformTime(models.Model): #公演時間を保存するマスタです
    disp_priority = models.IntegerField()
