@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 # Create your models here.
-class EventModel(models.Model):
+class EventModel(models.Model):  #イベントの情報を保存するマスタです
    eventid = models.IntegerField(primary_key=True)
    group = models.CharField(max_length=10)
    eventtype = models.CharField(max_length=10)
@@ -10,7 +10,7 @@ class EventModel(models.Model):
    def __str__(self):
       return self.eventtitle
    
-class HallTypeModel(models.Model):
+class HallTypeModel(models.Model): #会場の属性を保存するマスタです
    halltype = models.CharField(max_length=100)
    blockname = models.CharField(max_length=100)
 
@@ -18,7 +18,7 @@ class HallTypeModel(models.Model):
       return self.blockname
    
    
-class HallInfoModel(models.Model):
+class HallInfoModel(models.Model): #会場の情報を保存するマスタです
    hallid = models.IntegerField(primary_key=True)
    hallname = models.CharField(max_length=100)
    hallprefecture = models.CharField(max_length=100)
@@ -27,12 +27,20 @@ class HallInfoModel(models.Model):
       return self.hallname
    
 
-class m_PerformTime(models.Model):
+class SheetModel(models.Model): #座席の属性を保存するマスタです
+   priority = models.IntegerField()
+   sheetname = models.CharField(max_lemgth=10)
+   sheettype = models.IntegerField()
+   def __str__(self):
+      return self.sheetname
+
+class m_PerformTime(models.Model): #公演時間を保存するマスタです
+   disp_priority = models.IntegerField()
    perform_time = models.CharField(max_length=100)
    def __str__(self):
       return self.perform_time
 
-class VenueModel(models.Model):
+class VenueModel(models.Model): #公演の情報を保存するフィールドです
    venueid = models.IntegerField(primary_key=True)
    venuedate = models.DateField()
    event = models.ForeignKey(EventModel,on_delete=models.CASCADE)
@@ -40,11 +48,12 @@ class VenueModel(models.Model):
    columnmax = models.IntegerField(default=1,blank=True)
    hallinfo = models.ForeignKey(HallInfoModel,on_delete=models.CASCADE,default=1)
    perform_time = models.ManyToManyField(m_PerformTime,default="")
+   sheet = models.ManyToManyField(SheetModel,default=1)
 
    def __str__(self):
       return self.event.eventtitle + self.hallinfo.hallname 
 
-class MenberModel(models.Model):
+class MenberModel(models.Model): #アンケート回答結果を保存するフィールドです
    answerid= models.BigIntegerField(blank=True,default=1)
    venueid = models.ForeignKey(VenueModel,blank=True,on_delete=models.CASCADE,default=20240301)
    timedate = models.DateTimeField(default=timezone.now)
