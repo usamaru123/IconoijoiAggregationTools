@@ -36,7 +36,7 @@ class HallTypeModel(models.Model): #会場の属性を保存するマスタで�
    blockname = models.CharField(max_length=100)
    sheet = models.ManyToManyField(SheetModel,default=[1])
    def __str__(self):
-      return  self.blockname
+      return  self.blockname + "." + self.halltype
    
    
 class HallInfoModel(models.Model): #会場の情報を保存するマスタです
