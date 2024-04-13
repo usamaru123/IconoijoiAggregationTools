@@ -13,7 +13,7 @@ class EventModel(models.Model):  #イベントの情報を保存するマスタ�
    eventtitle = models.CharField(max_length=100,)
 
    def __str__(self):
-      return self.eventtitle
+      return str(self.eventid) + "."+ self.eventtitle
 
 class SheetValMaster(models.Model):
    valid = models.IntegerField(primary_key=True)
@@ -34,7 +34,7 @@ class HallTypeModel(models.Model): #会場の属性を保存するマスタで�
    priority = models.IntegerField(default = 1)
    halltype = models.CharField(max_length=100)
    blockname = models.CharField(max_length=100)
-   sheet = models.ManyToManyField(SheetModel,default=1)
+   sheet = models.ManyToManyField(SheetModel,default=[1])
    def __str__(self):
       return self.blockname
    
@@ -43,7 +43,7 @@ class HallInfoModel(models.Model): #会場の情報を保存するマスタで�
    hallid = models.IntegerField(primary_key=True)
    hallname = models.CharField(max_length=100)
    hallprefecture = models.CharField(max_length=100)
-   halltype = models.ManyToManyField(HallTypeModel,default=1)
+   halltype = models.ManyToManyField(HallTypeModel,default=[1])
    def __str__(self):
       return self.hallname
    
