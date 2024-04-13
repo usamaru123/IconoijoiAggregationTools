@@ -3,6 +3,8 @@ from django.utils import timezone
 # Create your models here.
 class GroupModel(models.Model): #グループ情報を保存するマスタです
    group = models.CharField(max_length=100)
+   def __str__(self):
+      return self.group
 
 class EventModel(models.Model):  #イベントの情報を保存するマスタです
    eventid = models.IntegerField(primary_key=True)
