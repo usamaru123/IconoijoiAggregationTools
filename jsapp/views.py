@@ -108,7 +108,6 @@ class AnswerCreate(CreateView):
         ctx['title'] = venueObj
         ctx['results'] = answerObj
         ctx['blocks'] = blocks
-        ctx['sheets'] = sheets
         return  ctx
 
     def get_success_url(self):
