@@ -67,7 +67,7 @@ class VenueModel(models.Model): #公演の情報を保存するフィールド�
    
 
    def __str__(self):
-      return self.event.eventtitle + self.hallinfo.hallname 
+      return str(self.venueid) + "." + self.event.eventtitle + self.hallinfo.hallname 
 
 class MenberModel(models.Model): #アンケート回答結果を保存するフィールドです
    answerid= models.BigIntegerField(blank=True,default=1)
