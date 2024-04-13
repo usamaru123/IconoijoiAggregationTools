@@ -14,18 +14,19 @@ class EventModel(models.Model):  #イベントの情報を保存するマスタ�
 class SheetModel(models.Model): #座席の属性を保存するマスタです
    priority = models.IntegerField()
    sheetname = models.CharField(max_length=10)
+   prename = models.CharField(max_length=10,blank=True)
+   postname = models.CharField(max_length=10,blank=True)
    sheettype = models.IntegerField()
    def __str__(self):
-      return self.sheetname + str(self.sheettype)
+      return self.sheetname + ",pre:" + self.prename + ",post:" + self.postname
 
 class HallTypeModel(models.Model): #会場の属性を保存するマスタです
    priority = models.IntegerField(default = 1)
    halltype = models.CharField(max_length=100)
    blockname = models.CharField(max_length=100)
-   sheet = models.ForeignKey(SheetModel,on_delete=models.CASCADE)
-
+   sheet = models.ManyToManyField(SheetModel,default=1)
    def __str__(self):
-      return self.blockname + ",座席タイプ:" + self.sheet.sheetname
+      return self.blockname
    
    
 class HallInfoModel(models.Model): #会場の情報を保存するマスタです
