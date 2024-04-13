@@ -23,7 +23,7 @@ class SheetModel(models.Model): #座席の属性を保存するマスタです
    postname = models.CharField(max_length=10,blank=True)
    sheettype = models.ForeignKey(SheetValMaster,on_delete=models.CASCADE)
    def __str__(self):
-      return self.sheetname + ",   pre:" + self.prename + ",   post:" + self.postname +",   type:" + self.sheettype.valname
+      return self.sheetname + ": " + self.prename +  self.sheettype.valname +  self.postname 
 
 class HallTypeModel(models.Model): #会場の属性を保存するマスタです
    priority = models.IntegerField(default = 1)
