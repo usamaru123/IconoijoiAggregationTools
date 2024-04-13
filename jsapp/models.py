@@ -25,7 +25,7 @@ class HallTypeModel(models.Model): #会場の属性を保存するマスタで�
    sheet = models.ForeignKey(SheetModel,on_delete=models.CASCADE)
 
    def __str__(self):
-      return self.blockname + self.sheet.sheettype
+      return self.blockname + self.sheet
    
    
 class HallInfoModel(models.Model): #会場の情報を保存するマスタです
