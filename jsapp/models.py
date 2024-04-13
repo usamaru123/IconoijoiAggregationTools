@@ -1,9 +1,12 @@
 from django.db import models
 from django.utils import timezone
 # Create your models here.
+class GroupModel(models.Model): #グループ情報を保存するマスタです
+   group = models.CharField(max_length=100)
+
 class EventModel(models.Model):  #イベントの情報を保存するマスタです
    eventid = models.IntegerField(primary_key=True)
-   group = models.CharField(max_length=10)
+   group = models.ManyToManyField(GroupModel,default=1)
    eventtype = models.CharField(max_length=10)
    eventtitle = models.CharField(max_length=100,)
 
