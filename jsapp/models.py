@@ -13,14 +13,15 @@ class EventModel(models.Model):  #イベントの情報を保存するマスタ�
 class SheetValMaster(models.Model):
    valid = models.IntegerField(primary_key=True)
    valname = models.CharField(max_length=100)
-
+   def __str__(self):
+      return self.valname
 
 class SheetModel(models.Model): #座席の属性を保存するマスタです
    priority = models.IntegerField()
    sheetname = models.CharField(max_length=100)
    prename = models.CharField(max_length=10,blank=True)
    postname = models.CharField(max_length=10,blank=True)
-   sheettype = models.IntegerField()
+   sheettype = models.ForeignKey(SheetValMaster,on_delete=models.CASCADE)
    def __str__(self):
       return self.sheetname + ",pre:" + self.prename + ",post:" + self.postname
 
