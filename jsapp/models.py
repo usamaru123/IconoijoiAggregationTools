@@ -8,7 +8,7 @@ class GroupModel(models.Model): #グループ情報を保存するマスタで�
 
 class EventModel(models.Model):  #イベントの情報を保存するマスタです
    eventid = models.IntegerField(primary_key=True)
-   group = models.ManyToManyField(GroupModel,default=1)
+   group = models.ManyToManyField(GroupModel,default=[1])
    eventtype = models.CharField(max_length=10)
    eventtitle = models.CharField(max_length=100,)
 
