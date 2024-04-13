@@ -9,7 +9,11 @@ class EventModel(models.Model):  #イベントの情報を保存するマスタ�
 
    def __str__(self):
       return self.eventtitle
-   
+
+class SheetValMaster(models.Model):
+   valid = models.IntegerField(primary_key=True)
+   valname = models.CharField(max_length=100)
+
 
 class SheetModel(models.Model): #座席の属性を保存するマスタです
    priority = models.IntegerField()
