@@ -11,6 +11,7 @@ class EventModel(models.Model):  #イベントの情報を保存するマスタ�
       return self.eventtitle
    
 class HallTypeModel(models.Model): #会場の属性を保存するマスタです
+   priority = models.IntegerField(default = 1)
    halltype = models.CharField(max_length=100)
    blockname = models.CharField(max_length=100)
 
