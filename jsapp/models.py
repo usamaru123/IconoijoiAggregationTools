@@ -45,7 +45,7 @@ class HallInfoModel(models.Model): #会場の情報を保存するマスタで�
    hallprefecture = models.CharField(max_length=100)
    halltype = models.ManyToManyField(HallTypeModel,default=[1])
    def __str__(self):
-      return str(self.id) + "." + self.hallname
+      return str(self.hallid) + "." + self.hallname
    
 
 
