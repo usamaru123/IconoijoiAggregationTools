@@ -29,7 +29,7 @@ class HallInfoModel(models.Model): #会場の情報を保存するマスタで�
 
 class SheetModel(models.Model): #座席の属性を保存するマスタです
    priority = models.IntegerField()
-   sheetname = models.CharField(max_lemgth=10)
+   sheetname = models.CharField(max_length=10)
    sheettype = models.IntegerField()
    def __str__(self):
       return self.sheetname
