@@ -19,7 +19,7 @@ class SheetValMaster(models.Model):
    valid = models.IntegerField(primary_key=True)
    valname = models.CharField(max_length=100)
    def __str__(self):
-      return self.valname
+      return str(self.valid) + "." + self.valname
 
 class SheetModel(models.Model): #座席の属性を保存するマスタです
    priority = models.IntegerField()
@@ -36,7 +36,7 @@ class HallTypeModel(models.Model): #会場の属性を保存するマスタで�
    blockname = models.CharField(max_length=100)
    sheet = models.ManyToManyField(SheetModel,default=[1])
    def __str__(self):
-      return self.blockname
+      return str(self.id) + "." + self.blockname
    
    
 class HallInfoModel(models.Model): #会場の情報を保存するマスタです
@@ -54,7 +54,7 @@ class m_PerformTime(models.Model): #公演時間を保存するマスタです
    disp_priority = models.IntegerField()
    perform_time = models.CharField(max_length=100)
    def __str__(self):
-      return self.perform_time
+      return self.perform_time +",優先度：" + str(self.disp_priority)
 
 class VenueModel(models.Model): #公演の情報を保存するフィールドです
    venueid = models.IntegerField(primary_key=True)
@@ -92,4 +92,7 @@ class MenberModel(models.Model): #アンケート回答結果を保存するフ�
    block_r2 = models.CharField(max_length=100,blank=True)
    block_c2 = models.CharField(max_length=100,blank=True)
    number2 = models.CharField(max_length=100,blank=True)
+
+   def __str__(self):
+      return "id:"+ str(self.answerid) + ",timedate" + str(self.timedate)
 
