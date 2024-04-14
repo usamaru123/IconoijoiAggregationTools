@@ -77,10 +77,8 @@
                         </div>
                         <div class="numberform alert alert-light shadow" id="numberform2">
                             <div id="errorform2_4"></div>
-                            {% for block in blocks.all %}
-                            {% for sheet in block.sheets.all %}
-                            <div>{{ sheet }}</div>
-                            {% endfor %}
+                            {% for sheet in sheets %}
+                            {{ sheets }}
                             {% endfor %}
 
                         </div>

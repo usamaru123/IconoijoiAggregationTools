@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView,UpdateView,View
-from .models import MenberModel,EventModel,VenueModel,SheetModel
+from .models import MenberModel,EventModel,VenueModel,HallTypeModel
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.shortcuts import redirect
@@ -101,9 +101,9 @@ class AnswerCreate(CreateView):
         answerObj =  MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         venueObj = VenueModel.objects.get(venueid=self.kwargs['num'])
         performtimes = venueObj.perform_time.order_by('disp_priority')
-        sheets = SheetModel.objects.order_by('priority')
         blocks = venueObj.hallinfo.halltype.order_by('priority')
-        
+        sheets = [sheets.order_by('sheets') for sheets in blocks]
+
         c_answer = answerObj.count()
         
 
@@ -111,6 +111,7 @@ class AnswerCreate(CreateView):
         ctx['title'] = venueObj
         ctx['results'] = answerObj
         ctx['blocks'] = blocks
+        ctx['sheets'] = sheets
         ctx['performtimes'] = performtimes
         return  ctx
 
