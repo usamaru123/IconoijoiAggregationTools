@@ -17,10 +17,10 @@
             <div class="formcheck alert alert-light shadow ">
                 <div id="errorform1">
                 </div>
-                {% for perform_time in title.perform_time.all %}
+                {% for performtime in performtimes %}
                 <label for="timeform1">
                     <input type="checkbox" class="form-check-input " id="timeform1" onclick="checkEvent(1)" checked>
-                    {{ perform_time }}
+                    {{ performtime }}
                 </label>
                 {% endfor %}
                 <input type="hidden" id="titlename" name="title" value="{{ title }}">
