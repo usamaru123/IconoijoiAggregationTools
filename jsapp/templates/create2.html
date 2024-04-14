@@ -50,11 +50,10 @@
                             <div id="errorform1_4"></div>
                             {% for block in blocks.all %}
                             {% for sheet in block.sheets.all %}
-                            <input type="hidden" id="{{ sheet.sheetname }}_1" class="sheetname"
+                            {{ sheet.prename }}
+                            <input type="text" id="{{ sheet.sheetname }}_1" class="sheetname"
                                 value="{{ sheet.sheetname }}">
-                            <input type="hidden" id="{{ sheet.prename }}_1" class="prename" value="{{ sheet.prename }}">
-                            <input type="hidden" id="{{ sheet.postname }}_1" class="postname"
-                                value="{{ sheet.postname }}">
+                            {{ sheet.postname }}
                             <input type="hidden" id="{{ sheet.sheettype.valname }}_1" class="postname"
                                 value="{{ sheet.sheettype.valid }}">
                             {% endfor %}
