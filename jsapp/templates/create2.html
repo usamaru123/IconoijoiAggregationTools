@@ -20,7 +20,7 @@
                 {% for performtime in performtimes %}
                 <label for="timeform1">
                     <input type="checkbox" class="form-check-input " id="timeform1" onclick="checkEvent(1)" checked>
-                    {{ performtime }}
+                    {{ performtime.perform_time }}
                 </label>
                 {% endfor %}
                 <input type="hidden" id="titlename" name="title" value="{{ title }}">
