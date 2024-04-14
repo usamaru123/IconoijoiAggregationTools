@@ -110,7 +110,6 @@ class AnswerCreate(CreateView):
         ctx['title'] = venueObj
         ctx['results'] = answerObj
         ctx['blocks'] = blocks
-        ctx['sheets'] = sheets
         ctx['performtimes'] = performtimes
         return  ctx
 
