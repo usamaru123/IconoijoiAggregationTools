@@ -18,6 +18,7 @@ class EventModel(models.Model):  #イベントの情報を保存するマスタ�
 class SheetValMaster(models.Model):
    valid = models.IntegerField(primary_key=True)
    valname = models.CharField(max_length=100)
+   pattern = models.CharField(max_length=1000)
    def __str__(self):
       return str(self.valid) + "." + self.valname
 
