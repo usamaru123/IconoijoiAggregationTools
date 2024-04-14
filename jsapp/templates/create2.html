@@ -5,9 +5,6 @@
     <p class="header_ank" name="venue">{{ title.hallinfo.hallprefecture }}公演配席アンケート</p>
     <p class="header_detail">日時：{{ title.venuedate|date:"Y年n月j日" }}</p>
     <p class="header_detail">会場：{{ title.hallinfo.hallname }}</p>
-    {% for block in blocks.all %}
-    <input type="hidden" id="{{ block }}" class="blocks" value="{{ block }}">
-    {% endfor %}
     </p>
     {% endblock header %}
 
@@ -50,11 +47,7 @@
                     </div>
                 </div>
             </div>
-            {% for block in blocks.all %}
-            {% for sheet in block.sheets.all %}
-            <div>{{ sheet }}</div>
-            {% endfor %}
-            {% endfor %}
+
             <div id="answerform2" class="box answerform">
                 <div class="container">
                     <div id="form2" class="">
@@ -66,10 +59,19 @@
                             <div id="errorform2_2"></div>
                         </div>
                         <div class="floorform alert alert-light shadow" id="floorform2">
+                            {% for block in blocks.blockname %}
+                            <input type="hidden" id="{{ block }}" class="blocks" value="{{ block }}">
+                            {% endfor %}
                             <div id="errorform2_3"></div>
                         </div>
                         <div class="numberform alert alert-light shadow" id="numberform2">
                             <div id="errorform2_4"></div>
+                            {% for block in blocks.all %}
+                            {% for sheet in block.sheets.all %}
+                            <div>{{ sheet }}</div>
+                            {% endfor %}
+                            {% endfor %}
+
                         </div>
                     </div>
                 </div>
