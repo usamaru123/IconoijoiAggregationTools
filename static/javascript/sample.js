@@ -53,6 +53,8 @@ function newpositionfunc(i) {
 
     const val_102 =
         `<input pattern="[A-Za-z]{1}" class="col-3 block position" id="block_r${i}" placeholder="英字1文字"  oninput="inputChange(${i})">`
+
+    document.querySelector(`.${i}`)
 }
 
 function positionformfunc(i) {
@@ -151,7 +153,7 @@ function createfloorformfunc(formlabel, formname, values) {
             `<div class="form-check">
                     <label for="${id}" class="form-check-label">
                         <input class="form-check-input ${formname}" type="${type}" name="${formname}"
-                    id="${id}" value="${value}" onclick="positionformfunc(${value})">
+                    id="${id}" value="${value}" onclick="newpositionformfunc(${value})">
                     ${value}
                 </label>
             </div>`;
