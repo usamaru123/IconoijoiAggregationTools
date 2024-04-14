@@ -12,8 +12,8 @@
     <div class="{{ block.blockname }}">
         {% for sheet in block.sheets.all|dictsort:"priority" %}
         <input type="text" id="" class="col-3 block position" value="{{ sheet.sheettype.valname }}">
-        <input type="text" id="" class="col-3 block position" value="{{ sheet.sheettype.prename }}">
-        <input type="text" id="" class="col-3 block position" value="{{ sheet.sheettype.postname }}">
+        <input type="text" id="" class="col-3 block position" value="{{ sheet.prename }}">
+        <input type="text" id="" class="col-3 block position" value="{{ sheet.postname }}">
         {% endfor %}
     </div>
     {% endfor %}
