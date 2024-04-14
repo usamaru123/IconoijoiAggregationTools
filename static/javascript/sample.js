@@ -54,7 +54,8 @@ function newpositionfunc(i) {
     const val_102 =
         `<input pattern="[A-Za-z]{1}" class="col-3 block position" id="block_r${i}" placeholder="英字1文字"  oninput="inputChange(${i})">`
 
-    document.querySelector(`.${i}`)
+    selectsheet = document.querySelector(`.${i}`)
+    selectsheet.append("aa")
 }
 
 function positionformfunc(i) {
