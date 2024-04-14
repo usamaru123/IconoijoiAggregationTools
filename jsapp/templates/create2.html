@@ -40,9 +40,18 @@
                         </div>
                         <div class="floorform alert alert-light shadow" id="floorform1">
                             <div id="errorform1_3"></div>
+                            {% for block in blocks.all %}
+                            <input type="hidden" id="{{ block.blockname }}" class="blocks"
+                                value="{{ block.blockname }}">
+                            {% endfor %}
                         </div>
                         <div class="numberform alert alert-light shadow" id="numberform1">
                             <div id="errorform1_4"></div>
+                            {% for block in blocks.all %}
+                            {% for sheet in block.sheets.all %}
+                            <div>{{ sheet }}</div>
+                            {% endfor %}
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
