@@ -7,6 +7,7 @@
     <p class="header_detail">会場：{{ title.hallinfo.hallname }}</p>
     </p>
     {% for block in blocks.all %}
+    <div></div>
     <input type="hidden" id="{{ block.blockname }}" class="blocks" value="{{ block.blockname }}">
     {% endfor %}
     {% endblock header %}
@@ -49,7 +50,13 @@
                             <div id="errorform1_4"></div>
                             {% for block in blocks.all %}
                             {% for sheet in block.sheets.all %}
-                            <div>{{ sheet.sheettype.valid }}</div>
+                            <input type="hidden" id="{{ sheet.sheetname }}_1" class="sheetname"
+                                value="{{ sheet.sheetname }}">
+                            <input type="hidden" id="{{ sheet.prename }}_1" class="prename" value="{{ sheet.prename }}">
+                            <input type="hidden" id="{{ sheet.postname }}_1" class="postname"
+                                value="{{ sheet.postname }}">
+                            <input type="hidden" id="{{ sheet.sheettype.valname }}_1" class="postname"
+                                value="{{ sheet.sheettype.valname }}">
                             {% endfor %}
                             {% endfor %}
                         </div>

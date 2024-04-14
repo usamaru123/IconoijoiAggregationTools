@@ -49,6 +49,10 @@ function floorformfunc(formlabel, i) {
     });
 }
 
+function newpositionfunc(i) {
+
+}
+
 
 function positionformfunc(i) {
     console.log(i);
