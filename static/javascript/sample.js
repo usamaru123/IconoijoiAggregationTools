@@ -13,7 +13,7 @@ window.onload = function () {
         num = i + 1;
         ticketformfunc(ticketformlabel, num);
         sheetformfunc(sheetformlabel, num);
-        floorformfunc(floorformlabel, num);
+        //floorformfunc(floorformlabel, num);
         checkEvent(1)
     }
 }
