@@ -50,7 +50,7 @@
                             <div id="errorform1_4"></div>
                             {% for block in blocks.all %}
                             <div>
-                                {% for sheet in block.sheets.all %}
+                                {% for sheet in block.sheets.all|dictsort:"priority" %}
                                 {{ sheet.prename }}
                                 <input type="text" id="{{ sheet.sheetname }}_1" class="col-3 block position" value="">
                                 {{ sheet.postname }}
