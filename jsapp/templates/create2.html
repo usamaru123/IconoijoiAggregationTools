@@ -77,8 +77,10 @@
                         </div>
                         <div class="numberform alert alert-light shadow" id="numberform2">
                             <div id="errorform2_4"></div>
-                            {% for sheet in sheets %}
-                            {{ sheets }}
+                            {% for block in blocks.all %}
+                            {% for sheet in block.sheets.all |dictsort:"priority" %}
+                            <div>{{ sheet }}</div>
+                            {% endfor %}
                             {% endfor %}
 
                         </div>
