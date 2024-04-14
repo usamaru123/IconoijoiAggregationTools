@@ -49,16 +49,18 @@
                         <div class="numberform alert alert-light shadow" id="numberform1">
                             <div id="errorform1_4"></div>
                             {% for block in blocks.all %}
-                            {% for sheet in block.sheets.all %}
                             <div>
+                                {% for sheet in block.sheets.all %}
+
                                 {{ sheet.prename }}
                                 <input type="text" id="{{ sheet.sheetname }}_1" class="sheetname"
                                     value="{{ sheet.sheetname }}">
                                 {{ sheet.postname }}
                                 <input type="hidden" id="{{ sheet.sheettype.valname }}_1" class="postname"
                                     value="{{ sheet.sheettype.valid }}">
+
+                                {% endfor %}
                             </div>
-                            {% endfor %}
                             {% endfor %}
                         </div>
                     </div>
