@@ -59,8 +59,9 @@
                             <div id="errorform2_2"></div>
                         </div>
                         <div class="floorform alert alert-light shadow" id="floorform2">
-                            {% for block in blocks.priority %}
-                            <input type="hidden" id="{{ block }}" class="blocks" value="{{ block }}">
+                            {% for block in blocks.all %}
+                            <input type="hidden" id="{{ block.blockname }}" class="blocks"
+                                value="{{ block.blockname }}">
                             {% endfor %}
                             <div id="errorform2_3"></div>
                         </div>
