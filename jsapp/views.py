@@ -102,7 +102,7 @@ class AnswerCreate(CreateView):
         venueObj = VenueModel.objects.get(venueid=self.kwargs['num'])
         performtimes = venueObj.perform_time.order_by('disp_priority')
         blocks = venueObj.hallinfo.halltype.order_by('priority')
-        sheets = [sheets.order_by('sheets') for sheets in blocks]
+        sheets = [sheets.order_by('priority') for sheets in blocks]
 
         c_answer = answerObj.count()
         
