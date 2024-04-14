@@ -50,9 +50,12 @@ function floorformfunc(formlabel, i) {
 }
 
 function newpositionfunc(i) {
+    const val_101 =
+        ` <input pattern="[A-Za-z]{1}" class="col-3 block position" id="block_r${i}" placeholder="英字1文字"  oninput="inputChange(${i})">`
 
+    const val_102 =
+        `<input pattern="[A-Za-z]{1}" class="col-3 block position" id="block_r${i}" placeholder="英字1文字"  oninput="inputChange(${i})">`
 }
-
 
 function positionformfunc(i) {
     console.log(i);
