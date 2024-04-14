@@ -41,12 +41,10 @@ function floorformfunc(formlabel, i) {
 
     const formname = 'floor' + i;
 
-    createRadioformfunc(formlabel, formname, block,);
+    createfloorformfunc(formlabel, formname, block,);
 
     floorbuttons = document.querySelectorAll(`.floor${i}`);
-    floorbuttons.forEach(function (floorbutton) {
-        floorbutton.setAttribute('onclick', `positionformfunc(${i})`);
-    });
+
 }
 
 function newpositionfunc(i) {
@@ -137,6 +135,23 @@ function createRadioformfunc(formlabel, formname, values) {
                     <label for="${id}" class="form-check-label">
                         <input class="form-check-input ${formname}" type="${type}" name="${formname}"
                     id="${id}" value="${value}">
+                    ${value}
+                </label>
+            </div>`;
+        formlabel.innerHTML += ticketformtext;
+    });
+};
+
+function createfloorformfunc(formlabel, formname, values) {
+
+    type = 'radio';
+    values.forEach(function (value) {
+        id = `${formname}_${value}`;
+        ticketformtext =
+            `<div class="form-check">
+                    <label for="${id}" class="form-check-label">
+                        <input class="form-check-input ${formname}" type="${type}" name="${formname}"
+                    id="${id}" value="${value}" onclick="positionformfunc(${value})">
                     ${value}
                 </label>
             </div>`;
