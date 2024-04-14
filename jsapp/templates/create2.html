@@ -53,7 +53,7 @@
                                 {% for sheet in block.sheets.all %}
 
                                 {{ sheet.prename }}
-                                <input type="text" id="{{ sheet.sheetname }}_1" class="sheetname" value="">
+                                <input type="text" id="{{ sheet.sheetname }}_1" class="col-3 block position" value="">
                                 {{ sheet.postname }}
                                 <input type="hidden" id="{{ sheet.sheettype.valname }}_1" class="postname"
                                     value="{{ sheet.sheettype.valid }}">
