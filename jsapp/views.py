@@ -108,7 +108,6 @@ class AnswerCreate(CreateView):
         ctx['count'] = c_answer
         ctx['title'] = venueObj
         ctx['results'] = answerObj
-        ctx['blocks'] = ord_blocks
         ctx['performtimes'] = performtimes
         return  ctx
 
