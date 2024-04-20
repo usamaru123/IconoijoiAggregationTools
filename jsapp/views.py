@@ -115,7 +115,7 @@ class AnswerCreate(CreateView): #回答作成フォーム
         return  ctx
 
     def get_success_url(self):
-        send_mail(subject='a',message='aaa',from_email='usamaru.server@gmail.com',recipient_list=['usamaru.server@gmail.com'],fail_silently=False)
+        #send_mail(subject='a',message='aaa',from_email='usamaru.server@gmail.com',recipient_list=['usamaru.server@gmail.com'],fail_silently=False)
         return reverse_lazy('jsapp:thanks',kwargs={"num":self.kwargs['num']})
 
 
