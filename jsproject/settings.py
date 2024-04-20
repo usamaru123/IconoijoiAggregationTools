@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'jsapp',
+    'send_email.apps.SendMailConfig',
 ]
 
 
