@@ -114,8 +114,8 @@ class AnswerCreate(CreateView):
         return  ctx
 
     def get_success_url(self):
-        item = 'aa'
-        tasks.send_notification(item,'登録')
+        #item = 'aa'
+        #tasks.send_notification(item,'登録')
         return reverse_lazy('jsapp:thanks',kwargs={"num":self.kwargs['num']})
 
 
