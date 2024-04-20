@@ -6,7 +6,6 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from matplotlib import pyplot as plt
 from . import graph
-import tasks
 import csv,urllib
 import datetime
 
