@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from matplotlib import pyplot as plt
-from . import graph , tasks
+from . import graph 
 import csv,urllib
 import datetime
 
@@ -114,8 +114,6 @@ class AnswerCreate(CreateView):
         return  ctx
 
     def get_success_url(self):
-        #item = 'aa'
-        #tasks.send_notification(item,'登録')
         return reverse_lazy('jsapp:thanks',kwargs={"num":self.kwargs['num']})
 
 
