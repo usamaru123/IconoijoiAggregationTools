@@ -11,7 +11,7 @@ import csv,urllib
 import datetime
 
 
-class Toppage(ListView):
+class Toppage(ListView): #トップページ
     template_name = 'index.html'
     model = EventModel
 
@@ -20,7 +20,7 @@ class Toppage(ListView):
         ctx['title'] = VenueModel.objects.order_by('venuedate').all()
         return ctx
 
-class AnswerList(ListView):
+class AnswerList(ListView): #回答一覧ページ
     template_name = 'result.html'
     model = EventModel
 
@@ -92,7 +92,7 @@ class AnswerList(ListView):
         ctx['num'] = self.kwargs['num']
         return  ctx
 
-class AnswerCreate(CreateView):
+class AnswerCreate(CreateView): #回答作成フォーム
     template_name = 'create2.html'
     model = MenberModel
     
