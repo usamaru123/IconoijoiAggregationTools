@@ -114,7 +114,7 @@ class AnswerCreate(CreateView):
         ctx['performtimes'] = performtimes
         return  ctx
 
-    def get_success_url(self,form):
+    def get_success_url(self):
         #item = form.save(commit=False)
         #item.save()
         #tasks.send_notification(item,'登録')
