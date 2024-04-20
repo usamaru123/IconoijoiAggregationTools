@@ -113,9 +113,8 @@ class AnswerCreate(CreateView):
         ctx['performtimes'] = performtimes
         return  ctx
 
-    def get_success_url(self,form):
-        item = form.save(commit=False)
-        item.save()
+    def get_success_url(self):
+        item = 'aa'
         tasks.send_notification(item,'登録')
         return reverse_lazy('jsapp:thanks',kwargs={"num":self.kwargs['num']})
 
