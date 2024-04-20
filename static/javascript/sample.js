@@ -2,7 +2,7 @@ const venue = '東京公演';
 const anktext = ' 配席アンケート'
 
 
-
+//ページロード時に参照するファンクション
 window.onload = function () {
 
     for (let i = 0; i < 2; i++) {
@@ -18,20 +18,20 @@ window.onload = function () {
     }
 }
 
-
+//チケット種別の選択肢を作成するファンクションです
 function ticketformfunc(formlabel, i) {
     const formname = 'ticket' + i;
     const values = ['FC先行販売', '一般先行販売', '一般2次先行', '追加販売', 'プレイガイド受付'];
     createRadioformfunc(formlabel, formname, values, i)
 }
-
+//座席種別の選択肢を作成するファンクションです
 function sheetformfunc(formlabel, i) {
 
     const formname = 'sheet' + i;
     const values = ['一般席', '女性エリア席', 'カメコエリア席', '着席指定席'];
     createRadioformfunc(formlabel, formname, values,);
 }
-
+//階層の選択肢を作成するファンクションです:HallTypeModelから参照します
 function floorformfunc(formlabel, i) {
     block = [];
     var blocks = document.querySelectorAll('.blocks')
@@ -41,18 +41,18 @@ function floorformfunc(formlabel, i) {
 
     const formname = 'floor' + i;
 
-    createfloorformfunc(formlabel, formname, block,);
+    createfloorformfunc(formlabel, formname, block, i);
 
     floorbuttons = document.querySelectorAll(`.floor${i}`);
 
 }
-
-function newpositionfunc(i) {
+//階層の選択肢から座席位置の選択肢を生成します:SheetModelから参照します
+function newpositionfunc(i, floor) {
     const val_101 =
-        ` <input pattern="[A-Za-z]{1}" class="col-3 block position" id="block_r${i}" placeholder="英字1文字"  oninput="inputChange(${i})">`
+        ` <input pattern="[A-Za-z]{1}" class="col-3 block position" id="block_r${floor}" placeholder="英字1文字"  oninput="inputChange(${i})">`
 
     const val_102 =
-        `<input pattern="[A-Za-z]{1}" class="col-3 block position" id="block_r${i}" placeholder="英字1文字"  oninput="inputChange(${i})">`
+        `<input pattern="[A-Za-z]{1}" class="col-3 block position" id="block_r${floor}" placeholder="英字1文字"  oninput="inputChange(${i})">`
 
     selectsheet = document.querySelector(`.${i}`)
     selectsheet.append("aa")
@@ -145,7 +145,7 @@ function createRadioformfunc(formlabel, formname, values) {
     });
 };
 
-function createfloorformfunc(formlabel, formname, values) {
+function createfloorformfunc(formlabel, formname, values, i) {
 
     type = 'radio';
     values.forEach(function (value) {
@@ -154,7 +154,7 @@ function createfloorformfunc(formlabel, formname, values) {
             `<div class="form-check">
                     <label for="${id}" class="form-check-label">
                         <input class="form-check-input ${formname}" type="${type}" name="${formname}"
-                    id="${id}" value="${value}" onclick="newpositionfunc('${value}')">
+                    id="${id}" value="${value}" onclick="newpositionfunc(${i},'${value}')">
                     ${value}
                 </label>
             </div>`;

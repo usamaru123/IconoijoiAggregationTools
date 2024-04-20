@@ -7,15 +7,13 @@
     <p class="header_detail">会場：{{ title.hallinfo.hallname }}</p>
     </p>
     {% for block in blocks.all %}
-    <input type="hidden" id="{{ block.blockname }}" class="blocks" value="{{ block.blockname }}">
-    {% for sheet in block.sheets.all|dictsort:"priority" %}
     <div class="{{ block.blockname }}">
+        {% for sheet in block.sheets.all|dictsort:"priority" %}
         <input type="text" id="" class="col-3 block position" value="{{ sheet.sheettype.valname }}">
         <input type="text" id="" class="col-3 block position" value="{{ sheet.prename }}">
         <input type="text" id="" class="col-3 block position" value="{{ sheet.postname }}">
+        {% endfor %}
     </div>
-    {% endfor %}
-
     {% endfor %}
     {% endblock header %}
     {% for block in blocks.all %}

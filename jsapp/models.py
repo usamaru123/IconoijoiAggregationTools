@@ -15,7 +15,7 @@ class EventModel(models.Model):  #イベントの情報を保存するマスタ�
    def __str__(self):
       return str(self.eventid) + "."+ self.eventtitle
 
-class SheetValMaster(models.Model):
+class SheetValMaster(models.Model): #座席の入力規則を保存するマスタです
    valid = models.IntegerField(primary_key=True)
    valname = models.CharField(max_length=100)
    pattern = models.TextField()
