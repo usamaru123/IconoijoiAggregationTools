@@ -7,7 +7,7 @@ window.onload = function () {
 
     const venueformlabel = document.querySelector('.timeform')
     const venues = document.querySelectorAll('.venue')
-    if (venues.length = 1) {
+    if (venues.length == 1) {
         venuetext =
             `
         <label for="timeform1">
@@ -16,7 +16,7 @@ window.onload = function () {
         </label>aaa
         `
     }
-    else if (venues.length = 2) {
+    else if (venues.length == 2) {
         venuetext =
             `
         <label for="timeform1">
