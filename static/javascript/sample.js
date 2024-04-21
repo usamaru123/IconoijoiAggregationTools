@@ -50,13 +50,15 @@ function floorformfunc(formlabel, i) {
 function newpositionfunc(i, floor) {
     const floorObj = document.querySelector(`.${floor}`).querySelectorAll('div')
     const numberform = document.querySelector(`#numberform${i}`)
+    numberform.innerHTML = ''
 
-    floorObj.forEach(function () {
-        const valname = floorObj.querySelector('.valname').value
-        const prename = floorObj.querySelector('.prename').value
-        const postname = floorObj.querySelector('.postname').value
-        const position = ` ${prename} <input pattern"${valname}" class="col-3 block position" oninput="inputChange(${i})"> ${postname}`
-        numberform.innerHTML = position
+    floorObj.forEach(function (floor) {
+        var valname = floor.querySelector('.valname').value
+        var prename = floor.querySelector('.prename').value
+        var postname = floor.querySelector('.postname').value
+        var position =
+            `<div> ${prename} <input pattern"${valname}" class="col-3 block position" oninput="inputChange(${i})"> ${postname} </div>`
+        numberform.append(position)
     })
     const val_101 =
         ` <input pattern="[A-Za-z]{1}" class="col-3 block position" id="block_r${floor}" placeholder="英字1文字"  oninput="inputChange(${i})">`
