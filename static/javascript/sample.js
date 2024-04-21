@@ -6,7 +6,7 @@ const anktext = ' 配席アンケート'
 window.onload = function () {
 
     const venueformlabel = document.querySelector('timeform')
-    const venues = document.querySelectorAll('.venue').value
+    const venues = document.querySelectorAll('.venue')
     if (venues.length = 1) {
         venuetext =
             `
