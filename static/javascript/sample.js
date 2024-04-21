@@ -48,7 +48,7 @@ function floorformfunc(formlabel, i) {
 }
 //階層の選択肢から座席位置の選択肢を生成します:SheetModelから参照します
 function newpositionfunc(i, floor) {
-    positionObj = document.querySelector(`.${floor}`)
+    positionObj = document.querySelector(`.${floor}`).innerHTML
     numberform = document.querySelector(`#numberform${i}`)
 
     const val_101 =
