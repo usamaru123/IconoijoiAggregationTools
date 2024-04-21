@@ -11,7 +11,7 @@ window.onload = function () {
         venuetext =
             `
         <label for="timeform1">
-            <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1)>
+            <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1) checked>
             ${venues[0].value}
         </label>
         `
