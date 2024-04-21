@@ -369,7 +369,7 @@ function sheetvalfunc(val, i) {
     const val_301 =
         `
         <div class="numberform">
-            <input type="number" min="1" max="999" class="col-3 number position" id="number${i} name="number${i}" placeholder="半角数字">
+            <input type="number" min="1" max="999" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字">
         </div>
         `
 
