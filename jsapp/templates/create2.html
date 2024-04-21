@@ -15,13 +15,12 @@
             <div class="formcheck alert alert-light shadow ">
                 <div id="errorform1">
                 </div>
+                <div class="timeform"></div>
 
                 <!--公演選択-->
                 {% for performtime in performtimes %}
                 <label for="timeform1">
-                    <input type="checkbox" class="form-check-input " id="timeform1" onclick="checkEvent(1)">
-                    <input type="hidden" value="{{ forloop.counter }}">
-                    {{ performtime.perform_time }}
+                    <input type="hidden" class="form-check-input " class="venue" value="{{ performtime.perform_time }}">
                 </label>
                 {% endfor %}
 

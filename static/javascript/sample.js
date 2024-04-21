@@ -5,6 +5,36 @@ const anktext = ' 配席アンケート'
 //ページロード時に参照するファンクション
 window.onload = function () {
 
+    const venueformlabel = document.querySelector('timeform')
+    const venues = document.querySelectorAll('.venue').value
+    if (venues.length = 1) {
+        venuetext =
+            `
+        <label for="timeform1">
+            <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=function(1)>
+            ${venues[1]}
+        </label>
+        `
+    }
+    else if (venues.length = 2) {
+        venuetext =
+            `
+        <label for="timeform1">
+            <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=function(1)>
+            ${venues[1]}
+        </label>
+        <label for="timeform2">
+            <input type='checkbox' class='form-check-input' class='venue' id='timeform2' name='evening' onclick=function(2)>
+            ${venues[2]}
+        </label>
+        `
+    }
+    else {
+        venuetext = ''
+    }
+
+    venueformlabel.innerHTML = venuetext
+
     for (let i = 0; i < 2; i++) {
         const ticketformlabel = document.querySelectorAll('.ticketform')[i];
         const sheetformlabel = document.querySelectorAll('.sheetform')[i];
@@ -17,6 +47,7 @@ window.onload = function () {
         checkEvent(1)
     }
 }
+
 
 //チケット種別の選択肢を作成するファンクションです
 function ticketformfunc(formlabel, i) {
@@ -36,7 +67,7 @@ function floorformfunc(formlabel, i) {
     block = [];
     var blocks = document.querySelectorAll('.blocks')
     for (let b = 0; b < blocks.length; b++) {
-        block[b] = blocks[b].value
+        block[b] = blocks[b].value;
     }
 
     const formname = 'floor' + i;
@@ -68,76 +99,7 @@ function newpositionfunc(i, floor) {
 
 }
 
-function positionformfunc(i) {
-    console.log(i);
-    const floor_arena = document.querySelector(`#floor${i}_１階アリーナ席`);
-    const floor_1 = document.querySelector(`#floor${i}_１階席`)
-    const numberform = document.querySelector(`#numberform${i}`);
-
-    const position1 = `
-        <div id="errorform${i}_4"></div>
-        <div class="blockform">
-        GATE<input pattern="[A-Za-z]{1}" class="col-3 block position" id="block_r${i}" placeholder="英字1文字"  oninput="inputChange(${i})">
-            <input type="number" min="1" max="30" class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字">
-    <b style="font-size:1.5rem">列</b>      
-        
-        <div class="numberform">
-            <input type="number" min="1" max="1000" class="col-3 number position" id="number${i}" name="number${i}"
-            placeholder="半角数字">
-        <b style="font-size:1.5rem">番</b>
-        </div>
-    `;
-
-    const position2 = `
-        <div id="errorform${i}_4"></div>
-        <div class="blockform">
-            <input pattern="[A-Na-n]{1}" class="col-3 block position" id="block_r${i}"  placeholder="英字1文字"  oninput="inputChange(${i})">
-                <b style="font-size:1.5rem">ブロック</b>      
-        </div>
-        <div class="rowform">
-        <input type="number" min="1" max="1000" class="col-3 number position" id="row${i}" name="row${i}" placeholder="半角数字">
-            <b style="font-size:1.5rem">列</b>      
-        </div>
-        <div class="numberform">
-            <input type="number" min="1" max="1000" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字">
-            <b style="font-size:1.5rem">番</b>
-        </div>
-    `;
-
-    const position3 = `
-    </div><div id="errorform${i}_4"></div>
-    <div class="blockform">
-    <b style="font-size:1.5rem">GATE</b> 
-    <input type="number" min="1" max="10" class="col-3 number position" id="block_r${i}" name="block_r${i}" placeholder="半角数字">
-        <input type="number" min="1" max="99" class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字">
-<b style="font-size:1.5rem">列</b>      
-    
-    <div class="numberform">
-        <input type="number" min="1" max="1000" class="col-3 number position" id="number${i}" name="number${i}"
-        placeholder="半角数字">
-    <b style="font-size:1.5rem">番</b>
-    </div>
-`;
-    /* if (floor_) {
-    if (floor_arena.checked) {
-        numberform.innerHTML = position3;
-    }
-    else {
-        numberform.innerHTML = position2;
-    }
-}
-if (floor_1) {
-    if (floor_1.checked) {
-        numberform.innerHTML = position1;
-    }
-    else {
-        numberform.innerHTML = position2;
-    }
-}
-    */
-};
-
-
+//ラジオボタンを作成するファンクションです。
 function createRadioformfunc(formlabel, formname, values) {
 
     type = 'radio';
@@ -155,6 +117,7 @@ function createRadioformfunc(formlabel, formname, values) {
     });
 };
 
+//階層選択用のラジオボタンを作成するファンクションです。
 function createfloorformfunc(formlabel, formname, values, i) {
 
     type = 'radio';
@@ -172,6 +135,7 @@ function createfloorformfunc(formlabel, formname, values, i) {
     });
 };
 
+//公演を選択した際にアコーディオンメニューを表示するファンクションです。
 function checkEvent(num) {
     const timeform = document.querySelector(`#timeform${num}`);
     const answerform = document.querySelector(`#answerform${num}`);
@@ -186,6 +150,7 @@ function checkEvent(num) {
     };
 };
 
+//小文字のアルファベットを入力した際に大文字に自動変換するファンクションです。
 function inputChange(i) {
     const blocktext = document.querySelector(`#block_r${i}`);
     const largeblock = document.querySelector(`#largeblock_r${i}`);
@@ -194,11 +159,13 @@ function inputChange(i) {
     largeblock.value = largeblocktext;
 };
 
+
 function positionform_change(num) {
     const positionformlabel = document.querySelectorAll('.positionform')[num];
     positionformfunc(positionformlabel, num);
 };
 
+//全ての質問を回答しているか確認をするファンクションです。
 function valueCheck() {
 
     const matinee = document.querySelector('#timeform1');
@@ -249,6 +216,7 @@ function valueCheck() {
     }
 
 }
+
 
 function formcheck(i) {
     const errormsg2 = '入力してください';
@@ -333,7 +301,7 @@ function formcheck(i) {
     return true
 }
 
-
+//座席位置の入力規則を呼び出すファンクションです。
 function sheetvalfunc(val, i) {
 
     //1桁のアルファベットで定義づけられたブロックで使用します
