@@ -349,19 +349,19 @@ function sheetvalfunc(val, i) {
 
 
 
-    if (checkval = 'val_101') {
+    if (checkval == 'val_101') {
         text = val_101
     }
-    if (checkval = 'val_102') {
+    if (checkval == 'val_102') {
         text = val_102
     }
-    if (checkval = 'val_201') {
+    if (checkval == 'val_201') {
         text = val_201
     }
-    if (checkval = 'val_202') {
+    if (checkval == 'val_202') {
         text = val_202
     }
-    if (checkval = 'val_203') {
+    if (checkval == 'val_203') {
         text = val_203
     }
     else {
