@@ -340,7 +340,7 @@ function sheetvalfunc(val, i) {
     const val_101 =
         ` 
         <div class="blockform">
-            <input pattern="[A-Za-z]{1}" class="col-3 block position"  id="block_r${i}" oninput="inputChange(${i})" placeholder="英字1文字">
+            <input pattern="[A-Za-z]{1}" class="col-3 block position"  id="block_r${i}"  name="block_r${i}" oninput="inputChange(${i})" placeholder="英字1文字">
         </div>
         `
 
