@@ -330,7 +330,7 @@ function formcheck(i) {
 
 
 function sheetvalfunc(val, i) {
-    checkval = 'val_' + toString(val);
+    checkval = 'val_' + val;
 
     const val_101 =
         ` <input pattern="[A-Za-z]{1}" class="col-3 block position" placeholder="英字1文字"  oninput="inputChange(${i})">`
