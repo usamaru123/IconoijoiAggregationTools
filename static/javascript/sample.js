@@ -48,14 +48,14 @@ function floorformfunc(formlabel, i) {
 }
 //階層の選択肢から座席位置の選択肢を生成します:SheetModelから参照します
 function newpositionfunc(i, floor) {
-    const floorObj = document.querySelector(`.${floor}`).querySelectorAll('div')
+    const floorObjs = document.querySelector(`.${floor}`).querySelectorAll('div')
     const numberform = document.querySelector(`#numberform${i}`)
     numberform.innerHTML = ''
 
-    floorObj.forEach(function (floor) {
-        var valname = floor.querySelector('.valname').value
-        var prename = floor.querySelector('.prename').value
-        var postname = floor.querySelector('.postname').value
+    floorObjs.forEach(function (floorObj) {
+        var valname = floorObj.querySelector('.valname').value
+        var prename = floorObj.querySelector('.prename').value
+        var postname = floorObj.querySelector('.postname').value
         var position =
             `<div> ${prename} <input pattern"${valname}" class="col-3 block position" oninput="inputChange(${i})"> ${postname} </div>`
         numberform.append(position)
