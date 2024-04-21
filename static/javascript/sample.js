@@ -56,7 +56,7 @@ function newpositionfunc(i, floor) {
         var valid = floorObj.querySelector('.valid').value
         var prename = floorObj.querySelector('.prename').value
         var postname = floorObj.querySelector('.postname').value
-        sheetHTML = sheetvalfunc(valid)
+        sheetHTML = sheetvalfunc(valid, i)
         var position = '<div>' + prename + sheetHTML + postname + '</div>'
         numberform.innerHTML += position
     })
@@ -329,24 +329,24 @@ function formcheck(i) {
 }
 
 
-function sheetvalfunc(val) {
+function sheetvalfunc(val, i) {
     checkval = 'val_' + val;
 
     vallist = {};
     const val_101 =
-        ` <input pattern="[A-Za-z]{1}" class="col-3 block position" id="block_r${floor}" placeholder="英字1文字"  oninput="inputChange(${i})">`
+        ` <input pattern="[A-Za-z]{1}" class="col-3 block position" placeholder="英字1文字"  oninput="inputChange(${i})">`
 
     const val_102 =
-        `<input pattern="[A-Za-z]{1}" class="col-3 block position" id="block_r${floor}" placeholder="英字1文字"  oninput="inputChange(${i})">`
+        `<input pattern="[A-Za-z]{1}" class="col-3 block position"  placeholder="英字1文字"  oninput="inputChange(${i})">`
 
     const val_201 =
-        `<input type="number" min="1" max="9" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字">`
+        `<input type="number" min="1" max="9" class="col-3 number position"  placeholder="半角数字">`
 
     const val_202 =
-        `<input type="number" min="1" max="99" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字">`
+        `<input type="number" min="1" max="99" class="col-3 number position" placeholder="半角数字">`
 
     const val_203 =
-        `<input type="number" min="1" max="999" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字">`
+        `<input type="number" min="1" max="999" class="col-3 number position"  placeholder="半角数字">`
 
     vallist['val_101'].append(val_101);
     vallist['val_102'].append(val_102);
