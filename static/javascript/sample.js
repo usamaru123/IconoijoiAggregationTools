@@ -53,7 +53,7 @@ function newpositionfunc(i, floor) {
     numberform.innerHTML = ''
 
     floorObjs.forEach(function (floorObj) {
-        var valid = floorObj.querySelector('.id').value
+        var valid = floorObj.querySelector('.valid').value
         var prename = floorObj.querySelector('.prename').value
         var postname = floorObj.querySelector('.postname').value
         sheetHTML = sheetvalfunc(valid)
