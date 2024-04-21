@@ -19,8 +19,7 @@
                 <!--公演選択-->
                 {% for performtime in performtimes %}
                 <label for="{{ performtime.perform_time }}">
-                    <input type="checkbox" class="form-check-input " id="{{ performtime.perform_time }}"
-                        onclick="checkEvent(1)">
+                    <input type="checkbox" class="form-check-input " id="timeform1" onclick="checkEvent(1)">
                     <input type="hidden" value="{{ forloop.counter }}">
                     {{ performtime.perform_time }}
                 </label>
