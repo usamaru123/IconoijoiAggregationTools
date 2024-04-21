@@ -48,21 +48,22 @@ function floorformfunc(formlabel, i) {
 }
 //階層の選択肢から座席位置の選択肢を生成します:SheetModelから参照します
 function newpositionfunc(i, floor) {
-    const floorObj = document.querySelector(`.${floor}`)
+    const floorObj = document.querySelector(`.${floor}`).querySelectorAll('.div')
     const numberform = document.querySelector(`#numberform${i}`)
-    const valname = floorObj.querySelector('.valname').value
-    const prename = floorObj.querySelector('.prename').value
-    const postname = floorObj.querySelector('.postname').value
 
-    const position = ` ${prename} <input pattern"${valname}" class="col-3 block position" oninput="inputChange(${i})"> ${postname}`
-
+    floorObj.forEach(function () {
+        const valname = floorObj.querySelector('.valname').value
+        const prename = floorObj.querySelector('.prename').value
+        const postname = floorObj.querySelector('.postname').value
+        const position = ` ${prename} <input pattern"${valname}" class="col-3 block position" oninput="inputChange(${i})"> ${postname}`
+        numberform.innerHTML = position
+    })
     const val_101 =
         ` <input pattern="[A-Za-z]{1}" class="col-3 block position" id="block_r${floor}" placeholder="英字1文字"  oninput="inputChange(${i})">`
 
     const val_102 =
         `<input pattern="[A-Za-z]{1}" class="col-3 block position" id="block_r${floor}" placeholder="英字1文字"  oninput="inputChange(${i})">`
 
-    numberform.innerHTML = position
 }
 
 function positionformfunc(i) {
