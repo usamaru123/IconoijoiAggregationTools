@@ -368,5 +368,5 @@ function sheetvalfunc(val, i) {
         text = '該当なし'
     }
 
-    return text
+    return checkval
 }
