@@ -5,7 +5,7 @@ const anktext = ' 配席アンケート'
 //ページロード時に参照するファンクション
 window.onload = function () {
 
-    const venueformlabel = document.querySelector('timeform')
+    const venueformlabel = document.querySelector('.timeform')
     const venues = document.querySelectorAll('.venue')
     if (venues.length = 1) {
         venuetext =
