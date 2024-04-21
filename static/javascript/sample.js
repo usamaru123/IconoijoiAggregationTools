@@ -12,7 +12,7 @@ window.onload = function () {
             `
         <label for="timeform1">
             <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1)>
-            ${venues[1]}
+            ${venues[1].value}
         </label>
         `
     }
@@ -21,11 +21,11 @@ window.onload = function () {
             `
         <label for="timeform1">
             <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1)>
-            ${venues[1]}
+            ${venues[1].value}
         </label>
         <label for="timeform2">
             <input type='checkbox' class='form-check-input' class='venue' id='timeform2' name='evening' onclick=checkEvent(2)>
-            ${venues[2]}
+            ${venues[2].value}
         </label>
         `
     }
