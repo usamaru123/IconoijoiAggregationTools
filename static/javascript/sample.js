@@ -58,7 +58,7 @@ function newpositionfunc(i, floor) {
         var postname = floorObj.querySelector('.postname').value
         var position =
             `<div> ${prename} <input pattern"${valname}" class="col-3 block position" oninput="inputChange(${i})"> ${postname} </div>`
-        numberform.innerHTML = position
+        numberform.innerHTML += position
     })
     const val_101 =
         ` <input pattern="[A-Za-z]{1}" class="col-3 block position" id="block_r${floor}" placeholder="英字1文字"  oninput="inputChange(${i})">`
