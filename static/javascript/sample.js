@@ -13,7 +13,7 @@ window.onload = function () {
         <label for="timeform1">
             <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1)>
             ${venues[0].value}
-        </label>
+        </label>aaa
         `
     }
     else if (venues.length = 2) {
