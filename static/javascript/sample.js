@@ -338,40 +338,20 @@ function sheetvalfunc(val, i) {
 
     //1桁のアルファベットで定義づけられたブロックで使用します
     const val_101 =
-        ` 
-        <div class="blockform">
-            <input pattern="[A-Za-z]{1}" class="col-3 block position"  id="block_r${i}"  name="block_r${i}" oninput="inputChange(${i})" placeholder="英字1文字">
-        </div>
-        `
+        ` <input pattern="[A-Za-z]{1}" class="col-3 block position"  id="block_r${i}"  name="block_r${i}" oninput="inputChange(${i})" placeholder="英字1文字"> `
 
     const val_102 =
-        `
-        <div class="blockform">
-            <input pattern="[A-Za-z]{1}" class="col-3 block position"  id="block_r${i}" name="block_r${i}" oninput="inputChange(${i})" placeholder="英字1文字">
-            <input type="number" min="1" max="99 class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字">
-        </div>
-        `
+        `<input pattern="[A-Za-z]{1}" class="col-3 block position"  id="block_r${i}" name="block_r${i}" oninput="inputChange(${i})" placeholder="英字1文字">
+        <input type="number" min="1" max="99 class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字"> `
 
     const val_103 =
-        `
-        <div class="blockform">
-            <input type="number" min="1" max="9" class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字">
-        </div>
-        `
+        `<input type="number" min="1" max="9" class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字"> `
 
     const val_201 =
-        `
-        <div class="rowform">
-            <input type="number" min="1" max="99" class="col-3 number position" id="row${i}" name="row${i}" placeholder="半角数字">
-        </div>
-        `
+        ` <input type="number" min="1" max="99" class="col-3 number position" id="row${i}" name="row${i}" placeholder="半角数字">`
 
     const val_301 =
-        `
-        <div class="numberform">
-            <input type="number" min="1" max="999" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字">
-        </div>
-        `
+        `<input type="number" min="1" max="999" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字"> `
 
 
     if (val == 101) {
