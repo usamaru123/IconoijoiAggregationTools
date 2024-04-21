@@ -57,7 +57,12 @@ function newpositionfunc(i, floor) {
         var prename = floorObj.querySelector('.prename').value
         var postname = floorObj.querySelector('.postname').value
         sheetHTML = sheetvalfunc(valid, i)
-        var position = '<div>' + prename + sheetHTML + postname + '</div>'
+        var position = `
+        <div id="errorform${i}_4">
+            <div style="font-size:1.5rem">
+                ${prename} ${sheetHTML} ${postname} 
+            </div>
+        </div>`
         numberform.innerHTML += position
     })
 
@@ -70,7 +75,7 @@ function positionformfunc(i) {
     const numberform = document.querySelector(`#numberform${i}`);
 
     const position1 = `
-        </div><div id="errorform${i}_4"></div>
+        <div id="errorform${i}_4"></div>
         <div class="blockform">
         GATE<input pattern="[A-Za-z]{1}" class="col-3 block position" id="block_r${i}" placeholder="英字1文字"  oninput="inputChange(${i})">
             <input type="number" min="1" max="30" class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字">
@@ -333,20 +338,40 @@ function sheetvalfunc(val, i) {
 
     //1桁のアルファベットで定義づけられたブロックで使用します
     const val_101 =
-        ` <input pattern="[A-Za-z]{1}" class="col-3 block position"  id="block_r${i}" oninput="inputChange(${i})" placeholder="英字1文字">`
+        ` 
+        <div class="blockform">
+            <input pattern="[A-Za-z]{1}" class="col-3 block position"  id="block_r${i}" oninput="inputChange(${i})" placeholder="英字1文字">
+        </div>
+        `
 
     const val_102 =
-        `<input pattern="[A-Za-z]{1}" class="col-3 block position"  id="block_r${i}" oninput="inputChange(${i})" placeholder="英字1文字">
-        <input type="number" min="1" max="99 class="col-3 number position" id="block_c${i}" placeholder="半角数字">`
+        `
+        <div class="blockform">
+            <input pattern="[A-Za-z]{1}" class="col-3 block position"  id="block_r${i}" oninput="inputChange(${i})" placeholder="英字1文字">
+            <input type="number" min="1" max="99 class="col-3 number position" id="block_c${i}" placeholder="半角数字">
+        </div>
+        `
 
     const val_103 =
-        `<input type="number" min="1" max="9" class="col-3 number position" id="block_c${i} placeholder="半角数字">`
+        `
+        <div class="blockform">
+            <input type="number" min="1" max="9" class="col-3 number position" id="block_c${i} placeholder="半角数字">
+        </div>
+        `
 
     const val_201 =
-        `<input type="number" min="1" max="99" class="col-3 number position" id="row${i}" placeholder="半角数字">`
+        `
+        <div class="rowform">
+            <input type="number" min="1" max="99" class="col-3 number position" id="row${i}" placeholder="半角数字">
+        </div>
+        `
 
     const val_301 =
-        `<input type="number" min="1" max="999" class="col-3 number position" id="number${i} placeholder="半角数字">`
+        `
+        <div class="numberform">
+            <input type="number" min="1" max="999" class="col-3 number position" id="number${i} placeholder="半角数字">
+        </div>
+        `
 
 
     if (val == 101) {
