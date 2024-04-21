@@ -349,7 +349,7 @@ function sheetvalfunc(val, i) {
 
 
 
-    if (checkval == val_101) {
+    if (val == 101) {
         text = val_101
     }
     if (checkval == 'val_102') {
