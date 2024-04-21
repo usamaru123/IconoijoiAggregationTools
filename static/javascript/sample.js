@@ -53,18 +53,13 @@ function newpositionfunc(i, floor) {
     numberform.innerHTML = ''
 
     floorObjs.forEach(function (floorObj) {
-        var valname = floorObj.querySelector('.valname').value
+        var valid = floorObj.querySelector('.id').value
         var prename = floorObj.querySelector('.prename').value
         var postname = floorObj.querySelector('.postname').value
-        var position =
-            `<div> ${prename} <input pattern"${valname}" class="col-3 block position" oninput="inputChange(${i})"> ${postname} </div>`
+        sheetHTML = sheetvalfunc(valid)
+        var position = '<div>' + prename + sheetHTML + postname + '</div>'
         numberform.innerHTML += position
     })
-    const val_101 =
-        ` <input pattern="[A-Za-z]{1}" class="col-3 block position" id="block_r${floor}" placeholder="英字1文字"  oninput="inputChange(${i})">`
-
-    const val_102 =
-        `<input pattern="[A-Za-z]{1}" class="col-3 block position" id="block_r${floor}" placeholder="英字1文字"  oninput="inputChange(${i})">`
 
 }
 
@@ -331,4 +326,53 @@ function formcheck(i) {
         error4.innerHTML = "";
     }
     return true
+}
+
+
+function sheetvalfunc(val) {
+    checkval = 'val_' + val;
+
+    vallist = {};
+    const val_101 =
+        ` <input pattern="[A-Za-z]{1}" class="col-3 block position" id="block_r${floor}" placeholder="英字1文字"  oninput="inputChange(${i})">`
+
+    const val_102 =
+        `<input pattern="[A-Za-z]{1}" class="col-3 block position" id="block_r${floor}" placeholder="英字1文字"  oninput="inputChange(${i})">`
+
+    const val_201 =
+        `<input type="number" min="1" max="9" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字">`
+
+    const val_202 =
+        `<input type="number" min="1" max="99" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字">`
+
+    const val_203 =
+        `<input type="number" min="1" max="999" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字">`
+
+    vallist['val_101'].append(val_101);
+    vallist['val_102'].append(val_102);
+    vallist['val_201'].append(val_201);
+    vallist['val_202'].append(val_202);
+    vallist['val_203'].append(val_203);
+
+
+    if (checkval = 'val_101') {
+        text = val_101
+    }
+    if (checkval = 'val_102') {
+        text = val_102
+    }
+    if (checkval = 'val_201') {
+        text = val_201
+    }
+    if (checkval = 'val_202') {
+        text = val_202
+    }
+    if (checkval = 'val_203') {
+        text = val_203
+    }
+    else {
+        text = '該当なし'
+    }
+
+    return text
 }
