@@ -355,7 +355,7 @@ function sheetvalfunc(val, i) {
     const val_103 =
         `
         <div class="blockform">
-            <input type="number" min="1" max="9" class="col-3 number position" id="block_c${i} name="block_c${i} "placeholder="半角数字">
+            <input type="number" min="1" max="9" class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字">
         </div>
         `
 
