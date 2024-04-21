@@ -6,22 +6,8 @@
     <p class="header_detail">日時：{{ title.venuedate|date:"Y年n月j日" }}</p>
     <p class="header_detail">会場：{{ title.hallinfo.hallname }}</p>
     </p>
-    {% for block in blocks.all %}
-    <input type="hidden" id="{{ block.blockname }}" class="blocks" value="{{ block.blockname }}">
-    <div class="{{ block.blockname }}">
-        {% for sheet in block.sheets.all|dictsort:"priority" %}
-        <div class="{{ sheet.sheetname }}">
-            <input type="hidden" class="col-3 block position valid" value="{{ sheet.sheettype.valid }}">
-            <input type="hidden" class="col-3 block position prename" value="{{ sheet.prename }}">
-            <input type="hidden" class="col-3 block position postname" value="{{ sheet.postname }}">
-        </div>
-        {% endfor %}
-    </div>
-    {% endfor %}
-    {% endblock header %}
-    {% for block in blocks.all %}
 
-    {% endfor %}
+    {% endblock header %}
 
     {% block content %}
     <div class=" eventform text-dark form-control-lg" id="eventform">
@@ -29,18 +15,37 @@
             <div class="formcheck alert alert-light shadow ">
                 <div id="errorform1">
                 </div>
+
+                <!--公演選択-->
                 {% for performtime in performtimes %}
-                <label for="timeform1">
-                    <input type="checkbox" class="form-check-input " id="timeform1" onclick="checkEvent(1)" checked>
+                <label for="{{ performtime.perform_time }}">
+                    <input type="checkbox" class="form-check-input " id="{{ performtime.perform_time }}"
+                        onclick="checkEvent(1)">
                     {{ performtime.perform_time }}
                 </label>
                 {% endfor %}
+
+                <!--会場詳細情報送信-->
                 <input type="hidden" id="titlename" name="title" value="{{ title }}">
                 <input type="hidden" id="venueid" name="venueid" value="{{ title.venueid }}">
                 <input type="hidden" id="timeformcheck1" name="matinee" value>
                 <input type="hidden" id="timeformcheck2" name="evening" value>
                 <input type="hidden" id="largeblock_r1" name="block_r1" value>
                 <input type="hidden" id="largeblock_r2" name="block_r2" value>
+
+                {% for block in blocks.all %} <!--座席情報送信-->
+                <input type="hidden" id="{{ block.blockname }}" class="blocks" value="{{ block.blockname }}">
+                <div class="{{ block.blockname }}">
+                    {% for sheet in block.sheets.all|dictsort:"priority" %}
+                    <div class="{{ sheet.sheetname }}">
+                        <input type="hidden" class="col-3 block position valid" value="{{ sheet.sheettype.valid }}">
+                        <input type="hidden" class="col-3 block position prename" value="{{ sheet.prename }}">
+                        <input type="hidden" class="col-3 block position postname" value="{{ sheet.postname }}">
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+
             </div>
 
             <div id="answerform1" class="box answerform">
