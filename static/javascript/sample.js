@@ -332,7 +332,6 @@ function formcheck(i) {
 function sheetvalfunc(val, i) {
     checkval = 'val_' + val;
 
-    vallist = {};
     const val_101 =
         ` <input pattern="[A-Za-z]{1}" class="col-3 block position" placeholder="英字1文字"  oninput="inputChange(${i})">`
 
@@ -348,11 +347,6 @@ function sheetvalfunc(val, i) {
     const val_203 =
         `<input type="number" min="1" max="999" class="col-3 number position"  placeholder="半角数字">`
 
-    vallist['val_101'].append(val_101);
-    vallist['val_102'].append(val_102);
-    vallist['val_201'].append(val_201);
-    vallist['val_202'].append(val_202);
-    vallist['val_203'].append(val_203);
 
 
     if (checkval = 'val_101') {
