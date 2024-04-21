@@ -331,20 +331,22 @@ function formcheck(i) {
 
 function sheetvalfunc(val, i) {
 
+    //1桁のアルファベットで定義づけられたブロックで使用します
     const val_101 =
-        ` <input pattern="[A-Za-z]{1}" class="col-3 block position" placeholder="英字1文字"  oninput="inputChange(${i})">`
+        ` <input pattern="[A-Za-z]{1}" class="col-3 block position"  id="block_r${i}" oninput="inputChange(${i})" placeholder="英字1文字">`
 
     const val_102 =
-        `<input pattern="[A-Za-z]{1}" class="col-3 block position"  placeholder="英字1文字"  oninput="inputChange(${i})">`
+        `<input pattern="[A-Za-z]{1}" class="col-3 block position"  id="block_r${i}" oninput="inputChange(${i})" placeholder="英字1文字">
+        <input type="number" min="1" max="99 class="col-3 number position" id="block_c${i}" placeholder="半角数字">`
+
+    const val_103 =
+        `<input type="number" min="1" max="9" class="col-3 number position" id="block_c${i} placeholder="半角数字">`
 
     const val_201 =
-        `<input type="number" min="1" max="9" class="col-3 number position"  placeholder="半角数字">`
+        `<input type="number" min="1" max="99" class="col-3 number position" id="row${i}" placeholder="半角数字">`
 
-    const val_202 =
-        `<input type="number" min="1" max="99" class="col-3 number position" placeholder="半角数字">`
-
-    const val_203 =
-        `<input type="number" min="1" max="999" class="col-3 number position"  placeholder="半角数字">`
+    const val_301 =
+        `<input type="number" min="1" max="999" class="col-3 number position" id="number${i} placeholder="半角数字">`
 
 
     if (val == 101) {
@@ -353,14 +355,14 @@ function sheetvalfunc(val, i) {
     else if (val == 102) {
         text = val_102
     }
+    else if (val == 103) {
+        text = val_103
+    }
     else if (val == 201) {
         text = val_201
     }
-    else if (val == 202) {
-        text = val_202
-    }
-    else if (val == 203) {
-        text = val_203
+    else if (val == 301) {
+        text = val_301
     }
     else {
         text = '該当なし'
