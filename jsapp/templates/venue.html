@@ -33,7 +33,9 @@
                 <td>{{ post.venueid }} </td>
                 <td>{{ post.venuedate }}</td>
                 <td>{{ post.event.eventtitle }}</td>
-                <td>{{ post.event.group }}</td>
+                {% for group in post.event.group %}
+                <td>{{ group }}</td>
+                {% endfor %}
             </tr>
             {% endfor %}
         </table>
