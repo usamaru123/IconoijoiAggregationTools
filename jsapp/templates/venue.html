@@ -38,7 +38,7 @@
 
 <div>
     <form action="" method="POST">{% csrf_token %}
-        <p>{{ form.venueid }}</p>
+        <p><input type="hidden" name="venueid"></p>
         <p>{{ form.venuedate }}</p>
         <p>{{ form.event }}</p>
         <p>{{ rowmax }}</p>
@@ -65,6 +65,12 @@
                     {% for group in post.event.group.all %}
                     {{ group.group }}
                     {% endfor %}
+                </td>
+                <td>{{ post.rowmax }}</td>
+                <td>{{ post.columnmax }}</td>
+                <td>{{ for time in post.perform_time.all }}
+                    {{ perform_time.performtime }}
+                    {{ endfor }}
                 </td>
             </tr>
             {% endfor %}
