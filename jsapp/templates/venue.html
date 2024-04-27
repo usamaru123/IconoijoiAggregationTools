@@ -31,7 +31,7 @@
             {% for post in venues %}
             <tr>
                 <td>{{ post.venueid }} </td>
-                <td>{{ post.venuedate|date:"Y年N月J日" }}</td>
+                <td>{{ post.venuedate|date:"Y年nn月jj日" }}</td>
                 <td>{{ post.event.eventtitle }}</td>
                 {% for group in post.event.group.all %}
                 <td>{{ group.group }}</td>
