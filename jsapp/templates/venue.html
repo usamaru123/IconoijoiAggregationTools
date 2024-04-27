@@ -23,9 +23,11 @@
             {% for post in events %}
             <tr>
                 <td>{{ post.eventid }} </td>
-                {% for group in post.group.all %}
-                <td>{{ group.group }}</td>
-                {% endfor %}
+                <td>
+                    {% for group in post.group.all %}
+                    {{ group.group }}
+                    {% endfor %}
+                </td>
                 <td>{{ post.eventtitle }}</td>
                 <td>{{ post.eventtype }} </td>
             </tr>
