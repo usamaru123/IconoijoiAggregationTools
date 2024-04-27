@@ -130,11 +130,11 @@ class EventList(ListView):
 class VenueCreate(CreateView):
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs)
-        ctx['event'] = EventModel.objects.all()
+        ctx['event'] = VenueModel.objects.all()
         return  ctx 
     
     template_name= 'venue.html'
-    model = VenueModel
+    model = EventModel
     
     fields = ('__all__')
     success_url = ('jsapp:venuelist')
