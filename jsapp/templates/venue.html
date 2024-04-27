@@ -23,17 +23,17 @@
         <h2>登録済みイベント</h2>
         <table class="table">
             <tr>
-                <th>イベントID</th>
+                <th>VENUE.ID</th>
+                <th>日付</th>
+                <th>イベントタイトル</th>
                 <th>グループ</th>
-                <th>イベントタイプ</th>
-                <th>タイトル</th>
             </tr>
-            {% for post in event %}
+            {% for post in venue %}
             <tr>
-                <td>{{ post.eventid }} </td>
-                <td>{{ post.group }}</td>
-                <td>{{ post.eventtype }}</td>
-                <td>{{ post.eventtitle }}</td>
+                <td>{{ post.venueid }} </td>
+                <td>{{ post.venuedate }}</td>
+                <td>{{ post.event.eventtitle }}</td>
+                <td>{{ post.event.group }}</td>
             </tr>
             {% endfor %}
         </table>
