@@ -20,7 +20,7 @@
                 <th>イベントタイトル</th>
                 <th>イベントタイプ</th>
             </tr>
-            {% for post in events %}
+            {% for post in events|dictsort:"eventid" %}
             <tr>
                 <td>{{ post.eventid }} </td>
                 <td>
@@ -53,7 +53,7 @@
                 <th>イベントタイトル</th>
                 <th>グループ</th>
             </tr>
-            {% for post in venues %}
+            {% for post in venues|dictsort:"venueid" %}
             <tr>
                 <td>{{ post.venueid }} </td>
                 <td>{{ post.venuedate|date:"Y年m月d日" }}</td>
