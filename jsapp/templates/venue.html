@@ -3,7 +3,7 @@
 
 {% block header %}
 <div class="header_inner inner">
-    <p class="header_title" name="title">イベント登録マスタ</p>
+    <p class="header_title" name="title">公演登録マスタ</p>
     </p>
 </div>
 {% endblock %}
@@ -55,6 +55,8 @@
                 <th>日付</th>
                 <th>イベントタイトル</th>
                 <th>グループ</th>
+                <th>縦最大値</th>
+                <th>横最大値</th>
             </tr>
             {% for post in venues|dictsort:"venueid" %}
             <tr>
