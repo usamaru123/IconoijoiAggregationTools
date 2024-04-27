@@ -21,14 +21,23 @@
 <div class="alert alert-light form-control">
     <div class="container">
         <h2>登録済みイベント</h2>
-        {% for post in event %}
-        <div class="linkbox">
-            イベントID：{{ post.eventid }} グループ：{{ post.group }} イベントタイプ：{{ post.eventtype }} タイトル：{{ post.eventtitle }}
-        </div>
-        {% endfor %}
+        <table class="table">
+            <tr>
+                <th>イベントID</th>
+                <th>グループ</th>
+                <th>イベントタイプ</th>
+                <th>タイトル</th>
+            </tr>
+            {% for post in event %}
+            <tr>
+                <td>{{ post.eventid }} </td>
+                <td>{{ post.group }}</td>
+                <td>{{ post.eventtype }}</td>
+                <td>{{ post.eventtitle }}</td>
+            </tr>
+            {% endfor %}
+        </table>
     </div>
 
 </div>
-
-
 {% endblock %}
