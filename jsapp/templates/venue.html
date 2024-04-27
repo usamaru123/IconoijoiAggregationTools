@@ -28,13 +28,13 @@
                 <th>イベントタイトル</th>
                 <th>グループ</th>
             </tr>
-            {% for post in venues.all %}
+            {% for post in venues %}
             <tr>
                 <td>{{ post.venueid }} </td>
                 <td>{{ post.venuedate }}</td>
                 <td>{{ post.event.eventtitle }}</td>
-                {% for group in post.event.group %}
-                <td>{{ group }}</td>
+                {% for group in post.event.all %}
+                <td>{{ event.group }}</td>
                 {% endfor %}
             </tr>
             {% endfor %}
