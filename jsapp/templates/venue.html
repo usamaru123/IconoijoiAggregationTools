@@ -38,7 +38,10 @@
 
 <div>
     <form action="" method="POST">{% csrf_token %}
-        {{ form.venueid }}
+        <p>{{ form.venueid }}</p>
+        <p>{{ form.venuedate }}</p>
+        <p>{{ form.event }}</p>
+        <p>{{ rowmax }}</p>
         <input type="submit" value="登録">
     </form>
 </div>
