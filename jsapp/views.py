@@ -131,7 +131,7 @@ class VenueCreate(CreateView):
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs)
         ctx['event'] = EventModel.objects.all()
-        ctx['venue'] = VenueModel.objects.all()
+        ctx['venues'] = VenueModel.objects.all()
         return  ctx 
     
     template_name= 'venue.html'
