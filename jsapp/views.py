@@ -130,7 +130,7 @@ class EventList(ListView):
 class VenueCreate(CreateView):
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs)
-        ctx['event'] = EventModel.objects.all()
+        ctx['events'] = EventModel.objects.all()
         ctx['venues'] = VenueModel.objects.all()
         return  ctx 
     

@@ -10,6 +10,29 @@
 
 {% block content %}
 
+<div class="alert alert-light form-control">
+    <div class="container">
+        <h4>登録済みイベント</h4>
+        <table class="table">
+            <tr>
+                <th>EVENT.ID</th>
+                <th>グループ</th>
+                <th>イベントタイトル</th>
+                <th>イベントタイプ</th>
+            </tr>
+            {% for post in events %}
+            <tr>
+                <td>{{ post.eventid }} </td>
+                {% for group in post.group.all %}
+                <td>{{ group.group }}</td>
+                {% endfor %}
+                <td>{{ post.eventtitle }}</td>
+                <td>{{ post.eventtype }} </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
 
 <div>
     <form action="" method="POST">{% csrf_token %}
@@ -20,7 +43,7 @@
 
 <div class="alert alert-light form-control">
     <div class="container">
-        <h2>登録済みイベント</h2>
+        <h4>登録済み公演</h4>
         <table class="table">
             <tr>
                 <th>VENUE.ID</th>
@@ -31,7 +54,7 @@
             {% for post in venues %}
             <tr>
                 <td>{{ post.venueid }} </td>
-                <td>{{ post.venuedate|date:"Y年nn月jj日" }}</td>
+                <td>{{ post.venuedate|date:"Y年m月d日" }}</td>
                 <td>{{ post.event.eventtitle }}</td>
                 {% for group in post.event.group.all %}
                 <td>{{ group.group }}</td>
