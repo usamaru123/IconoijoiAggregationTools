@@ -165,7 +165,7 @@ function positionform_change(num) {
     positionformfunc(positionformlabel, num);
 };
 
-//全ての質問を回答しているか確認をするファンクションです。
+
 function valueCheck() {
 
     const matinee = document.querySelector('#timeform1');
@@ -217,7 +217,7 @@ function valueCheck() {
 
 }
 
-
+//全ての質問を回答しているか確認をするファンクションです。
 function formcheck(i) {
     const errormsg2 = '入力してください';
 
@@ -310,7 +310,7 @@ function sheetvalfunc(val, i) {
 
     const val_102 =
         `<input pattern="[A-Za-z]{1}" class="col-3 block position"  id="block_r${i}" name="block_r${i}" oninput="inputChange(${i})" placeholder="英字1文字">
-        <input type="number" min="1" max="99 class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字"> `
+        <input type="number" min="1" max="99" class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字"> `
 
     const val_103 =
         `<input type="number" min="1" max="9" class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字"> `
