@@ -69,7 +69,7 @@
                 <td>{{ post.rowmax }}</td>
                 <td>{{ post.columnmax }}</td>
                 <td>{{ for time in post.perform_time.all }}
-                    {{ perform_time.performtime }}
+                    {{ time.perform_time }}
                     {{ endfor }}
                 </td>
             </tr>
