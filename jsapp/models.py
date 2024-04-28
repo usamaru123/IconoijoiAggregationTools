@@ -32,6 +32,7 @@ class SheetModel(models.Model): #座席の属性を保存するマスタです
       return str(self.priority) + "." + self.sheetname + ": " + self.prename +  self.sheettype.valname +  self.postname 
    
 class HallTypeDtlModel(models.Model):
+   typeid = models.IntegerField(default=1)
    typename = models.CharField(max_length=10)
 
 class HallTypeModel(models.Model): #会場の属性を保存するマスタです
