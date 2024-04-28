@@ -16,7 +16,7 @@
     <div class="container">
         <form action="" method="POST">{% csrf_token %}
             <p>eventid:{{ form.eventid }}</p>
-            <p>参加グループ:{{ form.group|add_class:'selector' }}</p>
+            <p>参加グループ:{{ form.group}}</p>
             <p>イベントタイプ:{{ form.eventtype }}</p>
             <p>イベントタイトル:{{ form.eventtitle }}</p>
             <input type="submit" value="登録">
