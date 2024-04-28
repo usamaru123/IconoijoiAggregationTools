@@ -9,11 +9,12 @@ class GroupModel(models.Model): #グループ情報を保存するマスタで�
 class EventTypeModel(models.Model):
    eventtypeid = models.IntegerField(primary_key=True)
    eventtype = models.CharField(max_length=100)
+   def __str__(self):
+      return str(self.eventtypeid) +'.' + self.eventtype
 
 class EventModel(models.Model):  #イベントの情報を保存するマスタです
    eventid = models.IntegerField(primary_key=True)
    group = models.ManyToManyField(GroupModel,default=[1])
-   eventtype = models.CharField(max_length=10)
    eventtitle = models.CharField(max_length=100,)
 
    def __str__(self):
