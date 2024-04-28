@@ -55,7 +55,7 @@
                 <th>縦最大値</th>
                 <th>横最大値</th>
             </tr>
-            {% for post in venues|dictsort:"venueid" %}
+            {% for post in venues|dictsort:"venuedate" %}
             <tr>
                 <td>{{ post.venueid }} </td>
                 <td>{{ post.venuedate|date:"Y年m月d日" }}</td>
