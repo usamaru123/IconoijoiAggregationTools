@@ -138,7 +138,7 @@ class VenueCreate(CreateView):
     model = VenueModel
     
     fields = ('__all__')
-    success_url = ('jsapp:venuecreate')
+    success_url = ('venuecreate')
 
 class VenueList(ListView):
     model = EventModel
@@ -158,7 +158,7 @@ class HallinfoCreate(CreateView):
     model = HallInfoModel
 
     fields = ('__all__')
-    success_url =('jsapp:hallinfocreate')
+    success_url =('hallinfocreate')
 
 
 class ThanksView(ListView):
