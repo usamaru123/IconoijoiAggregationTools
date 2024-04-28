@@ -115,6 +115,7 @@ class AnswerCreate(CreateView): #回答作成フォーム
         ctx['title'] = venueObj
         ctx['results'] = answerObj
         ctx['blocks'] = blocks
+        ctx['performtimes'] = performtimes
         return  ctx
 
     def get_success_url(self):
