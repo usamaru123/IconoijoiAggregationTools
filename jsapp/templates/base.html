@@ -10,7 +10,6 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-NT42NGM687');
     </script>
     <metas charset="utf-8">
@@ -29,7 +28,8 @@
         <script src="{% static '/javascript/sample.js' %}"></script>
         <link href="{% static '/css/styles.css' %}" rel="stylesheet">
 
-
+        {% block head %}
+        {% endblock head %}
 </head>
 
 <body>
