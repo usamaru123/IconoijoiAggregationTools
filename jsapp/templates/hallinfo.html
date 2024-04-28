@@ -12,12 +12,14 @@
 
 
 <div class="alert alert-light form-control">
-    <form action="" method="POST">{% csrf_token %}
-        <p>hallid:{{ form.hallid }}</p>
-        <p>会場名:{{ form.hallname }}</p>
-        <p>階層設定:{{ halltype }}</p>
-        <input type="submit" value="登録">
-    </form>
+    <div class="container">
+        <form action="" method="POST">{% csrf_token %}
+            <p>hallid:{{ form.hallid }}</p>
+            <p>会場名:{{ form.hallname }}</p>
+            <p>階層設定:{{ form.halltype }}</p>
+            <input type="submit" value="登録">
+        </form>
+    </div>
 </div>
 
 <div class="alert alert-light form-control">
