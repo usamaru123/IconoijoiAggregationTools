@@ -29,6 +29,7 @@ class AnswerList(ListView): #回答一覧ページ
         ctx = super().get_context_data(**kwargs)
         qsmodel = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         venuemodel = VenueModel.objects.get(venueid=self.kwargs['num'])
+        performtimes = venuemodel.perform_time.order_by('disp_priority')
         
         qs1 = qsmodel.exclude(ticket1__exact="")
         qs2 = qsmodel.exclude(ticket2__exact="")
@@ -81,6 +82,8 @@ class AnswerList(ListView): #回答一覧ページ
         chart = graph.sheetratio(sheet)
         heatmap = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
         floorheatmap = graph.Floor_HeatMap(floor,number)
+        
+        performcount = performtimes.count()
 
         ctx['chart'] = chart
         ctx['heatmap'] = heatmap
@@ -89,6 +92,7 @@ class AnswerList(ListView): #回答一覧ページ
         ctx['title'] = venuemodel
         ctx['count'] = count
         ctx['num'] = self.kwargs['num']
+        ctx['performtimes'] = performtimes
         return  ctx
 
 class AnswerCreate(CreateView): #回答作成フォーム
@@ -100,19 +104,17 @@ class AnswerCreate(CreateView): #回答作成フォーム
         ctx = super().get_context_data(**kwargs)
         answerObj =  MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         venueObj = VenueModel.objects.get(venueid=self.kwargs['num'])
-        performtimes = venueObj.perform_time.order_by('disp_priority').all()
+        performtimes = venueObj.perform_time.order_by('disp_priority')
         blocks = venueObj.hallinfo.halltype.order_by('priority')
 
-        performcount = performtimes.count()
+
         c_answer = answerObj.count()
         
 
         ctx['count'] = c_answer
-        ctx['performcount'] = performcount
         ctx['title'] = venueObj
         ctx['results'] = answerObj
         ctx['blocks'] = blocks
-        ctx['performtimes'] = performtimes
         return  ctx
 
     def get_success_url(self):
