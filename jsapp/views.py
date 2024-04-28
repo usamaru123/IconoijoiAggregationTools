@@ -103,10 +103,12 @@ class AnswerCreate(CreateView): #回答作成フォーム
         performtimes = venueObj.perform_time.order_by('disp_priority')
         blocks = venueObj.hallinfo.halltype.order_by('priority')
 
+        performcount = performtimes.count()
         c_answer = answerObj.count()
         
 
         ctx['count'] = c_answer
+        ctx['performcount'] = performcount
         ctx['title'] = venueObj
         ctx['results'] = answerObj
         ctx['blocks'] = blocks
