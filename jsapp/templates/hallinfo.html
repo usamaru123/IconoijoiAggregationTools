@@ -34,7 +34,9 @@
                 <td>{{ post.hallname }}</td>
                 <td>{{ post.hallprefecture }}</td>
                 <td>
-
+                    {% halltype in post.halltype.all %}
+                    {{ halltype.blockname }}
+                    {% endfor %}
                 </td>
             </tr>
             {% endfor %}
