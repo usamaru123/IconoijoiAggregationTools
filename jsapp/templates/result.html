@@ -21,6 +21,7 @@
 <div>
     <div class="alert alert-light form-control-lg">
         <h2>現在の回答数：{{ count }}</h2>
+        {% if event.perform_time|length == 2 %}
         <h2>
             {% if request.GET.time == 'matinee' %}
             昼の部
@@ -34,6 +35,7 @@
                 <button type="submit" class="btn btn-lg btn-primary" name="time" value="evening">夜の部</button>
             </form>
         </h2>
+        {% endif %}
     </div>
 
     {% autoescape off %}
