@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import MenberModel,EventModel,VenueModel,HallInfoModel,HallTypeModel,m_PerformTime,SheetModel,SheetValMaster,GroupModel
+from .models import MenberModel,EventModel,VenueModel,HallInfoModel,HallTypeModel,m_PerformTime,SheetModel,SheetValMaster,GroupModel,HallTypeDtlModel
 # Register your models here.
 admin.site.register(MenberModel)
 admin.site.register(EventModel)
@@ -10,3 +10,4 @@ admin.site.register(m_PerformTime)
 admin.site.register(SheetModel)
 admin.site.register(SheetValMaster)
 admin.site.register(GroupModel)
+admin.site.register(HallTypeDtlModel)
