@@ -92,7 +92,7 @@ class AnswerList(ListView): #回答一覧ページ
         ctx['title'] = venuemodel
         ctx['count'] = count
         ctx['num'] = self.kwargs['num']
-        ctx['performtimes'] = performtimes
+        ctx['performtimes'] = performcount
         return  ctx
 
 class AnswerCreate(CreateView): #回答作成フォーム
