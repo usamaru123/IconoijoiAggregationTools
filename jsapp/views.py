@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView,UpdateView,View
-from .models import MenberModel,EventModel,VenueModel,HallTypeModel
+from .models import MenberModel,EventModel,VenueModel,HallTypeModel,HallInfoModel
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.shortcuts import redirect
@@ -147,6 +147,18 @@ class VenueList(ListView):
         ctx = super().get_context_data(**kwargs)
         ctx['venue'] = VenueModel.objects.order_by('venuedate')
         return ctx
+
+class HallinfoCreate(CreateView):
+    def get_context_data(self,*args,**kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['Hallinfo'] = HallInfoModel.object.all()
+        return ctx
+
+    template_name = 'hallinfo.html'
+    model = HallInfoModel
+
+    fields = ('__all__')
+    success_url =('jsapp:hallinfocreate')
 
 
 class ThanksView(ListView):

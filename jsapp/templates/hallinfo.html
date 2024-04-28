@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<div class="header_inner inner">
+    <p class="header_title" name="title">会場登録マスタ</p>
+    </p>
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+<div>
+    <form action="" method="POST">{% csrf_token %}
+        {{ form.as_p}}
+        <input type="submit" value="登録">
+    </form>
+</div>
+
+<div class="alert alert-light form-control">
+    <div class="container">
+        <h4>登録済み会場</h4>
+        <table class="table">
+            <tr>
+                <th>hallid</th>
+                <th>会場名</th>
+                <th>都道府県</th>
+                <th>詳細</th>
+            </tr>
+            {% for post in venues|dictsort:"venueid" %}
+            <tr>
+                <td>{{ post.hallid }}</td>
+                <td>{{ post.hallname }}</td>
+                <td>{{ post.hallprefecture }}</td>
+                <td>
+                    {% halltype in post.halltype.all %}
+                    {{ halltype }}
+                    {% endfor %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}
