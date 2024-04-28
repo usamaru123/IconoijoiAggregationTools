@@ -38,7 +38,6 @@ class SheetModel(models.Model): #座席の属性を保存するマスタです
 class HallTypeModel(models.Model): #会場の属性を保存するマスタです
    priority = models.IntegerField(default = 1)
    blockname = models.CharField(max_length=100)
-   halltype = models.CharField(max_length=100)
    sheets = models.ManyToManyField(SheetModel,default=[1])
    def __str__(self):
       return  self.blockname + "." + self.halltype
