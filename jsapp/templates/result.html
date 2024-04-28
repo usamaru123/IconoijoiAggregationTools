@@ -21,7 +21,7 @@
 <div>
     <div class="alert alert-light form-control-lg">
         <h2>現在の回答数：{{ count }}</h2>
-        <h2>{{ event.perform_time|length }}</h2>
+        <h2>{{ event.perform_time.all|length }}</h2>
         {% if event.perform_time|length == 2 %}
         <h2>
             {% if request.GET.time == 'matinee' %}
