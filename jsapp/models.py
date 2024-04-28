@@ -37,7 +37,6 @@ class HallTypeDtlModel(models.Model):
 
 class HallTypeModel(models.Model): #会場の属性を保存するマスタです
    priority = models.IntegerField(default = 1)
-   halltype = models.ForeignKey(HallTypeDtlModel,on_delete=models.CASCADE)
    blockname = models.CharField(max_length=100)
    sheets = models.ManyToManyField(SheetModel,default=[1])
    def __str__(self):
