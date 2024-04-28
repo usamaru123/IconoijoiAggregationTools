@@ -11,7 +11,7 @@
 {% block content %}
 
 
-<div>
+<div class="alert alert-light form-control">
     <form action="" method="POST">{% csrf_token %}
         <p>hallid:{{ form.hallid }}</p>
         <p>会場名:{{ form.hallname }}</p>
