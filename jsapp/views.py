@@ -151,7 +151,7 @@ class VenueList(ListView):
 class HallinfoCreate(CreateView):
     def get_context_data(self,*args,**kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx['Hallinfo'] = HallInfoModel.objects.all()
+        ctx['hallinfo'] = HallInfoModel.objects.all()
         return ctx
 
     template_name = 'hallinfo.html'

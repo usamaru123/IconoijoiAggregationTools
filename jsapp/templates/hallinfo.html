@@ -28,7 +28,7 @@
                 <th>都道府県</th>
                 <th>詳細</th>
             </tr>
-            {% for post in venues|dictsort:"venueid" %}
+            {% for post in hallinfo|dictsort:"hallid" %}
             <tr>
                 <td>{{ post.hallid }}</td>
                 <td>{{ post.hallname }}</td>
