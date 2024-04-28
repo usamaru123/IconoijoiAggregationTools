@@ -6,8 +6,8 @@
 {% block header %}
 
 <div class="header_inner inner">
-    <p class="header_title" name="eventtitle">{{ title.event.eventtitle }}</p>
-    {{ title.event.eventtype.eventtypeid }}
+    <p class="header_title" name="eventtitle">{{ title.event.eventtitle }}{{ title.event.eventtype.eventtypeid }}</p>
+
     {% if title.event.eventtype.eventtypeid == 1 %}
     <p class="header_ank" name="venue">{{ title.hallinfo.hallprefecture }}公演配席アンケート</p>
     {% endif %}
