@@ -16,3 +16,60 @@
 </body>
 
 </html>
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block header %}
+<div class="header_inner inner">
+    <p class="header_title" name="title">イベント登録マスタ</p>
+    </p>
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="alert alert-light form-control">
+    <div class="container">
+        <form action="" method="POST">{% csrf_token %}
+            <p>eventid:{{ form.eventid }}</p>
+            <p>参加グループ:{{ form.group|add_class:'selector' }}</p>
+            <p>イベントタイプ:{{ form.eventtype }}</p>
+            <p>イベントタイトル:{{ form.eventtitle }}</p>
+            <input type="submit" value="登録">
+        </form>
+    </div>
+</div>
+<div class="alert alert-light form-control">
+    <div class="container">
+        <h4>登録済みイベント</h4>
+        <table class="table">
+            <tr>
+                <th>EVENT.ID</th>
+                <th>グループ</th>
+                <th>イベントタイトル</th>
+                <th>イベントタイプ</th>
+            </tr>
+            {% for post in events|dictsort:"eventid" %}
+            <tr>
+                <td>{{ post.eventid }} </td>
+                <td>
+                    {% for group in post.group.all %}
+                    {{ group.group }}
+                    {% endfor %}
+                </td>
+                <td>{{ post.eventtitle }}</td>
+                <td>{{ post.eventtype }} </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+<div class="linkbox">
+    <h3>管理ページ</h3>
+    <a href="https://ico-graph.com/admin_page"></a>
+</div>
+{% endblock %}

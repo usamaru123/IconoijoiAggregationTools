@@ -118,10 +118,15 @@ class AnswerCreate(CreateView): #回答作成フォーム
         return reverse_lazy('jsapp:thanks',kwargs={"num":self.kwargs['num']})
 
 class EventCreate(CreateView):
+    def get_context_data(self,*args,**kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['events'] = EventModel.objects.all()
+        return ctx
+    
     template_name = 'event.html'
     model = EventModel
     fields =('eventid','group','eventtype','eventtitle')
-    success_url = ('jsapp:eventlist')
+    success_url = ('eventcreate')
    
 class EventList(ListView):
     template_name = 'eventlist.html'
