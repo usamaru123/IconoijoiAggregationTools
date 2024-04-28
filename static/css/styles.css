@@ -154,6 +154,7 @@ h2 {
 .linkbox {
     position: relative;
     padding-top: 3rem;
+    text-decoration: underline;
 }
 
 .linkbox a {
