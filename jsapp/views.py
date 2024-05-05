@@ -96,13 +96,13 @@ class AnswerList(ListView): #回答一覧ページ
 
         chart = graph.sheetratio(sheet)
         heatmap = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
-        heatmap2 = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
+        heatmap2 = graph.Floor_HeatMap(row,column,arenasheet,rowmax,columnmax)
         floorheatmap = graph.Floor_HeatMap(floor,number)
         
         performcount = performtimes.count()
 
         ctx['chart'] = chart
-        ctx['heatmap'] = heatmap
+        ctx['heatmap'] = heatmap2
        # ctx['sheetratio1'] = sheetratio1
         ctx['results'] = qs
         ctx['title'] = venuemodel
