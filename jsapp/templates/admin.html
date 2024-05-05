@@ -10,7 +10,6 @@
 
 {% block content %}
 <div>
-
     <div class="alert alert-light form-control">
         <div class="container">
             <h2>配席アンケート集計結果一覧</h2>
@@ -53,8 +52,17 @@
                 <a href="https://ico-graph.com/hallcreate"></a>
             </div>
         </div>
-
     </div>
-</div>
+    <div class="alert alert-light form-control">
+        <div class="container">
+            <div class="linkbox">
+                <h2>トップページ</h2>
+                <div class="linkbox">
+                    <a href="https://ico-graph.com/"></a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 
-{% endblock %}
+    {% endblock %}
