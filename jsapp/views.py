@@ -95,7 +95,7 @@ class AnswerList(ListView): #回答一覧ページ
             number = [number.number1 for number in qsfloor]
 
         chart = graph.sheetratio(sheet)
-        heatmap = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
+       # heatmap = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
         heatmap2 = graph.Floor_HeatMap(row,column,arenasheet,rowmax,columnmax)
         
         performcount = performtimes.count()
