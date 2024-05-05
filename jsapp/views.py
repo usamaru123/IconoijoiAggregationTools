@@ -18,6 +18,16 @@ class Toppage(ListView): #トップページ
         ctx = super().get_context_data(**kwargs)
         ctx['title'] = VenueModel.objects.order_by('venuedate').all()
         return ctx
+    
+class Adminpage(ListView): #トップページ
+    template_name = 'admin.html'
+    model = EventModel
+
+    def get_context_data(self,*args,**kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['title'] = VenueModel.objects.order_by('venuedate').all()
+        return ctx
+
 
 class AnswerList(ListView): #回答一覧ページ
     template_name = 'result.html'

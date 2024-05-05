@@ -1,10 +1,11 @@
 from django.urls import path
-from .views import Toppage,AnswerList,AnswerCreate,EventCreate,EventList,VenueCreate,VenueList,ThanksView,csv_export,HallinfoCreate
+from .views import Toppage,AnswerList,AnswerCreate,EventCreate,EventList,VenueCreate,VenueList,ThanksView,csv_export,HallinfoCreate,Adminpage
 
 app_name = 'jsapp'
 
 urlpatterns = [
-    path('admin_page',Toppage.as_view(),name='toppage'),
+    path('',Toppage.as_view(),name='toppage'),
+    path('admin_page',Adminpage.as_view(),name='adminpage'),
     path('result/<int:num>',AnswerList.as_view(),name='index'),
     path('<int:num>/',AnswerCreate.as_view(),name='create'),
     path('eventcreate',EventCreate.as_view(),name='eventcreate'),
