@@ -33,8 +33,6 @@ class AnswerList(ListView): #回答一覧ページ
     template_name = 'result.html'
     model = EventModel
 
-
-
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs)
         qsmodel = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
@@ -46,6 +44,9 @@ class AnswerList(ListView): #回答一覧ページ
 
         qs1arena  = qs1.exclude(block_c1__exact="")
         qs2arena  = qs2.exclude(block_c2__exact="")
+
+        qs1row = qs1.exclude(row1__exact="")
+        qs2row = qs1.exclude(row2__exact="")
 
         qs1floor = qs1.exclude(floor1__exact="")
         qs2floor = qs2.exclude(floor2__exact="")
@@ -65,9 +66,11 @@ class AnswerList(ListView): #回答一覧ページ
         if time == 'evening':
             qs = qs2
             qsarena = qs2arena
+            qsrow = qs2row
             qsfloor = qs2floor
 
             block = [block.block_r2 for block in qsarena]
+            row = [row.row2 for row in qsrow]
             column = [column.block_c2 for column in qsarena]
             arenasheet = [sheet.sheet2 for sheet in qsarena]
 
@@ -79,9 +82,11 @@ class AnswerList(ListView): #回答一覧ページ
         else:
             qs = qs1
             qsarena = qs1arena
+            qsrow = qs1row
             qsfloor = qs1floor
 
             block = [block.block_r1 for block in qsarena]
+            row = [row.row1 for row in qsrow]
             column = [column.block_c1 for column in qsarena]
             arenasheet = [sheet.sheet1 for sheet in qsarena]
 
@@ -91,6 +96,7 @@ class AnswerList(ListView): #回答一覧ページ
 
         chart = graph.sheetratio(sheet)
         heatmap = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
+        heatmap2 = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
         floorheatmap = graph.Floor_HeatMap(floor,number)
         
         performcount = performtimes.count()
