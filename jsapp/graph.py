@@ -117,7 +117,7 @@ def Floor_HeatMap(rows,columns,sheets,rowmax,columnmax):
         zmax = 2,
         zmin = -2,
         xgap=2,
-        ygap=x,
+        ygap=2,
         texttemplate="%{text}",
         ),row=1,col=1)
     

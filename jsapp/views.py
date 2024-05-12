@@ -96,7 +96,7 @@ class AnswerList(ListView): #回答一覧ページ
 
         chart = graph.sheetratio(sheet)
        # heatmap = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
-        heatmap2 = graph.Floor_HeatMap(row,column,arenasheet,rowmax,columnmax)
+        heatmap2 = graph.Floor_HeatMap(row,number,arenasheet,rowmax,columnmax)
         
         performcount = performtimes.count()
 
