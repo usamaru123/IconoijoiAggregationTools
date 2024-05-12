@@ -116,7 +116,7 @@ def Floor_HeatMap(rows,columns,sheets,rowmax,columnmax):
         colorscale='Edge',   
         zmax = 2,
         zmin = -2,
-        xgap=2,
+        xgap=x,
         ygap=2,
         texttemplate="%{text}",
         ),row=1,col=1)
