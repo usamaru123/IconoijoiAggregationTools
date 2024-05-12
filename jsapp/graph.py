@@ -129,7 +129,7 @@ def Floor_HeatMap(rows,columns,sheets,rowmax,columnmax):
         colorscale='Oranges',   
         zmax = 10,
         zmin = 0,
-        xgap=2,
+        xgap=x,
         ygap=2,
         texttemplate="%{z}",
         ),row=2,col=1)
