@@ -455,5 +455,5 @@ def piecreate(label,value,title):
         hole = .4,
     )
 
-    graph = plot(fig, output_type='div', include_plotlyjs=True)
+    graph = plot(fig, output_type='div', include_plotlyjs=False)
     return graph
