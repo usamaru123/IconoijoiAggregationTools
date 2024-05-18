@@ -300,7 +300,7 @@ function formcheck(i) {
     }
 
     if (number) {
-        if (number != '') {
+        if (number.value != '') {
             is_number = true;
         }
     }
