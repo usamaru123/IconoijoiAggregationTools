@@ -488,7 +488,7 @@ def Floor_Histogram(ippan,cameko,josei,chaku):
                     opacity=0.5
                     )
     fig.update_layout(barmode='overlay')
-    fig.update_layout(legend=dict(yanchor="top",
+    fig.update_layout(legend=dict(yanchor="bottom",
                               y=0.95,
                               xanchor="right",
                               x=0.97))
