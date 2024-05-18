@@ -63,7 +63,7 @@ function ticketformfunc(formlabel, i) {
 function sheetformfunc(formlabel, i) {
 
     const formname = 'sheet' + i;
-    const values = ['一般席', '女性エリア席', 'カメコエリア席', '着席指定席'];
+    const values = ['一般席', '女性エリア席', 'カメコエリア席'];
     createRadioformfunc(formlabel, formname, values,);
 }
 //階層の選択肢を作成するファンクションです:HallTypeModelから参照します
