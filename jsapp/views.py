@@ -39,21 +39,6 @@ class AnswerList(ListView): #回答一覧ページ
         qsmodel = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         venuemodel = VenueModel.objects.get(venueid=self.kwargs['num'])
         performtimes = venuemodel.perform_time.order_by('disp_priority')
-        
-        qs1 = qsmodel.exclude(ticket1__exact="")
-        qs2 = qsmodel.exclude(ticket2__exact="")
-
-        qs1arena  = qs1.exclude(block_c1__exact="")
-        qs2arena  = qs2.exclude(block_c2__exact="")
-
-        qs1row = qs1.exclude(row1__exact="")
-        qs2row = qs1.exclude(row2__exact="")
-
-        qs1floor = qs1.exclude(floor1__exact="")
-        qs2floor = qs2.exclude(floor2__exact="")
-
-        qs1_f1 = qs1.filter(Q(floor1='1階席')|Q(floor1='１階席')|Q(floor1='アリーナ席')|Q(floor1='アリーナ席'))
-        qs2_f1 = qs2.filter(Q(floor1='1階席')|Q(floor1='１階席')|Q(floor1='アリーナ席')|Q(floor1='アリーナ席'))
 
         rowmax = venuemodel.rowmax
         columnmax = venuemodel.columnmax
@@ -68,12 +53,10 @@ class AnswerList(ListView): #回答一覧ページ
 
            
         if time == 'evening':
-            qs = qs2
-            qsarena = qs2arena
-            qsrow = qs2row
-            qsfloor = qs2floor
-
-            qs_f1 = qs2_f1
+            qs = qsmodel.exclude(ticket2__exact="")
+            qsarena = qs.exclude(block_c2__exact="")
+            qsrow = qs.exclude(row2__exact="")
+            qsfloor = qs.exclude(floor2__exact="")
 
             ticket = [ticket.ticket2 for ticket in qs]
             block = [block.block_r2 for block in qsarena]
@@ -82,18 +65,17 @@ class AnswerList(ListView): #回答一覧ページ
             arenasheet = [sheet.sheet2 for sheet in qsarena]
 
             floor = [floor.floor2 for floor in qsfloor]
-            f1_row = [f1_row.row2 for f1_row in qs_f1] #2公演目の一階席の列数
             sheet = [sheet.sheet2 for sheet in qs ]
             number = [number.number2 for number in qsfloor]
 
 
         else:
-            qs = qs1
-            qsarena = qs1arena
-            qsrow = qs1row
-            qsfloor = qs1floor
+            qs = qsmodel.exclude(ticket1__exact="")
+            qsarena = qs.exclude(block_c1__exact="")
+            qsrow = qs.exclude(row1__exact="")
+            qsfloor = qs.exclude(floor2__exact="")
 
-            qs_f1 = qs2_f1
+            qs_f1 = qs.filter(Q(floor1='1階席')|Q(floor1='１階席')|Q(floor1='アリーナ席')|Q(floor1='アリーナ席'))
 
             ticket = [ticket.ticket1 for ticket in qs]
             block = [block.block_r1 for block in qsarena]
@@ -102,24 +84,63 @@ class AnswerList(ListView): #回答一覧ページ
             arenasheet = [sheet.sheet1 for sheet in qsarena]
 
             floor = [floor.floor1 for floor in qsfloor]
-            f1_row = [f1_row.row1 for f1_row in qs_f1]  #一公演目の一階席の列数
 
             sheet = [sheet.sheet1 for sheet in qs ]
             number = [number.number1 for number in qsfloor]
+
+        qs_f1 = qs.filter(Q(floor1='1階席')|Q(floor1='１階席')|Q(floor1='アリーナ席')|Q(floor1='アリーナ席'))
+        qs_f2 = qs.filter(floor1='２階席')
+        qs_f3 = qs.filter(floor1='３階席')
+        qs_f4 = qs.filter(floor1='４階席')
 
         f1_ippan = qs_f1.filter(sheet1='一般席')
         f1_cameko = qs_f1.filter(sheet1='カメコエリア席')
         f1_josei = qs_f1.filter(sheet1='女性エリア席')
         f1_chaku = qs_f1.filter(sheet1='着席指定席')
+
+        f2_ippan = qs_f2.filter(sheet1='一般席')
+        f2_cameko = qs_f2.filter(sheet1='カメコエリア席')
+        f2_josei = qs_f2.filter(sheet1='女性エリア席')
+        f2_chaku = qs_f2.filter(sheet1='着席指定席')
+
+        f3_ippan = qs_f3.filter(sheet1='一般席')
+        f3_cameko = qs_f3.filter(sheet1='カメコエリア席')
+        f3_josei = qs_f3.filter(sheet1='女性エリア席')
+        f3_chaku = qs_f3.filter(sheet1='着席指定席')
+
+        f4_ippan = qs_f4.filter(sheet1='一般席')
+        f4_cameko = qs_f4.filter(sheet1='カメコエリア席')
+        f4_josei = qs_f4.filter(sheet1='女性エリア席')
+        f4_chaku = qs_f4.filter(sheet1='着席指定席')
+
         f1_row_ippan = [f1_row.row1 for f1_row in f1_ippan]
         f1_row_cameko = [f1_row.row1 for f1_row in f1_cameko]
         f1_row_josei = [f1_row.row1 for f1_row in f1_josei]
         f1_row_chaku = [f1_row.row1 for f1_row in f1_chaku]
 
+        f2_row_ippan = [f2_row.row1 for f2_row in f2_ippan]
+        f2_row_cameko = [f2_row.row1 for f2_row in f2_cameko]
+        f2_row_josei = [f2_row.row1 for f2_row in f2_josei]
+        f2_row_chaku = [f2_row.row1 for f2_row in f2_chaku]
+
+        f3_row_ippan = [f3_row.row1 for f3_row in f3_ippan]
+        f3_row_cameko = [f3_row.row1 for f3_row in f3_cameko]
+        f3_row_josei = [f3_row.row1 for f3_row in f3_josei]
+        f3_row_chaku = [f3_row.row1 for f3_row in f3_chaku]
+
+        f4_row_ippan = [f4_row.row1 for f4_row in f4_ippan]
+        f4_row_cameko = [f4_row.row1 for f4_row in f4_cameko]
+        f4_row_josei = [f4_row.row1 for f4_row in f4_josei]
+        f4_row_chaku = [f4_row.row1 for f4_row in f4_chaku]
+
         ticketchart = graph.ticketchart(ticket)
         sheetchart = graph.sheetratio(sheet)
         floorchart = graph.floorchart(floor)
+        
         f1_histgram = graph.Floor_Histogram(f1_row_ippan,f1_row_cameko,f1_row_josei,f1_row_chaku)
+        f2_histgram = graph.Floor_Histogram(f2_row_ippan,f2_row_cameko,f2_row_josei,f2_row_chaku)
+        f3_histgram = graph.Floor_Histogram(f3_row_ippan,f3_row_cameko,f3_row_josei,f3_row_chaku)
+        f4_histgram = graph.Floor_Histogram(f4_row_ippan,f4_row_cameko,f4_row_josei,f4_row_chaku)
        # heatmap = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
         heatmap2 = graph.Floor_HeatMap(row,number,arenasheet,rowmax,columnmax)
         
@@ -127,7 +148,12 @@ class AnswerList(ListView): #回答一覧ページ
         ctx['ticketchart'] = ticketchart
         ctx['sheetchart'] = sheetchart
         ctx['floorchart'] = floorchart
+
         ctx['f1_histgram'] = f1_histgram
+        ctx['f2_histgram'] = f2_histgram
+        ctx['f3_histgram'] = f3_histgram
+        ctx['f4_histgram'] = f4_histgram
+
         ctx['heatmap'] = heatmap2
        # ctx['sheetratio1'] = sheetratio1
         ctx['results'] = qs
