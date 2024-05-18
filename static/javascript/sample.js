@@ -189,9 +189,6 @@ function valueCheck() {
             form1 = true;
         }
     }
-    else {
-        is_matinee = true
-    }
     if (evening) {
         is_evening = evening.checked
         if (evening.checked) {
@@ -202,16 +199,17 @@ function valueCheck() {
         }
     }
     else {
-        is_evening = true
+        return false
     }
 
-    if (!(is_matinee || is_evening)) {
+
+    if (is_matinee == false && is_evening == false) {
         errorform1.innerHTML = errormsg1;
         return false;
     }
 
 
-    if (!form1 || !form2) {
+    if (form1 == false || form2 == false) {
         return false;
     }
     else {
