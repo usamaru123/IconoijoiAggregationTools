@@ -45,29 +45,7 @@
     </div>
 
     {% autoescape off %}
-    <!--<nav>
-        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <button class="nav-link active" id="sheetchart-tab" data-bs-toggle="tab" data-bs-target="sheetchart"
-                type="button" role="tab" aria-controls="sheetchart" aria-selected="true">座席種別割合</button>
-            <button class="nav-link" id="floorchart-tab" data-bs-toggle="tab" data-bs-target="floorchart" type="button"
-                role="tab" aria-controls="floorchart" aria-selected="false">座席階層割合</button>
-            <button class="nav-link" id="ticketchart-tab" data-bs-toggle="tab" data-bs-target="ticketchart"
-                type="button" role="tab" aria-controls="ticketchart" aria-selected="false">チケット種別割合</button>
-        </div>
-    </nav>
-    <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="sheetchart" role="tabpanel" aria-labelledby="sheetchart-tab"
-            tabindex="0">
-            {{ sheetchart }}
-        </div>
-        <div class="tab-pane fade" id="floorchart" role="tabpanel" aria-labelledby="floorchart-tab" tabindex="0">
-            {{ floorchart }}
-        </div>
-        <div class="tab-pane fade" id="ticketchart" role="tabpanel" aria-labelledby="ticketchart-tab" tabindex="0">
-            {{ ticketchart }}
-        </div>
-    </div>
--->
+
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
             <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
@@ -79,19 +57,17 @@
 
         </div>
     </nav>
-    <div class="tab-content" id="nav-tabContent">
-        <div class="alert alert-light tab-pane fade show active" id="nav-home" role="tabpanel"
-            aria-labelledby="nav-home-tab" tabindex="0">
+    <div class="alert alert-light tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"
+            tabindex="0">
             <h2>座席種別割合</h2>
             {{ sheetchart }}
         </div>
-        <div class="alert alert-light tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"
-            tabindex="0">
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
             <h2>階層種別割合</h2>
             {{ floorchart }}
         </div>
-        <div class="alert alert-light tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"
-            tabindex="0">
+        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
             <h2>チケット種別割合</h2>
             {{ ticketchart }}
         </div>
