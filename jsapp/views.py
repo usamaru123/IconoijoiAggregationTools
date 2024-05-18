@@ -89,9 +89,9 @@ class AnswerList(ListView): #回答一覧ページ
             number = [number.number1 for number in qsfloor]
 
         qs_f1 = qs.filter(Q(floor1='1階席')|Q(floor1='１階席')|Q(floor1='アリーナ席')|Q(floor1='アリーナ席'))
-        qs_f2 = qs.filter(floor1='２階席')
-        qs_f3 = qs.filter(floor1='３階席')
-        qs_f4 = qs.filter(floor1='４階席')
+        qs_f2 = qs.filter(Q(floor1='2階席')|Q(floor1='２階席'))
+        qs_f3 = qs.filter(Q(floor1='3階席')|Q(floor1='３階席'))
+        qs_f4 = qs.filter(Q(floor1='4階席')|Q(floor1='４階席'))
 
         f1_ippan = qs_f1.filter(sheet1='一般席')
         f1_cameko = qs_f1.filter(sheet1='カメコエリア席')
@@ -136,7 +136,7 @@ class AnswerList(ListView): #回答一覧ページ
         ticketchart = graph.ticketchart(ticket)
         sheetchart = graph.sheetratio(sheet)
         floorchart = graph.floorchart(floor)
-        
+
         f1_histgram = graph.Floor_Histogram(f1_row_ippan,f1_row_cameko,f1_row_josei,f1_row_chaku)
         f2_histgram = graph.Floor_Histogram(f2_row_ippan,f2_row_cameko,f2_row_josei,f2_row_chaku)
         f3_histgram = graph.Floor_Histogram(f3_row_ippan,f3_row_cameko,f3_row_josei,f3_row_chaku)
