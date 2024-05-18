@@ -69,6 +69,7 @@ class AnswerList(ListView): #回答一覧ページ
             qsrow = qs2row
             qsfloor = qs2floor
 
+            ticket = [ticket.ticket2 for ticket in qs]
             block = [block.block_r2 for block in qsarena]
             row = [row.row2 for row in qsrow]
             column = [column.block_c2 for column in qsarena]
@@ -85,6 +86,7 @@ class AnswerList(ListView): #回答一覧ページ
             qsrow = qs1row
             qsfloor = qs1floor
 
+            ticket = [ticket.ticket2 for ticket in qs]
             block = [block.block_r1 for block in qsarena]
             row = [row.row1 for row in qsrow]
             column = [column.block_c1 for column in qsarena]
@@ -94,13 +96,14 @@ class AnswerList(ListView): #回答一覧ページ
             sheet = [sheet.sheet1 for sheet in qs ]
             number = [number.number1 for number in qsfloor]
 
+        ticketchart = graph.ticketchart(ticket)
         sheetchart = graph.sheetratio(sheet)
         floorchart = graph.floorchart(floor)
        # heatmap = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
         heatmap2 = graph.Floor_HeatMap(row,number,arenasheet,rowmax,columnmax)
         
         performcount = performtimes.count()
-
+        ctx['chicketchart'] = ticketchart
         ctx['sheetchart'] = sheetchart
         ctx['floorchart'] = floorchart
         ctx['heatmap'] = heatmap2

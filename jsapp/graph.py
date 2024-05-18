@@ -395,6 +395,7 @@ def textlistcreate(rowlist,columnlist):
     return list
     
 def sheetratio(sheets):
+    title = '座席種別'
     sheetlist = ['一般席','カメコエリア席','女性エリア席','着席指定席'] 
     general = sheets.count('一般席')
     camera = sheets.count('カメコエリア席')
@@ -403,9 +404,10 @@ def sheetratio(sheets):
     
     valsheetlist = [general,camera,lady,sit]
 
-    return piecreate(sheetlist,valsheetlist)
+    return piecreate(sheetlist,valsheetlist,title)
 
 def floorchart(floor):
+    title = '階層種別'
     floorlist = ['１階席','２階席','３階席','４階席']
     floor1 = floor.count('１階席') + floor.count('アリーナ席') + floor.count('１階アリーナ席')
     floor2 = floor.count('２階席')
@@ -414,17 +416,28 @@ def floorchart(floor):
 
     valfloorlist = [floor1,floor2,floor3,floor4]
 
-    return piecreate(floorlist,valfloorlist)
+    return piecreate(floorlist,valfloorlist,title)
+
+def ticketchart(ticket):
+    val = []
+    title = 'チケット種別'
+    list = ['FC先行販売','一般先行販売','一般2次先行','追加販売','プレイガイド受付']
+
+    for i in range(0,len(list)):
+        val.append(ticket.count(list[i]))
+    
+    return piecreate(list,val,title)
 
 
-def piecreate(label,value):
+
+def piecreate(label,value,title):
 
     fig = go.Figure()
     fig.add_trace(
         go.Pie(
             labels=label,
             values=value,
-            title = '座席種別',
+            title = title,
             sort = False,
             marker={'colors':['#98DBC6','#5BC8AC','#E6D72A','#F18D9E']},
                ),
