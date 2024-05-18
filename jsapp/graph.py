@@ -469,13 +469,19 @@ def Floor_Histogram(ippan,cameko,josei,chaku):
 
     ippan = {'一般席':int_ippan_rows}
     cameko = {'カメコ席':int_cameko_rows}
+    josei = {'女性エリア席':int_josei_rows}
+    chaku = {'着席指定席':int_chaku_rows}
     
     ippandf = pd.DataFrame(ippan)
     camekodf = pd.DataFrame(cameko)
+    joseidf = pd.DataFrame(josei)
+    chakudf = pd.DataFrame(chaku)
 
     fig = go.Figure()
     fig.add_trace(go.Histogram(x=ippandf['一般席'],name='一般席'))
     fig.add_trace(go.Histogram(x=camekodf['カメコ席'],name='カメコ席'))
+    fig.add_trace(go.Histogram(x=joseidf['女性エリア席'],name='女性エリア席'))
+    fig.add_trace(go.Histogram(x=chakudf['着席指定席'],name='着席指定席'))
     fig.update_traces(xbins=dict(start=1,
                                  end=50,
                                  size=1),
