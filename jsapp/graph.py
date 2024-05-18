@@ -478,7 +478,9 @@ def Floor_Histogram(ippan,cameko,josei,chaku):
     fig.add_trace(go.Histogram(x=camekodf['カメコ席'],name='カメコ席'))
     fig.update_traces(xbins=dict(start=1,
                                  end=50,
-                                 size=1))
+                                 size=1),
+                    opacity=0.5
+                    )
     fig.update_layout(barmode='overlay')
     graph = plot(fig, output_type='div', include_plotlyjs=False)
     return graph
