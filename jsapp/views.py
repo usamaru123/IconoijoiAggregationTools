@@ -95,9 +95,6 @@ class AnswerList(ListView): #回答一覧ページ
 
             qs_f1 = qs2_f1
 
-            f1_ippan = qs_f1.filter(sheet1='一般席')
-            f1_cameko = qs_f1.filter(sheet1='カメコエリア席')
-
             ticket = [ticket.ticket1 for ticket in qs]
             block = [block.block_r1 for block in qsarena]
             row = [row.row1 for row in qsrow]
@@ -106,14 +103,23 @@ class AnswerList(ListView): #回答一覧ページ
 
             floor = [floor.floor1 for floor in qsfloor]
             f1_row = [f1_row.row1 for f1_row in qs_f1]  #一公演目の一階席の列数
-            f1_row_ippan = [f1_row.row1 for f1_row in f1_ippan]
+
             sheet = [sheet.sheet1 for sheet in qs ]
             number = [number.number1 for number in qsfloor]
+
+        f1_ippan = qs_f1.filter(sheet1='一般席')
+        f1_cameko = qs_f1.filter(sheet1='カメコエリア席')
+        f1_josei = qs_f1.filter(sheet1='女性エリア席')
+        f1_chaku = qs_f1.filter(sheet1='着席指定席')
+        f1_row_ippan = [f1_row.row1 for f1_row in f1_ippan]
+        f1_row_cameko = [f1_row.row1 for f1_row in f1_cameko]
+        f1_row_josei = [f1_row.row1 for f1_row in f1_josei]
+        f1_row_chaku = [f1_row.row1 for f1_row in f1_chaku]
 
         ticketchart = graph.ticketchart(ticket)
         sheetchart = graph.sheetratio(sheet)
         floorchart = graph.floorchart(floor)
-        f1_histgram = graph.Floor_Histogram(f1_row_ippan,sheet)
+        f1_histgram = graph.Floor_Histogram(f1_row_ippan,f1_row_cameko,f1_row_josei,f1_row_chaku)
        # heatmap = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
         heatmap2 = graph.Floor_HeatMap(row,number,arenasheet,rowmax,columnmax)
         
