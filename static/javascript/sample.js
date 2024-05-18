@@ -89,11 +89,11 @@ function newpositionfunc(i, floor) {
         var postname = floorObj.querySelector('.postname').value
         sheetHTML = sheetvalfunc(valid, i)
         var position = `
-        <div id="errorform${i}_4">
-            <div style="font-size:1.5rem">
-                ${prename} ${sheetHTML} ${postname} 
-            </div>
-        </div>`
+        <div id="errorform${i}_4"></div>
+        <div style="font-size:1.5rem">
+            ${prename} ${sheetHTML} ${postname} 
+        </div>
+       `
         numberform.innerHTML += position
     })
 
