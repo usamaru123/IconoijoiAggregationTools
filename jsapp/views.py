@@ -86,7 +86,7 @@ class AnswerList(ListView): #回答一覧ページ
             qsrow = qs1row
             qsfloor = qs1floor
 
-            ticket = [ticket.ticket2 for ticket in qs]
+            ticket = [ticket.ticket1 for ticket in qs]
             block = [block.block_r1 for block in qsarena]
             row = [row.row1 for row in qsrow]
             column = [column.block_c1 for column in qsarena]
