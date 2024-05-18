@@ -484,7 +484,7 @@ def Floor_Histogram(ippan,cameko,josei,chaku):
     fig.add_trace(go.Histogram(x=chakudf['着席指定席'],name='着席指定席'))
     fig.update_traces(xbins=dict(start=1,
                                  end=50,
-                                 size=5),
+                                 size=1),
                     opacity=0.5
                     )
     fig.update_layout(barmode='overlay')
