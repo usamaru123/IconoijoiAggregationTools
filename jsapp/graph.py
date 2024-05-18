@@ -46,14 +46,6 @@ def Floor_HeatMap(rows,columns,sheets,rowmax,columnmax):
         column = int_columns[i]
         row = int_rows[i]
         try:
-            if sheets[i] == '一般席':
-                ippanlist[column][row] += 1
-            elif sheets[i] == 'カメコエリア席':
-                kamekolist[column][row] += 1
-            elif sheets[i] == '女性エリア席':
-                joseilist[column][row] += 1
-            elif sheets[i] == '着席指定席':
-                chakusekilist[column][row] += 1
             blocklist[column][row] +=1
         except:
             print("座席がリスト外")
@@ -129,7 +121,7 @@ def Floor_HeatMap(rows,columns,sheets,rowmax,columnmax):
         colorscale='Oranges',   
         zmax = 10,
         zmin = 0,
-        xgap=x,
+        xgap=2,
         ygap=2,
         texttemplate="%{z}",
         ),row=2,col=1)
