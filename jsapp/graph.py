@@ -458,26 +458,38 @@ def piecreate(label,value,title):
     graph = plot(fig, output_type='div', include_plotlyjs=False)
     return graph
 
-def Floor_Histogram(rows,sheets):
-    if (rows is None):
+def Floor_Histogram(ippan,cameko,josei,chaku):
+    if (ippan is None or cameko is None or josei is None or chaku is None ):
         return 
 
-    int_rows = []
+    int_ippan_rows = int_row(ippan)
+    int_cameko_rows = int_row(cameko)
+    int_josei_rows = int_row(josei)
+    int_chaku_rows = int_row(chaku)
+
+
    
 
-    try:    #列をint型に変換
-        for i in range(len(rows)):
-            if (rows[i] != ''):
-                    int_rows.append(int(rows[i] or 0))
-    except:
-        print("")
-
-    rowdict = {'列数':int_rows}
-    
+    rowdict = {'一般席':int_ippan_rows,'カメコ席':int_cameko_rows}
     df = pd.DataFrame(rowdict)
-    fig = px.histogram(df,x='列数')
+
+    fig = go.Figure()
+    fig.add_trace(go.Histogram(x=df['一般席'],name='一般席'))
+    fig.add_trace(go.Histogram(x=df['カメコ席'],name='カメコ席'))
     fig.update_traces(xbins=dict(start=1,
                                  end=50,
                                  size=1))
+    fig.update_layout(barmode='overlay')
     graph = plot(fig, output_type='div', include_plotlyjs=False)
     return graph
+
+
+def int_row(row):
+    int_rows = []
+    try:    #列をint型に変換
+        for i in range(len(row)):
+            if (row[i] != ''):
+                    int_rows.append(int(row[i] or 0))
+    except:
+        print("")
+    return int_rows
