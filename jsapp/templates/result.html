@@ -3,13 +3,19 @@
 
 {% block header %}
 <div class="header_inner inner">
+
     <p class="header_title" name="eventtitle">{{ title.event.eventtitle }}</p>
+
+    {% if performcount == 1 %}
+    <p class="header_title" name="venue">配席アンケート結果確認画面</p>
+    {% else %}
     {% if request.GET.time == 'matinee' %}
     <p class="header_ank" name="venue">昼の部 配席アンケート結果確認画面</p>
     {% elif request.GET.time == 'evening' %}
     <p class="header_ank" name="venue">夜の部 配席アンケート結果確認画面</p>
     {% else %}
     <p class="header_ank" name="venue">配席アンケート結果確認画面</p>
+    {% endif %}
     {% endif %}
     <p class="header_detail">日時：{{ title.venuedate|date:"Y年n月j日" }}</p>
     <p class="header_detail">会場：{{ title.hallinfo.hallname }}
@@ -43,12 +49,12 @@
         <h2>座席種別ごとの回答割合</h2>
         {{ chart }}
     </div>
-
+    <!--
     <div class="alert alert-light"> #座席ヒートマップ
         <h2>アリーナ席ブロック集計結果</h2>
         {{ heatmap }}
     </div>
-
+-->
     <div class="alert alert-light">
         <h2>集計データダウンロード</h2>
         <a href="https://ico-graph.com/export/{{ num }}" class="btn btn-primary btn-lg">ダウンロード</a>
