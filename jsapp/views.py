@@ -107,6 +107,7 @@ class AnswerList(ListView): #回答一覧ページ
         ctx['ticketchart'] = ticketchart
         ctx['sheetchart'] = sheetchart
         ctx['floorchart'] = floorchart
+        ctx['sheethistgram'] = sheethistgram
         ctx['heatmap'] = heatmap2
        # ctx['sheetratio1'] = sheetratio1
         ctx['results'] = qs
