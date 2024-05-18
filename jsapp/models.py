@@ -65,6 +65,8 @@ class HallInfoModel(models.Model): #会場の情報を保存するマスタで�
 class TicketTypeModel(models.Model):
    priority = models.IntegerField()
    ticketype = models.CharField(max_length=100)
+   def __str__(self):
+      return str(self.priority) + "." + self.tickettype
 
 class m_PerformTime(models.Model): #公演時間を保存するマスタです
    disp_priority = models.IntegerField()
