@@ -95,8 +95,8 @@ class AnswerList(ListView): #回答一覧ページ
 
             qs_f1 = qs2_f1
 
-            f1_ippan = qs_f1.filter(sheet='一般席')
-            f1_cameko = qs_f1.filter(sheet='カメコエリア席')
+            f1_ippan = qs_f1.filter(sheet1='一般席')
+            f1_cameko = qs_f1.filter(sheet1='カメコエリア席')
 
             ticket = [ticket.ticket1 for ticket in qs]
             block = [block.block_r1 for block in qsarena]
