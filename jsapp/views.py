@@ -51,6 +51,9 @@ class AnswerList(ListView): #回答一覧ページ
         qs1floor = qs1.exclude(floor1__exact="")
         qs2floor = qs2.exclude(floor2__exact="")
 
+        qs1floor1 = qs1.filter(floor1='１階席')
+        qs2floor1 = qs2.filter(floor2='１階席')
+
         rowmax = venuemodel.rowmax
         columnmax = venuemodel.columnmax
 
@@ -68,6 +71,7 @@ class AnswerList(ListView): #回答一覧ページ
             qsarena = qs2arena
             qsrow = qs2row
             qsfloor = qs2floor
+            qsfloor1 = qs2floor1
 
             ticket = [ticket.ticket2 for ticket in qs]
             block = [block.block_r2 for block in qsarena]
@@ -76,6 +80,7 @@ class AnswerList(ListView): #回答一覧ページ
             arenasheet = [sheet.sheet2 for sheet in qsarena]
 
             floor = [floor.floor2 for floor in qsfloor]
+            floor1 = [floor1.floor2 for floor1 in qsfloor1] #2公演目の一階席
             sheet = [sheet.sheet2 for sheet in qs ]
             number = [number.number2 for number in qsfloor]
 
@@ -85,6 +90,7 @@ class AnswerList(ListView): #回答一覧ページ
             qsarena = qs1arena
             qsrow = qs1row
             qsfloor = qs1floor
+            qsfloor1 = qs1floor1
 
             ticket = [ticket.ticket1 for ticket in qs]
             block = [block.block_r1 for block in qsarena]
@@ -93,12 +99,13 @@ class AnswerList(ListView): #回答一覧ページ
             arenasheet = [sheet.sheet1 for sheet in qsarena]
 
             floor = [floor.floor1 for floor in qsfloor]
+            floor1 = [floor1.floor1 for floor1 in qsfloor1] #一公演目の一階席
             sheet = [sheet.sheet1 for sheet in qs ]
             number = [number.number1 for number in qsfloor]
 
         ticketchart = graph.ticketchart(ticket)
         sheetchart = graph.sheetratio(sheet)
-        floorchart = graph.floorchart(floor)
+        floorchart = graph.floorchart(floor1)
         sheethistgram = graph.Floor_Histogram(row,sheet)
        # heatmap = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
         heatmap2 = graph.Floor_HeatMap(row,number,arenasheet,rowmax,columnmax)

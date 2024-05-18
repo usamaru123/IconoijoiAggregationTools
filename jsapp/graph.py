@@ -473,7 +473,7 @@ def Floor_Histogram(rows,sheets):
         print("")
 
     rowdict = {'列数':int_rows}
-
+    
     df = pd.DataFrame(rowdict)
     fig = px.histogram(df,x='列数')
     fig.update_traces(xbins=dict(start=1,
