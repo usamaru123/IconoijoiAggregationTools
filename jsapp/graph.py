@@ -473,7 +473,7 @@ def Floor_Histogram(rows,sheets):
 
 
     df = pd.DataFrame(int_rows)
-    fig = px.histogram(df,x='列数')
+    fig = px.histogram(df,x='')
 
     graph = plot(fig, output_type='div', include_plotlyjs=False)
     return graph
