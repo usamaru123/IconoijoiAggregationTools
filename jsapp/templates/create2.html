@@ -35,6 +35,10 @@
                 </label>
                 {% endfor %}
 
+                {% for ticket in tickets %}
+                <input type="hidden" class="ticket" value="{{ ticket.tickettype }}">
+                {% endfor %}
+
                 <!--会場詳細情報送信-->
                 <input type="hidden" id="titlename" name="title" value="{{ title }}">
                 <input type="hidden" id="venueid" name="venueid" value="{{ title.venueid }}">

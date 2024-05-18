@@ -52,7 +52,11 @@ window.onload = function () {
 //チケット種別の選択肢を作成するファンクションです
 function ticketformfunc(formlabel, i) {
     const formname = 'ticket' + i;
-    const values = ['FC先行販売', '一般先行販売', '一般2次先行', '追加販売', 'プレイガイド受付'];
+    let tickets = document.querySelectorAll('.ticket')
+    var values = [];
+    for (let t = 0; t < tickets.length; t++) {
+        values[t] = tickets[t]
+    }
     createRadioformfunc(formlabel, formname, values, i)
 }
 //座席種別の選択肢を作成するファンクションです

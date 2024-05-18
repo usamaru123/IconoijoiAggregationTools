@@ -62,7 +62,9 @@ class HallInfoModel(models.Model): #会場の情報を保存するマスタで�
       return str(self.hallid) + "." + self.hallname
    
 
-
+class TicketTypeModel(models.Model):
+   priority = models.IntegerField()
+   ticketype = models.CharField(max_length=100)
 
 class m_PerformTime(models.Model): #公演時間を保存するマスタです
    disp_priority = models.IntegerField()
@@ -78,6 +80,7 @@ class VenueModel(models.Model): #公演の情報を保存するフィールド�
    columnmax = models.IntegerField(default=1,blank=True)
    hallinfo = models.ForeignKey(HallInfoModel,on_delete=models.CASCADE,default=1)
    perform_time = models.ManyToManyField(m_PerformTime,default="")
+   tickettype = models.ManyToManyField(TicketTypeModel,default="")
    
 
    def __str__(self):

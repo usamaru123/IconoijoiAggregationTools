@@ -174,6 +174,7 @@ class AnswerCreate(CreateView): #回答作成フォーム
         venueObj = VenueModel.objects.get(venueid=self.kwargs['num'])
         performtimes = venueObj.perform_time.order_by('disp_priority')
         blocks = venueObj.hallinfo.halltype.order_by('priority')
+        tickets = venueObj.tickettype.order_by('priority')
 
 
         c_answer = answerObj.count()
@@ -184,6 +185,7 @@ class AnswerCreate(CreateView): #回答作成フォーム
         ctx['results'] = answerObj
         ctx['blocks'] = blocks
         ctx['performtimes'] = performtimes
+        ctx['tickets'] = tickets
         return  ctx
 
     def get_success_url(self):
