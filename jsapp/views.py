@@ -94,13 +94,15 @@ class AnswerList(ListView): #回答一覧ページ
             sheet = [sheet.sheet1 for sheet in qs ]
             number = [number.number1 for number in qsfloor]
 
-        chart = graph.sheetratio(sheet)
+        sheetchart = graph.sheetratio(sheet)
+        floorchart = graph.floorchart(floor)
        # heatmap = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
         heatmap2 = graph.Floor_HeatMap(row,number,arenasheet,rowmax,columnmax)
         
         performcount = performtimes.count()
 
-        ctx['chart'] = chart
+        ctx['sheetchart'] = sheetchart
+        ctx['floorchart'] = floorchart
         ctx['heatmap'] = heatmap2
        # ctx['sheetratio1'] = sheetratio1
         ctx['results'] = qs

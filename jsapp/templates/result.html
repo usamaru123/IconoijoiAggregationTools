@@ -46,8 +46,12 @@
 
     {% autoescape off %}
     <div class="alert alert-light">
-        <h2>座席種別ごとの回答割合</h2>
-        {{ chart }}
+        <h2>座席種別割合</h2>
+        {{ sheetchart }}
+    </div>
+    <div class="alert alert-light">
+        <h2>座席階層割合</h2>
+        {{ floorchart }}
     </div>
     <!--
     <div class="alert alert-light"> #座席ヒートマップ
