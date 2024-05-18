@@ -467,13 +467,13 @@ def Floor_Histogram(rows,sheets):
     try:    #列をint型に変換
         for i in range(len(rows)):
             if (sheets[i] != '')and(rows[i] != ''):
-                    int_rows.append(rows[x])
+                    int_rows.append(rows[i])
     except:
         print("")
 
 
     df = pd.DataFrame(int_rows)
-    fig = px.histogram(df,x='列')
+    fig = px.histogram(df,x=x)
 
     graph = plot(fig, output_type='div', include_plotlyjs=False)
     return graph
