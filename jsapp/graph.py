@@ -474,8 +474,8 @@ def Floor_Histogram(ippan,cameko,josei,chaku):
     camekodf = pd.DataFrame(cameko)
 
     fig = go.Figure()
-    fig.add_trace(go.Histogram(x=ippan['一般席'],name='一般席'))
-    fig.add_trace(go.Histogram(x=cameko['カメコ席'],name='カメコ席'))
+    fig.add_trace(go.Histogram(x=ippandf['一般席'],name='一般席'))
+    fig.add_trace(go.Histogram(x=camekodf['カメコ席'],name='カメコ席'))
     fig.update_traces(xbins=dict(start=1,
                                  end=50,
                                  size=1))
