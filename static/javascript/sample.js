@@ -55,7 +55,7 @@ function ticketformfunc(formlabel, i) {
     let tickets = document.querySelectorAll('.ticket')
     var values = [];
     for (let t = 0; t < tickets.length; t++) {
-        values[t] = tickets[t]
+        values[t] = tickets[t].value;
     }
     createRadioformfunc(formlabel, formname, values, i)
 }
