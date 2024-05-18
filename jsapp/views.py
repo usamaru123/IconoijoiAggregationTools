@@ -73,7 +73,7 @@ class AnswerList(ListView): #回答一覧ページ
             qs = qsmodel.exclude(ticket1__exact="")
             qsarena = qs.exclude(block_c1__exact="")
             qsrow = qs.exclude(row1__exact="")
-            qsfloor = qs.exclude(floor2__exact="")
+            qsfloor = qs.exclude(floor1__exact="")
 
             qs_f1 = qs.filter(Q(floor1='1階席')|Q(floor1='１階席')|Q(floor1='アリーナ席')|Q(floor1='アリーナ席'))
 
