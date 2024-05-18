@@ -103,7 +103,7 @@ class AnswerList(ListView): #回答一覧ページ
         heatmap2 = graph.Floor_HeatMap(row,number,arenasheet,rowmax,columnmax)
         
         performcount = performtimes.count()
-        ctx['chicketchart'] = ticketchart
+        ctx['ticketchart'] = ticketchart
         ctx['sheetchart'] = sheetchart
         ctx['floorchart'] = floorchart
         ctx['heatmap'] = heatmap2
