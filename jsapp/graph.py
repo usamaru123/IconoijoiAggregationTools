@@ -463,6 +463,7 @@ def Floor_Histogram(rows,sheets):
         return 
 
     int_rows = []
+   
 
     try:    #列をint型に変換
         for i in range(len(rows)):
@@ -471,8 +472,9 @@ def Floor_Histogram(rows,sheets):
     except:
         print("")
 
+    rowdict = {'列数':int_rows}
 
-    df = pd.DataFrame(int_rows)
+    df = pd.DataFrame(rowdict)
     fig = px.histogram(df,x='')
 
     graph = plot(fig, output_type='div', include_plotlyjs=False)
