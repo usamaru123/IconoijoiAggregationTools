@@ -45,32 +45,29 @@
     </div>
 
     {% autoescape off %}
-
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
             <button class="nav-link active" id="sheetchart-tab" data-bs-toggle="tab" data-bs-target="sheetchart"
                 aria-selecter="true">座席種別割合</button>
-        </li>
-        <li class="nav-item">
             <button class="nav-link active" id="floorchart-tab" data-bs-toggle="tab" data-bs-target="floorchart"
                 aria-selecter="false">座席階層割合</button>
-        </li>
-        <li class="nav-item">
             <button class="nav-link active" id="ticketchart-tab" data-bs-toggle="tab" data-bs-target="ticketchart"
-                aria-selecter="false">チケット種別割合</a>
-        </li>
-    </ul>
-    <div class="alert alert-light tab-pane show active" id="sheetchart" role="tabpanel" aria-labelledby="sheetchart-tab"
-        tabindex="0">
-        {{ sheetchart }}
-    </div>
-    <div class="alert alert-light tab-pane " id="floorchart" role="tabpanel" aria-labelledby="floorchart-tab"
-        tabindex="0">
-        {{ floorchart }}
-    </div>
-    <div class="alert alert-light tab-pane " id="ticketchart" role="tabpanel" aria-labelledby="ticketchart-tab"
-        tabindex="0">
-        {{ ticketchart }}
+                aria-selecter="false">チケット種別割合</button>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="alert alert-light tab-pane show active" id="sheetchart" role="tabpanel"
+            aria-labelledby="sheetchart-tab" tabindex="0">
+            {{ sheetchart }}
+        </div>
+        <div class="alert alert-light tab-pane " id="floorchart" role="tabpanel" aria-labelledby="floorchart-tab"
+            tabindex="0">
+            {{ floorchart }}
+        </div>
+        <div class="alert alert-light tab-pane " id="ticketchart" role="tabpanel" aria-labelledby="ticketchart-tab"
+            tabindex="0">
+            {{ ticketchart }}
+        </div>
     </div>
     <!--
     <div class="alert alert-light"> #座席ヒートマップ
