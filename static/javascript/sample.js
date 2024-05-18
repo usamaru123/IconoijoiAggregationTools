@@ -231,6 +231,7 @@ function formcheck(i) {
     const block_r = document.querySelector(`#block_r${i}`);
     const block_c = document.querySelector(`#block_c${i}`);
     const row = document.querySelector(`#row${i}`)
+    const number = document.querySelector(`#number${i}`)
 
     const error1 = document.querySelector(`#errorform${i}_1`);
     const error2 = document.querySelector(`#errorform${i}_2`);
@@ -243,6 +244,7 @@ function formcheck(i) {
     var is_blockr = false;
     var is_blockc = false;
     var is_row = false;
+    var is_number = false;
 
     tickets.forEach(function (ticket) {
         if (ticket.checked) {
@@ -297,7 +299,16 @@ function formcheck(i) {
         is_row = true;
     }
 
-    if (!is_blockr || !is_row) {
+    if (number) {
+        if (number != '') {
+            is_number = true;
+        }
+    }
+    else {
+        is_number = true;
+    }
+
+    if (!is_blockr || !is_row || !is_number) {
         error4.innerHTML = errormsg2;
         return false;
     }
