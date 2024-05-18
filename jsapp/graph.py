@@ -492,7 +492,12 @@ def Floor_Histogram(ippan,cameko,josei,chaku):
                               y=0.95,
                               xanchor="right",
                               x=0.97))
-    graph = plot(fig, output_type='file', include_plotlyjs=False)
+    fig.update_layout(
+        margin_l=0,
+        margin_r=0,
+    )
+    graph = plot(fig, output_type='div', include_plotlyjs=False)
+    
     return graph
 
 
