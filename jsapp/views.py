@@ -8,6 +8,7 @@ from matplotlib import pyplot as plt
 from . import graph 
 import csv,urllib
 import datetime
+from django.db.models import Q
 
 
 class Toppage(ListView): #トップページ
@@ -51,8 +52,8 @@ class AnswerList(ListView): #回答一覧ページ
         qs1floor = qs1.exclude(floor1__exact="")
         qs2floor = qs2.exclude(floor2__exact="")
 
-        qs1_f1 = qs1.filter(floor1='１階席')
-        qs2_f1 = qs2.filter(floor2='１階席')
+        qs1_f1 = qs1.filter(Q(floor1='1階席')|Q(floor1='１階席')|Q(floor1='アリーナ席')|Q(floor1='アリーナ席'))
+        qs2_f1 = qs2.filter(floor2='1階席')
 
         rowmax = venuemodel.rowmax
         columnmax = venuemodel.columnmax
