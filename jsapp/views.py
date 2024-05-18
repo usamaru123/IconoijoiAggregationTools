@@ -53,7 +53,7 @@ class AnswerList(ListView): #回答一覧ページ
         qs2floor = qs2.exclude(floor2__exact="")
 
         qs1_f1 = qs1.filter(Q(floor1='1階席')|Q(floor1='１階席')|Q(floor1='アリーナ席')|Q(floor1='アリーナ席'))
-        qs2_f1 = qs2.filter(floor2='1階席')
+        qs2_f1 = qs2.filter(Q(floor1='1階席')|Q(floor1='１階席')|Q(floor1='アリーナ席')|Q(floor1='アリーナ席'))
 
         rowmax = venuemodel.rowmax
         columnmax = venuemodel.columnmax
@@ -73,6 +73,8 @@ class AnswerList(ListView): #回答一覧ページ
             qsrow = qs2row
             qsfloor = qs2floor
 
+            qs_f1 = qs2_f1
+
             ticket = [ticket.ticket2 for ticket in qs]
             block = [block.block_r2 for block in qsarena]
             row = [row.row2 for row in qsrow]
@@ -80,7 +82,7 @@ class AnswerList(ListView): #回答一覧ページ
             arenasheet = [sheet.sheet2 for sheet in qsarena]
 
             floor = [floor.floor2 for floor in qsfloor]
-            f1_row = [f1_row.row2 for f1_row in qs2_f1] #2公演目の一階席の列数
+            f1_row = [f1_row.row2 for f1_row in qs_f1] #2公演目の一階席の列数
             sheet = [sheet.sheet2 for sheet in qs ]
             number = [number.number2 for number in qsfloor]
 
@@ -91,6 +93,11 @@ class AnswerList(ListView): #回答一覧ページ
             qsrow = qs1row
             qsfloor = qs1floor
 
+            qs_f1 = qs2_f1
+
+            f1_ippan = qs_f1.filter(sheet='一般席')
+            f1_cameko = qs_f1.filter(sheet='カメコエリア席')
+
             ticket = [ticket.ticket1 for ticket in qs]
             block = [block.block_r1 for block in qsarena]
             row = [row.row1 for row in qsrow]
@@ -98,14 +105,15 @@ class AnswerList(ListView): #回答一覧ページ
             arenasheet = [sheet.sheet1 for sheet in qsarena]
 
             floor = [floor.floor1 for floor in qsfloor]
-            f1_row = [f1_row.row1 for f1_row in qs1_f1]  #一公演目の一階席の列数
+            f1_row = [f1_row.row1 for f1_row in qs_f1]  #一公演目の一階席の列数
+            f1_row_ippan = [f1_row.row1 for f1_row in f1_ippan]
             sheet = [sheet.sheet1 for sheet in qs ]
             number = [number.number1 for number in qsfloor]
 
         ticketchart = graph.ticketchart(ticket)
         sheetchart = graph.sheetratio(sheet)
         floorchart = graph.floorchart(floor)
-        f1_histgram = graph.Floor_Histogram(f1_row,sheet)
+        f1_histgram = graph.Floor_Histogram(f1_row_ippan,sheet)
        # heatmap = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
         heatmap2 = graph.Floor_HeatMap(row,number,arenasheet,rowmax,columnmax)
         
