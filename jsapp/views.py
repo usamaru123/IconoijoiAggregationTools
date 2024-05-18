@@ -106,7 +106,7 @@ class AnswerList(ListView): #回答一覧ページ
         ticketchart = graph.ticketchart(ticket)
         sheetchart = graph.sheetratio(sheet)
         floorchart = graph.floorchart(floor1)
-        sheethistgram = graph.Floor_Histogram(row,sheet)
+        floor1histgram = graph.Floor_Histogram(row,sheet)
        # heatmap = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
         heatmap2 = graph.Floor_HeatMap(row,number,arenasheet,rowmax,columnmax)
         
@@ -114,7 +114,7 @@ class AnswerList(ListView): #回答一覧ページ
         ctx['ticketchart'] = ticketchart
         ctx['sheetchart'] = sheetchart
         ctx['floorchart'] = floorchart
-        ctx['sheethistgram'] = sheethistgram
+        ctx['floor1histgram'] = floor1histgram
         ctx['heatmap'] = heatmap2
        # ctx['sheetratio1'] = sheetratio1
         ctx['results'] = qs
