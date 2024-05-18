@@ -274,13 +274,15 @@ function formcheck(i) {
         return false;
     }
 
-    if (block_r.value != '') {
+    if (block_r) {
+        if (block_r.value != '') {
+            is_blockr = true;
+        }
+    }
+    else {
         is_blockr = true;
     }
 
-    else {
-        is_blockc = true;
-    }
 
     if (row) {
         if (row.value != '') {
