@@ -466,8 +466,8 @@ def Floor_Histogram(rows,sheets):
 
     try:    #列をint型に変換
         for i in range(len(rows)):
-            if (sheets[i] != '')and(rows[i] != ''):
-                    int_rows.append(rows[i])
+            if (rows[i] != ''):
+                    int_rows.append(int(rows[i] or 0))
     except:
         print("")
 
