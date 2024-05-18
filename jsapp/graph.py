@@ -457,3 +457,23 @@ def piecreate(label,value,title):
 
     graph = plot(fig, output_type='div', include_plotlyjs=False)
     return graph
+
+def Floor_Histogram(rows,sheets):
+    if (rows is None):
+        return 
+
+    int_rows = []
+
+    try:    #列をint型に変換
+        for i in range(len(rows)):
+            if (sheets[i] != '')and(rows[i] != ''):
+                    int_rows.append(rows[i])
+    except:
+        print("")
+
+
+    df = pd.DataFrame(int_rows)
+    fig = px.histogram(df,x='列')
+
+    graph = plot(fig, output_type='div', include_plotlyjs=False)
+    return graph
