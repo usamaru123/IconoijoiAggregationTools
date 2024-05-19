@@ -5,7 +5,13 @@
 アンケート回答ページ
 {% endblock title %}
 
-
+{% block meta %}
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@Icographer" />
+<meta name="twitter:title" content="＝LOVE×LIVE　回答フォーム" />
+<meta name="twitter:description" content="回答はこちらから" />
+<meta name="twitter:image" content="{% static 'icolove.jpg' %}" />
+{% endblock meta %}
 
 {% block header %}
 <div class="header_inner inner">
