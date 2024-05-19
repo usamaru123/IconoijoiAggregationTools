@@ -183,7 +183,7 @@ function valueCheck() {
     if (matinee) {
         is_matinee = matinee.checked
         if (matinee.checked) {
-            form1 = formcheck(1);
+            form1 = true //formcheck(1);
         }
         else {
             form1 = true;
@@ -192,7 +192,7 @@ function valueCheck() {
     if (evening) {
         is_evening = evening.checked
         if (evening.checked) {
-            form2 = formcheck(2);
+            form2 = true //formcheck(2);
         }
         else {
             form2 = true;
