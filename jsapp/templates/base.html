@@ -4,6 +4,9 @@
 {% load widget_tweaks %}
 
 <head>
+
+    {% block headcontent %}
+    {% endblock headcontent %}
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NT42NGM687"></script>
     <script>
@@ -28,8 +31,6 @@
         <script src="{% static '/javascript/sample.js' %}"></script>
         <link href="{% static '/css/styles.css' %}" rel="stylesheet">
 
-        {% block head %}
-        {% endblock head %}
 </head>
 
 <body>
