@@ -4,9 +4,6 @@
 {% load widget_tweaks %}
 
 <head>
-
-    {% block headcontent %}
-    {% endblock headcontent %}
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NT42NGM687"></script>
     <script>
@@ -15,6 +12,10 @@
         gtag('js', new Date());
         gtag('config', 'G-NT42NGM687');
     </script>
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>
     <metas charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title></title>
