@@ -210,7 +210,7 @@ function valueCheck() {
 
 
     if (form1 == false || form2 == false) {
-        return false;
+        return true;
     }
     else {
         return true;
