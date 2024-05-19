@@ -16,7 +16,12 @@
         {% block title %}
         {% endblock title %}
     </title>
+
+
+
     <metas charset="utf-8">
+        {% block meta %}
+        {% endblock meta %}
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title></title>
 
@@ -31,6 +36,7 @@
 
         <script src="{% static '/javascript/sample.js' %}"></script>
         <link href="{% static '/css/styles.css' %}" rel="stylesheet">
+    </metas>
 
 </head>
 

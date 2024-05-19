@@ -5,15 +5,14 @@
 アンケート回答ページ
 {% endblock title %}
 
-<head>
-    <title>アンケート回答ページ</title>
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="{{ title.event.eventtitle }}  配席アンケート ">
-    <meta name="twitter:description" content="回答はこちらからお願いします。">
-    <meta name="twitter:image" content="{% static 'icolove.jpg' %}">
-</head>
-{% block header %}
+{% block meta %}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ title.event.eventtitle }}  配席アンケート ">
+<meta name="twitter:description" content="回答はこちらからお願いします。">
+<meta name="twitter:image" content="{% static 'icolove.jpg' %}">
+{% endblock meta %}
 
+{% block header %}
 <div class="header_inner inner">
     <p class="header_title" name="eventtitle">{{ title.event.eventtitle }}</p>
 
