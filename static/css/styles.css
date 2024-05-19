@@ -114,19 +114,19 @@ h2 {
     margin: 1rem;
 }
 
-@media screen and (min-width:450px) {
-    label {
-        font-size: 2rem;
-    }
 
-    .header_title {
-        font-size: 2rem;
-    }
-
-    .header_ank {
-        font-size: 2rem;
-    }
+label {
+    font-size: 2rem;
 }
+
+.header_title {
+    font-size: 2rem;
+}
+
+.header_ank {
+    font-size: 2rem;
+}
+
 
 .answerform {
     margin-bottom: 1vh;
