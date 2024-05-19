@@ -171,50 +171,51 @@ function positionform_change(num) {
 
 
 function valueCheck() {
-
-    const matinee = document.querySelector('#timeform1');
-    const evening = document.querySelector('#timeform2');
-    const errorform1 = document.querySelector("#errorform1");
-
-    const errormsg1 = '参加公演にチェックを入れてください';
-
-
-
-    if (matinee) {
-        is_matinee = matinee.checked
-        if (matinee.checked) {
-            form1 = true //formcheck(1);
+    /*
+        const matinee = document.querySelector('#timeform1');
+        const evening = document.querySelector('#timeform2');
+        const errorform1 = document.querySelector("#errorform1");
+    
+        const errormsg1 = '参加公演にチェックを入れてください';
+    
+    
+    
+        if (matinee) {
+            is_matinee = matinee.checked
+            if (matinee.checked) {
+                form1 = true //formcheck(1);
+            }
+            else {
+                form1 = true;
+            }
+        }
+        if (evening) {
+            is_evening = evening.checked
+            if (evening.checked) {
+                form2 = true //formcheck(2);
+            }
+            else {
+                form2 = true;
+            }
         }
         else {
-            form1 = true;
+            return false
         }
-    }
-    if (evening) {
-        is_evening = evening.checked
-        if (evening.checked) {
-            form2 = true //formcheck(2);
+    
+    
+        if (is_matinee == false && is_evening == false) {
+            errorform1.innerHTML = errormsg1;
+            return false;
+        }
+    
+    
+        if (form1 == false || form2 == false) {
+            return true;
         }
         else {
-            form2 = true;
-        }
-    }
-    else {
-        return false
-    }
-
-
-    if (is_matinee == false && is_evening == false) {
-        errorform1.innerHTML = errormsg1;
-        return false;
-    }
-
-
-    if (form1 == false || form2 == false) {
-        return true;
-    }
-    else {
-        return true;
-    }
+            return true;
+        }*/
+    return true;
 
 }
 
