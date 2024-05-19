@@ -418,10 +418,9 @@ def floorchart(floor):
 
     return piecreate(floorlist,valfloorlist,title)
 
-def ticketchart(ticket):
+def ticketchart(ticket,list):
     val = []
     title = 'チケット種別'
-    list = ['=LOVE_FC先行販売','≠ME_FC先行販売','≒JOY_FC先行販売','一般先行販売','一般2次先行','追加販売','プレイガイド受付']
 
     for i in range(0,len(list)):
         val.append(ticket.count(list[i]))

@@ -39,6 +39,9 @@ class AnswerList(ListView): #回答一覧ページ
         qsmodel = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         venuemodel = VenueModel.objects.get(venueid=self.kwargs['num'])
         performtimes = venuemodel.perform_time.order_by('disp_priority')
+        ticketsvalobj = venuemodel.tickettype.order_by('priority')
+
+        ticketsval = [ticket.tickettype for ticket in ticketsvalobj]
 
         rowmax = venuemodel.rowmax
         columnmax = venuemodel.columnmax
@@ -133,7 +136,7 @@ class AnswerList(ListView): #回答一覧ページ
         f4_row_josei = [f4_row.row1 for f4_row in f4_josei]
         f4_row_chaku = [f4_row.row1 for f4_row in f4_chaku]
 
-        ticketchart = graph.ticketchart(ticket)
+        ticketchart = graph.ticketchart(ticket,ticketsval)
         sheetchart = graph.sheetratio(sheet)
         floorchart = graph.floorchart(floor)
 
