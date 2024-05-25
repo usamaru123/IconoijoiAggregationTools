@@ -25,7 +25,7 @@ class TicketSheetMaster(models.Model):
    priority = models.IntegerField()
    sheet = models.CharField(max_length = 10)
    def __str__(self):
-      return str(self.priority + "." + self.sheet)
+      return str(self.priority) + "." + self.sheet
 
 class SheetValMaster(models.Model): #座席の入力規則を保存するマスタです
    valid = models.IntegerField(primary_key=True)
