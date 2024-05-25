@@ -1,7 +1,3 @@
-const venue = '東京公演';
-const anktext = ' 配席アンケート'
-
-
 //ページロード時に参照するファンクション
 window.onload = function () {
 
