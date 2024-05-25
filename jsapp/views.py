@@ -40,8 +40,10 @@ class AnswerList(ListView): #回答一覧ページ
         venuemodel = VenueModel.objects.get(venueid=self.kwargs['num'])
         performtimes = venuemodel.perform_time.order_by('disp_priority')
         ticketsvalobj = venuemodel.tickettype.order_by('priority')
+        floorvalobj = venuemodel.hallinfo.halltype.order_by('priority')
 
         ticketsval = [ticket.tickettype for ticket in ticketsvalobj]
+        floorsval = [floor.blockname for floor in floorvalobj]
 
         rowmax = venuemodel.rowmax
         columnmax = venuemodel.columnmax
@@ -138,7 +140,7 @@ class AnswerList(ListView): #回答一覧ページ
 
         ticketchart = graph.ticketchart(ticket,ticketsval)
         sheetchart = graph.sheetratio(sheet)
-        floorchart = graph.floorchart(floor)
+        floorchart = graph.floorchart(floor,floorsval)
 
         f1_histgram = graph.Floor_Histogram(f1_row_ippan,f1_row_cameko,f1_row_josei,f1_row_chaku)
         f2_histgram = graph.Floor_Histogram(f2_row_ippan,f2_row_cameko,f2_row_josei,f2_row_chaku)

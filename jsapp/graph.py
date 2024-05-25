@@ -406,17 +406,14 @@ def sheetratio(sheets):
 
     return piecreate(sheetlist,valsheetlist,title)
 
-def floorchart(floor):
+def floorchart(floor,list):
+    val = []
     title = '階層種別'
-    floorlist = ['１階席','２階席','３階席','４階席']
-    floor1 = floor.count('１階席') + floor.count('アリーナ席') + floor.count('１階アリーナ席')
-    floor2 = floor.count('２階席')
-    floor3 = floor.count('３階席')
-    floor4 = floor.count('４階席')
 
-    valfloorlist = [floor1,floor2,floor3,floor4]
+    for i in range(0,len(list)):
+        val.append(floor.count(list[i]))
 
-    return piecreate(floorlist,valfloorlist,title)
+    return piecreate(list,val,title)
 
 def ticketchart(ticket,list):
     val = []

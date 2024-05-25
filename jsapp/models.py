@@ -6,7 +6,7 @@ class GroupModel(models.Model): #グループ情報を保存するマスタで�
    def __str__(self):
       return self.group
    
-class EventTypeModel(models.Model):
+class EventTypeModel(models.Model): #イベントの属性を保存するマスタです
    eventtypeid = models.IntegerField(primary_key=True)
    eventtype = models.CharField(max_length=100)
    def __str__(self):
@@ -16,10 +16,16 @@ class EventModel(models.Model):  #イベントの情報を保存するマスタ�
    eventid = models.IntegerField(primary_key=True)
    eventtype = models.ForeignKey(EventTypeModel,on_delete=models.CASCADE)
    group = models.ManyToManyField(GroupModel,default=[1])
-   eventtitle = models.CharField(max_length=100,)
-
+   eventtitle = models.CharField(max_length=100)
    def __str__(self):
       return str(self.eventid) + "."+ self.eventtitle
+   
+
+class TicketSheetMaster(models.Model):
+   priority = models.IntegerField()
+   sheet = models.CharField(max_length = 10)
+   def __str__(self):
+      return str(self.priority + "." + self.sheet)
 
 class SheetValMaster(models.Model): #座席の入力規則を保存するマスタです
    valid = models.IntegerField(primary_key=True)
@@ -50,7 +56,7 @@ class HallTypeModel(models.Model): #会場の属性を保存するマスタで�
    blockname = models.CharField(max_length=100)
    sheets = models.ManyToManyField(SheetModel,default=[1])
    def __str__(self):
-      return  self.blockname + "." + self.identname
+      return  str(self.priority) + "." + self.blockname + "." + self.identname
    
    
 class HallInfoModel(models.Model): #会場の情報を保存するマスタです
@@ -72,7 +78,7 @@ class m_PerformTime(models.Model): #公演時間を保存するマスタです
    disp_priority = models.IntegerField()
    perform_time = models.CharField(max_length=100)
    def __str__(self):
-      return self.perform_time +",優先度：" + str(self.disp_priority)
+      return str(self.disp_priority) + "." + self.perform_time
 
 class VenueModel(models.Model): #公演の情報を保存するフィールドです
    venueid = models.IntegerField(primary_key=True)
@@ -83,6 +89,7 @@ class VenueModel(models.Model): #公演の情報を保存するフィールド�
    hallinfo = models.ForeignKey(HallInfoModel,on_delete=models.CASCADE,default=1)
    perform_time = models.ManyToManyField(m_PerformTime,default="")
    tickettype = models.ManyToManyField(TicketTypeModel,default="")
+   sheettype = models.ManyToManyField(TicketSheetMaster,default="")
    
 
    def __str__(self):
@@ -113,5 +120,5 @@ class MenberModel(models.Model): #アンケート回答結果を保存するフ�
    number2 = models.CharField(max_length=100,blank=True)
 
    def __str__(self):
-      return "id:"+ str(self.answerid) + ",timedate" + str(self.timedate)
+      return "id:"+ str(self.id) + ",timedate" + str(self.timedate)
 
