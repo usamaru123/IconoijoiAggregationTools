@@ -394,44 +394,25 @@ def textlistcreate(rowlist,columnlist):
     list = {column:{row:"" for row in rowlist} for column in columnlist}
     return list
     
-def sheetratio(sheets):
-    title = '座席種別'
-    sheetlist = ['一般席','カメコエリア席','女性エリア席','着席指定席'] 
-    general = sheets.count('一般席')
-    camera = sheets.count('カメコエリア席')
-    lady = sheets.count('女性エリア席')
-    sit = sheets.count('着席指定席')
-    
-    valsheetlist = [general,camera,lady,sit]
 
-    return piecreate(sheetlist,valsheetlist,title)
-
-def floorchart(floor,list):
-    val = []
-    title = '階層種別'
-
-    for i in range(0,len(list)):
-        val.append(floor.count(list[i]))
-
-    return piecreate(list,val,title)
 
 def ticketchart(ticket,list):
-    val = []
-    title = 'チケット種別'
 
-    for i in range(0,len(list)):
-        val.append(ticket.count(list[i]))
     
     return piecreate(list,val,title)
 
 
 
-def piecreate(label,value,title):
+def piecreate(items,list,title):
+    value = []
+
+    for i in range(0,len(list)):
+        value.append(items.count(list[i]))
 
     fig = go.Figure()
     fig.add_trace(
         go.Pie(
-            labels=label,
+            labels=list,
             values=value,
             title = title,
             sort = False,

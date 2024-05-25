@@ -41,9 +41,11 @@ class AnswerList(ListView): #回答一覧ページ
         performtimes = venuemodel.perform_time.order_by('disp_priority')
         ticketsvalobj = venuemodel.tickettype.order_by('priority')
         floorvalobj = venuemodel.hallinfo.halltype.order_by('priority')
+        sheetvalobj = venuemodel.sheettype.order_by('priority')
 
         ticketsval = [ticket.tickettype for ticket in ticketsvalobj]
         floorsval = [floor.blockname for floor in floorvalobj]
+        sheetsval = [sheet.sheet for sheet in sheetvalobj]
 
         rowmax = venuemodel.rowmax
         columnmax = venuemodel.columnmax
@@ -138,9 +140,9 @@ class AnswerList(ListView): #回答一覧ページ
         f4_row_josei = [f4_row.row1 for f4_row in f4_josei]
         f4_row_chaku = [f4_row.row1 for f4_row in f4_chaku]
 
-        ticketchart = graph.ticketchart(ticket,ticketsval)
-        sheetchart = graph.sheetratio(sheet)
-        floorchart = graph.floorchart(floor,floorsval)
+        ticketchart = graph.piecreate(ticket,ticketsval,'チケット種別')
+        sheetchart = graph.piecreate(sheet,sheetsval,'座席種別')
+        floorchart = graph.piecreate(floor,floorsval,'階層種別')
 
         f1_histgram = graph.Floor_Histogram(f1_row_ippan,f1_row_cameko,f1_row_josei,f1_row_chaku)
         f2_histgram = graph.Floor_Histogram(f2_row_ippan,f2_row_cameko,f2_row_josei,f2_row_chaku)
