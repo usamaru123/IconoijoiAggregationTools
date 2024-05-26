@@ -11,6 +11,7 @@ import datetime
 from django.db.models import Q
 
 
+
 class Toppage(ListView): #トップページ
     template_name = 'index.html'
     model = EventModel
@@ -82,8 +83,6 @@ class AnswerList(ListView): #回答一覧ページ
             qsrow = qs.exclude(row1__exact="")
             qsfloor = qs.exclude(floor1__exact="")
 
-            qs_f1 = qs.filter(Q(floor1='1階席')|Q(floor1='１階席')|Q(floor1='アリーナ席')|Q(floor1='アリーナ席'))
-
             ticket = [ticket.ticket1 for ticket in qs]
             block = [block.block_r1 for block in qsarena]
             row = [row.row1 for row in qsrow]
@@ -94,60 +93,28 @@ class AnswerList(ListView): #回答一覧ページ
 
             sheet = [sheet.sheet1 for sheet in qs ]
             number = [number.number1 for number in qsfloor]
+        
+        qs_f = []
+        qs_f_sheet = [{}]
 
-        qs_f1 = qs.filter(Q(floor1='1階席')|Q(floor1='１階席')|Q(floor1='アリーナ席')|Q(floor1='アリーナ席'))
-        qs_f2 = qs.filter(Q(floor1='2階席')|Q(floor1='２階席'))
-        qs_f3 = qs.filter(Q(floor1='3階席')|Q(floor1='３階席'))
-        qs_f4 = qs.filter(Q(floor1='4階席')|Q(floor1='４階席'))
+        for i in range(len(floorsval)):
+            qs_f.append(qs.filter(floor1=floorsval[i]))
 
-        f1_ippan = qs_f1.filter(sheet1='一般席')
-        f1_cameko = qs_f1.filter(sheet1='カメコエリア席')
-        f1_josei = qs_f1.filter(sheet1='女性エリア席')
-        f1_chaku = qs_f1.filter(sheet1='着席指定席')
+        for i in range(len(qs_f)):
+            qs_f_sheet.append({})
+            for j in range(len(sheetsval)):
+                item = qs_f[i].filter(sheet1=sheetsval[j])
+                if item:
+                    qs_f_sheet[i][sheetsval[j]] = [int(row.row1 or 0) for row in item]
 
-        f2_ippan = qs_f2.filter(sheet1='一般席')
-        f2_cameko = qs_f2.filter(sheet1='カメコエリア席')
-        f2_josei = qs_f2.filter(sheet1='女性エリア席')
-        f2_chaku = qs_f2.filter(sheet1='着席指定席')
-
-        f3_ippan = qs_f3.filter(sheet1='一般席')
-        f3_cameko = qs_f3.filter(sheet1='カメコエリア席')
-        f3_josei = qs_f3.filter(sheet1='女性エリア席')
-        f3_chaku = qs_f3.filter(sheet1='着席指定席')
-
-        f4_ippan = qs_f4.filter(sheet1='一般席')
-        f4_cameko = qs_f4.filter(sheet1='カメコエリア席')
-        f4_josei = qs_f4.filter(sheet1='女性エリア席')
-        f4_chaku = qs_f4.filter(sheet1='着席指定席')
-
-        f1_row_ippan = [f1_row.row1 for f1_row in f1_ippan]
-        f1_row_cameko = [f1_row.row1 for f1_row in f1_cameko]
-        f1_row_josei = [f1_row.row1 for f1_row in f1_josei]
-        f1_row_chaku = [f1_row.row1 for f1_row in f1_chaku]
-
-        f2_row_ippan = [f2_row.row1 for f2_row in f2_ippan]
-        f2_row_cameko = [f2_row.row1 for f2_row in f2_cameko]
-        f2_row_josei = [f2_row.row1 for f2_row in f2_josei]
-        f2_row_chaku = [f2_row.row1 for f2_row in f2_chaku]
-
-        f3_row_ippan = [f3_row.row1 for f3_row in f3_ippan]
-        f3_row_cameko = [f3_row.row1 for f3_row in f3_cameko]
-        f3_row_josei = [f3_row.row1 for f3_row in f3_josei]
-        f3_row_chaku = [f3_row.row1 for f3_row in f3_chaku]
-
-        f4_row_ippan = [f4_row.row1 for f4_row in f4_ippan]
-        f4_row_cameko = [f4_row.row1 for f4_row in f4_cameko]
-        f4_row_josei = [f4_row.row1 for f4_row in f4_josei]
-        f4_row_chaku = [f4_row.row1 for f4_row in f4_chaku]
+        for i in range(1,len(floorsval)+1):
+            histgram_name  = 'f' + i + 'histgram'
+            histgram = graph.Floor_Histogram(qs_f_sheet[i],sheetsval)
+            ctx[floorsval[i]] = histgram
 
         ticketchart = graph.piecreate(ticket,ticketsval,'チケット種別')
         sheetchart = graph.piecreate(sheet,sheetsval,'座席種別')
         floorchart = graph.piecreate(floor,floorsval,'階層種別')
-
-        f1_histgram = graph.Floor_Histogram(f1_row_ippan,f1_row_cameko,f1_row_josei,f1_row_chaku)
-        f2_histgram = graph.Floor_Histogram(f2_row_ippan,f2_row_cameko,f2_row_josei,f2_row_chaku)
-        f3_histgram = graph.Floor_Histogram(f3_row_ippan,f3_row_cameko,f3_row_josei,f3_row_chaku)
-        f4_histgram = graph.Floor_Histogram(f4_row_ippan,f4_row_cameko,f4_row_josei,f4_row_chaku)
        # heatmap = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
         heatmap2 = graph.Floor_HeatMap(row,number,arenasheet,rowmax,columnmax)
         
@@ -156,11 +123,6 @@ class AnswerList(ListView): #回答一覧ページ
         ctx['sheetchart'] = sheetchart
         ctx['floorchart'] = floorchart
 
-        ctx['f1_histgram'] = f1_histgram
-        ctx['f2_histgram'] = f2_histgram
-        ctx['f3_histgram'] = f3_histgram
-        ctx['f4_histgram'] = f4_histgram
-
         ctx['heatmap'] = heatmap2
        # ctx['sheetratio1'] = sheetratio1
         ctx['results'] = qs
@@ -168,6 +130,7 @@ class AnswerList(ListView): #回答一覧ページ
         ctx['count'] = count
         ctx['num'] = self.kwargs['num']
         ctx['performcount'] = performcount
+        ctx['floorsval'] = floorsval
         return  ctx
 
 class AnswerCreate(CreateView): #回答作成フォーム

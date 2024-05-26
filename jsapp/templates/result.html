@@ -58,22 +58,14 @@
         <h2>チケット種別割合</h2>
         {{ ticketchart }}
     </div>
+
+    {% for floorval in floorsval %}
     <div class="alert alert-light">
-        <h2>アリーナ席：列ごとの集計</h2>
-        {{ f1_histgram }}
+        <h2>{{ floorval }}：列ごとの集計</h2>
+        {{ {{floorval}} }}
     </div>
-    <div class="alert alert-light">
-        <h2>２階席：列ごとの集計</h2>
-        {{ f2_histgram }}
-    </div>
-    <div class="alert alert-light">
-        <h2>３階席：列ごとの集計</h2>
-        {{ f3_histgram }}
-    </div>
-    <div class="alert alert-light">
-        <h2>４階席：列ごとの集計</h2>
-        {{ f4_histgram }}
-    </div>
+    {% endfor %}
+
     <!--
     <div class="alert alert-light"> #座席ヒートマップ
         <h2>アリーナ席ブロック集計結果</h2>
