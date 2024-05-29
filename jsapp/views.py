@@ -108,7 +108,7 @@ class AnswerList(ListView): #回答一覧ページ
                     qs_f_sheet[i][sheetsval[j]] = [int(row.row1 or 0) for row in item]
 
         for i in range(1,len(floorsval)+1):
-            histgram_name  = 'f' + i + 'histgram'
+            histgram_name  = 'f' + str(i) + 'histgram'
             histgram = graph.Floor_Histogram(qs_f_sheet[i],sheetsval)
             ctx[floorsval[i]] = histgram
 
