@@ -110,7 +110,7 @@ class AnswerList(ListView): #回答一覧ページ
         for i in range(1,len(floorsval)+1):
             histgram_name  = 'f' + str(i) + 'histgram'
             histgram = graph.Floor_Histogram(qs_f_sheet[i],sheetsval)
-            ctx[floorsval[i]] = histgram
+           # ctx[floorsval[i]] = histgram
 
         ticketchart = graph.piecreate(ticket,ticketsval,'チケット種別')
         sheetchart = graph.piecreate(sheet,sheetsval,'座席種別')
