@@ -62,7 +62,7 @@ class HallTypeModel(models.Model): #会場の属性を保存するマスタで�
    
 class HallSetModel(models.Model):
    setname = models.CharField(max_length=10,blank=True)
-   hallset = models.ManyToManyField(HallTypeModel,default="")
+#   hallset = models.ManyToManyField(HallTypeModel,default="")
 
 class HallInfoModel(models.Model): #会場の情報を保存するマスタです
    hallid = models.IntegerField(primary_key=True)
@@ -94,7 +94,7 @@ class VenueModel(models.Model): #公演の情報を保存するフィールド�
    perform_time = models.ManyToManyField(m_PerformTime,default="")
    tickettype = models.ManyToManyField(TicketTypeModel,default="")
    sheettype = models.ManyToManyField(TicketSheetMaster,default="")
-   hallset = models.ManyToManyField(HallSetModel,default="")
+ #  hallset = models.ManyToManyField(HallSetModel,default="")
 
    def __str__(self):
       return str(self.venueid) + "." + self.event.eventtitle + self.hallinfo.hallname 
