@@ -111,6 +111,8 @@ class VenueModel(models.Model): #公演の情報を保存するフィールド�
    sheettype = models.ManyToManyField(TicketSheetMaster,default="")
    hallset = models.ForeignKey(HallSetModel,on_delete=models.CASCADE)
    floorset = models.ForeignKey(FloorSetModel,on_delete=models.CASCADE)
+   floor = models.ManyToManyField(FloorModel,default="")
+   hall = models.ManyToManyField(HallTypeModel,default="")
 
    def __str__(self):
       return str(self.venueid) + "." + self.event.eventtitle + self.hallinfo.hallname 
