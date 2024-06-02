@@ -60,8 +60,8 @@ class HallTypeModel(models.Model): #会場の属性を保存するマスタで�
    def __str__(self):
       return  str(self.priority) + "." + self.blockname + "." + self.identname
    
-class HallSetModel(models.Model):
-   setname = models.CharField(max_length=10,blank=True)
+#class HallSetModel(models.Model):
+ #  setname = models.CharField(max_length=10,blank=True)
 #   hallset = models.ManyToManyField(HallTypeModel,default="")
 
 class HallInfoModel(models.Model): #会場の情報を保存するマスタです
