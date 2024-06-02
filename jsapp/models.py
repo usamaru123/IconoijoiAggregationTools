@@ -95,8 +95,7 @@ class VenueModel(models.Model): #公演の情報を保存するフィールド�
    perform_time = models.ManyToManyField(m_PerformTime,default="")
    tickettype = models.ManyToManyField(TicketTypeModel,default="")
    sheettype = models.ManyToManyField(TicketSheetMaster,default="")
-   hallset = models.IntegerField(HallSetModel,on_delete=models.CASCADE,default=1)
-   
+   hallset = models.ForeignKey(HallSetModel,on_delete=models.CASCADE,default=1)
 
    def __str__(self):
       return str(self.venueid) + "." + self.event.eventtitle + self.hallinfo.hallname 
