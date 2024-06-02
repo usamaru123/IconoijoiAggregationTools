@@ -129,7 +129,7 @@ function createfloorformfunc(formlabel, formname, values, priority, i) {
             `<div class="form-check">
                     <label for="${id}" class="form-check-label">
                         <input class="form-check-input ${formname}" type="${type}" name="${formname}"
-                    id="${id}" value="${values[l]}" onclick="newpositionfunc(${i},'pr${priority[l]}')">
+                    id="${id}" value="${values[l]}" onclick="newpositionfunc(${i},pr${priority[l]})">
                     ${values[l]}
                 </label>
             </div>`;
