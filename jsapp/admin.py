@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import MenberModel,EventModel,VenueModel,HallInfoModel,HallTypeModel,m_PerformTime,SheetModel,SheetValMaster,GroupModel,HallTypeDtlModel,EventTypeModel,TicketTypeModel,TicketSheetMaster,HallSetModel
+from .models import MenberModel,EventModel,VenueModel,HallInfoModel,HallTypeModel,m_PerformTime,SheetModel,SheetValMaster,GroupModel,HallTypeDtlModel,EventTypeModel,TicketTypeModel,TicketSheetMaster,HallSetModel,FloorModel,FloorSetModel
 # Register your models here.
 admin.site.register(MenberModel)
 admin.site.register(EventModel)
@@ -15,5 +15,5 @@ admin.site.register(EventTypeModel)
 admin.site.register(TicketTypeModel)
 admin.site.register(TicketSheetMaster)
 admin.site.register(HallSetModel)
-#admin.site.register(FloorModel)
-#admin.site.register(FloorSetModel)
+admin.site.register(FloorModel)
+admin.site.register(FloorSetModel)
