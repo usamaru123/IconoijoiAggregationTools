@@ -124,20 +124,18 @@ function createfloorformfunc(formlabel, formname, values, priority, i) {
 
     type = 'radio';
     for (var l = 0; l < values.length; l++) {
-        id = `${formname}_${value[l]}`;
+        id = `${formname}_${values[l]}`;
         ticketformtext =
             `<div class="form-check">
                     <label for="${id}" class="form-check-label">
                         <input class="form-check-input ${formname}" type="${type}" name="${formname}"
-                    id="${id}" value="${value[l]}" onclick="newpositionfunc(${i},'pr${priority[l]}')">
-                    ${value[l]}
+                    id="${id}" value="${values[l]}" onclick="newpositionfunc(${i},'pr${priority[l]}')">
+                    ${values[l]}
                 </label>
             </div>`;
         formlabel.innerHTML += ticketformtext;
     }
-    values.forEach(function (value) {
 
-    });
 };
 
 //公演を選択した際にアコーディオンメニューを表示するファンクションです。
