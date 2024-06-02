@@ -64,15 +64,17 @@ function sheetformfunc(formlabel, i) {
 }
 //階層の選択肢を作成するファンクションです:HallTypeModelから参照します
 function floorformfunc(formlabel, i) {
-    floorname = [];
-    var floors = document.querySelectorAll('.floorname')
-    for (let b = 0; b < floors.length; b++) {
-        floorname[b] = floors[b].value;
+    floornames = [];
+    prioritys = [];
+    var floorobj = document.querySelectorAll('.floorname')
+    for (let b = 0; b < floorobj.length; b++) {
+        floornames[b] = floorobj[b].value;
+        prioritys[b] = floorobj.data('sheetpriority')
     }
 
     const formname = 'floor' + i;
 
-    createfloorformfunc(formlabel, formname, floorname, i);
+    createfloorformfunc(formlabel, formname, floornames, prioritys, i);
 
     floorbuttons = document.querySelectorAll(`.floor${i}`);
 
@@ -118,20 +120,23 @@ function createRadioformfunc(formlabel, formname, values) {
 };
 
 //階層選択用のラジオボタンを作成するファンクションです。
-function createfloorformfunc(formlabel, formname, values, i) {
+function createfloorformfunc(formlabel, formname, values, priority, i) {
 
     type = 'radio';
-    values.forEach(function (value) {
-        id = `${formname}_${value}`;
+    for (var l = 0; l > values.length; l++) {
+        id = `${formname}_${value[l]}`;
         ticketformtext =
             `<div class="form-check">
                     <label for="${id}" class="form-check-label">
                         <input class="form-check-input ${formname}" type="${type}" name="${formname}"
-                    id="${id}" value="${value}" onclick="newpositionfunc(${i},'${value}')">
-                    ${value}
+                    id="${id}" value="${value[l]}" onclick="newpositionfunc(${i},'pr${priority[l]}')">
+                    ${value[l]}
                 </label>
             </div>`;
         formlabel.innerHTML += ticketformtext;
+    }
+    values.forEach(function (value) {
+
     });
 };
 

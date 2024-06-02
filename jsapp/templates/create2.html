@@ -59,7 +59,7 @@
                 <input type="hidden" id="{{ block.blockname }}" class="blocks" value="{{ block.blockname }}">
                 <div class="{{ block.blockname }}">
                     {% for sheet in block.sheets.all|dictsort:"priority" %}
-                    <div class="{{ sheet.sheetname }}">
+                    <div class="pr{{ sheet.priority }}">
                         <input type="hidden" class="col-3 block position valid" value="{{ sheet.sheettype.valid }}">
                         <input type="hidden" class="col-3 block position prename" value="{{ sheet.prename }}">
                         <input type="hidden" class="col-3 block position postname" value="{{ sheet.postname }}">
@@ -69,7 +69,8 @@
                 {% endfor %}
 
                 {% for floor in floors.all %}
-                <input type="hidden" id="{{ floor.floorname }}" class="floorname" value="{{ floor.floorname }}">
+                <input type="hidden" id="{{ floor.floorname }}" class="floorname" value="{{ floor.floorname }}"
+                    data-sheetpriority="{{ floor.priority }}">
                 {% endfor %}
 
             </div>
