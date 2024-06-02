@@ -41,7 +41,7 @@ class AnswerList(ListView): #回答一覧ページ
         venuemodel = VenueModel.objects.get(venueid=self.kwargs['num'])
         performtimes = venuemodel.perform_time.order_by('disp_priority')
         ticketsvalobj = venuemodel.tickettype.order_by('priority')
-        floorvalobj = venuemodel.hall.order_by('priority')
+        floorvalobj = venuemodel.floor.order_by('priority')
         sheetvalobj = venuemodel.sheettype.order_by('priority')
 
         ticketsval = [ticket.tickettype for ticket in ticketsvalobj]
@@ -138,7 +138,8 @@ class AnswerCreate(CreateView): #回答作成フォーム
         answerObj =  MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         venueObj = VenueModel.objects.get(venueid=self.kwargs['num'])
         performtimes = venueObj.perform_time.order_by('disp_priority')
-        blocks = venueObj.hall.order_by('priority')
+        hall = venueObj.hall.order_by('priority')
+        floor = venueObj.floor.order_by('priority')
         tickets = venueObj.tickettype.order_by('priority')
 
 
@@ -148,7 +149,8 @@ class AnswerCreate(CreateView): #回答作成フォーム
         ctx['count'] = c_answer
         ctx['title'] = venueObj
         ctx['results'] = answerObj
-        ctx['blocks'] = blocks
+        ctx['blocks'] = hall
+        ctx['floors'] = floor
         ctx['performtimes'] = performtimes
         ctx['tickets'] = tickets
         return  ctx

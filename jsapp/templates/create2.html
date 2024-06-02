@@ -68,6 +68,9 @@
                 </div>
                 {% endfor %}
 
+                {% for floor in floors.all %}
+                <input type="hidden" id="{{ floor.floorname }}" class="floorname" value="{{ floor.floorname }}">
+
             </div>
 
             <div id="answerform1" class="box answerform">

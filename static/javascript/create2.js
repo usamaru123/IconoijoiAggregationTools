@@ -64,15 +64,15 @@ function sheetformfunc(formlabel, i) {
 }
 //階層の選択肢を作成するファンクションです:HallTypeModelから参照します
 function floorformfunc(formlabel, i) {
-    block = [];
-    var blocks = document.querySelectorAll('.blocks')
-    for (let b = 0; b < blocks.length; b++) {
-        block[b] = blocks[b].value;
+    floorname = [];
+    var floors = document.querySelectorAll('.floorname')
+    for (let b = 0; b < floors.length; b++) {
+        floorname[b] = floors[b].value;
     }
 
     const formname = 'floor' + i;
 
-    createfloorformfunc(formlabel, formname, block, i);
+    createfloorformfunc(formlabel, formname, floorname, i);
 
     floorbuttons = document.querySelectorAll(`.floor${i}`);
 
