@@ -60,11 +60,11 @@ class HallTypeModel(models.Model): #会場の属性を保存するマスタで�
    def __str__(self):
       return  str(self.priority) + "." + self.blockname + "." + self.identname
    
-#class FloorModel(models.Model):
- #  priority = models.IntegerField(default=1)
-  # floorname = models.CharField(max_length=10,blank=True)
-   #def __str__(self):
-    #  return str(self.priority) +"."+self.floorname
+class FloorModel(models.Model):
+   priority = models.IntegerField(default=1)
+   floorname = models.CharField(max_length=10,blank=True)
+   def __str__(self):
+      return str(self.priority) +"."+self.floorname
    
 class HallSetModel(models.Model):
   setname = models.CharField(max_length=30,blank=True)
