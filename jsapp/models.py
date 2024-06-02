@@ -48,6 +48,8 @@ class HallTypeDtlModel(models.Model):
   typename = models.CharField(max_length=10)
   def __str__(self):
      return str(self.typeid) + "." + self.typename
+  
+
 
 class HallTypeModel(models.Model): #会場の属性を保存するマスタです
    priority = models.IntegerField(default = 1)
@@ -58,7 +60,11 @@ class HallTypeModel(models.Model): #会場の属性を保存するマスタで�
    def __str__(self):
       return  str(self.priority) + "." + self.blockname + "." + self.identname
    
-   
+class HallSetModel(models.model):
+   setid = models.IntegerField(default=1)
+   setname = models.CharField(max_length=10)
+   hallset = models.ManyToManyField(HallTypeModel,default=[1])
+
 class HallInfoModel(models.Model): #会場の情報を保存するマスタです
    hallid = models.IntegerField(primary_key=True)
    hallname = models.CharField(max_length=100)
@@ -89,7 +95,7 @@ class VenueModel(models.Model): #公演の情報を保存するフィールド�
    perform_time = models.ManyToManyField(m_PerformTime,default="")
    tickettype = models.ManyToManyField(TicketTypeModel,default="")
    sheettype = models.ManyToManyField(TicketSheetMaster,default="")
-   halltype = models.ManyToManyField(HallTypeModel,default="")
+   hallset = models.IntegerField(HallSetModel,on_delete=models.CASCADE,default=1)
    
 
    def __str__(self):
