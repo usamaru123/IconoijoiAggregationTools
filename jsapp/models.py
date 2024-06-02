@@ -62,7 +62,7 @@ class HallTypeModel(models.Model): #会場の属性を保存するマスタで�
    
 class FloorModel(models.Model):
    priority = models.IntegerField(default=1)
-   floorname = models.CharField(max_length=10)
+   floorname = models.CharField(max_length=10,blank=True)
    def __str__(self):
       return str(self.priority) +"."+self.floorname
    
@@ -72,11 +72,11 @@ class HallSetModel(models.Model):
   def __str__(self):
      return self.setname
   
-class FloorSetModel(models.Model):
-  setname = models.CharField(max_length=30,blank=True)
-  hallset = models.ManyToManyField(FloorModel,default="")
-  def __str__(self):
-     return self.setname
+#class FloorSetModel(models.Model):
+#  setname = models.CharField(max_length=30,blank=True)
+ # hallset = models.ManyToManyField(FloorModel,default="")
+  #def __str__(self):
+   #  return self.setname
 
 
 class HallInfoModel(models.Model): #会場の情報を保存するマスタです
@@ -110,7 +110,7 @@ class VenueModel(models.Model): #公演の情報を保存するフィールド�
    tickettype = models.ManyToManyField(TicketTypeModel,default="")
    sheettype = models.ManyToManyField(TicketSheetMaster,default="")
    hallset = models.ForeignKey(HallSetModel,on_delete=models.CASCADE)
-   floorset = models.ForeignKey(FloorSetModel,on_delete=models.CASCADE)
+   #floorset = models.ForeignKey(FloorSetModel,on_delete=models.CASCADE)
 
    def __str__(self):
       return str(self.venueid) + "." + self.event.eventtitle + self.hallinfo.hallname 
