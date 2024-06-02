@@ -41,7 +41,7 @@ class AnswerList(ListView): #回答一覧ページ
         venuemodel = VenueModel.objects.get(venueid=self.kwargs['num'])
         performtimes = venuemodel.perform_time.order_by('disp_priority')
         ticketsvalobj = venuemodel.tickettype.order_by('priority')
-        floorvalobj = venuemodel.hallset.order_by('priority')
+        floorvalobj = venuemodel.hallset.hallset.order_by('priority')
         sheetvalobj = venuemodel.sheettype.order_by('priority')
 
         ticketsval = [ticket.tickettype for ticket in ticketsvalobj]
