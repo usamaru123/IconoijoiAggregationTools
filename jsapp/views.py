@@ -138,7 +138,7 @@ class AnswerCreate(CreateView): #回答作成フォーム
         answerObj =  MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         venueObj = VenueModel.objects.get(venueid=self.kwargs['num'])
         performtimes = venueObj.perform_time.order_by('disp_priority')
-        blocks = venueObj.hallset.order_by('priority')
+        blocks = venueObj.hallset.hallset.order_by('priority')
         tickets = venueObj.tickettype.order_by('priority')
 
 
