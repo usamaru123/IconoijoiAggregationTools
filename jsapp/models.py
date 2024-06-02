@@ -61,7 +61,7 @@ class HallTypeModel(models.Model): #会場の属性を保存するマスタで�
       return  str(self.priority) + "." + self.blockname + "." + self.identname
    
 class HallSetModel(models.Model):
-   setid = models.IntegerField(default=1)
+   #setid = models.IntegerField(default=1)
    setname = models.CharField(max_length=10,blank=True)
    hallset = models.ManyToManyField(HallTypeModel,default=[1])
 
