@@ -123,7 +123,7 @@ function createRadioformfunc(formlabel, formname, values) {
 function createfloorformfunc(formlabel, formname, values, priority, i) {
 
     type = 'radio';
-    for (var l = 0; l > values.length; l++) {
+    for (var l = 0; l < values.length; l++) {
         id = `${formname}_${value[l]}`;
         ticketformtext =
             `<div class="form-check">
