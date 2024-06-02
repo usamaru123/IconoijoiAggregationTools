@@ -69,7 +69,7 @@ function floorformfunc(formlabel, i) {
     var floorobj = document.querySelectorAll('.floorname')
     for (let b = 0; b < floorobj.length; b++) {
         floornames[b] = floorobj[b].value;
-        prioritys[b] = floorobj.data('sheetpriority')
+        prioritys[b] = floorobj.dataset.sheetpriority
     }
 
     const formname = 'floor' + i;
