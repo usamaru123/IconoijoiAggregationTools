@@ -66,17 +66,17 @@ class FloorModel(models.Model):
    def __str__(self):
       return str(self.priority) +"."+self.floorname
    
-class HallSetModel(models.Model):
-  setname = models.CharField(max_length=30,blank=True)
-  hallset = models.ManyToManyField(HallTypeModel,default="")
-  def __str__(self):
-     return self.setname
+#class HallSetModel(models.Model):
+ # setname = models.CharField(max_length=30,blank=True)
+  #hallset = models.ManyToManyField(HallTypeModel,default="")
+  #def __str__(self):
+   #  return self.setname
   
-class FloorSetModel(models.Model):
-  setname = models.CharField(max_length=30,blank=True)
-  hallset = models.ManyToManyField(FloorModel,default="")
-  def __str__(self):
-     return self.setname
+#class FloorSetModel(models.Model):
+ # setname = models.CharField(max_length=30,blank=True)
+  #hallset = models.ManyToManyField(FloorModel,default="")
+  #def __str__(self):
+   #  return self.setname
 
 
 class HallInfoModel(models.Model): #会場の情報を保存するマスタです
