@@ -45,7 +45,7 @@ class AnswerList(ListView): #回答一覧ページ
         sheetvalobj = venuemodel.sheettype.order_by('priority')
 
         ticketsval = [ticket.tickettype for ticket in ticketsvalobj]
-        floorsval = [floor.blockname for floor in floorvalobj]
+        floorsval = [floor.floorname for floor in floorvalobj]
         sheetsval = [sheet.sheet for sheet in sheetvalobj]
 
         rowmax = venuemodel.rowmax
