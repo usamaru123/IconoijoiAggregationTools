@@ -140,7 +140,7 @@ class AnswerCreate(CreateView): #回答作成フォーム
         performtimes = venueObj.perform_time.order_by('disp_priority')
         hall = venueObj.hall.order_by('priority')
         floor = venueObj.floor.order_by('priority')
-        sheets = venueObj.sheettype.sheet.order_by('priority')
+        sheets = venueObj.sheettype.order_by('priority')
         tickets = venueObj.tickettype.order_by('priority')
 
 
@@ -152,6 +152,7 @@ class AnswerCreate(CreateView): #回答作成フォーム
         ctx['results'] = answerObj
         ctx['blocks'] = hall
         ctx['floors'] = floor
+        ctx['sheets'] = sheets
         ctx['performtimes'] = performtimes
         ctx['tickets'] = tickets
         return  ctx
