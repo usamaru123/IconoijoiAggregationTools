@@ -55,6 +55,10 @@
                 <input type="hidden" id="largeblock_r1" name="block_r1" value>
                 <input type="hidden" id="largeblock_r2" name="block_r2" value>
 
+                {% for sheet in sheets %}
+                <input type="hidden" class="sheet" name="sheet" value="{{ sheet }}">
+                {% endfor %}
+
                 {% for block in blocks.all %} <!--座席情報送信-->
                 <input type="hidden" id="{{ block.blockname }}" class="blocks" value="{{ block.blockname }}">
                 <div class="pr{{ block.priority }}">

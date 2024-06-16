@@ -140,6 +140,7 @@ class AnswerCreate(CreateView): #回答作成フォーム
         performtimes = venueObj.perform_time.order_by('disp_priority')
         hall = venueObj.hall.order_by('priority')
         floor = venueObj.floor.order_by('priority')
+        sheets = venueObj.sheettype.sheet.order_by('priority')
         tickets = venueObj.tickettype.order_by('priority')
 
 

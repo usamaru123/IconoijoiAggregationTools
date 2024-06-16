@@ -57,9 +57,13 @@ function ticketformfunc(formlabel, i) {
 }
 //座席種別の選択肢を作成するファンクションです
 function sheetformfunc(formlabel, i) {
-
+    let sheets = document.querySelectorAll('.sheet');
+    var values = [];
+    for (let i = 0; i < sheets.length; i++) {
+        values[i] = sheets[i].value;
+    }
     const formname = 'sheet' + i;
-    const values = ['一般席', '女性エリア席', 'カメコエリア席'];
+
     createRadioformfunc(formlabel, formname, values,);
 }
 //階層の選択肢を作成するファンクションです:HallTypeModelから参照します
