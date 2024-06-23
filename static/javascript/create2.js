@@ -93,7 +93,7 @@ function newpositionfunc(i, floor) {
         var valid = floorObj.querySelector('.valid').value
         var prename = floorObj.querySelector('.prename').value
         var postname = floorObj.querySelector('.postname').value
-        sheetHTML = sheetvalfunc(valid, i)
+        var sheetHTML = sheetvalfunc(valid, i)
         var position = `
         <div id="errorform${i}_4"></div>
         <div style="font-size:1.5rem">
@@ -322,6 +322,7 @@ function formcheck(i) {
 function sheetvalfunc(val, i) {
 
     //1桁のアルファベットで定義づけられたブロックで使用します
+
     const val_101 =
         ` <input pattern="[A-Za-z]{1}" class="col-3 block position"  id="block_r${i}"  name="block_r${i}" oninput="inputChange(${i})" placeholder="英字1文字"> `
 
@@ -338,6 +339,15 @@ function sheetvalfunc(val, i) {
     const val_301 =
         `<input type="number" min="1" max="999" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字"> `
 
+    //横アリスタンド用
+    const val_1001 =
+        `<select id="block_r${i}" name="block_r${i}" class="col-3 block postion">
+            <option value="東">東</option>
+            <option value="西">西</option>
+            <option value="南">南</option>
+            <option value="北">北</option>
+        </select>
+        <input type="number" min="1" max="99" class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字">`
 
     if (val == 101) {
         text = val_101
@@ -353,6 +363,9 @@ function sheetvalfunc(val, i) {
     }
     else if (val == 301) {
         text = val_301
+    }
+    else if (val == 1001) {
+        text = val_1001
     }
     else {
         text = '該当なし'
