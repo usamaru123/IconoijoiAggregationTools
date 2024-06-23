@@ -208,8 +208,6 @@ function valueCheck() {
         }
     }
 
-
-
     if (is_matinee == false || is_evening == false) { //どちらか一方でも公演が存在してチェックしてないとfalse
         errorform1.innerHTML = errormsg1;
         return false;
@@ -220,7 +218,7 @@ function valueCheck() {
         return false;
     }
 
-
+    return true;
 }
 
 //全ての質問を回答しているか確認をするファンクションです。
