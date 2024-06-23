@@ -208,7 +208,7 @@ function valueCheck() {
         }
     }
 
-    if (is_matinee == false || is_evening == false) { //どちらか一方でも公演が存在してチェックしてないとfalse
+    if (is_matinee == false && is_evening == false) { //どちらか一方でも公演が存在してチェックしてないとfalse
         errorform1.innerHTML = errormsg1;
         return false;
     }
