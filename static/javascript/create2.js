@@ -180,32 +180,37 @@ function valueCheck() {
 
     const errormsg1 = '参加公演にチェックを入れてください';
 
+    var is_matinee = true; //公演が存在しないかチェックが入っていればtrue
+    var is_evening = true;
+
+    var form1 = true; //公演ごとの回答項目がすべて入力されていればtrue
+    var form2 = true;
 
 
-    if (matinee) {
-        is_matinee = matinee.checked
-        if (matinee.checked) {
+
+    if (matinee) { //公演が存在しなければそのままtrue、存在すればチェックの有ならフォームチェックに進む
+        is_matinee = matinee.checked;
+        if (is_matinee) {
             form1 = formcheck(1);
         }
         else {
             form1 = true;
         }
     }
-    else if (evening) {
-        is_evening = evening.checked
-        if (evening.checked) {
+
+    if (evening) {
+        is_evening = evening.checked;
+        if (is_evening) {
             form2 = formcheck(2);
         }
         else {
             form2 = true;
         }
     }
-    else {
-        return false
-    }
 
 
-    if (is_matinee == false && is_evening == false) {
+
+    if (is_matinee == false || is_evening == false) { //どちらか一方でも公演が存在してチェックしてないとfalse
         errorform1.innerHTML = errormsg1;
         return false;
     }
@@ -214,9 +219,7 @@ function valueCheck() {
     if (form1 == false || form2 == false) {
         return false;
     }
-    else {
-        return true;
-    }
+
 
 }
 
