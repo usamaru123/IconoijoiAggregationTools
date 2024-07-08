@@ -340,12 +340,22 @@ function sheetvalfunc(val, i) {
         `<input type="number" min="1" max="999" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字"> `
 
     //横アリスタンド用
-    const val_1001 =
+    const val_1002 =
         `<select id="block_r${i}" name="block_r${i}" class="col-3 block postion">
-            <option value="東">東</option>
-            <option value="西">西</option>
-            <option value="南">南</option>
-            <option value="北">北</option>
+        <option value="A">Aブロック</option>
+        <option value="B">Bブロック</option>
+        <option value="C">Cブロック</option>
+        <option value="D">Dブロック</option>
+        <option value="E">Eブロック</option>
+        <option value="F">Fブロック</option>
+    </select>`
+
+    const val_1003 =
+        `<select id="block_r${i}" name="block_r${i}" class="col-3 block postion">
+            <option value="東">東ブロック</option>
+            <option value="西">西ブロック</option>
+            <option value="南">南ブロック</option>
+            <option value="北">北ブロック</option>
         </select>`
 
     if (val == 101) {
@@ -365,6 +375,12 @@ function sheetvalfunc(val, i) {
     }
     else if (val == 1001) {
         text = val_1001
+    }
+    else if (val == 1002) {
+        text = val_1002
+    }
+    else if (val == 1003) {
+        text = val_1003
     }
     else {
         text = '該当なし'
