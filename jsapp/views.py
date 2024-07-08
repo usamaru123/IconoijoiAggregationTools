@@ -110,15 +110,15 @@ class AnswerList(ListView): #回答一覧ページ
         ticketchart = graph.piecreate(ticket,ticketsval,'チケット種別')
         sheetchart = graph.piecreate(sheet,sheetsval,'座席種別')
         floorchart = graph.piecreate(floor,floorsval,'階層種別')
-       # heatmap = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
-        heatmap2 = graph.Floor_HeatMap(row,number,arenasheet,rowmax,columnmax)
+        heatmap = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
+       #heatmap2 = graph.Floor_HeatMap(row,number,arenasheet,rowmax,columnmax)
         
         performcount = performtimes.count()
         ctx['ticketchart'] = ticketchart
         ctx['sheetchart'] = sheetchart
         ctx['floorchart'] = floorchart
 
-        ctx['heatmap'] = heatmap2
+        ctx['heatmap'] = heatmap
        # ctx['sheetratio1'] = sheetratio1
         ctx['results'] = qs
         ctx['title'] = venuemodel
