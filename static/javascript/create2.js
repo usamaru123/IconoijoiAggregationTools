@@ -346,8 +346,7 @@ function sheetvalfunc(val, i) {
             <option value="西">西</option>
             <option value="南">南</option>
             <option value="北">北</option>
-        </select>
-        <input type="number" min="1" max="99" class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字">`
+        </select>`
 
     if (val == 101) {
         text = val_101
