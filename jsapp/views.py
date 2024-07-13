@@ -98,7 +98,7 @@ class AnswerList(ListView): #回答一覧ページ
         histgrams = {}
         item = {}
 
-        qs_f1 = qsrow.filter(floor1 = 'センター席(1階席)')
+        qs_f1 = qsrow.filter(floor1 = 'センター席(1階席)').objects.all().count()
 
         for i in range(len(floorsval)):
             qs_f = qsrow.filter(floor1=floorsval[i])
