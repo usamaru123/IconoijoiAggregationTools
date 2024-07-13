@@ -102,7 +102,7 @@ class AnswerList(ListView): #回答一覧ページ
 
         for i in range(len(floorsval)):
             qs_f = qsrow.filter(floor1=floorsval[i])
-            if qs_f is not None:
+            if len(qs_f) > 0:
                 for j in range(len(sheetsval)):
                     qs_f_sheet = qs_f.filter(sheet1=sheetsval[j])
                     item[sheetsval[j]] = [int(row.row1 or 0) for row in qs_f_sheet]
