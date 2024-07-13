@@ -436,6 +436,9 @@ def piecreate(items,list,title):
     return graph
 
 def Floor_Histogram(item):
+    if (item is None):
+        return
+    
     itemlist = list(item.keys())
 
     fig = go.Figure()

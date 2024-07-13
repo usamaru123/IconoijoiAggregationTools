@@ -63,12 +63,12 @@ class AnswerList(ListView): #回答一覧ページ
         if time == 'evening':
             qs = qsmodel.exclude(ticket2__exact="")
             qsarena = qs.exclude(block_c2__exact="")
-            qsrow = qs.exclude(row2__exact="")
+            qsrow   = qs.exclude(row2__exact="")
             qsfloor = qs.exclude(floor2__exact="")
 
             ticket = [ticket.ticket2 for ticket in qs]
-            block = [block.block_r2 for block in qsarena]
-            row = [row.row2 for row in qsrow]
+            block  = [block.block_r2 for block in qsarena]
+            row    = [row.row2 for row in qsrow]
             column = [column.block_c2 for column in qsarena]
             arenasheet = [sheet.sheet2 for sheet in qsarena]
 
@@ -84,14 +84,14 @@ class AnswerList(ListView): #回答一覧ページ
             qsfloor = qs.exclude(floor1__exact="")
 
             ticket = [ticket.ticket1 for ticket in qs]
-            block = [block.block_r1 for block in qsarena]
-            row = [row.row1 for row in qsrow]
+            block  = [block.block_r1 for block in qsarena]
+            row    = [row.row1 for row in qsrow]
             column = [column.block_c1 for column in qsarena]
             arenasheet = [sheet.sheet1 for sheet in qsarena]
 
-            floor = [floor.floor1 for floor in qsfloor]
+            floor  = [floor.floor1 for floor in qsfloor]
 
-            sheet = [sheet.sheet1 for sheet in qs ]
+            sheet  = [sheet.sheet1 for sheet in qs ]
             number = [number.number1 for number in qsfloor]
 
         qs_f_sheet = {}
@@ -100,17 +100,18 @@ class AnswerList(ListView): #回答一覧ページ
 
         for i in range(len(floorsval)):
             qs_f = qsrow.filter(floor1=floorsval[i])
-            for j in range(len(sheetsval)):
-                qs_f_sheet = qs_f.filter(sheet1=sheetsval[j])
-                item[sheetsval[j]] = [int(row.row1 or 0) for row in qs_f_sheet]
-                histgrams[floorsval[i]] = graph.Floor_Histogram(item)
+            if qs_f is not None:
+                for j in range(len(sheetsval)):
+                    qs_f_sheet = qs_f.filter(sheet1=sheetsval[j])
+                    item[sheetsval[j]] = [int(row.row1 or 0) for row in qs_f_sheet]
+                    histgrams[floorsval[i]] = graph.Floor_Histogram(item)
         
         ctx['floorhistgrams'] = histgrams
 
         ticketchart = graph.piecreate(ticket,ticketsval,'チケット種別')
-        sheetchart = graph.piecreate(sheet,sheetsval,'座席種別')
-        floorchart = graph.piecreate(floor,floorsval,'階層種別')
-        heatmap = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
+        sheetchart  = graph.piecreate(sheet,sheetsval,'座席種別')
+        floorchart  = graph.piecreate(floor,floorsval,'階層種別')
+        heatmap     = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
        #heatmap2 = graph.Floor_HeatMap(row,number,arenasheet,rowmax,columnmax)
         
         performcount = performtimes.count()
