@@ -348,7 +348,7 @@ function sheetvalfunc(val, i) {
         <option value="D">D</option>
         <option value="E">E</option>
         <option value="F">F</option>
-    </select><input type="number" min="1" max="9" class="col-3 number position" id="row${i}" name="row${i}" placeholder="半角数字"> `
+    </select><input type="number" min="1" max="99" class="col-3 number position" id="row${i}" name="row${i}" placeholder="半角数字"> `
 
     const val_1003 =
         `<select id="block_r${i}" name="block_r${i}" class="col-3 block postion">
