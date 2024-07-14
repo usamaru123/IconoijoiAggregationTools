@@ -342,13 +342,13 @@ function sheetvalfunc(val, i) {
     //横アリスタンド用
     const val_1002 =
         `<select id="block_r${i}" name="block_r${i}" class="col-3 block postion">
-        <option value="A">Aブロック</option>
-        <option value="B">Bブロック</option>
-        <option value="C">Cブロック</option>
-        <option value="D">Dブロック</option>
-        <option value="E">Eブロック</option>
-        <option value="F">Fブロック</option>
-    </select>`
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="E">E</option>
+        <option value="F">F</option>
+    </select><input type="number" min="1" max="9" class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字"> `
 
     const val_1003 =
         `<select id="block_r${i}" name="block_r${i}" class="col-3 block postion">
