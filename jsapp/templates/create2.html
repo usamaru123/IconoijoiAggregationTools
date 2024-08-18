@@ -43,8 +43,11 @@
                 </label>
                 {% endfor %}
 
-                {% for ticket in tickets %}
+                {% for ticket in tickets|dictsort:"priority" %}
                 <input type="hidden" class="ticket" value="{{ ticket.tickettype }}">
+                {% for sheet in ticket.sheettype.all|dictsort:"priority" %}
+                <input type="hidden" class="{{ ticket.tickettype }}_sheet" name="sheet" value="{{ sheet.sheet }}">
+                {% endfor %}
                 {% endfor %}
 
                 <!--会場詳細情報送信-->
