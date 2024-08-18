@@ -90,6 +90,7 @@ class HallInfoModel(models.Model): #会場の情報を保存するマスタで�
 class TicketTypeModel(models.Model):
    priority = models.IntegerField()
    tickettype = models.CharField(max_length=100)
+   sheettype = models.ManyToManyField(TicketSheetMaster,default=[1,2,3,4])
    def __str__(self):
       return str(self.priority) + "." + self.tickettype
 
