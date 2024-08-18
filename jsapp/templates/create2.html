@@ -46,7 +46,7 @@
                 {% for ticket in tickets|dictsort:"priority" %}
                 <input type="hidden" class="ticket" value="{{ ticket.tickettype }}">
                 {% for sheet in ticket.sheettype.all|dictsort:"priority" %}
-                <input type="hidden" class="{{ ticket.tickettype }}_sheet" name="sheet" value="{{ sheet.sheet }}">
+                <input type="hidden" class="sheet" name="{{ ticket.tickettype }}_sheet" value="{{ sheet.sheet }}">
                 {% endfor %}
                 {% endfor %}
 
@@ -58,10 +58,10 @@
                 <input type="hidden" id="largeblock_r1" name="block_r1" value>
                 <input type="hidden" id="largeblock_r2" name="block_r2" value>
 
-                <!--座席種別情報送信-->
+                <!--座席種別情報送信
                 {% for sheet in sheets %}
                 <input type="hidden" class="sheet" name="sheet" value="{{ sheet.sheet }}">
-                {% endfor %}
+                {% endfor %}-->
 
                 <!--座席詳細情報送信-->
                 {% for block in blocks.all %}

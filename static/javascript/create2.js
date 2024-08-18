@@ -53,7 +53,8 @@ function ticketformfunc(formlabel, i) {
     for (let t = 0; t < tickets.length; t++) {
         values[t] = tickets[t].value;
     }
-    createRadioformfunc(formlabel, formname, values, i)
+    createRadioformfunc(formlabel, formname, values, i);
+
 }
 //座席種別の選択肢を作成するファンクションです
 function sheetformfunc(formlabel, i) {
