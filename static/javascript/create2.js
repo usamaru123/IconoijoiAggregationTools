@@ -389,3 +389,8 @@ function sheetvalfunc(val, i) {
 
     return text
 }
+
+
+function changeSheetSelect() {
+    ticketval = $
+}
