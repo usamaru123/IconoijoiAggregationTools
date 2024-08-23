@@ -46,7 +46,8 @@
                 {% for ticket in tickets|dictsort:"priority" %}
                 <input type="hidden" class="ticket" value="{{ ticket.tickettype }}">
                 {% for sheet in ticket.sheettype.all|dictsort:"priority" %}
-                <input type="hidden" class="sheet" name="{{ ticket.tickettype }}_sheet" value="{{ sheet.sheet }}">
+                <input type="hidden" class="sheet {{ ticket.tickettype }}" name="{{ ticket.tickettype }}_sheet"
+                    value="{{ sheet.sheet }}">
                 {% endfor %}
                 {% endfor %}
 

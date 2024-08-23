@@ -45,6 +45,7 @@ window.onload = function () {
 }
 
 
+
 //チケット種別の選択肢を作成するファンクションです
 function ticketformfunc(formlabel, i) {
     const formname = 'ticket' + i;
@@ -116,7 +117,7 @@ function createRadioformfunc(formlabel, formname, values) {
             `<div class="form-check">
                     <label for="${id}" class="form-check-label">
                         <input class="form-check-input ${formname}" type="${type}" name="${formname}"
-                    id="${id}" value="${value}">
+                    id="${id}" value="${value}" checked>
                     ${value}
                 </label>
             </div>`;
@@ -134,7 +135,7 @@ function createfloorformfunc(formlabel, formname, values, priority, i) {
             `<div class="form-check">
                     <label for="${id}" class="form-check-label">
                         <input class="form-check-input ${formname}" type="${type}" name="${formname}"
-                    id="${id}" value="${values[l]}" onclick="newpositionfunc(${i},'pr${priority[l]}')">
+                    id="${id}" value="${values[l]}" onclick="newpositionfunc(${i},'pr${priority[l]}')" checked>
                     ${values[l]}
                 </label>
             </div>`;
