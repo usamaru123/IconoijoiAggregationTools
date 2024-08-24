@@ -106,7 +106,7 @@
                         <div class="sheetform alert alert-light shadow" id="sheetform1">
                             <div id="errorform1_2"></div>
                             {% for ticket in tickets.all %}
-                            {% for sheet in ticket.sheettype.all | dictsort:'priority' %}
+                            {% for sheet in ticket.sheettype.all|dictsort:"priority" %}
                             <div class="form-check">
                                 <label for="sheet1_{{ sheet.sheet }}">
                                     <input type="radio" class="form-check-input" id="sheet1_{{ sheet.sheet }}" checked>
@@ -132,7 +132,7 @@
                         <div class="numberform alert alert-light shadow" id="numberform1">
                             <div id="errorform1_4"></div>
                             {% for floor in floors.all %}
-                            {% for sheet in floor.sheets.all | fictsort:'priority' %}
+                            {% for sheet in floor.sheets.all|dictsort:"priority" %}
                             <div class="form-check">
                                 <input type="text" class="col-3 block position valid"
                                     value="{{ sheet.sheettype.valid }}">
