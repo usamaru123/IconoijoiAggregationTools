@@ -106,7 +106,7 @@
                         <div class="sheetform alert alert-light shadow" id="sheetform1">
                             <div id="errorform1_2"></div>
                             {% for ticket in tickets.all %}
-                            {% for sheet in ticket.sheettype.all | dictsort:'priority'}
+                            {% for sheet in ticket.sheettype.all | dictsort:'priority' %}
                             <div class="form-check">
                                 <label for="sheet1_{{ sheet.sheet }}">
                                     <input type="radio" class="form-check-input" id="sheet1_{{ sheet.sheet }}" checked>
@@ -126,24 +126,6 @@
                                         checked>
                                     {{ floor.floorname }}
                                 </label>
-                            </div>
-                            {% endfor %}
-
-
-                            {% for block in blocks.all %}
-                            <input type="hidden" id="{{ block.blockname }}" class="blocks"
-                                value="{{ block.blockname }}">
-                            <div class="pr{{ block.priority }}">
-                                {% for sheet in block.sheets.all|dictsort:"priority" %}
-                                <div class="{{ sheet.sheetname }}">
-                                    <input type="hidden" class="col-3 block position valid"
-                                        value="{{ sheet.sheettype.valid }}">
-                                    <input type="hidden" class="col-3 block position prename"
-                                        value="{{ sheet.prename }}">
-                                    <input type="hidden" class="col-3 block position postname"
-                                        value="{{ sheet.postname }}">
-                                </div>
-                                {% endfor %}
                             </div>
                             {% endfor %}
                         </div>
