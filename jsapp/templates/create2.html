@@ -89,19 +89,77 @@
                 <div class="container">
                     <div id="form1" class="">
                         <p class="time">{{ performtimes.0.perform_time }}</p>
+                        <!--チケット区分-->
                         <div class="ticketform alert alert-light shadow" id="ticketform1">
                             <div id="errorform1_1"></div>
+
+                            {% for ticket in tickets %}
+                            <div class="form-check">
+                                <label for="ticket_{{ticket.tickettype }}" class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="{{ ticket.tickettype }}"
+                                        id="ticket1_{{ ticket.tickettype }}" checked>{{ ticket.tickettype }}
+                                </label>
+                            </div>
+                            {% endfor %}
                         </div>
+                        <!--座席区分-->
                         <div class="sheetform alert alert-light shadow" id="sheetform1">
                             <div id="errorform1_2"></div>
+                            {% for ticket in tickets.all %}
+                            {% for sheet in ticket.sheettype.all | dictsort:'priority'}
+                            <div class="form-check">
+                                <label for="sheet1_{{ sheet.sheet }}">
+                                    <input type="radio" class="form-check-input" id="sheet1_{{ sheet.sheet }}" checked>
+                                    {{ sheet.sheet }}
+                                </label>
+                            </div>
+                            {% endfor %}
+                            {% endfor %}
                         </div>
+                        <!--階層区分-->
                         <div class="floorform alert alert-light shadow" id="floorform1">
                             <div id="errorform1_3"></div>
+                            {% for floor in floors %}
+                            <div class="form-check">
+                                <label for="floor1_{{ floor.floorname }}">
+                                    <input type="radio" class="form-check-input" id="floor1_{{ floor.floorname }}"
+                                        checked>
+                                    {{ floor.floorname }}
+                                </label>
+                            </div>
+                            {% endfor %}
 
+
+                            {% for block in blocks.all %}
+                            <input type="hidden" id="{{ block.blockname }}" class="blocks"
+                                value="{{ block.blockname }}">
+                            <div class="pr{{ block.priority }}">
+                                {% for sheet in block.sheets.all|dictsort:"priority" %}
+                                <div class="{{ sheet.sheetname }}">
+                                    <input type="hidden" class="col-3 block position valid"
+                                        value="{{ sheet.sheettype.valid }}">
+                                    <input type="hidden" class="col-3 block position prename"
+                                        value="{{ sheet.prename }}">
+                                    <input type="hidden" class="col-3 block position postname"
+                                        value="{{ sheet.postname }}">
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% endfor %}
                         </div>
                         <div class="numberform alert alert-light shadow" id="numberform1">
                             <div id="errorform1_4"></div>
-
+                            {% for floor in floors.all %}
+                            {% for sheet in floor.sheets.all | fictsort:'priority' %}
+                            <div class="form-check">
+                                <input type="text" class="col-3 block position valid"
+                                    value="{{ sheet.sheettype.valid }}">
+                                <input type="text" class="col-3 block position prename" value="{{ sheet.prename }}">
+                                <input type="text" class="col-3 block position postname" value="{{ sheet.postname }}">
+                                </label>
+                            </div>
+                            {% endfor %}
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
