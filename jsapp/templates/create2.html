@@ -97,7 +97,7 @@
                             <div class="form-check">
                                 <label for="ticket_{{ticket.tickettype }}" class="form-check-label">
                                     <input type="radio" class="form-check-input" name="{{ ticket.tickettype }}"
-                                        id="ticket1_{{ ticket.tickettype }}" checked>{{ ticket.tickettype }}
+                                        id="ticket1_{{ ticket.tickettype }}">{{ ticket.tickettype }}
                                 </label>
                             </div>
                             {% endfor %}
@@ -106,14 +106,16 @@
                         <div class="sheetform alert alert-light shadow" id="sheetform1">
                             <div id="errorform1_2"></div>
                             {% for ticket in tickets.all %}
-                            {% for sheet in ticket.sheettype.all|dictsort:"priority" %}
-                            <div class="form-check">
-                                <label for="sheet1_{{ sheet.sheet }}">
-                                    <input type="radio" class="form-check-input" id="sheet1_{{ sheet.sheet }}" checked>
-                                    {{ sheet.sheet }}
-                                </label>
+                            <div class="{{ ticket.tickettype }}">
+                                {% for sheet in ticket.sheettype.all|dictsort:"priority" %}
+                                <div class="form-check">
+                                    <label for="sheet1_{{ sheet.sheet }}">
+                                        <input type="radio" class="form-check-input" id="sheet1_{{ sheet.sheet }}">
+                                        {{ sheet.sheet }}
+                                    </label>
+                                </div>
+                                {% endfor %}
                             </div>
-                            {% endfor %}
                             {% endfor %}
                         </div>
                         <!--階層区分-->
@@ -122,8 +124,7 @@
                             {% for floor in floors %}
                             <div class="form-check">
                                 <label for="floor1_{{ floor.floorname }}">
-                                    <input type="radio" class="form-check-input" id="floor1_{{ floor.floorname }}"
-                                        checked>
+                                    <input type="radio" class="form-check-input" id="floor1_{{ floor.floorname }}">
                                     {{ floor.floorname }}
                                 </label>
                             </div>
