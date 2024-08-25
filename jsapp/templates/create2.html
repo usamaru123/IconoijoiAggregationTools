@@ -43,6 +43,7 @@
                 </label>
                 {% endfor %}
 
+                <!--チケット情報送信-->
                 <div id="ticketTypeInput">
                     {% for ticket in tickets|dictsort:"priority" %}
                     <input type="hidden" class="ticket" value="{{ ticket.tickettype }}">
@@ -55,6 +56,23 @@
                     {% endfor %}
                 </div>
 
+
+                <!--座席情報送信-->
+                <div id="sheetTypeInput">
+                    {% for block in blocks.all %}
+                    <input type="hidden" id="{{ block.blockname }}" class="blocks" value="{{ block.blockname }}">
+                    <div class="fr{{ block.priority }}">
+                        {% for sheet in block.sheets.all|dictsort:"priority" %}
+                        <div class="{{ sheet.sheetname }}">
+                            <input type="hidden" class="col-3 block position valid" value="{{ sheet.sheettype.valid }}">
+                            <input type="hidden" class="col-3 block position prename" value="{{ sheet.prename }}">
+                            <input type="hidden" class="col-3 block position postname" value="{{ sheet.postname }}">
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                </div>
+
                 <!--会場詳細情報送信-->
                 <input type="hidden" id="titlename" name="title" value="{{ title }}">
                 <input type="hidden" id="venueid" name="venueid" value="{{ title.venueid }}">
@@ -62,31 +80,6 @@
                 <input type="hidden" id="timeformcheck2" name="evening" value>
                 <input type="hidden" id="largeblock_r1" name="block_r1" value>
                 <input type="hidden" id="largeblock_r2" name="block_r2" value>
-
-                <!--座席種別情報送信
-                {% for sheet in sheets %}
-                <input type="hidden" class="sheet" name="sheet" value="{{ sheet.sheet }}">
-                {% endfor %}-->
-
-                <!--座席詳細情報送信-->
-                {% for block in blocks.all %}
-                <input type="hidden" id="{{ block.blockname }}" class="blocks" value="{{ block.blockname }}">
-                <div class="pr{{ block.priority }}">
-                    {% for sheet in block.sheets.all|dictsort:"priority" %}
-                    <div class="{{ sheet.sheetname }}">
-                        <input type="hidden" class="col-3 block position valid" value="{{ sheet.sheettype.valid }}">
-                        <input type="hidden" class="col-3 block position prename" value="{{ sheet.prename }}">
-                        <input type="hidden" class="col-3 block position postname" value="{{ sheet.postname }}">
-                    </div>
-                    {% endfor %}
-                </div>
-                {% endfor %}
-
-                {% for floor in floors.all %}
-                <input type="hidden" id="{{ floor.floorname }}" class="floorname" value="{{ floor.floorname }}"
-                    data-sheetpriority="{{ floor.priority }}">
-                {% endfor %}
-
             </div>
 
             <div id="answerform1" class="box answerform">
@@ -113,23 +106,7 @@
                         <!--座席区分-->
                         <div class="sheetform alert alert-light shadow" id="form1_2">
                             <div id="errorform1_2"></div>
-                            <div id="sheetform1_area"></div>
-                            <!--
-                            {% for ticket in tickets.all %}
-                            <div class="{{ ticket.tickettype }}">
-                                {% for sheet in ticket.sheettype.all|dictsort:"priority" %}
-                                <div class="form-check">
-                                    <label for="sheet1_{{ ticket.tickettype }}_{{ sheet.sheet }}">
-                                        <input type="radio" class="form-check-input"
-                                            id="sheet1_{{ ticket.tickettype }}_{{ sheet.sheet }}"
-                                            name="sheetform1_{{ ticket.tickettype }}">
-                                        {{ sheet.sheet }}
-                                    </label>
-                                </div>
-                                {% endfor %}
-                            </div>
-                            {% endfor %}
-                            -->
+                            <div id="sheetform1"></div>
                         </div>
 
                         <!--階層区分-->
@@ -140,7 +117,8 @@
                                 <div class="form-check">
                                     <label for="floor1_{{ floor.floorname }}">
                                         <input type="radio" class="form-check-input" id="floor1_{{ floor.floorname }}"
-                                            name="floorform1" value="{{ floor.floorname }}">
+                                            name="floorform1" value="{{ floor.floorname }}"
+                                            onclick="changefloorSelect(this,1)" priority="{{ floor.priority }}">
                                         {{ floor.floorname }}
                                     </label>
                                 </div>
@@ -150,23 +128,7 @@
 
                         <div class="numberform alert alert-light shadow" id="form1_4">
                             <div id="errorform1_4"></div>
-                            <div id="numberform1">
-                                {% for block in blocks.all %}
-                                <div class="{{ block.blockname }}">
-                                    {% for sheet in block.sheets.all|dictsort:"priority" %}
-                                    <div class="form-check">
-                                        <input type="text" class="col-3 block position valid"
-                                            value="{{ sheet.sheettype.valid }}">
-                                        <input type="text" class="col-3 block position prename"
-                                            value="{{ sheet.prename }}">
-                                        <input type="text" class="col-3 block position postname"
-                                            value="{{ sheet.postname }}">
-                                        </label>
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                                {% endfor %}
-                            </div>
+                            <div id="numberform1"></div>
                         </div>
 
                     </div>

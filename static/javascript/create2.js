@@ -31,17 +31,9 @@ window.onload = function () {
 
     venueformlabel.innerHTML = venuetext
 
-    for (let i = 0; i < 2; i++) {
-        const ticketformlabel = document.querySelectorAll('.ticketform')[i];
-        const sheetformlabel = document.querySelectorAll('.sheetform')[i];
-        const floorformlabel = document.querySelectorAll('.floorform')[i];
+    //画面初期化
+    checkEvent(1);
 
-        num = i + 1;
-        //ticketformfunc(ticketformlabel, num);
-        //sheetformfunc(sheetformlabel, num);
-        //floorformfunc(floorformlabel, num);
-        checkEvent(1);
-    }
 }
 
 
@@ -51,11 +43,12 @@ window.onload = function () {
 //output:void
 function changeSheetSelect($this, time) {
     var values = [];
+    const type = 'radio';
 
     var ticket = $this.value;
     var $sheets = $(`#ticketTypeInput > .${ticket}`).find(`input`);
     var formname = 'sheet' + time;
-    var $formlabel = $(`#sheetform${time}_area`);
+    var $formlabel = $(`#sheetform${time}`);
 
     $formlabel.empty();
 
@@ -63,85 +56,50 @@ function changeSheetSelect($this, time) {
         values[i] = $sheets[i].value;
     }
 
-    createRadioformfunc($formlabel, formname, values,);
-}
+    $sheets.forEach(function ($sheet) {
+        value = $sheet.value;
+        id = `${formname}_${value}`;
+        $ticketformtext =
+            `<div class="form-check">
+                    <label for="${id}" class="form-check-label">
+                        <input class="form-check-input ${formname}" type="${type}" name="${formname}"
+                    id="${id}" value="${value}">
+                    ${value}
+                </label>
+            </div>`;
 
-
-//階層の選択肢を作成するファンクションです:HallTypeModelから参照します
-function floorformfunc(formlabel, i) {
-    floornames = [];
-    prioritys = [];
-    var floorobj = document.querySelectorAll('.floorname')
-    for (let b = 0; b < floorobj.length; b++) {
-        floornames[b] = floorobj[b].value;
-        prioritys[b] = floorobj[b].getAttribute('data-sheetpriority')
-    }
-
-    const formname = 'floor' + i;
-
-    createfloorformfunc(formlabel, formname, floornames, prioritys, i);
-
-    floorbuttons = document.querySelectorAll(`.floor${i}`);
+        $formlabel.append(ticketformtext);
+    });
 
 }
-//階層の選択肢から座席位置の選択肢を生成します:SheetModelから参照します
-function newpositionfunc(i, floor) {
-    const floorObjs = document.querySelector(`.${floor}`).querySelectorAll('div')
-    const numberform = document.querySelector(`#numberform${i}`)
-    numberform.innerHTML = ''
 
-    floorObjs.forEach(function (floorObj) {
-        var valid = floorObj.querySelector('.valid').value
-        var prename = floorObj.querySelector('.prename').value
-        var postname = floorObj.querySelector('.postname').value
-        var sheetHTML = sheetvalfunc(valid, i)
-        var position = `
-        <div id="errorform${i}_4"></div>
+//階層区分に応じた座席番号に変化させるファンクション
+//input1:object
+//input2:time
+//output:void
+function changefloorSelect($this, time) {
+
+    var priority = $this.getAttribute('priority');
+    var $sheets = $(`#sheetTypeInput > .fr${priority}`)
+    var $inpForm = $(`#numberform${time}`);
+
+    $inpForm.empty();
+
+    $sheets.forEach(function ($sheet) {
+        var valid = $sheet.querySelector('.valid').value
+        var prename = $sheet.querySelector('.prename').value
+        var postname = $sheet.querySelector('.postname').value
+        var $sheetHTML = sheetvalfunc(valid, time)
+        var $position = `
         <div style="font-size:1.5rem">
-            ${prename} ${sheetHTML} ${postname} 
+            ${prename} ${$sheetHTML} ${postname} 
         </div>
        `
-        numberform.innerHTML += position
+        $inpform.append($position);
     })
 
 }
 
-//ラジオボタンを作成するファンクションです。
-function createRadioformfunc(formlabel, formname, values) {
-
-    type = 'radio';
-    values.forEach(function (value) {
-        id = `${formname}_${value}`;
-        ticketformtext =
-            `<div class="form-check">
-                    <label for="${id}" class="form-check-label">
-                        <input class="form-check-input ${formname}" type="${type}" name="${formname}"
-                    id="${id}" value="${value}" checked>
-                    ${value}
-                </label>
-            </div>`;
-        formlabel.append(ticketformtext);
-    });
-};
-
-//階層選択用のラジオボタンを作成するファンクションです。
-function createfloorformfunc(formlabel, formname, values, priority, i) {
-
-    type = 'radio';
-    for (var l = 0; l < values.length; l++) {
-        id = `${formname}_${values[l]}`;
-        ticketformtext =
-            `<div class="form-check">
-                    <label for="${id}" class="form-check-label">
-                        <input class="form-check-input ${formname}" type="${type}" name="${formname}"
-                    id="${id}" value="${values[l]}" onclick="newpositionfunc(${i},'pr${priority[l]}')" checked>
-                    ${values[l]}
-                </label>
-            </div>`;
-        formlabel.innerHTML += ticketformtext;
-    }
-
-};
 
 //公演を選択した際にアコーディオンメニューを表示するファンクションです。
 function checkEvent(num) {
