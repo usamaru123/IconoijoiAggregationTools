@@ -92,7 +92,7 @@ function changefloorSelect($this, time) {
             ${prename} ${$sheetHTML} ${postname} 
         </div>
        `
-        $inpform.append($position);
+        $inpForm.append($position);
     };
 
 };
