@@ -66,11 +66,7 @@ class FloorModel(models.Model):
    def __str__(self):
       return str(self.priority) +"."+self.floorname
    
-class SalesType(models.Model):
-   priority = models.IntegerField(default=1)
-   salesname = models.CharField(max_length=20,blank=True)
-   def __str__(self):
-      return str(self.priority) + "." + self.salesname
+
 
 class HallInfoModel(models.Model): #会場の情報を保存するマスタです
    hallid = models.IntegerField(primary_key=True)
@@ -86,6 +82,15 @@ class TicketTypeModel(models.Model):
    sheettype = models.ManyToManyField(TicketSheetMaster,default=[1,2,3,4])
    def __str__(self):
       return str(self.priority) + "." + self.tickettype
+   
+
+class SalesType(models.Model):
+   priority = models.IntegerField(default=1)
+   salesname = models.CharField(max_length=20,blank=True)
+   #tickettype = models.ManyToManyField(TicketTypeModel,default="")
+   def __str__(self):
+      return str(self.priority) + "." + self.salesname
+   
 
 class m_PerformTime(models.Model): #公演時間を保存するマスタです
    disp_priority = models.IntegerField()
@@ -102,7 +107,6 @@ class VenueModel(models.Model): #公演の情報を保存するフィールド�
    hallinfo = models.ForeignKey(HallInfoModel,on_delete=models.CASCADE,default=1)
    perform_time = models.ManyToManyField(m_PerformTime,default="")
    salestype = models.ManyToManyField(SalesType,default="")
-   tickettype = models.ManyToManyField(TicketTypeModel,default="")
    sheettype = models.ManyToManyField(TicketSheetMaster,default="")
    #hallset = models.ForeignKey(HallSetModel,on_delete=models.CASCADE)
    #floorset = models.ForeignKey(FloorSetModel,on_delete=models.CASCADE)
