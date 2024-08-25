@@ -44,12 +44,12 @@
                 {% endfor %}
 
                 <!--チケット情報送信-->
-                <div id="ticketTypeInput">
-                    {% for ticket in tickets|dictsort:"priority" %}
-                    <input type="hidden" class="ticket" value="{{ ticket.tickettype }}">
-                    <div class="{{ ticket.tickettype }}">
+                <div id="salesTypeInput">
+                    {% for sale in sales|dictsort:"priority" %}
+                    <input type="hidden" class="sale" value="{{ sale.salesname }}">
+                    <div class="{{ sale.salesname }}">
                         {% for sheet in ticket.sheettype.all|dictsort:"priority" %}
-                        <input type="hidden" class="sheet {{ ticket.tickettype }}" name="{{ ticket.tickettype }}_sheet"
+                        <input type="hidden" class="sheet {{ sale.salesname }}" name="{{ sale.salesname }}_sheet"
                             value="{{ sheet.sheet }}">
                         {% endfor %}
                     </div>

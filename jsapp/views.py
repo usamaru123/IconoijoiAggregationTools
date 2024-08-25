@@ -144,7 +144,7 @@ class AnswerCreate(CreateView): #回答作成フォーム
         hall = venueObj.hall.order_by('priority')
         floor = venueObj.floor.order_by('priority')
         sheets = venueObj.sheettype.order_by('priority')
-        tickets = venueObj.tickettype.order_by('priority')
+        sales = venueObj.salestype.order_by('priority')
 
 
         c_answer = answerObj.count()
@@ -157,7 +157,7 @@ class AnswerCreate(CreateView): #回答作成フォーム
         ctx['floors'] = floor
         ctx['sheets'] = sheets
         ctx['performtimes'] = performtimes
-        ctx['tickets'] = tickets
+        ctx['tickets'] = sales
         return  ctx
 
     def get_success_url(self):
