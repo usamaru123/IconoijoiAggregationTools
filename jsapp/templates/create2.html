@@ -101,8 +101,8 @@
                                 <div class="form-check">
                                     <label for="ticket1_{{ticket.tickettype }}" class="form-check-label">
                                         <input type="radio" class="form-check-input" name="ticket1"
-                                            id="ticket1_{{ ticket.tickettype }}" onclick="changeSheetSelect({{
-                                            ticket.tickettype }},1)">{{ ticket.tickettype }}
+                                            id="ticket1_{{ ticket.tickettype }}" onclick="changeSheetSelect(this,1)">{{
+                                        ticket.tickettype }}
                                     </label>
                                 </div>
                                 {% endfor %}
@@ -113,6 +113,7 @@
                         <div class="sheetform alert alert-light shadow" id="form1_2">
                             <div id="errorform1_2"></div>
                             <div id="sheetform1_area"></div>
+                            <!--
                             {% for ticket in tickets.all %}
                             <div class="{{ ticket.tickettype }}">
                                 {% for sheet in ticket.sheettype.all|dictsort:"priority" %}
@@ -127,6 +128,7 @@
                                 {% endfor %}
                             </div>
                             {% endfor %}
+                            -->
                         </div>
 
                         <!--階層区分-->

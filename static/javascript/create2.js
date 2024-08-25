@@ -46,11 +46,13 @@ window.onload = function () {
 
 
 //チケット区分に応じた座席区分に変化させるファンクション
-//input1:ticket
+//input1:object
 //input2:time
 //output:void
-function changeSheetSelect(ticket, time) {
+function changeSheetSelect($this, time) {
     var values = [];
+
+    var ticket = $this.val();
     var $sheets = $(`#ticketTypeInput > .${ticket}`).find(`input`);
     var formname = 'sheet' + time;
     var $formlabel = $(`#sheetform${time}_area`)
