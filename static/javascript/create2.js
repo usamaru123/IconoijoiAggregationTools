@@ -52,12 +52,9 @@ function changeSheetSelect($this, time) {
 
     $formlabel.empty();
 
-    for (let i = 0; i < $sheets.length; i++) {
-        values[i] = $sheets[i].value;
-    }
 
-    $sheets.forEach(function ($sheet) {
-        value = $sheet.value;
+    for (var i = 0; i < $sheets.length; i++) {
+        value.push($sheet[i].value);
         id = `${formname}_${value}`;
         $ticketformtext =
             `<div class="form-check">
@@ -69,7 +66,7 @@ function changeSheetSelect($this, time) {
             </div>`;
 
         $formlabel.append(ticketformtext);
-    });
+    };
 
 }
 
