@@ -64,7 +64,7 @@ function changeSheetSelect($this, time) {
                 </label>
             </div>`;
 
-        $formlabel.append(ticketformtext);
+        $formlabel.append($ticketformtext);
     };
 
 }
