@@ -101,6 +101,7 @@ class VenueModel(models.Model): #公演の情報を保存するフィールド�
    columnmax = models.IntegerField(default=1,blank=True)
    hallinfo = models.ForeignKey(HallInfoModel,on_delete=models.CASCADE,default=1)
    perform_time = models.ManyToManyField(m_PerformTime,default="")
+   salestype = models.ManyToManyField(SalesType,default="")
    tickettype = models.ManyToManyField(TicketTypeModel,default="")
    sheettype = models.ManyToManyField(TicketSheetMaster,default="")
    #hallset = models.ForeignKey(HallSetModel,on_delete=models.CASCADE)
