@@ -33,6 +33,7 @@ window.onload = function () {
 
     //画面初期化
     checkEvent(1);
+    $('#ticketform1 div:first-child').find('input').prop('checked', true);
 
 }
 
@@ -67,6 +68,7 @@ function changeSheetSelect($this, time) {
         $formlabel.append($ticketformtext);
     };
 
+    return;
 }
 
 //階層区分に応じた座席番号に変化させるファンクション
@@ -95,6 +97,7 @@ function changefloorSelect($this, time) {
         $inpForm.append($position);
     };
 
+    return;
 };
 
 
@@ -115,17 +118,23 @@ function checkEvent(num) {
 
 //小文字のアルファベットを入力した際に大文字に自動変換するファンクションです。
 function inputChange(i) {
-    const blocktext = document.querySelector(`#block_r${i}`);
-    const largeblock = document.querySelector(`#largeblock_r${i}`);
-    const largeblocktext = blocktext.value.toUpperCase();
+    var $inp = document.querySelector(`#block_r${i}`);
+    var text = $inp.value;
 
-    largeblock.value = largeblocktext;
+    if ($inp.match(/^[a-z]*$/)) {
+        largetext = text.toUpperCase();
+        $inp.value = largetext;
+    }
+
+    return;
 };
 
 
 function positionform_change(num) {
     const positionformlabel = document.querySelectorAll('.positionform')[num];
     positionformfunc(positionformlabel, num);
+
+    return;
 };
 
 
