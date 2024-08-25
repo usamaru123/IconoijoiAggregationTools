@@ -81,7 +81,8 @@ function changefloorSelect($this, time) {
 
     $inpForm.empty();
 
-    $sheets.forEach(function ($sheet) {
+    for (var i = 0; i < $sheets.length; i++) {
+        var $sheet = $sheets[i]
         var valid = $sheet.querySelector('.valid').value
         var prename = $sheet.querySelector('.prename').value
         var postname = $sheet.querySelector('.postname').value
@@ -92,9 +93,9 @@ function changefloorSelect($this, time) {
         </div>
        `
         $inpform.append($position);
-    })
+    };
 
-}
+};
 
 
 //公演を選択した際にアコーディオンメニューを表示するファンクションです。
