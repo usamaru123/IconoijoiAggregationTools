@@ -45,15 +45,13 @@
 
                 <!--チケット情報送信-->
                 <div id="ticketTypeInput">
-                    {% for sale in sales|dictsort:"priority" %}
-                    <input type="hidden" class="ticket" value="{{ sale.salesname }}">
+                    {% for sale in sales.all|dictsort:"priority" %}
                     <div class="{{ sale.salesname }}">
-                        {% for ticket in sale.tickettype|dictsort:"priority" %}
+                        {% for ticket in sale.tickettype.all|dictsort:"priority" %}
                         <input type="hidden" class="ticket" value="{{ ticket.tickettype }}">
-                        <div class="{{ ticket.tickettype }}">
+                        <div class="{{ sale.salesname }}_{{ ticket.tickettype }}">
                             {% for sheet in ticket.sheettype.all|dictsort:"priority" %}
-                            <input type="hidden" class="sheet {{ ticket.tickettype }}"
-                                name="{{ ticket.tickettype }}_{{ sheet.sheet }}" value="{{ sheet.sheet }}">
+                            <input type="hidden" class="sheet {{ ticket.tickettype }}" value="{{ sheet.sheet }}">
                             {% endfor %}
                         </div>
                         {% endfor %}
@@ -91,17 +89,17 @@
                 <div class="container">
                     <div id="form1" class="">
                         <p class="time">{{ performtimes.0.perform_time }}</p>
-                        <!--チケット区分-->
-                        <div class="ticketform alert alert-light shadow" id="form1_1">
+                        <!--販売区分-->
+                        <div class="salesform alert alert-light shadow" id="form1_1">
                             <div id="errorform1_1"></div>
-                            <div id="ticketform1">
-                                {% for ticket in tickets %}
+                            <div id="salesform1">
+                                {% for sale in sales %}
                                 <div class="form-check">
-                                    <label for="ticket1_{{ticket.tickettype }}" class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="ticket1"
-                                            value="{{ticket.tickettype }}" id="ticket1_{{ ticket.tickettype }}"
+                                    <label for="sale1_{{ sale.salesname }}" class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="sale1"
+                                            value="{{ sale.salesname }}" id="sale1_{{ sale.salesname }}"
                                             onclick="changeSheetSelect(this,1)">
-                                        {{ ticket.tickettype }}
+                                        {{ sale.salesname }}
                                     </label>
                                 </div>
                                 {% endfor %}

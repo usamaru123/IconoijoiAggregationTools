@@ -191,9 +191,9 @@ function valueCheck() {
 function formcheck(i) {
     const errormsg2 = '入力してください';
 
-    const tickets = document.querySelectorAll(`.ticket${i}`);
-    const sheets = document.querySelectorAll(`.sheet${i}`);
-    const floors = document.querySelectorAll(`.floor${i}`);
+    const tickets = document.querySelectorAll(`.ticketform${i}`);
+    const sheets = document.querySelectorAll(`.sheetform${i}`);
+    const floors = document.querySelectorAll(`.floorform${i}`);
     const block_r = document.querySelector(`#block_r${i}`);
     const block_c = document.querySelector(`#block_c${i}`);
     const row = document.querySelector(`#row${i}`)
