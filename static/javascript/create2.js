@@ -118,7 +118,7 @@ function createRadioformfunc(formlabel, formname, values) {
                     ${value}
                 </label>
             </div>`;
-        formlabel.innerHTML = ticketformtext;
+        formlabel.innerHTML += ticketformtext;
     });
 };
 
