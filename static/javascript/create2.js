@@ -33,7 +33,8 @@ window.onload = function () {
 
     //画面初期化
     checkEvent(1);
-    $('#ticketform1 div:first-child').find('input').prop('checked', true);
+    $('#ticket1_FC先行').click();
+
 
 }
 
