@@ -57,7 +57,7 @@ function changeSheetSelect($this, time) {
     var formname = 'sheet' + time;
     var $formlabel = $(`#sheetform${time}_area`);
 
-    $sheet.forEach(function (s) {
+    $sheets.forEach(function (s) {
         values.push(s.val());
     });
 
