@@ -42,7 +42,6 @@ window.onload = function () {
 //input2:time
 //output:void
 function changeSheetSelect($this, time) {
-    var values = [];
     const type = 'radio';
 
     var ticket = $this.value;
@@ -54,14 +53,14 @@ function changeSheetSelect($this, time) {
 
 
     for (var i = 0; i < $sheets.length; i++) {
-        value.push($sheet[i].value);
-        id = `${formname}_${value}`;
+        sheetval = $sheets[i].value;
+        id = `${formname}_${sheetval}`;
         $ticketformtext =
             `<div class="form-check">
                     <label for="${id}" class="form-check-label">
                         <input class="form-check-input ${formname}" type="${type}" name="${formname}"
-                    id="${id}" value="${value}">
-                    ${value}
+                    id="${id}" value="${sheetvale}">
+                    ${sheetval}
                 </label>
             </div>`;
 
