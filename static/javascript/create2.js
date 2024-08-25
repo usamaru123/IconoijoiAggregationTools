@@ -57,9 +57,9 @@ function changeSheetSelect($this, time) {
     var formname = 'sheet' + time;
     var $formlabel = $(`#sheetform${time}_area`);
 
-    $sheets.forEach(function (s) {
-        values.push(s.val());
-    });
+    for (let i = 0; i < $sheets.length; i++) {
+        values[i] = $sheets[i].val();
+    }
 
     createRadioformfunc($formlabel, formname, values,);
 }
