@@ -76,7 +76,7 @@ function changeSheetSelect($this, time) {
 function changefloorSelect($this, time) {
 
     var priority = $this.getAttribute('priority');
-    var $sheets = $(`#sheetTypeInput > .fr${priority}`)
+    var $sheets = $(`#sheetTypeInput > .fr${priority}`).find('div')
     var $inpForm = $(`#numberform${time}`);
 
     $inpForm.empty();
