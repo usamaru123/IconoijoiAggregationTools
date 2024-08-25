@@ -96,7 +96,7 @@
                             {% for ticket in tickets %}
                             <div class="form-check">
                                 <label for="ticket1_{{ticket.tickettype }}" class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="{{ ticket.tickettype }}"
+                                    <input type="radio" class="form-check-input" name="ticket1"
                                         id="ticket1_{{ ticket.tickettype }}">{{ ticket.tickettype }}
                                 </label>
                             </div>
@@ -109,8 +109,9 @@
                             <div class="{{ ticket.tickettype }}">
                                 {% for sheet in ticket.sheettype.all|dictsort:"priority" %}
                                 <div class="form-check">
-                                    <label for="sheet1_{{ sheet.sheet }}">
-                                        <input type="radio" class="form-check-input" id="sheet1_{{ sheet.sheet }}"
+                                    <label for="sheet1_{{ ticket.tickettype }}_{{ sheet.sheet }}">
+                                        <input type="radio" class="form-check-input"
+                                            id="sheet1_{{ ticket.tickettype }}_{{ sheet.sheet }}"
                                             name="sheetform1_{{ ticket.tickettype }}">
                                         {{ sheet.sheet }}
                                     </label>
