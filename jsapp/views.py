@@ -157,7 +157,7 @@ class AnswerCreate(CreateView): #回答作成フォーム
         ctx['floors'] = floor
         ctx['sheets'] = sheets
         ctx['performtimes'] = performtimes
-        ctx['tickets'] = sales
+        ctx['sales'] = sales
         return  ctx
 
     def get_success_url(self):
