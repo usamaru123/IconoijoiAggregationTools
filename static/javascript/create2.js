@@ -52,18 +52,16 @@ window.onload = function () {
 function changeSheetSelect($this, time) {
     var values = [];
 
-    var ticket = $this.val();
+    var ticket = $this.value;
     var $sheets = $(`#ticketTypeInput > .${ticket}`).find(`input`);
     var formname = 'sheet' + time;
-    var $formlabel = $(`#sheetform${time}_area`)
+    var $formlabel = $(`#sheetform${time}_area`);
 
     for ($sheet in $sheets) {
         values.append($sheet.val());
     };
 
-
     createRadioformfunc($formlabel, formname, values,);
-
 }
 
 

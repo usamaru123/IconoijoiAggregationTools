@@ -101,8 +101,9 @@
                                 <div class="form-check">
                                     <label for="ticket1_{{ticket.tickettype }}" class="form-check-label">
                                         <input type="radio" class="form-check-input" name="ticket1"
-                                            id="ticket1_{{ ticket.tickettype }}" onclick="changeSheetSelect(this,1)">{{
-                                        ticket.tickettype }}
+                                            value="{{ticket.tickettype }}" id="ticket1_{{ ticket.tickettype }}"
+                                            onclick="changeSheetSelect(this,1)">
+                                        {{ ticket.tickettype }}
                                     </label>
                                 </div>
                                 {% endfor %}
@@ -139,7 +140,7 @@
                                 <div class="form-check">
                                     <label for="floor1_{{ floor.floorname }}">
                                         <input type="radio" class="form-check-input" id="floor1_{{ floor.floorname }}"
-                                            name="floorform1">
+                                            name="floorform1" value="{{ floor.floorname }}">
                                         {{ floor.floorname }}
                                     </label>
                                 </div>
