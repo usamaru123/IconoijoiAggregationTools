@@ -59,7 +59,7 @@ function changeSheetSelect($this, time) {
             `<div class="form-check">
                     <label for="${id}" class="form-check-label">
                         <input class="form-check-input ${formname}" type="${type}" name="${formname}"
-                    id="${id}" value="${sheetvale}">
+                    id="${id}" value="${sheetval}">
                     ${sheetval}
                 </label>
             </div>`;
