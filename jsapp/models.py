@@ -87,7 +87,6 @@ class TicketTypeModel(models.Model):
 class SalesType(models.Model):
    priority = models.IntegerField(default=1)
    salesname = models.CharField(max_length=20,blank=True)
-   tickettype = models.ManyToManyField(TicketTypeModel,default=[1])
    def __str__(self):
       return str(self.priority) + "." + self.salesname
    
@@ -107,6 +106,7 @@ class VenueModel(models.Model): #公演の情報を保存するフィールド�
    hallinfo = models.ForeignKey(HallInfoModel,on_delete=models.CASCADE,default=1)
    perform_time = models.ManyToManyField(m_PerformTime,default="")
    salestype = models.ManyToManyField(SalesType,default="")
+   tickettype = models.ManyToManyField(TicketTypeModel,default=[1])
    sheettype = models.ManyToManyField(TicketSheetMaster,default="")
    #hallset = models.ForeignKey(HallSetModel,on_delete=models.CASCADE)
    #floorset = models.ForeignKey(FloorSetModel,on_delete=models.CASCADE)
