@@ -40,34 +40,31 @@ window.onload = function () {
         //ticketformfunc(ticketformlabel, num);
         //sheetformfunc(sheetformlabel, num);
         //floorformfunc(floorformlabel, num);
-        checkEvent(1)
+        checkEvent(1);
     }
 }
 
 
-
-//チケット種別の選択肢を作成するファンクションです
-function ticketformfunc(formlabel, i) {
-    const formname = 'ticket' + i;
-    let tickets = document.querySelectorAll('.ticket')
+//チケット区分に応じた座席区分に変化させるファンクション
+//input1:ticket
+//input2:time
+//output:void
+function changeSheetSelect(ticket, time) {
     var values = [];
-    for (let t = 0; t < tickets.length; t++) {
-        values[t] = tickets[t].value;
-    }
-    createRadioformfunc(formlabel, formname, values, i);
+    var $sheets = $(`#ticketTypeInput > .${ticket}`).find(`input`);
+    var formname = 'sheet' + time;
+    var $formlabel = $(`#sheetform${time}_area`)
+
+    for ($sheet in $sheets) {
+        values.append($sheet.val());
+    };
+
+
+    createRadioformfunc($formlabel, formname, values,);
 
 }
-//座席種別の選択肢を作成するファンクションです
-function sheetformfunc(formlabel, i) {
-    let sheets = document.querySelectorAll('.sheet');
-    var values = [];
-    for (let i = 0; i < sheets.length; i++) {
-        values[i] = sheets[i].value;
-    }
-    const formname = 'sheet' + i;
 
-    createRadioformfunc(formlabel, formname, values,);
-}
+
 //階層の選択肢を作成するファンクションです:HallTypeModelから参照します
 function floorformfunc(formlabel, i) {
     floornames = [];
@@ -121,7 +118,7 @@ function createRadioformfunc(formlabel, formname, values) {
                     ${value}
                 </label>
             </div>`;
-        formlabel.innerHTML += ticketformtext;
+        formlabel.innerHTML = ticketformtext;
     });
 };
 
@@ -391,7 +388,3 @@ function sheetvalfunc(val, i) {
     return text
 }
 
-
-function changeSheetSelect() {
-    ticketval = $
-}
