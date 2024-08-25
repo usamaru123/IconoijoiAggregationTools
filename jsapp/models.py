@@ -87,7 +87,7 @@ class TicketTypeModel(models.Model):
 class SalesType(models.Model):
    priority = models.IntegerField(default=1)
    salesname = models.CharField(max_length=20,blank=True)
-   #tickettype = models.ManyToManyField(TicketTypeModel,default="")
+   tickettype = models.ManyToManyField(TicketTypeModel,default="")
    def __str__(self):
       return str(self.priority) + "." + self.salesname
    
