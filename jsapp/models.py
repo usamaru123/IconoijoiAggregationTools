@@ -91,7 +91,7 @@ class SalesType(models.Model):
    dispsalesname = models.CharField(max_length=20)
    tickettype = models.ManyToManyField(TicketTypeModel,default=[1])
    def __str__(self):
-      return str(self.priority) + "." + self.salesname
+      return str(self.priority) + "." + self.salestype
    
 
 class m_PerformTime(models.Model): #公演時間を保存するマスタです
