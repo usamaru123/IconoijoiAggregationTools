@@ -46,10 +46,10 @@
                 <!--チケット情報送信-->
                 <div id="ticketTypeInput">
                     {% for sale in sales.all|dictsort:"priority" %}
-                    <div class="{{ sale.salesname }}">
+                    <div class="{{ sale.salestype }}">
                         {% for ticket in sale.tickettype.all|dictsort:"priority" %}
-                        <input type="hidden" class="ticket" value="{{ ticket.tickettype }}">
-                        <div class="{{ sale.salesname }}_{{ ticket.tickettype }}">
+                        <input type="hidden" class="ticket" value="{{ ticket.dispticketname }}">
+                        <div class="{{ sale.salestype }}_{{ ticket.tickettype }}">
                             {% for sheet in ticket.sheettype.all|dictsort:"priority" %}
                             <input type="hidden" class="sheet {{ ticket.tickettype }}" value="{{ sheet.sheet }}">
                             {% endfor %}
@@ -95,9 +95,9 @@
                             <div id="salesform1">
                                 {% for sale in sales %}
                                 <div class="form-check">
-                                    <label for="sale1_{{ sale.salesname }}" class="form-check-label">
+                                    <label for="sale1_{{ sale.salestype }}" class="form-check-label">
                                         <input type="radio" class="form-check-input" name="sale1"
-                                            value="{{ sale.salesname }}" id="sale1_{{ sale.salesname }}"
+                                            value="{{ sale.salestype }}" id="sale1_{{ sale.salestype }}"
                                             onclick="changeSheetSelect(this,1)">
                                         {{ sale.dispsalesname }}
                                     </label>
