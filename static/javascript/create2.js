@@ -44,7 +44,7 @@ window.onload = function () {
 function changeTicketSelect($this, time) {
     const type = 'radio';
 
-    var sale = $this.attr('id');
+    var sale = $this.getAttribute('id');
     var $tickets = $(`#ticketTypeInput > .${sale} > input`);
     var formname = 'sheet' + time;
     var $formlabel = $(`#ticketform${time}`);
