@@ -77,7 +77,7 @@ function changeTicketSelect($this, time) {
 //output:void
 function changeSheetSelect(sale, $this, time) {
     const type = 'radio';
-    var ticket = $this.value;
+    var ticket = $this.getAttribute('content');
     console.log(sale)
     var $sheets = $(`#ticketTypeInput > .${ticket} > .${sale} `).find(`input`);
     var formname = sale + time;
