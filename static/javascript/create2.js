@@ -59,7 +59,7 @@ function changeTicketSelect($this, time) {
             `<div class="form-check ${sale}">
                     <label for="${id}" class="form-check-label">
                         <input class="form-check-input ${formname}" type="${type}" name="${formname}"
-                    id="${id}" value="${ticketval}" onclick="changeSheetSelect(this,1)">
+                    id="${id}" value="${ticketval}" onclick="changeSheetSelect(this,${time})">
                     ${ticketval}
                 </label>
             </div>`;
