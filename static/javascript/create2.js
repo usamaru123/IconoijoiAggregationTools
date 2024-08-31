@@ -37,6 +37,39 @@ window.onload = function () {
 
 
 }
+//販売区分に応じたチケット区分に変化させるファンクション
+//input1:object
+//input2:time
+//output:void
+function changeTicketSelect($this, time) {
+    const type = 'radio';
+
+    var sale = $this.value;
+    var $tickets = $(`#ticketTypeInput > .${sale} > input`);
+    var formname = 'sheet' + time;
+    var $formlabel = $(`#ticketform${time}`);
+
+    $formlabel.empty();
+
+
+    for (var i = 0; i < $tickets.length; i++) {
+        ticketval = $tickets[i].value;
+        id = `${formname}_${ticketval}`;
+        $ticketformtext =
+            `<div class="form-check">
+                    <label for="${id}" class="form-check-label">
+                        <input class="form-check-input ${formname}" type="${type}" name="${formname}"
+                    id="${id}" value="${ticketval}">
+                    ${ticketval}
+                </label>
+            </div>`;
+
+        $formlabel.append($ticketformtext);
+    };
+
+    return;
+}
+
 
 
 //チケット区分に応じた座席区分に変化させるファンクション
@@ -46,8 +79,9 @@ window.onload = function () {
 function changeSheetSelect($this, time) {
     const type = 'radio';
 
+    // var sale       = ;
     var ticket = $this.value;
-    var $sheets = $(`#ticketTypeInput > .${ticket}`).find(`input`);
+    var $sheets = $(`#ticketTypeInput > .${sale} > .${}`).find(`input`);
     var formname = 'sheet' + time;
     var $formlabel = $(`#sheetform${time}`);
 
