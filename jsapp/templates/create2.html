@@ -48,8 +48,8 @@
                     {% for sale in sales.all|dictsort:"priority" %}
                     <div class="{{ sale.salestype }}">
                         {% for ticket in sale.tickettype.all|dictsort:"priority" %}
-                        <input type="hidden" class="{{ ticket.tickettype }}" value="{{ ticket.dispticketname }}">
-                        <div>
+                        <input type="hidden" content="{{ ticket.tickettype }}" value="{{ ticket.dispticketname }}">
+                        <div class="{{ ticket.tickettype }}">
                             {% for sheet in ticket.sheettype.all|dictsort:"priority" %}
                             <input type="hidden" class="sheet {{ ticket.tickettype }}" value="{{ sheet.sheet }}">
                             {% endfor %}
