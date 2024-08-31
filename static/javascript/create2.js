@@ -41,7 +41,7 @@ window.onload = function () {
 //input1:object
 //input2:time
 //output:void
-function changeTicketSelect($this, time) {
+/*function changeTicketSelect($this, time) {
     const type = 'radio';
 
     var sale = $this.value;
@@ -68,7 +68,7 @@ function changeTicketSelect($this, time) {
     };
 
     return;
-}
+}*/
 
 
 
