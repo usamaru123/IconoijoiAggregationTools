@@ -46,7 +46,6 @@ function changeTicketSelect($this, time) {
 
     var sale = $this.getAttribute('content')
     var $tickets = $(`#ticketTypeInput > .${sale} > input`);
-    var tickettype = $(`#ticketTypeInput > .${sale}`).attr('class');
     var formname = 'sheet' + time;
     var $formlabel = $(`#ticketform${time}`);
 
@@ -55,12 +54,14 @@ function changeTicketSelect($this, time) {
 
     for (var i = 0; i < $tickets.length; i++) {
         ticketval = $tickets[i].value;
+        tickettype = $tickets[i].attr('class');
+
         id = `${formname}_${ticketval}`;
         $ticketformtext =
             `<div class="form-check ${sale}">
                     <label for="${id}" class="form-check-label">
                         <input class="form-check-input ${formname}" type="${type}" name="${formname}"
-                    id="${id}" value="${ticketval}" onclick="changeSheetSelect('${sale}','${tickettype}',${time})">
+                    id="${id}" value="${ticketval}" onclick="changeSheetSelect('${sale}',${tickettype},${time})">
                     ${ticketval}
                 </label>
             </div>`;
@@ -76,7 +77,7 @@ function changeTicketSelect($this, time) {
 //input1:object
 //input2:time
 //output:void
-function changeSheetSelect(sale, ticket, time) {
+function changeSheetSelect(sale, $this, time) {
     const type = 'radio';
     var $sheets = $(`#ticketTypeInput > .${ticket} > .${sale} `).find(`input`);
     var formname = sale + time;
