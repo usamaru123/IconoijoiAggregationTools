@@ -46,7 +46,7 @@ function changeTicketSelect($this, time) {
 
     var sale = $this.getAttribute('content')
     var $tickets = $(`#ticketTypeInput > .${sale} > input`);
-    var tickettype = $tickets.attr('class');
+    var tickettype = $(`#ticketTypeInput > .${sale}`).attr('class');
     var formname = 'sheet' + time;
     var $formlabel = $(`#ticketform${time}`);
 
