@@ -56,10 +56,10 @@ function changeTicketSelect($this, time) {
         ticketval = $tickets[i].value;
         id = `${formname}_${ticketval}`;
         $ticketformtext =
-            `<div class="form-check">
+            `<div class="form-check ${sale}">
                     <label for="${id}" class="form-check-label">
                         <input class="form-check-input ${formname}" type="${type}" name="${formname}"
-                    id="${id}" value="${ticketval}">
+                    id="${id}" value="${ticketval}" onclick="changeSheetSelect(this,1)">
                     ${ticketval}
                 </label>
             </div>`;
@@ -76,14 +76,13 @@ function changeTicketSelect($this, time) {
 //input1:object
 //input2:time
 //output:void
-/*
 function changeSheetSelect($this, time) {
     const type = 'radio';
 
-    // var sale       = ;
+    var sale = $(`#salesform${time} input:checked`).val();
     var ticket = $this.value;
-    var $sheets = $(`#ticketTypeInput > .${sale} `).find(`input`);
-    var formname = 'sheet' + time;
+    var $sheets = $(`#ticketTypeInput > .${ticket} > .${sale} `).find(`input`);
+    var formname = sale + time;
     var $formlabel = $(`#sheetform${time}`);
 
     $formlabel.empty();
@@ -106,7 +105,6 @@ function changeSheetSelect($this, time) {
 
     return;
 }
-*/
 //階層区分に応じた座席番号に変化させるファンクション
 //input1:object
 //input2:time
