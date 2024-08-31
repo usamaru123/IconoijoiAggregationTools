@@ -46,10 +46,8 @@ class AnswerList(ListView): #回答一覧ページ
         floorvalobj = venuemodel.floor.order_by('priority')
         sheetvalobj = venuemodel.sheettype.order_by('priority')
 
-        ticketobj = [ticket.tickettype for ticket in ticketmodel]
-
         salesval   = [sale.dispsalesname for sale in salevalobj]
-        ticketsval = [ticket.dispticketname for ticket in ticketobj]
+        ticketsval = [ticket.dispticketname for ticket in ticketmodel]
         floorsval = [floor.floorname for floor in floorvalobj]
         sheetsval = [sheet.sheet for sheet in sheetvalobj]
 
