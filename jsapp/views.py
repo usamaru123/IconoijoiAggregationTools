@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView,UpdateView,View
-from .models import MenberModel,EventModel,VenueModel,HallTypeModel,HallInfoModel
+from .models import MenberModel,EventModel,VenueModel,HallTypeModel,HallInfoModel,TicketTypeModel
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.shortcuts import redirect
@@ -39,12 +39,14 @@ class AnswerList(ListView): #回答一覧ページ
         ctx = super().get_context_data(**kwargs)
         qsmodel = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         venuemodel = VenueModel.objects.get(venueid=self.kwargs['num'])
+        ticketmodel = TicketTypeModel.objects
+
         performtimes = venuemodel.perform_time.order_by('disp_priority')
         salevalobj = venuemodel.salestype.order_by('priority')
         floorvalobj = venuemodel.floor.order_by('priority')
         sheetvalobj = venuemodel.sheettype.order_by('priority')
 
-        ticketobj = [ticket.tickettype for ticket in salevalobj]
+        ticketobj = [ticket.tickettype for ticket in ticketmodel]
 
         salesval   = [sale.dispsalesname for sale in salevalobj]
         ticketsval = [ticket.dispticketname for ticket in ticketobj]
