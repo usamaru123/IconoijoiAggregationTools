@@ -39,7 +39,7 @@ class AnswerList(ListView): #回答一覧ページ
         ctx = super().get_context_data(**kwargs)
         qsmodel = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         venuemodel = VenueModel.objects.get(venueid=self.kwargs['num'])
-        ticketmodel = TicketTypeModel.objects
+        ticketmodel = TicketTypeModel.objects.order_by('priority').all()
 
         performtimes = venuemodel.perform_time.order_by('disp_priority')
         salevalobj = venuemodel.salestype.order_by('priority')
