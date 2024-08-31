@@ -4,6 +4,7 @@ from .models import MenberModel,EventModel,VenueModel,HallTypeModel,HallInfoMode
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.shortcuts import redirect
+from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from matplotlib import pyplot as plt
 from . import graph 
 import csv,urllib
@@ -36,6 +37,8 @@ class AnswerList(ListView): #回答一覧ページ
     model = EventModel
 
     def get_context_data(self,*args,**kwargs,):
+        paginate = 20
+        
         ctx = super().get_context_data(**kwargs)
         qsmodel = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         venuemodel = VenueModel.objects.get(venueid=self.kwargs['num'])
@@ -121,6 +124,8 @@ class AnswerList(ListView): #回答一覧ページ
         floorchart  = graph.piecreate(floor,floorsval,'階層種別')
         heatmap     = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
        #heatmap2 = graph.Floor_HeatMap(row,number,arenasheet,rowmax,columnmax)
+
+        results = Paginator(qs,paginate)
         
         performcount = performtimes.count()
         ctx['salechart'] = salechart
@@ -130,7 +135,7 @@ class AnswerList(ListView): #回答一覧ページ
 
         ctx['heatmap'] = heatmap
        # ctx['sheetratio1'] = sheetratio1
-        ctx['results'] = qs
+        ctx['results'] = results
         ctx['title'] = venuemodel
         ctx['count'] = count
         ctx['num'] = self.kwargs['num']
@@ -282,3 +287,4 @@ def csv_export(request,num):
             ])
         No = No + 1
     return response
+
