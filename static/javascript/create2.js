@@ -44,7 +44,7 @@ window.onload = function () {
 function changeTicketSelect($this, time) {
     const type = 'radio';
 
-    var sale = $this.value;
+    var sale = $this.attr('id');
     var $tickets = $(`#ticketTypeInput > .${sale} > input`);
     var formname = 'sheet' + time;
     var $formlabel = $(`#ticketform${time}`);
@@ -59,7 +59,7 @@ function changeTicketSelect($this, time) {
             `<div class="form-check ${sale}">
                     <label for="${id}" class="form-check-label">
                         <input class="form-check-input ${formname}" type="${type}" name="${formname}"
-                    id="${id}" value="${ticketval}" onclick="changeSheetSelect(this,${time})">
+                    id="${id}" value="${ticketval}" onclick="changeSheetSelect(${sale},this,${time})">
                     ${ticketval}
                 </label>
             </div>`;
@@ -76,10 +76,10 @@ function changeTicketSelect($this, time) {
 //input1:object
 //input2:time
 //output:void
-function changeSheetSelect($this, time) {
+function changeSheetSelect(sale, $this, time) {
     const type = 'radio';
 
-    var sale = $(`#salesform${time} input:checked`).val();
+    var sale = sale;
     var ticket = $this.value;
     var $sheets = $(`#ticketTypeInput > .${ticket} > .${sale} `).find(`input`);
     var formname = sale + time;
