@@ -63,7 +63,6 @@ function changeTicketSelect($this, time) {
                     ${ticketval}
                 </label>
             </div>`;
-
         $formlabel.append($ticketformtext);
     };
 
