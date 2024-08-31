@@ -40,11 +40,14 @@ class AnswerList(ListView): #回答一覧ページ
         qsmodel = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         venuemodel = VenueModel.objects.get(venueid=self.kwargs['num'])
         performtimes = venuemodel.perform_time.order_by('disp_priority')
-        ticketsvalobj = venuemodel.tickettype.order_by('priority')
+        salevalobj = venuemodel.salestype.order_by('priority')
         floorvalobj = venuemodel.floor.order_by('priority')
         sheetvalobj = venuemodel.sheettype.order_by('priority')
 
-        ticketsval = [ticket.tickettype for ticket in ticketsvalobj]
+        ticketobj = [ticket.tickettype for ticket in salevalobj]
+
+        salesval   = [sale.dispsalesname for sale in salevalobj]
+        ticketsval = [ticket.dispticketname for ticket in ticketobj]
         floorsval = [floor.floorname for floor in floorvalobj]
         sheetsval = [sheet.sheet for sheet in sheetvalobj]
 
@@ -66,6 +69,7 @@ class AnswerList(ListView): #回答一覧ページ
             qsrow   = qs.exclude(row2__exact="")
             qsfloor = qs.exclude(floor2__exact="")
 
+            sale   = [sale.sale2 for sale in qs]
             ticket = [ticket.ticket2 for ticket in qs]
             block  = [block.block_r2 for block in qsarena]
             row    = [row.row2 for row in qsrow]
@@ -83,6 +87,7 @@ class AnswerList(ListView): #回答一覧ページ
             qsrow = qs.exclude(row1__exact="")
             qsfloor = qs.exclude(floor1__exact="")
 
+            sale   = [sale.sale1 for sale in qs]
             ticket = [ticket.ticket1 for ticket in qs]
             block  = [block.block_r1 for block in qsarena]
             row    = [row.row1 for row in qsrow]
@@ -110,6 +115,7 @@ class AnswerList(ListView): #回答一覧ページ
         
         ctx['floorhistgrams'] = histgrams
 
+        salechart   = graph.piecreate(sale,salesval,'販売種別')
         ticketchart = graph.piecreate(ticket,ticketsval,'チケット種別')
         sheetchart  = graph.piecreate(sheet,sheetsval,'座席種別')
         floorchart  = graph.piecreate(floor,floorsval,'階層種別')
@@ -117,6 +123,7 @@ class AnswerList(ListView): #回答一覧ページ
        #heatmap2 = graph.Floor_HeatMap(row,number,arenasheet,rowmax,columnmax)
         
         performcount = performtimes.count()
+        ctx['salechart'] = salechart
         ctx['ticketchart'] = ticketchart
         ctx['sheetchart'] = sheetchart
         ctx['floorchart'] = floorchart
@@ -135,7 +142,7 @@ class AnswerCreate(CreateView): #回答作成フォーム
     template_name = 'create2.html'
     model = MenberModel
     
-    fields = ('venueid','matinee','evening','ticket1','sheet1','floor1','row1','block_r1','block_c1','number1','ticket2','sheet2','floor2','row2','block_r2','block_c2','number2',)
+    fields = ('venueid','matinee','evening','sale1','ticket1','sheet1','floor1','row1','block_r1','block_c1','number1','sale2','ticket2','sheet2','floor2','row2','block_r2','block_c2','number2',)
     def get_context_data(self,*args,**kwargs,):
         ctx = super().get_context_data(**kwargs)
         answerObj =  MenberModel.objects.filter(venueid=self.kwargs['num']).all()
@@ -231,6 +238,7 @@ def csv_export(request,num):
     header = [
         'No.',
         '日時',
+        '昼販売',
         '昼チケット',
         '昼座席',
         '昼フロア',
@@ -238,6 +246,7 @@ def csv_export(request,num):
         '昼横ブロック',
         '昼列',
         '昼番号',
+        '夜販売',
         '夜チケット',
         '夜座席',
         '夜フロア',
@@ -254,6 +263,7 @@ def csv_export(request,num):
         write.writerow([
             No,
             result.timedate,
+            result.sale1,
             result.ticket1,
             result.sheet1,
             result.floor1,
@@ -261,6 +271,7 @@ def csv_export(request,num):
             result.block_c1,
             result.row1,
             result.number1,
+            result.sale2,
             result.ticket2,
             result.sheet2,
             result.floor2,

@@ -87,6 +87,7 @@
             <thead>
                 <tr>
                     <th>回答日時</th>
+                    <th>販売種別</th>
                     <th>チケット種別</th>
                     <th>座席種別</th>
                     <th>座席階層</th>
@@ -99,6 +100,7 @@
                 {% for result in results %}
                 <tr>
                     <td>{{ result.timedate|date:"Y-m-j H:i:s" }} </td>
+                    <td>{{ result.sale1 }}</td>
                     <td>{{ result.ticket1 }}</td>
                     <td>{{ result.sheet1 }}</td>
                     <td>{{ result.floor1 }}</td>
@@ -116,6 +118,7 @@
             <thead>
                 <tr>
                     <th>回答日時</th>
+                    <th>販売種別</th>
                     <th>チケット種別</th>
                     <th>座席種別</th>
                     <th>座席階層</th>
@@ -128,6 +131,7 @@
                 {% for result in results %}
                 <tr>
                     <td>{{ result.timedate|date:"Y-m-j H:i:s" }} </td>
+                    <td>{{ result.sale2 }}</td>
                     <td>{{ result.ticket2 }}</td>
                     <td>{{ result.sheet2 }}</td>
                     <td>{{ result.floor2 }}</td>

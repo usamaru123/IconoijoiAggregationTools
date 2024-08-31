@@ -119,13 +119,14 @@ class VenueModel(models.Model): #公演の情報を保存するフィールド�
       return str(self.venueid) + "." + self.event.eventtitle + self.hallinfo.hallname 
 
 class MenberModel(models.Model): #アンケート回答結果を保存するフィールドです
-   answerid= models.BigIntegerField(blank=True,default=1)
+   answerid = models.BigIntegerField(blank=True,default=1)
    venueid = models.ForeignKey(VenueModel,blank=True,on_delete=models.CASCADE,default=20240301)
    timedate = models.DateTimeField(default=timezone.now)
 
    matinee = models.BooleanField(default=False)
    evening = models.BooleanField(default=False)
 
+   sale1  = models.CharField(max_length=100,blank=True,default='1')
    ticket1 = models.CharField(max_length=100,blank=True)
    sheet1 = models.CharField(max_length=100,blank=True)
    floor1 = models.CharField(max_length=100,blank=True)
@@ -134,6 +135,7 @@ class MenberModel(models.Model): #アンケート回答結果を保存するフ�
    block_c1 = models.CharField(max_length=100,blank=True)
    number1 = models.CharField(max_length=100,blank=True)
 
+   sale2  = models.CharField(max_length=100,blank=True,default='1')
    ticket2 = models.CharField(max_length=100,blank=True)
    sheet2 = models.CharField(max_length=100,blank=True)
    floor2 = models.CharField(max_length=100,blank=True)
