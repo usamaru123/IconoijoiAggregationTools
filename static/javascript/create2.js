@@ -81,7 +81,7 @@ function changeSheetSelect($this, time) {
 
     // var sale       = ;
     var ticket = $this.value;
-    var $sheets = $(`#ticketTypeInput > .${sale} > .${}`).find(`input`);
+    var $sheets = $(`#ticketTypeInput > .${sale} `).find(`input`);
     var formname = 'sheet' + time;
     var $formlabel = $(`#sheetform${time}`);
 
