@@ -54,7 +54,7 @@ function changeTicketSelect($this, time) {
 
     for (var i = 0; i < $tickets.length; i++) {
         ticketval = $tickets[i].value;
-        tickettype = $tickets[i].attr('class');
+        tickettype = $tickets[i].getAttribute('class');
 
         id = `${formname}_${ticketval}`;
         $ticketformtext =
