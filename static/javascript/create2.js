@@ -198,7 +198,7 @@ function inputChange(i) {
     var $inp = document.querySelector(`#block_r${i}`);
     var text = $inp.value;
 
-    if ($inp.match(/^[a-z]*$/)) {
+    if (text.match(/^[a-z]*$/)) {
         largetext = text.toUpperCase();
         $inp.value = largetext;
     }
