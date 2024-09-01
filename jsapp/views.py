@@ -125,7 +125,7 @@ class AnswerList(ListView): #回答一覧ページ
         heatmap     = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
        #heatmap2 = graph.Floor_HeatMap(row,number,arenasheet,rowmax,columnmax)
 
-        results = qs #Paginator(qsmodel,1)
+        results = qs.order_by("timedate").reverse()[0:10]
         
         performcount = performtimes.count()
         ctx['salechart'] = salechart
