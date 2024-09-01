@@ -127,7 +127,7 @@ class AnswerList(ListView): #回答一覧ページ
 
         results = qs #Paginator(qsmodel,1)
         
-        performcount = #performtimes.count()
+        performcount = performtimes.count()
         ctx['salechart'] = salechart
         ctx['ticketchart'] = ticketchart
         ctx['sheetchart'] = sheetchart
