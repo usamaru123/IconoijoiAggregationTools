@@ -23,7 +23,7 @@ class EventModel(models.Model):  #イベントの情報を保存するマスタ�
 
 class TicketSheetMaster(models.Model):
    priority = models.IntegerField()
-   sheet = models.CharField(max_length = 10)
+   sheet = models.CharField(max_length = 30)
    def __str__(self):
       return str(self.priority) + "." + self.sheet
 
