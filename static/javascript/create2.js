@@ -71,7 +71,7 @@ function changeTicketSelect($this, time) {
     };
 
     if ($tickets.length == 1) {
-        $(`#ticketform${time}`).find('input').checked = true;
+        $(`#ticketform${time}`).find('input').prop('checked', true)
     }
 
 }
@@ -107,7 +107,7 @@ function changeSheetSelect(salestype, tickettype, time) {
     };
 
     if ($sheets.length == 1) {
-        $(`#sheetform${time}`).find('input').checked = true;
+        $(`#sheetform${time}`).prop('checked', true)
     }
 }
 //階層区分に応じた座席番号に変化させるファンクション
