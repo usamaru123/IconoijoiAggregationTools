@@ -257,18 +257,24 @@ function valueCheck() {
 function formcheck(i) {
     const errormsg2 = '入力してください';
 
-    const tickets = document.querySelectorAll(`.ticketform${i}`);
-    const sheets = document.querySelectorAll(`.sheetform${i}`);
-    const floors = document.querySelectorAll(`.floorform${i}`);
-    const block_r = document.querySelector(`#block_r${i}`);
-    const block_c = document.querySelector(`#block_c${i}`);
-    const row = document.querySelector(`#row${i}`)
-    const number = document.querySelector(`#number${i}`)
+    var is_sales = $(`#salesform${i} input:checked`).length;
+    var is_sheets = $(`#sheetform${i} input:checked`).length;
+    var is_floors = $(`#floorform${i} input:checked`).length;
+    var is_block_r = $(`#block_r${i} input`);
+    var is_block_c = $(`#block_c${i} input`);
+    var is_row = $(`#row${i} input:checked`);
+    var is_number = $(`#number${i} input:checked`);
 
-    const error1 = document.querySelector(`#errorform${i}_1`);
-    const error2 = document.querySelector(`#errorform${i}_2`);
-    const error3 = document.querySelector(`#errorform${i}_3`);
-    const error4 = document.querySelector(`#errorform${i}_4`);
+
+    const error1 = $(`#errorform${i}_1`);
+    const error2 = $(`#errorform${i}_2`);
+    const error3 = $(`#errorform${i}_3`);
+    const error4 = $(`#errorform${i}_4`);
+    const error5 = $(`#errorform${i}_5`);
+
+    error1.empty();
+    error2.empty();
+    error3.empty();
 
     var is_ticket = false;
     var is_sheet = false;
@@ -278,39 +284,24 @@ function formcheck(i) {
     var is_row = false;
     var is_number = false;
 
-    tickets.forEach(function (ticket) {
-        if (ticket.checked) {
-            is_ticket = true;
-            error1.innerHTML = "";
-        }
-    });
-    if (!is_ticket) {
-        error1.innerHTML = errormsg2;
+    if (is_sales != 1) {
+        error1.errormsg2;
     }
 
-    sheets.forEach(function (sheet) {
-        if (sheet.checked) {
-            is_sheet = true;
-            error2.innerHTML = "";
-        }
-    });
-    if (!is_sheet) {
-        error2.innerHTML = errormsg2;
+    if (is_sheets != 1) {
+        error2.errormsg2;
     }
 
-    floors.forEach(function (floor) {
-        if (floor.checked) {
-            is_floor = true;
-            error3.innerHTML = "";
-        }
-    });
-    if (!is_floor) {
-        error3.innerHTML = errormsg2;
+    if (is_floors != 1) {
+        error3.errormsg2;
     }
 
-    if (!is_ticket || !is_sheet || !is_floor) {
+    if (is_sales == 1 && is_sheets == 1 && is_floors == 1) {
+        return true;
+    } else {
         return false;
     }
+
 
     if (block_r) {
         if (block_r.value != '') {
