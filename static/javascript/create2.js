@@ -318,7 +318,7 @@ function formcheck(i) {
 
 
 
-    if (is_sales == 1 && is_ticket == 1 && is_sheets == 1 && is_floors == 1 && is_numbers == True) {
+    if (is_sales == 1 && is_ticket == 1 && is_sheets == 1 && is_floors == 1 && is_numbers == true) {
         return true;
     } else {
         return false;
