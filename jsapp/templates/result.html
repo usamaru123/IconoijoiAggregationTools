@@ -45,7 +45,14 @@
     </div>
 
     {% autoescape off %}
-
+    <div class="alert alert-light">
+        <h2>販売種別割合</h2>
+        {{ salechart }}
+    </div>
+    <div class="alert alert-light">
+        <h2>チケット種別割合</h2>
+        {{ ticketchart }}
+    </div>
     <div class="alert alert-light">
         <h2>座席種別割合</h2>
         {{ sheetchart }}
@@ -54,10 +61,7 @@
         <h2>座席階層割合</h2>
         {{ floorchart }}
     </div>
-    <div class="alert alert-light">
-        <h2>チケット種別割合</h2>
-        {{ ticketchart }}
-    </div>
+
     <!--
     <div class="alert alert-light"> #座席ヒートマップ
         <h2>アリーナ席ブロック集計結果</h2>
