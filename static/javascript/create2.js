@@ -276,6 +276,7 @@ function formcheck(i) {
     error2.empty();
     error3.empty();
     error4.empty();
+    error5.empty();
 
     for (i = 0; i < $numberform.length; i++) {
         if ($numberform[i] == "") {
