@@ -60,6 +60,7 @@ function changeTicketSelect($this, time) {
     </div>
     
     `
+    $ticketformlabel.prepend($ticketformtitle);
 
     for (var i = 0; i < $tickets.length; i++) {
         ticketval = $tickets[i].value;
@@ -77,7 +78,6 @@ function changeTicketSelect($this, time) {
                     ${ticketval}
                 </label>
             </div>`;
-        $ticketformlabel.prepend($ticketformtitle);
         $ticketformlabel.append($ticketformtext);
     };
 
@@ -108,6 +108,7 @@ function changeSheetSelect(salestype, tickettype, time) {
     </div>
     
     `
+    $formlabel.prepend($sheetformtitle);
 
     for (var i = 0; i < $sheets.length; i++) {
         sheetval = $sheets[i].value;
@@ -121,7 +122,7 @@ function changeSheetSelect(salestype, tickettype, time) {
                 </label>
             </div>`;
 
-        $formlabel.prepend($sheetformtitle);
+
         $formlabel.append($ticketformtext);
     };
 
