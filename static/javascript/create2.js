@@ -47,9 +47,11 @@ function changeTicketSelect($this, time) {
     var sale = $this.getAttribute('content')
     var $tickets = $(`#ticketTypeInput > .${sale} > input`);
     var formname = 'ticket' + time;
-    var $formlabel = $(`#ticketform${time}`);
+    var $ticketformlabel = $(`#ticketform${time}`);
+    var $sheetformlabel = $(`#ticketform${time}`);
 
-    $formlabel.empty();
+    $ticketformlabel.empty();
+    $sheetformlabel.empty();
 
 
     for (var i = 0; i < $tickets.length; i++) {
@@ -65,10 +67,13 @@ function changeTicketSelect($this, time) {
                     ${ticketval}
                 </label>
             </div>`;
-        $formlabel.append($ticketformtext);
+        $ticketformlabel.append($ticketformtext);
     };
 
-    return;
+    if ($tickets.length = 1) {
+        $(`#ticketform${time}`).find('input').checked = true;
+    }
+
 }
 
 
@@ -101,7 +106,9 @@ function changeSheetSelect(salestype, tickettype, time) {
         $formlabel.append($ticketformtext);
     };
 
-    return;
+    if ($tickets.length = 1) {
+        $(`#sheetform${time}`).find('input').checked = true;
+    }
 }
 //階層区分に応じた座席番号に変化させるファンクション
 //input1:object
