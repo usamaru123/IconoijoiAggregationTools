@@ -261,10 +261,9 @@ function formcheck(i) {
     var is_ticket = $(`#ticketform${i} input:checked`).length;
     var is_sheets = $(`#sheetform${i} input:checked`).length;
     var is_floors = $(`#floorform${i} input:checked`).length;
-    var is_block_r = $(`#block_r${i} input`);
-    var is_block_c = $(`#block_c${i} input`);
-    var is_row = $(`#row${i} input:checked`);
-    var is_number = $(`#number${i} input:checked`);
+    var $numberform = $(`#numberform${i} input`)
+
+    var is_numbers = true;
 
 
     const error1 = $(`#errorform${i}_1`);
@@ -278,66 +277,42 @@ function formcheck(i) {
     error3.empty();
     error4.empty();
 
+    for (i = 0; i < $numberform.length; i++) {
+        if ($numberform[i] == "") {
+            is_numbers = false;
+        }
+    }
+
 
     if (is_sales != 1) {
-        error1.errormsg2;
+        error1.prepend(errormsg2);
     }
 
     if (is_ticket != 1) {
-        error2.errormsg2;
+        error2.prepend(errormsg2);
     }
 
     if (is_sheets != 1) {
-        error3.errormsg2;
+        error3.prepend(errormsg2);
     }
 
     if (is_floors != 1) {
-        error4.errormsg2;
+        error4.prepend(errormsg2);
     }
 
-    if (is_sales == 1 && is_ticket == 1 && is_sheets == 1 && is_floors == 1) {
+    if (!is_numbers) {
+        error5.prepend(errormsg2);
+    }
+
+
+
+
+    if (is_sales == 1 && is_ticket == 1 && is_sheets == 1 && is_floors == 1 && is_numbers == True) {
         return true;
     } else {
         return false;
     }
 
-
-    if (block_r) {
-        if (block_r.value != '') {
-            is_blockr = true;
-        }
-    }
-    else {
-        is_blockr = true;
-    }
-
-
-    if (row) {
-        if (row.value != '') {
-            is_row = true;
-        }
-    }
-    else {
-        is_row = true;
-    }
-
-    if (number) {
-        if (number.value != '') {
-            is_number = true;
-        }
-    }
-    else {
-        is_number = true;
-    }
-
-    if (!is_blockr || !is_row || !is_number) {
-        error4.innerHTML = errormsg2;
-        return false;
-    }
-    else {
-        error4.innerHTML = "";
-    }
-    return true
 }
 
 //座席位置の入力規則を呼び出すファンクションです。
