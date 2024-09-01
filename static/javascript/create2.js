@@ -7,7 +7,7 @@ window.onload = function () {
         venuetext =
             `
         <label for="timeform1">
-            <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1) checked>
+            <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1) checked disabled>
             ${venues[0].value}
         </label>
         `
@@ -141,6 +141,14 @@ function changefloorSelect($this, time) {
     var $inpForm = $(`#numberform${time}`);
 
     $inpForm.empty();
+
+    const $numberformtitle =
+        `
+    <div class="formtitle">
+        <h3>配席位置</h3>
+    </div>
+    `
+    $inpForm.prepend($numberformtitle)
 
     for (var i = 0; i < $sheets.length; i++) {
         var $sheet = $sheets[i]

@@ -36,11 +36,14 @@
     <div class=" eventform text-dark form-control-lg" id="eventform">
         <form action="" method="POST" name="formtag">{% csrf_token %}
             <div class="formcheck alert alert-light shadow ">
+                <div class="formtitle">
+                    <h3>参加公演</h3>
+                </div>
                 <div id="errorform1">
                 </div>
                 <div class="timeform"></div>
 
-                <!--公演選択-->
+                <!--公演情報送信-->
                 {% for performtime in performtimes %}
                 <label for="timeform1">
                     <input type="hidden" class="venue" value="{{ performtime.perform_time }}">
@@ -96,7 +99,7 @@
                         <!--販売区分-->
                         <div class="salesform alert alert-light shadow" id="form1_1">
                             <div class="formtitle">
-                                <h3>チケットの発売区分</h3>
+                                <h3>チケットの購入区分</h3>
                             </div>
                             <div id="errorform1_1"></div>
                             <div id="salesform1">
@@ -128,7 +131,7 @@
                         <!--階層区分-->
                         <div class="floorform alert alert-light shadow" id="form1_4">
                             <div class="formtitle">
-                                <h3>座席の階数</h3>
+                                <h3>座席階数</h3>
                             </div>
                             <div id="errorform1_4"></div>
                             <div id="floorform1">
@@ -146,9 +149,6 @@
                         </div>
 
                         <div class="numberform alert alert-light shadow" id="form1_5">
-                            <div class="formtitle">
-                                <h3>座席の位置</h3>
-                            </div>
                             <div id="errorform1_5"></div>
                             <div id="numberform1"></div>
                         </div>
