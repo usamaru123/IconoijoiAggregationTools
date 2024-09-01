@@ -48,7 +48,7 @@ function changeTicketSelect($this, time) {
     var $tickets = $(`#ticketTypeInput > .${sale} > input`);
     var formname = 'ticket' + time;
 
-    var $form2 = $(`#form${time}_2`)
+    var $form2 = $(`#formtitle${time}_2`)
     var $ticketformlabel = $(`#ticketform${time}`);
     var $sheetformlabel = $(`#sheetform${time}`);
 
@@ -101,7 +101,7 @@ function changeSheetSelect(salestype, tickettype, time) {
     var $sheets = $(`#ticketTypeInput > .${salestype} > .${tickettype} `).find(`input`);
     var formname = 'sheet' + time;
 
-    var $form3 = $(`#form${time}_3`)
+    var $form3 = $(`#formtitle${time}_3`)
     var $formlabel = $(`#sheetform${time}`);
 
     $form3.empty();
@@ -145,7 +145,7 @@ function changefloorSelect($this, time) {
     var priority = $this.getAttribute('priority');
     var $sheets = $(`#sheetTypeInput > .fr${priority}`).find('div')
 
-    var $form5 = $(`#form${time}_5`)
+    var $form5 = $(`#formtitle${time}_5`)
     var $inpForm = $(`#numberform${time}`);
 
     $form5.empty();
