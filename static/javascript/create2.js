@@ -278,13 +278,6 @@ function formcheck(i) {
     error3.empty();
     error4.empty();
 
-    var is_ticket = false;
-    var is_sheet = false;
-    var is_floor = false;
-    var is_blockr = false;
-    var is_blockc = false;
-    var is_row = false;
-    var is_number = false;
 
     if (is_sales != 1) {
         error1.errormsg2;
