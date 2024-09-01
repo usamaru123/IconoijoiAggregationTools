@@ -279,7 +279,7 @@ function formcheck(i) {
     error5.empty();
 
     for (i = 0; i < $numberform.length; i++) {
-        if ($numberform[i] == "") {
+        if ($numberform[i].value == "") {
             is_numbers = false;
         }
     }
