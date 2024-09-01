@@ -48,7 +48,7 @@ function changeTicketSelect($this, time) {
     var $tickets = $(`#ticketTypeInput > .${sale} > input`);
     var formname = 'ticket' + time;
     var $ticketformlabel = $(`#ticketform${time}`);
-    var $sheetformlabel = $(`#ticketform${time}`);
+    var $sheetformlabel = $(`#sheetform${time}`);
 
     $ticketformlabel.empty();
     $sheetformlabel.empty();
@@ -70,7 +70,7 @@ function changeTicketSelect($this, time) {
         $ticketformlabel.append($ticketformtext);
     };
 
-    if ($tickets.length = 1) {
+    if ($tickets.length == 1) {
         $(`#ticketform${time}`).find('input').checked = true;
     }
 
@@ -106,7 +106,7 @@ function changeSheetSelect(salestype, tickettype, time) {
         $formlabel.append($ticketformtext);
     };
 
-    if ($tickets.length = 1) {
+    if ($sheets.length == 1) {
         $(`#sheetform${time}`).find('input').checked = true;
     }
 }
