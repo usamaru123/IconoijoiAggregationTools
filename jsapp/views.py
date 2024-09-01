@@ -19,7 +19,7 @@ class Toppage(ListView): #トップページ
 
     def get_context_data(self,*args,**kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx['title'] = VenueModel.objects.order_by('venuedate').all()
+        ctx['title'] = VenueModel.objects.order_by('venuedateFROM').all()
         return ctx
     
 class Adminpage(ListView): #トップページ
@@ -28,7 +28,7 @@ class Adminpage(ListView): #トップページ
 
     def get_context_data(self,*args,**kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx['title'] = VenueModel.objects.order_by('venuedate').all()
+        ctx['title'] = VenueModel.objects.order_by('venuedateFROM').all()
         return ctx
 
 
@@ -209,7 +209,7 @@ class VenueList(ListView):
     template_name = 'venuelist.html'
     def get_context_data(self,*args,**kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx['venue'] = VenueModel.objects.order_by('venuedate')
+        ctx['venue'] = VenueModel.objects.order_by('venuedateFROM')
         return ctx
 
 class HallinfoCreate(CreateView):

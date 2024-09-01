@@ -23,7 +23,11 @@
     {% else %}
     <p class="header_ank" name="venue">配席アンケート</p>
     {% endif %}
-    <p class="header_detail">日時：{{ title.venuedate|date:"Y年n月j日" }}</p>
+    {% if title.venuedateTO %}
+    <p class="header_detail">日時：{{ title.venuedateFROM|date:"Y年n月j日" }}～{{ title.venuedateTO|date:"Y年n月j日" }}</p>
+    {% else %}
+    <p class="header_detail">日時：{{ title.venuedateFROM|date:"Y年n月j日" }}</p>
+    {% endif %}
     <p class="header_detail">会場：{{ title.hallinfo.hallname }}</p>
     </p>
     {% endblock header %}
@@ -91,6 +95,9 @@
                         <p class="time">{{ performtimes.0.perform_time }}</p>
                         <!--販売区分-->
                         <div class="salesform alert alert-light shadow" id="form1_1">
+                            <div class="formtitle">
+                                <h2>チケットの販売区分を選択してください</h2>
+                            </div>
                             <div id="errorform1_1"></div>
                             <div id="salesform1">
                                 {% for sale in sales %}
@@ -108,18 +115,27 @@
 
                         <!--チケット区分-->
                         <div class="sheetform alert alert-light shadow" id="form1_2">
+                            <div class="formtitle">
+                                <h2>チケットの種類を選択してください</h2>
+                            </div>
                             <div id="errorform1_2"></div>
                             <div id="ticketform1"></div>
                         </div>
 
                         <!--座席区分-->
                         <div class="sheetform alert alert-light shadow" id="form1_3">
+                            <div class="formtitle">
+                                <h2>座席の種類を選択してください</h2>
+                            </div>
                             <div id="errorform1_3"></div>
                             <div id="sheetform1"></div>
                         </div>
 
                         <!--階層区分-->
                         <div class="floorform alert alert-light shadow" id="form1_4">
+                            <div class="formtitle">
+                                <h2>座席の階数を選択してください</h2>
+                            </div>
                             <div id="errorform1_4"></div>
                             <div id="floorform1">
                                 {% for floor in floors %}
@@ -136,6 +152,9 @@
                         </div>
 
                         <div class="numberform alert alert-light shadow" id="form1_5">
+                            <div class="formtitle">
+                                <h2>座席の位置を入力してください</h2>
+                            </div>
                             <div id="errorform1_5"></div>
                             <div id="numberform1"></div>
                         </div>
@@ -146,7 +165,7 @@
             <div id="answerform2" class="box answerform">
                 <div class="container">
                     <div id="form2" class="">
-                        <p class="time">{{ performtimes.0.perform_time }}</p>
+                        <p class="time">{{ performtimes.1.perform_time }}</p>
                         <!--販売区分-->
                         <div class="salesform alert alert-light shadow" id="form2_1">
                             <div id="errorform2_1"></div>

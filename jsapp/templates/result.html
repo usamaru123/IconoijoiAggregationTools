@@ -10,9 +10,9 @@
     <p class="header_title" name="venue">配席アンケート結果確認画面</p>
     {% else %}
     {% if request.GET.time == 'matinee' %}
-    <p class="header_ank" name="venue">昼の部 配席アンケート結果確認画面</p>
+    <p class="header_ank" name="venue">{{ performtimes.0.perform_time }} 配席アンケート結果確認画面</p>
     {% elif request.GET.time == 'evening' %}
-    <p class="header_ank" name="venue">夜の部 配席アンケート結果確認画面</p>
+    <p class="header_ank" name="venue">{{ performtimes.1.perform_time }} 配席アンケート結果確認画面</p>
     {% else %}
     <p class="header_ank" name="venue">配席アンケート結果確認画面</p>
     {% endif %}
