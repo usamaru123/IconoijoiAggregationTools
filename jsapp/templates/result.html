@@ -97,7 +97,7 @@
             </thead>
             <tbody>
                 {% if request.GET.time == 'matinee' %}
-                {% for result in results %}
+                {% for result in results|dictsortreversed:'timedate' %}
                 <tr>
                     <td>{{ result.timedate|date:"Y-m-j H:i:s" }} </td>
                     <td>{{ result.sale1 }}</td>
@@ -110,7 +110,7 @@
                 </tr>
                 {% endfor %}
                 {% else %}
-                {% for result in results %}
+                {% for result in results|dictsortreversed:'timedate' %}
                 <tr>
                     <td>{{ result.timedate|date:"Y-m-j H:i:s" }} </td>
                     <td>{{ result.sale2 }}</td>
