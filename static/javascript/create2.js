@@ -47,9 +47,12 @@ function changeTicketSelect($this, time) {
     var sale = $this.getAttribute('content')
     var $tickets = $(`#ticketTypeInput > .${sale} > input`);
     var formname = 'ticket' + time;
+
+    var $form2 = $(`#form${time}_2`)
     var $ticketformlabel = $(`#ticketform${time}`);
     var $sheetformlabel = $(`#sheetform${time}`);
 
+    $form2.empty();
     $ticketformlabel.empty();
     $sheetformlabel.empty();
 
@@ -60,7 +63,7 @@ function changeTicketSelect($this, time) {
     </div>
     
     `
-    $ticketformlabel.prepend($ticketformtitle);
+    $form2.prepend($ticketformtitle);
 
     for (var i = 0; i < $tickets.length; i++) {
         ticketval = $tickets[i].value;
@@ -97,8 +100,11 @@ function changeSheetSelect(salestype, tickettype, time) {
     const type = 'radio';
     var $sheets = $(`#ticketTypeInput > .${salestype} > .${tickettype} `).find(`input`);
     var formname = 'sheet' + time;
+
+    var $form3 = $(`#form${time}_3`)
     var $formlabel = $(`#sheetform${time}`);
 
+    $form3.empty();
     $formlabel.empty();
 
     $sheetformtitle =
@@ -108,7 +114,7 @@ function changeSheetSelect(salestype, tickettype, time) {
     </div>
     
     `
-    $formlabel.prepend($sheetformtitle);
+    $form3.prepend($sheetformtitle);
 
     for (var i = 0; i < $sheets.length; i++) {
         sheetval = $sheets[i].value;
@@ -138,8 +144,11 @@ function changefloorSelect($this, time) {
 
     var priority = $this.getAttribute('priority');
     var $sheets = $(`#sheetTypeInput > .fr${priority}`).find('div')
+
+    var $form5 = $(`#form${time}_5`)
     var $inpForm = $(`#numberform${time}`);
 
+    $form5.empty();
     $inpForm.empty();
 
     const $numberformtitle =
@@ -148,7 +157,8 @@ function changefloorSelect($this, time) {
         <h3>配席位置</h3>
     </div>
     `
-    $inpForm.prepend($numberformtitle)
+
+    $form5.prepend($numberformtitle);
 
     for (var i = 0; i < $sheets.length; i++) {
         var $sheet = $sheets[i]
