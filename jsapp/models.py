@@ -103,7 +103,7 @@ class m_PerformTime(models.Model): #公演時間を保存するマスタです
 class VenueModel(models.Model): #公演の情報を保存するフィールドです
    venueid = models.IntegerField(primary_key=True)
    venuedateFROM = models.DateField()
-   venuedateTO = models.DateField()
+   venuedateTO = models.DateField(blank=True)
    event = models.ForeignKey(EventModel,on_delete=models.CASCADE)
    rowmax = models.IntegerField(default=1,blank=True)
    columnmax = models.IntegerField(default=1,blank=True)
