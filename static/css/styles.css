@@ -49,6 +49,12 @@ h2 {
     padding: .5rem;
 }
 
+h3 {
+    margin: 1rem;
+    padding: .5rem;
+    font-size: 15px;
+}
+
 
 .time {
     font-weight: bold;
