@@ -53,20 +53,31 @@ function changeTicketSelect($this, time) {
     $ticketformlabel.empty();
     $sheetformlabel.empty();
 
+    $ticketformtitle =
+        `
+    <div class="formtitle">
+        <h3>チケットの種類</h3>
+    </div>
+    
+    `
 
     for (var i = 0; i < $tickets.length; i++) {
         ticketval = $tickets[i].value;
         tickettype = $tickets[i].getAttribute('content');
 
         id = `${formname}_${ticketval}`;
+
+
         $ticketformtext =
-            `<div class="form-check ${sale}">
+            `
+            <div class="form-check ${sale}">
                     <label for="${id}" class="form-check-label">
                         <input class="form-check-input ${formname}" type="${type}" name="${formname}"
                     id="${id}" value="${ticketval}" onclick="changeSheetSelect('${sale}','${tickettype}',${time})">
                     ${ticketval}
                 </label>
             </div>`;
+        $ticketformlabel.prepend($ticketformtext);
         $ticketformlabel.append($ticketformtext);
     };
 
@@ -90,6 +101,13 @@ function changeSheetSelect(salestype, tickettype, time) {
 
     $formlabel.empty();
 
+    $sheetformtitle =
+        `
+    <div class="formtitle">
+        <h3>座席の種類</h3>
+    </div>
+    
+    `
 
     for (var i = 0; i < $sheets.length; i++) {
         sheetval = $sheets[i].value;
@@ -103,6 +121,7 @@ function changeSheetSelect(salestype, tickettype, time) {
                 </label>
             </div>`;
 
+        $formlabel.prepend($sheetformtitle);
         $formlabel.append($ticketformtext);
     };
 
