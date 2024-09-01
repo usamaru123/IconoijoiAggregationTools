@@ -258,6 +258,7 @@ function formcheck(i) {
     const errormsg2 = '入力してください';
 
     var is_sales = $(`#salesform${i} input:checked`).length;
+    var is_ticket = $(`#ticketform${i} input:checked`).length;
     var is_sheets = $(`#sheetform${i} input:checked`).length;
     var is_floors = $(`#floorform${i} input:checked`).length;
     var is_block_r = $(`#block_r${i} input`);
@@ -275,6 +276,7 @@ function formcheck(i) {
     error1.empty();
     error2.empty();
     error3.empty();
+    error4.empty();
 
     var is_ticket = false;
     var is_sheet = false;
@@ -288,15 +290,19 @@ function formcheck(i) {
         error1.errormsg2;
     }
 
-    if (is_sheets != 1) {
+    if (is_ticket != 1) {
         error2.errormsg2;
     }
 
-    if (is_floors != 1) {
+    if (is_sheets != 1) {
         error3.errormsg2;
     }
 
-    if (is_sales == 1 && is_sheets == 1 && is_floors == 1) {
+    if (is_floors != 1) {
+        error4.errormsg2;
+    }
+
+    if (is_sales == 1 && is_ticket == 1 && is_sheets == 1 && is_floors == 1) {
         return true;
     } else {
         return false;
