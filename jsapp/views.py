@@ -123,7 +123,7 @@ class AnswerList(ListView): #回答一覧ページ
         sheetchart  = graph.piecreate(sheet,sheetsval,'座席種別')
         floorchart  = graph.piecreate(floor,floorsval,'階層種別')
         heatmap     = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
-       #heatmap2 = graph.Floor_HeatMap(row,number,arenasheet,rowmax,columnmax)
+        #heatmap2 = graph.Floor_HeatMap(row,number,arenasheet,rowmax,columnmax)
 
         results = qs.order_by("timedate").reverse()[0:100]
         

@@ -61,13 +61,11 @@
         <h2>座席階層割合</h2>
         {{ floorchart }}
     </div>
-
-    <!--
     <div class="alert alert-light"> #座席ヒートマップ
         <h2>アリーナ席ブロック集計結果</h2>
         {{ heatmap }}
     </div>
--->
+
     {% for key , value in floorhistgrams.items %}
     <div class="alert alert-light">
         <h2>{{ key }}：列ごとの集計</h2>
