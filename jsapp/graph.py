@@ -435,7 +435,7 @@ def piecreate(items,list,title):
     graph = plot(fig, output_type='div', include_plotlyjs=False)
     return graph
 
-def Floor_Histogram(item):
+def Floor_Histgram(item):
     if (item is None):
         return
     

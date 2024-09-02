@@ -114,7 +114,7 @@ class AnswerList(ListView): #回答一覧ページ
                 for j in range(len(sheetsval)):
                     qs_f_sheet = qs_f.filter(sheet1=sheetsval[j])
                     item[sheetsval[j]] = [int(row.row1 or 0) for row in qs_f_sheet]
-                    histgrams[floorsval[i]] = graph.Floor_Histogram(item)
+                    histgrams[floorsval[i]] = graph.Floor_Histgram(item)
         
         ctx['floorhistgrams'] = histgrams
 
@@ -140,7 +140,7 @@ class AnswerList(ListView): #回答一覧ページ
         ctx['count'] = count
         ctx['num'] = self.kwargs['num']
         ctx['performcount'] = performcount
-        ctx['floorsval'] = floorsval
+        ctx['floorsval'] = floorsva
         return  ctx
 
 class AnswerCreate(CreateView): #回答作成フォーム
