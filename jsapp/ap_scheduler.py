@@ -79,5 +79,5 @@ def Floor_Histgram(venueid,item,title):
 
 def start():
     scheduler = BackgroundScheduler()
-    scheduler.add_job(periodic_execution,'interval',minutes=1)
+    scheduler.add_job(periodic_execution,'interval',seconds=30)
     scheduler.start()
