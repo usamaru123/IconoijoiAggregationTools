@@ -93,11 +93,7 @@ class SalesType(models.Model):
    def __str__(self):
       return str(self.priority) + "." + self.salestype
    
-class BlockType(models.Model): #１階席の座席集計種別を設定します
-   id = models.IntegerField(primary_key=True)
-   disp_blocktype = models.CharField(max_length=20)
-   def __str__(self):
-      return str(self.id) + "." + self.disp_blocktype
+
    
 
 class m_PerformTime(models.Model): #公演時間を保存するマスタです
