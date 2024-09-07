@@ -437,7 +437,7 @@ def piecreate(items,list,title):
     graph = plot(fig, output_type='div', include_plotlyjs=False)
     return graph
 
-def Floor_Histgram(item):
+def Floor_Histgram(item,title):
     if (item is None):
         return
     
@@ -467,7 +467,7 @@ def Floor_Histgram(item):
     fig.update_yaxes(autorange='reversed')
     graph = plot(fig, output_type='div', include_plotlyjs=False)
     
-    fig.write_image("../test.jpg",format='jpeg',validate=False,engine='kaleido')
+    fig.write_image("../"+title+".jpg",format='jpeg',validate=False,engine='kaleido')
     return graph
 
 
