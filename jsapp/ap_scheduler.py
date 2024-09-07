@@ -7,8 +7,10 @@ import plotly.graph_objects as go
 import kaleido
 import logging
 from . import graph
+from datetime import datetime
 
-logfile = "./test.log"
+today = datetime.date.today().strftime('%Y%m%d')
+logfile = "./logs/scheduler_{today}.log"
 logging.basicConfig(filename=logfile,level=logging.WARNING)
 
 
@@ -27,37 +29,40 @@ def periodic_execution():
         item = {}
         histgrams = {}
 
-        floorvalobj = venue.floor.order_by('priority')
-        sheetvalobj = venue.sheettype.order_by('priority')
+        venue_floorobj = venue.floor.order_by('priority')
+        venue_sheetobj = venue.sheettype.order_by('priority')
 
-        floorsval = [item.floorname for item in floorvalobj]
-        sheetsval = [item.sheet for item in sheetvalobj]
+        venue_floors = [item.floorname for item in venue_floorobj]
+        venue_sheets = [item.sheet for item in venue_sheetobj]
 
-        qsmodel = MenberModel.objects.filter(venueid=venue_id).all()
-        qsrow = qsmodel.exclude(row1__exact="")
+        results = MenberModel.objects.filter(venueid=venue_id).all()
+        results_row = results.exclude(row1__exact="")
 
         if(block_type==1): #座席集計タイプ参照
-            for i in range(len(floorsval)):
-                qs_f = qsrow.filter(floor1=floorsval[i])
-                if len(qs_f) > 0:
-                        for j in range(len(sheetsval)):
-                            qs_f_sheet = qs_f.filter(sheet1=sheetsval[j])
-                            item[sheetsval[j]] = [int(row.row1 or 0) for row in qs_f_sheet]
-                            histgrams[floorsval[i]] = graph.Floor_Histgram(venue_id,item,floorsval[i])
-            #logging.info(str(venue_id)+"_"+datetime.now().strftime('%Y/%m/%d %H:%M:%S')+"_type:"+str(block_type))
+            for i in range(len(venue_floors)):
+                floor_results = results_row.filter(floor1=venue_floors[i])
+                if len(floor_results) > 0:
+                        for j in range(len(venue_sheets)):
+                            sheet_results = floor_results.filter(sheet1=venue_sheets[j])
+                            item[venue_sheets[j]] = [int(row.row1 or 0) for row in sheet_results]
+                            histgrams[venue_floors[i]] = graph.Floor_Histgram(venue_id,item,venue_floors[i])
+                        
         elif(block_type==2):
-            block  = [item.block_r1 for item in qsmodel]
-            column = [item.block_c1 for item in qsmodel]
-            sheet  = [item.sheet1   for item in qsmodel]
-            graph.Arena_HeatMap(venue_id,block,column,sheet,row_max,column_max)
+            for venue_sheet in venue_sheets:
+                results_sheet = results.filter(sheet1=venue_sheet)
 
-            for i in range(1,len(floorsval)):
-                qs_f = qsrow.filter(floor1=floorsval[i])
-                if len(qs_f) > 0:
-                        for j in range(len(sheetsval)):
-                            qs_f_sheet = qs_f.filter(sheet1=sheetsval[j])
-                            item[sheetsval[j]] = [int(row.row1 or 0) for row in qs_f_sheet]
-                            histgrams[floorsval[i]] = graph.Floor_Histgram(venue_id,item,floorsval[i])
+            block  = [item.block_r1 for item in results_sheet]
+            column = [item.block_c1 for item in results_sheet]
+
+            graph.Arena_HeatMap(venue_id,venue_sheet,row_max,column_max,block,column)
+
+            for i in range(1,len(venue_floors)):
+                floor_results = results_row.filter(floor1=venue_floors[i])
+                if len(floor_results) > 0:
+                        for j in range(len(venue_sheets)):
+                            sheet_results = floor_results.filter(sheet1=venue_sheets[j])
+                            item[venue_sheets[j]] = [int(row.row1 or 0) for row in sheet_results]
+                            histgrams[venue_floors[i]] = graph.Floor_Histgram(venue_id,item,venue_floors[i])
 
     return
 
