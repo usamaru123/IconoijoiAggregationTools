@@ -94,7 +94,7 @@ class SalesType(models.Model):
       return str(self.priority) + "." + self.salestype
    
 class BlockType(models.Model): #１階席の座席集計種別を設定します
-   id = models.IntegerField()
+   id = models.IntegerField(primary_key=True)
    disp_blocktype = models.CharField(max_length=20)
    
 
