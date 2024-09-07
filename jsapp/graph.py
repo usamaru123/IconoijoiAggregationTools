@@ -443,7 +443,11 @@ def Floor_Histgram(item,title):
     
     itemlist = list(item.keys())
 
-    fig = go.Figure()
+    fig = go.Figure(
+        font=dict(
+            family='IPAGothic'
+        )
+    )
     
    # for i in range(len(item)):
     for sheet in itemlist:
@@ -461,13 +465,12 @@ def Floor_Histgram(item,title):
                               xanchor="right",
                               x=0.97))
     fig.update_layout(
-        margin_l=0,
-        margin_r=0,
+        margin=dict(l=0, r=0, t=0, b=0), 
     )
     fig.update_yaxes(autorange='reversed')
     graph = plot(fig, output_type='div', include_plotlyjs=False)
     
-    fig.write_image("../"+title+".jpg",format='jpeg',validate=False,engine='kaleido')
+    fig.write_image("../"+title+".jpg",format='jpeg',scale=10,validate=False,engine='kaleido')
     return graph
 
 
