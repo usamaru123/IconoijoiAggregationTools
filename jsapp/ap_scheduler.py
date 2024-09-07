@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 import kaleido
 import logging
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('development')
 logger.error('a')
 
 def periodic_execution():
