@@ -145,3 +145,13 @@ EMAIL_HOST_PASSWORD = '226600Usa'
 EMAIL_PORT = 587
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 
+LOGGING = {
+    'handlers': {
+        'file':{
+            'level':'INFO',
+            'class':'logging.FileHandler',
+            'filename':'test.log',
+            'formatter':'development',
+        }
+    }
+}
