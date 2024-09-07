@@ -8,6 +8,7 @@ import kaleido
 import logging
 
 logger = logging.getLogger(__name__)
+logger.error('a')
 
 def periodic_execution():
 
@@ -22,7 +23,7 @@ def periodic_execution():
         histgrams = {}
         venue_id = venueids_val[i]
         qsmodel = MenberModel.objects.filter(venueid=venue_id).all()
-        logger.info(venue_id)
+        logger.error(venue_id)
         qsrow = qsmodel.exclude(row1__exact="")
 
         floorsval = ['1LEVEL','3LEVEL','5LEVEL','7LEVEL']
