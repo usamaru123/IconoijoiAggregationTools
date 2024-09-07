@@ -8,7 +8,7 @@ import kaleido
 import logging
 
 logfile = "./test.log"
-logging.basicConfig(filename=logfile,level=logging.DEBUG)
+logging.basicConfig(filename=logfile,level=logging.INFO)
 
 
 def periodic_execution():
