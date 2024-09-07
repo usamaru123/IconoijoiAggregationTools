@@ -93,6 +93,10 @@ class SalesType(models.Model):
    def __str__(self):
       return str(self.priority) + "." + self.salestype
    
+class BlockType(models.Model): #１階席の座席集計種別を設定します
+   id = models.IntegerField()
+   disp_blocktype = models.CharField(max_length=20)
+   
 
 class m_PerformTime(models.Model): #公演時間を保存するマスタです
    disp_priority = models.IntegerField()
@@ -111,6 +115,7 @@ class VenueModel(models.Model): #公演の情報を保存するフィールド�
    perform_time = models.ManyToManyField(m_PerformTime,default="")
    salestype = models.ManyToManyField(SalesType,default="")
    sheettype = models.ManyToManyField(TicketSheetMaster,default="")
+   #blocktype = models.ForeignKey()
    #hallset = models.ForeignKey(HallSetModel,on_delete=models.CASCADE)
    #floorset = models.ForeignKey(FloorSetModel,on_delete=models.CASCADE)
    floor = models.ManyToManyField(FloorModel,default="")
