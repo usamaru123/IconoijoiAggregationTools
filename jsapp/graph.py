@@ -468,7 +468,7 @@ def Floor_Histgram(item,title):
     fig.update_yaxes(autorange='reversed')
     graph = plot(fig, output_type='div', include_plotlyjs=False)
     
-    fig.write_image("../"+title+".jpg",format='jpeg',scale=10,validate=False,engine='kaleido')
+    fig.write_image("../"+title+".jpg",format='jpeg',scale=5,validate=False,engine='kaleido')
     return graph
 
 
