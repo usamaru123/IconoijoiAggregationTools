@@ -1,7 +1,7 @@
 from datetime import datetime,date
 from apscheduler.schedulers.background import BackgroundScheduler
 
-from .models import MenberModel
+from .models import MenberModel , VenueModel
 
 import plotly.graph_objects as go
 import kaleido
@@ -9,27 +9,34 @@ import kaleido
 
 
 def periodic_execution():
-    qs_f_sheet = {}
-    histgrams = {}
-    item = {}
 
-    qsmodel = MenberModel.objects.filter(venueid='2024010201').all()
-    qsrow = qsmodel.exclude(row1__exact="")
+    venues = VenueModel.objects.all()
 
-    floorsval = ['1LEVEL','3LEVEL','5LEVEL','7LEVEL']
-    sheetsval = ['グッズ付きアリーナエリア','一般席','女性エリア席','カメコエリア席','着席指定席']
+    venue_obj = venues.venueid.order_by('venueid')
 
-    for i in range(len(floorsval)):
-        qs_f = qsrow.filter(floor1=floorsval[i])
-        if len(qs_f) > 0:
-                for j in range(len(sheetsval)):
-                    qs_f_sheet = qs_f.filter(sheet1=sheetsval[j])
-                    item[sheetsval[j]] = [int(row.row1 or 0) for row in qs_f_sheet]
-                    histgrams[floorsval[i]] = Floor_Histgram(item,floorsval[i])
+    venueids_val = [venue.venueid for venue in venue_obj]
+
+    for i in range (len(venueids_val)):
+        item = {}
+        histgrams = {}
+        venue_id = venueids_val[i]
+        qsmodel = MenberModel.objects.filter(venueid=venue_id).all()
+        qsrow = qsmodel.exclude(row1__exact="")
+
+        floorsval = ['1LEVEL','3LEVEL','5LEVEL','7LEVEL']
+        sheetsval = ['グッズ付きアリーナエリア','一般席','女性エリア席','カメコエリア席','着席指定席']
+
+        for i in range(len(floorsval)):
+            qs_f = qsrow.filter(floor1=floorsval[i])
+            if len(qs_f) > 0:
+                    for j in range(len(sheetsval)):
+                        qs_f_sheet = qs_f.filter(sheet1=sheetsval[j])
+                        item[sheetsval[j]] = [int(row.row1 or 0) for row in qs_f_sheet]
+                        histgrams[floorsval[i]] = Floor_Histgram(venue_id,item,floorsval[i])
     return
 
 
-def Floor_Histgram(item,title):
+def Floor_Histgram(venueid,item,title):
     if (item is None):
         return
 
@@ -60,11 +67,11 @@ def Floor_Histgram(item,title):
     )
     fig.update_yaxes(autorange='reversed')
     
-    fig.write_image("./temp/"+title+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
+    fig.write_image("./temp/"+venueid+"_"+title+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
     return 
 
 
 def start():
     scheduler = BackgroundScheduler()
-    scheduler.add_job(periodic_execution,'interval',seconds=30)
+    scheduler.add_job(periodic_execution,'interval',minutes=1)
     scheduler.start()
