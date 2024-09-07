@@ -11,22 +11,18 @@ logfile = "./test.log"
 logging.basicConfig(filename=logfile,level=logging.DEBUG)
 
 
-logging.error('a')
-
 def periodic_execution():
 
     venues = VenueModel.objects.all()
-
-
-    venueids_val = [venue.venueid for venue in venues]
     
 
-    for i in range (len(venueids_val)): 
+    for venue in venues:
+        venue_id = venue.venueid
         item = {}
         histgrams = {}
-        venue_id = venueids_val[i]
+
         qsmodel = MenberModel.objects.filter(venueid=venue_id).all()
-        logging.error(venue_id)
+        logging.info(venue_id)
         qsrow = qsmodel.exclude(row1__exact="")
 
         floorsval = ['1LEVEL','3LEVEL','5LEVEL','7LEVEL']
