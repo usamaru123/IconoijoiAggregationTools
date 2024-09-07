@@ -146,12 +146,26 @@ EMAIL_PORT = 587
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 
 LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'development': {
+            'format': '%(asctime)s [%(levelname)s] %(message)s'
+        },
+    },
     'handlers': {
         'file':{
             'level':'INFO',
             'class':'logging.FileHandler',
-            'filename':'test.log',
+            'filename': os.path.join(BASE_DIR,'test.log'),
             'formatter':'development',
         }
-    }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file', 'console'],
+            'level': 'INFO',
+            'propagate': True,
+        }
+    },
 }
