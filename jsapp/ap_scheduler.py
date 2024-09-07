@@ -73,7 +73,7 @@ def Floor_Histgram(venueid,item,title):
     )
     fig.update_yaxes(autorange='reversed')
     
-    fig.write_image("../temp/"+venueid+"_"+title+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
+    fig.write_image("../temp/"+str(venueid)+"_"+title+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
     return 
 
 
