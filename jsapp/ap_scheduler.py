@@ -9,9 +9,7 @@ import logging
 from . import graph
 
 
-today = datetime.date.today().strftime('%Y%m%d')
-logfile = "./logs/scheduler_{today}.log"
-logging.basicConfig(filename=logfile,level=logging.WARNING)
+
 
 
 def periodic_execution():
