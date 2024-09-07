@@ -67,3 +67,4 @@ def periodic_execution():
 def start():
     scheduler = BackgroundScheuler()
     scheduler.add_job(periodic_execution,'interval',minutes=1)
+    scheduler.start()
