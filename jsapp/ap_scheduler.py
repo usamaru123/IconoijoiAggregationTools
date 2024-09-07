@@ -15,18 +15,20 @@ def periodic_execution():
 
     venues = VenueModel.objects.all()
     
+    
 
     for venue in venues:
         venue_id = venue.venueid
         item = {}
         histgrams = {}
 
+        floorsval = [item.floorname for item in venue]
+        sheetsval = [item.sheet for item in venue]
+
         qsmodel = MenberModel.objects.filter(venueid=venue_id).all()
         logging.info(venue_id)
         qsrow = qsmodel.exclude(row1__exact="")
 
-        floorsval = ['1LEVEL','3LEVEL','5LEVEL','7LEVEL']
-        sheetsval = ['グッズ付きアリーナエリア','一般席','女性エリア席','カメコエリア席','着席指定席']
 
         for i in range(len(floorsval)):
             qs_f = qsrow.filter(floor1=floorsval[i])
