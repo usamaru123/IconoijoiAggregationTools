@@ -19,6 +19,7 @@ def periodic_execution():
 
     for venue in venues:
         venue_id = venue.venueid
+        block_type = venue.blocktype
         item = {}
         histgrams = {}
 
@@ -31,15 +32,15 @@ def periodic_execution():
         qsmodel = MenberModel.objects.filter(venueid=venue_id).all()
         qsrow = qsmodel.exclude(row1__exact="")
 
-
-        for i in range(len(floorsval)):
-            qs_f = qsrow.filter(floor1=floorsval[i])
-            if len(qs_f) > 0:
-                    for j in range(len(sheetsval)):
-                        qs_f_sheet = qs_f.filter(sheet1=sheetsval[j])
-                        item[sheetsval[j]] = [int(row.row1 or 0) for row in qs_f_sheet]
-                        histgrams[floorsval[i]] = Floor_Histgram(venue_id,item,floorsval[i])
-        logging.info(str(venue_id)+"_"+datetime.now().strftime('%Y/%m/%d %H:%M:%S'))
+        if(block_type==1):
+            for i in range(len(floorsval)):
+                qs_f = qsrow.filter(floor1=floorsval[i])
+                if len(qs_f) > 0:
+                        for j in range(len(sheetsval)):
+                            qs_f_sheet = qs_f.filter(sheet1=sheetsval[j])
+                            item[sheetsval[j]] = [int(row.row1 or 0) for row in qs_f_sheet]
+                            histgrams[floorsval[i]] = Floor_Histgram(venue_id,item,floorsval[i])
+            logging.info(str(venue_id)+"_"+datetime.now().strftime('%Y/%m/%d %H:%M:%S'))
     return
 
 
