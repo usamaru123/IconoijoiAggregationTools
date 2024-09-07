@@ -19,7 +19,7 @@ def periodic_execution():
     for i in range (len(venueids_val)):
         item = {}
         histgrams = {}
-        venue_id = venueids_val[i]
+        venue_id = venueids_vl[i]
         qsmodel = MenberModel.objects.filter(venueid=venue_id).all()
         qsrow = qsmodel.exclude(row1__exact="")
 
