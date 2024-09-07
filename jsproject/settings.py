@@ -145,3 +145,39 @@ EMAIL_HOST_USER = 'usamaru.server@gmail.com'
 EMAIL_HOST_PASSWORD = '226600Usa'
 EMAIL_PORT = 587
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "local": {
+            "format": '%(asctime)s [%(levelname)s] %(pathname)s:%(lineno)d %(message)s'
+        }
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "local"
+        }
+    },
+    # 自分が出すログ出力
+    "root": {
+        "handlers": ["console"],
+        "level": "DEBUG",
+        "propagate": False
+    },
+    "loggers": {
+        # Djangoのエラー・警告・開発WEBサーバのアクセスログ
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        # 実行SQL
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        }
+    }
+}

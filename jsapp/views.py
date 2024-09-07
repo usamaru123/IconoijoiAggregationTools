@@ -11,7 +11,9 @@ import csv,urllib
 import datetime
 from django.db.models import Q
 
+import logging
 
+logger = logging.getLogger(__name__)
 
 class Toppage(ListView): #トップページ
     template_name = 'index.html'
