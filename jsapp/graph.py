@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 
 import logging
-from datetime import datetime
+import datetime
 
 today = datetime.date.today().strftime('%Y%m%d')
 logfile = "./graph_{today}.log"
