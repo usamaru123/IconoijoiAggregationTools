@@ -60,7 +60,7 @@ def Floor_Histgram(item,title):
     )
     fig.update_yaxes(autorange='reversed')
     
-    fig.write_image("../temp/"+title+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
+    fig.write_image("./temp/"+title+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
     return 
 
 
