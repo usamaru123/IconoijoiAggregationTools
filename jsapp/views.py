@@ -39,6 +39,7 @@ class AnswerList(ListView): #回答一覧ページ
     template_name = 'result.html'
     model = EventModel
     logger = logging.getLogger(__name__)
+    logger.info('Hello World!')
 
     def get_context_data(self,*args,**kwargs,):
         paginate = 20
