@@ -444,9 +444,7 @@ def Floor_Histgram(item,title):
     itemlist = list(item.keys())
 
     fig = go.Figure(
-        font=dict(
-            family='IPAGothic'
-        )
+
     )
     
    # for i in range(len(item)):
