@@ -128,7 +128,6 @@ class AnswerList(ListView): #回答一覧ページ
         ctx['sheetchart'] = sheetchart
         ctx['floorchart'] = floorchart
 
-        ctx['heatmap'] = heatmap
        # ctx['sheetratio1'] = sheetratio1
         ctx['results'] = results
         ctx['title'] = venuemodel
