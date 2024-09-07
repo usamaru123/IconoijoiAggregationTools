@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import datetime
+
+today = datetime.date.today().strftime('%Y%m%d')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -160,7 +163,7 @@ LOGGING = {
         },
         'file': {
             'class':'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR,'test.log'),
+            'filename': os.path.join(BASE_DIR,'logs/log_{today}.log'),
             'formatter':'development',
         }
     },
