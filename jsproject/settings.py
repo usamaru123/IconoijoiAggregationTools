@@ -154,7 +154,12 @@ LOGGING = {
         },
     },
     'handlers': {
-        'file':{
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'development',
+        },
+        'file': {
             'level':'INFO',
             'class':'logging.FileHandler',
             'filename': os.path.join(BASE_DIR,'test.log'),
