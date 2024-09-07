@@ -190,14 +190,14 @@ def Floor_HeatMap(rows,columns,sheets,rowmax,columnmax):
     graph = fig.to_html(include_plotlyjs=False)
     return graph
 
-def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
+def Arena_HeatMap(venueid,rows,columns,sheets,rowmax,columnmax):
     if (rows is None):
         return
         
     columnlist = []
     rowlist = []
 
-    row = ['A',	'B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    row = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 
     for i in range(0,columnmax):
         columnlist.append(i+1)
@@ -382,8 +382,8 @@ def Arena_HeatMap(rows,columns,sheets,rowmax,columnmax):
     fig.update_yaxes(autorange='reversed',dtick=1)
     fig.update_xaxes(dtick=1)
 
-    graph = fig.to_html(include_plotlyjs=False)
-    return graph
+    fig.write_image("/home/shun/IconoijoiAggregationTools/temp/"+str(venueid)+"_arena.jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
+    return 
  
 
 def listcreate(rowlist,columnlist):
@@ -435,38 +435,40 @@ def piecreate(items,list,title):
     graph = plot(fig, output_type='div', include_plotlyjs=False)
     return graph
 
-def Floor_Histgram(item,title):
+def Floor_Histgram(venueid,item,title):
     if (item is None):
         return
-    
+
     itemlist = list(item.keys())
 
     fig = go.Figure(
 
     )
     
-   # for i in range(len(item)):
     for sheet in itemlist:
         fig.add_trace(go.Histogram(y=item[sheet],name=sheet))
 
 
     fig.update_traces(xbins=dict(start=1,
-                                 end=50,
-                                 size=1),
+                                end=50,
+                                size=1),
                     opacity=1
                     )
+    
     fig.update_layout(barmode='stack')
     fig.update_layout(legend=dict(yanchor="bottom",
-                              y=0.95,
-                              xanchor="right",
-                              x=0.97))
+                            y=0.95,
+                            xanchor="right",
+                            x=0.97))
+    
     fig.update_layout(
         margin=dict(l=0, r=0, t=0, b=0), 
     )
     fig.update_yaxes(autorange='reversed')
-    graph = plot(fig, output_type='div', include_plotlyjs=False)
     
-    return graph
+    fig.write_image("/home/shun/IconoijoiAggregationTools/temp/"+str(venueid)+"_"+title+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
+    return 
+
 
 
 def int_row(row):

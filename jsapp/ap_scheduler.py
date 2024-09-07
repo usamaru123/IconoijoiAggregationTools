@@ -6,9 +6,10 @@ from .models import MenberModel , VenueModel
 import plotly.graph_objects as go
 import kaleido
 import logging
+from . import graph
 
 logfile = "./test.log"
-logging.basicConfig(filename=logfile,level=logging.INFO)
+logging.basicConfig(filename=logfile,level=logging.WARNING)
 
 
 def periodic_execution():
@@ -18,8 +19,11 @@ def periodic_execution():
     
 
     for venue in venues:
-        venue_id = venue.venueid
+        venue_id   = venue.venueid
         block_type = venue.blocktype.id
+        row_max    = venue.rowmax
+        column_max = venue.columnmax
+
         item = {}
         histgrams = {}
 
@@ -32,51 +36,30 @@ def periodic_execution():
         qsmodel = MenberModel.objects.filter(venueid=venue_id).all()
         qsrow = qsmodel.exclude(row1__exact="")
 
-        if(block_type==1):
+        if(block_type==1): #座席集計タイプ参照
             for i in range(len(floorsval)):
                 qs_f = qsrow.filter(floor1=floorsval[i])
                 if len(qs_f) > 0:
                         for j in range(len(sheetsval)):
                             qs_f_sheet = qs_f.filter(sheet1=sheetsval[j])
                             item[sheetsval[j]] = [int(row.row1 or 0) for row in qs_f_sheet]
-                            histgrams[floorsval[i]] = Floor_Histgram(venue_id,item,floorsval[i])
-            logging.info(str(venue_id)+"_"+datetime.now().strftime('%Y/%m/%d %H:%M:%S'))
+                            histgrams[floorsval[i]] = graph.Floor_Histgram(venue_id,item,floorsval[i])
+            #logging.info(str(venue_id)+"_"+datetime.now().strftime('%Y/%m/%d %H:%M:%S')+"_type:"+str(block_type))
+        elif(block_type==2):
+            block  = [item.block_r1 for item in qsmodel]
+            column = [item.block_c1 for item in qsmodel]
+            sheet  = [item.sheet1   for item in qsmodel]
+            graph.Arena_HeatMap(venue_id,block,column,sheet,row_max,column_max)
+
+            for i in range(1,len(floorsval)):
+                qs_f = qsrow.filter(floor1=floorsval[i])
+                if len(qs_f) > 0:
+                        for j in range(len(sheetsval)):
+                            qs_f_sheet = qs_f.filter(sheet1=sheetsval[j])
+                            item[sheetsval[j]] = [int(row.row1 or 0) for row in qs_f_sheet]
+                            histgrams[floorsval[i]] = graph.Floor_Histgram(venue_id,item,floorsval[i])
+
     return
-
-
-def Floor_Histgram(venueid,item,title):
-    if (item is None):
-        return
-
-    itemlist = list(item.keys())
-
-    fig = go.Figure(
-
-    )
-    
-    for sheet in itemlist:
-        fig.add_trace(go.Histogram(y=item[sheet],name=sheet))
-
-
-    fig.update_traces(xbins=dict(start=1,
-                                end=50,
-                                size=1),
-                    opacity=1
-                    )
-    
-    fig.update_layout(barmode='stack')
-    fig.update_layout(legend=dict(yanchor="bottom",
-                            y=0.95,
-                            xanchor="right",
-                            x=0.97))
-    
-    fig.update_layout(
-        margin=dict(l=0, r=0, t=0, b=0), 
-    )
-    fig.update_yaxes(autorange='reversed')
-    
-    fig.write_image("/home/shun/IconoijoiAggregationTools/temp/"+str(venueid)+"_"+title+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
-    return 
 
 
 def start():
