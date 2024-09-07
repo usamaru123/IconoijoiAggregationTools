@@ -6,6 +6,7 @@ from plotly.offline import plot
 import pandas as pd
 import numpy as np
 
+import kaleido
 
 
 def Floor_HeatMap(rows,columns,sheets,rowmax,columnmax):
