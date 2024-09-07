@@ -135,7 +135,7 @@ class AnswerList(ListView): #回答一覧ページ
         ctx['num'] = self.kwargs['num']
         ctx['performcount'] = performcount
         ctx['floorsval'] = floorsval
-        ctx['sheets'] = sheetsval
+
         return  ctx
 
 class AnswerCreate(CreateView): #回答作成フォーム
