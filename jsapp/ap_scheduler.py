@@ -7,8 +7,11 @@ import plotly.graph_objects as go
 import kaleido
 import logging
 
-logger = logging.getLogger('development')
-logger.error('a')
+logfile = "./test.log"
+logging.basicConfig(filename=logfile,level=logging.DEBUG)
+
+
+logging.error('a')
 
 def periodic_execution():
 
@@ -23,7 +26,7 @@ def periodic_execution():
         histgrams = {}
         venue_id = venueids_val[i]
         qsmodel = MenberModel.objects.filter(venueid=venue_id).all()
-        logger.error(venue_id)
+        logging.error(venue_id)
         qsrow = qsmodel.exclude(row1__exact="")
 
         floorsval = ['1LEVEL','3LEVEL','5LEVEL','7LEVEL']
