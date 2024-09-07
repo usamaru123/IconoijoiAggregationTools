@@ -9,7 +9,9 @@ import numpy as np
 import logging
 from datetime import datetime
 
-
+today = datetime.date.today().strftime('%Y%m%d')
+logfile = "./graph_{today}.log"
+logging.basicConfig(filename=logfile,level=logging.WARNING)
 
 def Floor_HeatMap(rows,columns,sheets,rowmax,columnmax):
     if (rows is None):
