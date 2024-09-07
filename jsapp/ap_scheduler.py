@@ -13,9 +13,8 @@ def periodic_execution():
 
     venues = VenueModel.objects.all()
 
-    venue_obj = venues.venueid.order_by('venueid')
 
-    venueids_val = [venue.venueid for venue in venue_obj]
+    venueids_val = [venue.venueid for venue in venues]
 
     for i in range (len(venueids_val)):
         item = {}
