@@ -19,7 +19,7 @@ def periodic_execution():
 
     for venue in venues:
         venue_id = venue.venueid
-        block_type = venue.blocktype
+        block_type = venue.blocktype.id
         item = {}
         histgrams = {}
 
