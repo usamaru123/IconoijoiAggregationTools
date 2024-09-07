@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'jsapp',
     'widget_tweaks',
+    'jsapp.apps.AppConfig'
 ]
 
 
@@ -156,7 +157,8 @@ LOGGING = {
     "handlers": {
         "console": {
             "class": "logging.StreamHandler",
-            "formatter": "local"
+            "formatter": "local",
+            "filename": "./test.log"
         }
     },
     # 自分が出すログ出力
