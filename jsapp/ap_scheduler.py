@@ -51,10 +51,10 @@ def periodic_execution():
             for venue_sheet in venue_sheets:
                 results_sheet = results.filter(sheet1=venue_sheet)
 
-            block  = [item.block_r1 for item in results_sheet]
-            column = [item.block_c1 for item in results_sheet]
+                block  = [item.block_r1 for item in results_sheet]
+                column = [item.block_c1 for item in results_sheet]
 
-            graph.Arena_HeatMap(venue_id,venue_sheet,row_max,column_max,block,column)
+                graph.Arena_HeatMap(venue_id,venue_sheet,row_max,column_max,block,column)
 
             for i in range(1,len(venue_floors)):
                 floor_results = results_row.filter(floor1=venue_floors[i])
