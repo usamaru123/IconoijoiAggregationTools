@@ -15,12 +15,14 @@ def periodic_execution():
 
 
     venueids_val = [venue.venueid for venue in venues]
+    
 
-    for i in range (len(venueids_val)):
+    for i in range (len(venueids_val)): 
         item = {}
         histgrams = {}
-        venue_id = venueids_vl[i]
+        venue_id = venueids_val[i]
         qsmodel = MenberModel.objects.filter(venueid=venue_id).all()
+        logger.info(venue_id)
         qsrow = qsmodel.exclude(row1__exact="")
 
         floorsval = ['1LEVEL','3LEVEL','5LEVEL','7LEVEL']
