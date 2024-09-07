@@ -163,7 +163,7 @@ LOGGING = {
         },
         'file': {
             'class':'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR,f'logs/'lo.log'),
+            'filename': os.path.join(BASE_DIR,f'logs/lo.log'),
             'formatter':'development',
         }
     },
