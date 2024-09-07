@@ -72,53 +72,31 @@ class AnswerList(ListView): #回答一覧ページ
            
         if time == 'evening':
             qs = qsmodel.exclude(ticket2__exact="")
-            qsarena = qs.exclude(block_c2__exact="")
-            qsrow   = qs.exclude(row2__exact="")
             qsfloor = qs.exclude(floor2__exact="")
 
             sale   = [sale.sale2 for sale in qs]
             ticket = [ticket.ticket2 for ticket in qs]
-            block  = [block.block_r2 for block in qsarena]
-            row    = [row.row2 for row in qsrow]
-            column = [column.block_c2 for column in qsarena]
-            arenasheet = [sheet.sheet2 for sheet in qsarena]
+
 
             floor = [floor.floor2 for floor in qsfloor]
             sheet = [sheet.sheet2 for sheet in qs ]
-            number = [number.number2 for number in qsfloor]
+
 
 
         else:
             qs = qsmodel.exclude(ticket1__exact="")
-            qsarena = qs.exclude(block_c1__exact="")
-            qsrow = qs.exclude(row1__exact="")
             qsfloor = qs.exclude(floor1__exact="")
-
             sale   = [sale.sale1 for sale in qs]
             ticket = [ticket.ticket1 for ticket in qs]
-            block  = [block.block_r1 for block in qsarena]
-            row    = [row.row1 for row in qsrow]
-            column = [column.block_c1 for column in qsarena]
-            arenasheet = [sheet.sheet1 for sheet in qsarena]
-
             floor  = [floor.floor1 for floor in qsfloor]
-
             sheet  = [sheet.sheet1 for sheet in qs ]
-            number = [number.number1 for number in qsfloor]
-
-        qs_f_sheet = {}
-        histgrams = {}
-        item = {}
-
-        qs_f1 = len(qsrow.filter(floor1 = 'アリーナ席(2階席)'))
 
 
         salechart   = graph.piecreate(sale,salesval,'販売種別')
         ticketchart = graph.piecreate(ticket,ticketsval,'チケット種別')
         sheetchart  = graph.piecreate(sheet,sheetsval,'座席種別')
         floorchart  = graph.piecreate(floor,floorsval,'階層種別')
-        #heatmap     = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
-        #heatmap2 = graph.Floor_HeatMap(row,number,arenasheet,rowmax,columnmax)
+
 
         results = qs.order_by("timedate").reverse()[0:100]
         

@@ -382,7 +382,7 @@ def Arena_HeatMap(venueid,rows,columns,sheets,rowmax,columnmax):
     fig.update_yaxes(autorange='reversed',dtick=1)
     fig.update_xaxes(dtick=1)
 
-    fig.write_image("/home/shun/IconoijoiAggregationTools/temp/"+str(venueid)+"_arena.jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
+    fig.write_image("/home/shun/IconoijoiAggregationTools/temp/"+str(venueid)+"_arena.jpg",format='jpeg',scale=5,validate=False,engine='kaleido')
     return 
  
 

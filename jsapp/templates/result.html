@@ -66,11 +66,13 @@
         <h2>アリーナ席ブロック集計結果</h2>
         {{ heatmap }}
     </div>
--->
+    -->
+    {% if title.blocktype.id == 2 %}
     <div class="alert alert-light">
         <h2></h2>
         <img src="../temp/{{ title.venueid }}_arena.jpg" class="img-fluid" alt="">
     </div>
+    {% end if %}
 
 
     {% for floor in floorsval %}
