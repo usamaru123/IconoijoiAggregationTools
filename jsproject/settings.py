@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 import datetime
 
-#today = datetime.date.today().strftime('%Y%m%d')
+today = datetime.date.today().strftime('%Y%m%d')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -163,7 +163,7 @@ LOGGING = {
         },
         'file': {
             'class':'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR,f'logs/lo.log'),
+            'filename': os.path.join(BASE_DIR,f'logs/log_{today}.log'),
             'formatter':'development',
         }
     },
