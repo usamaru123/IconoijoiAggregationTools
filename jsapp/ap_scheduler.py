@@ -5,8 +5,9 @@ from .models import MenberModel , VenueModel
 
 import plotly.graph_objects as go
 import kaleido
+import logging
 
-
+logger = logging.getLogger(__name__)
 
 def periodic_execution():
 
