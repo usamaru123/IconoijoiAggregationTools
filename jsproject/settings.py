@@ -155,17 +155,12 @@ LOGGING = {
         }
     },
     "handlers": {
-        "console": {
-            "class": "logging.StreamHandler",
-            "formatter": "local",
-            "filename": "./test.log"
+        "file": {
+            "class": "logging.FileHandler",
+            "formatter": "production",
+            "filename": "./test.log",
+            "level": "INFO",
         }
-    },
-    # 自分が出すログ出力
-    "root": {
-        "handlers": ["console"],
-        "level": "DEBUG",
-        "propagate": False
     },
     "loggers": {
         # Djangoのエラー・警告・開発WEBサーバのアクセスログ
