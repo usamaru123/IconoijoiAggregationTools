@@ -22,8 +22,11 @@ def periodic_execution():
         item = {}
         histgrams = {}
 
-        floorsval = [item.floorname for item in venue]
-        sheetsval = [item.sheet for item in venue]
+        floorvalobj = venue.floor.order_by('priority')
+        sheetvalobj = venue.sheettype.order_by('priority')
+
+        floorsval = [item.floorname for item in floorvalobj]
+        sheetsval = [item.sheet for item in sheetvalobj]
 
         qsmodel = MenberModel.objects.filter(venueid=venue_id).all()
         logging.info(venue_id)
