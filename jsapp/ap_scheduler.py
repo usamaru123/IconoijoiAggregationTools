@@ -39,7 +39,7 @@ def periodic_execution():
                         qs_f_sheet = qs_f.filter(sheet1=sheetsval[j])
                         item[sheetsval[j]] = [int(row.row1 or 0) for row in qs_f_sheet]
                         histgrams[floorsval[i]] = Floor_Histgram(venue_id,item,floorsval[i])
-        logging.info(str(venue_id)+"_"+datetime.datetime.now().strftime('%Y/%m/%d %H:%M:%S'))
+        logging.info(str(venue_id)+"_"+datetime.now().strftime('%Y/%m/%d %H:%M:%S'))
     return
 
 
