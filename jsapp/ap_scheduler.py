@@ -8,7 +8,7 @@ import kaleido
 
 
 
-def Floor_Histgram():
+def periodic_execution():
     qs_f_sheet = {}
     histgrams = {}
     item = {}
@@ -66,4 +66,4 @@ def Floor_Histgram():
 
 def start():
     scheduler = BackgroundScheuler()
-    scheduler.add_job(Floor_Histgram,'interval',minutes=1)
+    scheduler.add_job(periodic_execution,'interval',minutes=1)
