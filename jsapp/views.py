@@ -112,21 +112,12 @@ class AnswerList(ListView): #回答一覧ページ
 
         qs_f1 = len(qsrow.filter(floor1 = 'アリーナ席(2階席)'))
 
-        for i in range(len(floorsval)):
-            qs_f = qsrow.filter(floor1=floorsval[i])
-            if len(qs_f) > 0:
-                for j in range(len(sheetsval)):
-                    qs_f_sheet = qs_f.filter(sheet1=sheetsval[j])
-                    item[sheetsval[j]] = [int(row.row1 or 0) for row in qs_f_sheet]
-                    histgrams[floorsval[i]] = graph.Floor_Histgram(item,floorsval[i])
-        
-        ctx['floorhistgrams'] = histgrams
 
         salechart   = graph.piecreate(sale,salesval,'販売種別')
         ticketchart = graph.piecreate(ticket,ticketsval,'チケット種別')
         sheetchart  = graph.piecreate(sheet,sheetsval,'座席種別')
         floorchart  = graph.piecreate(floor,floorsval,'階層種別')
-        heatmap     = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
+        #heatmap     = graph.Arena_HeatMap(block,column,arenasheet,rowmax,columnmax)
         #heatmap2 = graph.Floor_HeatMap(row,number,arenasheet,rowmax,columnmax)
 
         results = qs.order_by("timedate").reverse()[0:100]
