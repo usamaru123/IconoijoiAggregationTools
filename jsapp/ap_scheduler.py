@@ -1,5 +1,5 @@
 from datetime import datetime,date
-from apscheduler.schedulers.background import BackgroundScheuler
+from apscheduler.schedulers.background import BackgroundScheduler
 
 from .models import MenberModel
 
@@ -9,27 +9,31 @@ import kaleido
 
 
 def periodic_execution():
-    qs_f_sheet = {}
-    histgrams = {}
-    item = {}
-
-    qsmodel = MenberModel.objects.filter(venueid='2024010201').all()
-    qsrow = qsmodel.exclude(row1__exact="")
-
-    floorsval = ['1LEVEL','3LEVEL','5LEVEL','7LEVEL']
-    sheetsval = ['グッズ付きアリーナエリア','一般席','女性エリア席','カメコエリア席','着席指定席']
-
-    for i in range(len(floorsval)):
-        qs_f = qsrow.filter(floor1=floorsval[i])
-        if len(qs_f) > 0:
-                for j in range(len(sheetsval)):
-                    qs_f_sheet = qs_f.filter(sheet1=sheetsval[j])
-                    item[sheetsval[j]] = [int(row.row1 or 0) for row in qs_f_sheet]
-                    histgrams[floorsval[i]] = Floor_Histgram(item,floorsval[i])
+    return
+  
 
 
 
     def Floor_Histgram(item,title):
+
+
+        qs_f_sheet = {}
+        histgrams = {}
+        item = {}
+
+        qsmodel = MenberModel.objects.filter(venueid='2024010201').all()
+        qsrow = qsmodel.exclude(row1__exact="")
+
+        floorsval = ['1LEVEL','3LEVEL','5LEVEL','7LEVEL']
+        sheetsval = ['グッズ付きアリーナエリア','一般席','女性エリア席','カメコエリア席','着席指定席']
+
+        for i in range(len(floorsval)):
+            qs_f = qsrow.filter(floor1=floorsval[i])
+            if len(qs_f) > 0:
+                    for j in range(len(sheetsval)):
+                        qs_f_sheet = qs_f.filter(sheet1=sheetsval[j])
+                        item[sheetsval[j]] = [int(row.row1 or 0) for row in qs_f_sheet]
+                        histgrams[floorsval[i]] = Floor_Histgram(item,floorsval[i])
         if (item is None):
             return
 
@@ -65,6 +69,6 @@ def periodic_execution():
 
 
 def start():
-    scheduler = BackgroundScheuler()
-    scheduler.add_job(periodic_execution,'interval',minutes=1)
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(periodic_execution,'interval',seconds=1)
     scheduler.start()
