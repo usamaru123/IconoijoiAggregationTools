@@ -6,8 +6,6 @@ from plotly.offline import plot
 import pandas as pd
 import numpy as np
 
-import kaleido
-
 
 def Floor_HeatMap(rows,columns,sheets,rowmax,columnmax):
     if (rows is None):
@@ -468,7 +466,6 @@ def Floor_Histgram(item,title):
     fig.update_yaxes(autorange='reversed')
     graph = plot(fig, output_type='div', include_plotlyjs=False)
     
-    fig.write_image("../"+title+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
     return graph
 
 

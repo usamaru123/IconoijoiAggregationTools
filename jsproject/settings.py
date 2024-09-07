@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'jsapp',
     'widget_tweaks',
+    'jsapp.apps.AppConfig',
 ]
 
 
