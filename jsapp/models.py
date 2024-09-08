@@ -168,7 +168,7 @@ class m_contact_typ(models.Model):
 class t_answer(models.Model):
    answer_id = models.BigIntegerField(primary_key=True)
    nam = models.CharField(max_length=100)
-   answer_text = models.TextField()
+   answer_text = models.TextField(max_length=5000)
    datetime = models.DateTimeField(auto_now_add=True)
 
    def __str__(self):
@@ -178,7 +178,7 @@ class t_contact(models.Model):
    contact_id = models.BigIntegerField(primary_key=True)
    contact_typ = models.ForeignKey(m_contact_typ,on_delete=models.CASCADE)
    nam = models.CharField(max_length=100)
-   contact_text = models.TextField()
+   contact_text = models.TextField(max_length=5000)
    answer_id = models.ForeignKey(t_answer,on_delete=models.CASCADE)
    venue_id = models.ForeignKey(VenueModel,on_delete=models.CASCADE)
    disp_flg = models.IntegerField()
