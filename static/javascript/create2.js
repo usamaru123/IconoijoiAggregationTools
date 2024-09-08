@@ -7,8 +7,9 @@ window.onload = function () {
         venuetext =
             `
                 <div class="form-check form-check">
+                    <label>
                     <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1) checked disabled>
-                    <label for="timeform1" class="form-check-label">${venues[0].value}</label>
+                    ${venues[0].value}</label>
                 </div>
             `
     }
@@ -16,12 +17,16 @@ window.onload = function () {
         venuetext =
             `
                 <div class="form-check form-check-inline">
-                    <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1)>
-                    <label for="timeform1" class="form-check-label"> ${venues[0].value}</label>
+                    <label>
+                        <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1)>
+                        ${venues[0].value}
+                     </label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input type='checkbox' class='form-check-input' class='venue' id='timeform2' name='evening' onclick=checkEvent(2)>
-                    <label for="timeform2" class="form-check-label"> ${venues[1].value}</label>
+                    <label>
+                        <input type='checkbox' class='form-check-input' class='venue' id='timeform2' name='evening' onclick=checkEvent(2)>
+                        <label for="timeform2" class="form-check-label"> ${venues[1].value}
+                    </label>
                 </div>
             `
     }
