@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView,UpdateView,View
-from .models import MenberModel,EventModel,VenueModel,HallTypeModel,HallInfoModel,TicketTypeModel
+from .models import MenberModel,EventModel,VenueModel,HallTypeModel,HallInfoModel,TicketTypeModel,m_contact_typ,t_contact,t_answer
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.shortcuts import redirect
@@ -59,8 +59,6 @@ class AnswerList(ListView): #回答一覧ページ
         floorsval = [floor.floorname for floor in floorvalobj]
         sheetsval = [sheet.sheet for sheet in sheetvalobj]
 
-        rowmax = venuemodel.rowmax
-        columnmax = venuemodel.columnmax
 
         time = 'matinee'
         
@@ -207,6 +205,11 @@ class ThanksView(ListView):
         ctx['results'] = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         ctx['title'] = VenueModel.objects.get(venueid=self.kwargs['num'])
         return  ctx
+    
+
+class ContactCreate(CreateView):
+    template_name = 'contact_create.html'
+    models = t_answer
     
 def csv_export(request,num):
     No = 1
