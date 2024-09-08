@@ -166,7 +166,7 @@ class m_contact_typ(models.Model):
 
 
 class t_answer(models.Model):
-   answer_id = models.BigIntegerField(primary_key=True)
+   answer_id = models.BigAutoField(primary_key=True)
    nam = models.CharField(max_length=100)
    answer_text = models.TextField(max_length=5000)
    datetime = models.DateTimeField(auto_now_add=True)
@@ -175,7 +175,7 @@ class t_answer(models.Model):
       return str(self.answer_id) + "_" + self.answer_text
 
 class t_contact(models.Model):
-   contact_id = models.BigIntegerField(primary_key=True)
+   contact_id = models.BigAutoField(primary_key=True)
    contact_typ = models.ForeignKey(m_contact_typ,on_delete=models.CASCADE,default=1)
    nam = models.CharField(max_length=100,blank=True)
    contact_text = models.TextField(max_length=5000)
