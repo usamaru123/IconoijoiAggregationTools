@@ -16,5 +16,5 @@ urlpatterns = [
     path('results/<int:num>',ThanksView.as_view(),name='thanks'),
     path('export/<int:num>',csv_export,name=("export")),
     path('contactform',ContactCreate.as_view(),name='contactcreate'),
-    path('contact_thanks',ContactThanks.as_view(),name='contact_thanks'),
+    path('contact-thanks',ContactThanks.as_view(),name='contact_thanks'),
 ]
