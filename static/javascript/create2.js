@@ -6,23 +6,23 @@ window.onload = function () {
     if (venues.length == 1) {
         venuetext =
             `
-            <div class="form-check form-check">
-                <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1) checked disabled>
-                <label for="timeform1" class="form-check-label">${venues[0].value}</label>
-            </div>
+                <div class="form-check form-check">
+                    <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1) checked disabled>
+                    <label for="timeform1" class="form-check-label">${venues[0].value}</label>
+                </div>
             `
     }
     else if (venues.length == 2) {
         venuetext =
             `
-            <div class="form-check form-check-inline">
-                <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1)>
-                <label for="timeform1" class="form-check-label"> ${venues[0].value}</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type='checkbox' class='form-check-input' class='venue' id='timeform2' name='evening' onclick=checkEvent(2)>
-                <label for="timeform2" class="form-check-label"> ${venues[1].value}</label>
-            </div>
+                <div class="form-check form-check-inline">
+                    <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1)>
+                    <label for="timeform1" class="form-check-label"> ${venues[0].value}</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type='checkbox' class='form-check-input' class='venue' id='timeform2' name='evening' onclick=checkEvent(2)>
+                    <label for="timeform2" class="form-check-label"> ${venues[1].value}</label>
+                </div>
             `
     }
     else {
@@ -58,11 +58,11 @@ function changeTicketSelect($this, time) {
 
     $ticketformtitle =
         `
-    <div class="formtitle">
-        <h3>チケットの種類</h3>
-    </div>
-    
-    `
+        <div class="formtitle">
+            <h3>チケットの種類</h3>
+        </div>
+    `;
+
     $form2.prepend($ticketformtitle);
 
     for (var i = 0; i < $tickets.length; i++) {
@@ -74,13 +74,12 @@ function changeTicketSelect($this, time) {
 
         $ticketformtext =
             `
-            <div class="form-check ${sale}">
-                    <label for="${id}" class="form-check-label">
-                        <input class="form-check-input ${formname}" type="${type}" name="${formname}"
-                    id="${id}" value="${ticketval}" onclick="changeSheetSelect('${sale}','${tickettype}',${time})">
-                    ${ticketval}
-                </label>
-            </div>`;
+                <div class="form-check ${sale}">
+                    <input class="form-check-input ${formname}" type="${type}" name="${formname}"
+                        id="${id}" value="${ticketval}" onclick="changeSheetSelect('${sale}','${tickettype}',${time})">
+                    <label for="${id}" class="form-check-label"> ${ticketval}</label>
+                </div>
+            `;
         $ticketformlabel.append($ticketformtext);
     };
 
@@ -109,25 +108,24 @@ function changeSheetSelect(salestype, tickettype, time) {
 
     $sheetformtitle =
         `
-    <div class="formtitle">
-        <h3>座席の種類</h3>
-    </div>
-    
-    `
+        <div class="formtitle">
+            <h3>座席の種類</h3>
+        </div>
+    `;
+
     $form3.prepend($sheetformtitle);
 
     for (var i = 0; i < $sheets.length; i++) {
         sheetval = $sheets[i].value;
         id = `${formname}_${sheetval}`;
         $ticketformtext =
-            `<div class="form-check">
-                    <label for="${id}" class="form-check-label">
-                        <input class="form-check-input ${formname}" type="${type}" name="${formname}"
+            `
+                <div class="form-check">
+                    <input class="form-check-input ${formname}" type="${type}" name="${formname}"
                     id="${id}" value="${sheetval}">
-                    ${sheetval}
-                </label>
-            </div>`;
-
+                    <label for="${id}" class="form-check-label">${sheetval}</label>
+                </div>
+            `;
 
         $formlabel.append($ticketformtext);
     };
@@ -153,10 +151,10 @@ function changefloorSelect($this, time) {
 
     const $numberformtitle =
         `
-    <div class="formtitle">
-        <h3>配席位置</h3>
-    </div>
-    `
+        <div class="formtitle">
+            <h3>配席位置</h3>
+        </div>
+         `;
 
     $form5.prepend($numberformtitle);
 
@@ -166,11 +164,12 @@ function changefloorSelect($this, time) {
         var prename = $sheet.querySelector('.prename').value
         var postname = $sheet.querySelector('.postname').value
         var $sheetHTML = sheetvalfunc(valid, time)
-        var $position = `
-        <div style="font-size:1.5rem">
-            ${prename} ${$sheetHTML} ${postname} 
-        </div>
-       `
+        var $position =
+            `
+            <div style="font-size:1.5rem">
+                ${prename} ${$sheetHTML} ${postname} 
+            </div>
+        `
         $inpForm.append($position);
     };
 
