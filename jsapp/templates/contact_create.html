@@ -19,13 +19,21 @@
         <form action="" method="POST" name="formtag">{% csrf_token %}
             <div class="formcheck alert alert-light shadow ">
                 <p class="info_text">＊印は必須です</p>
-                <div class="mb-3">
-                    <label for="name">お名前：</label>
-                    <input id="name" name="nam" type="text" class="col-6 postion">
+                <div class="mb-3 row">
+                    <div class="col-auto">
+                        <label for="name">お名前：</label>
+                    </div>
+                    <div class="col-auto">
+                        <input id="name" name="nam" type="text" class="col-6 postion">
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="contact_text"> 内容*：</label>
-                    <textarea class="form-control" name="contact_text" id="contact_text" rows="5"></textarea>
+                <div class="mb-3 row">
+                    <div class="col-auto">
+                        <label for="contact_text"> 内容*：</label>
+                    </div>
+                    <div class="col-auto">
+                        <textarea class="form-control" name="contact_text" id="contact_text" rows="5"></textarea>
+                    </div>
                 </div>
             </div>
             <div class="container">
