@@ -106,8 +106,8 @@
                         <div id="salesform1">
                             {% for sale in sales %}
                             <div class="form-check">
-                                <label for="sale1_{{ sale.salestype }}" class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="sale1"
+                                <label for="sale1_{{ sale.salestype }}" class="form-check-label form-label">
+                                    <input type="radio" class="form-check-input form-control" name="sale1"
                                         value="{{ sale.dispsalesname }}" id="sale1_{{ sale.salestype }}"
                                         content="{{ sale.salestype }}" onclick="changeTicketSelect(this,1)">
                                     {{ sale.dispsalesname }}
@@ -140,10 +140,10 @@
                         <div id="floorform1">
                             {% for floor in floors %}
                             <div class="form-check">
-                                <label for="floor1_{{ floor.floorname }}">
-                                    <input type="radio" class="form-check-input" id="floor1_{{ floor.floorname }}"
-                                        name="floor1" value="{{ floor.floorname }}" onclick="changefloorSelect(this,1)"
-                                        priority="{{ floor.priority }}">
+                                <label for="floor1_{{ floor.floorname }}" class="form-label">
+                                    <input type="radio" class="form-check-input form-control"
+                                        id="floor1_{{ floor.floorname }}" name="floor1" value="{{ floor.floorname }}"
+                                        onclick="changefloorSelect(this,1)" priority="{{ floor.priority }}">
                                     {{ floor.floorname }}
                                 </label>
                             </div>
@@ -170,8 +170,8 @@
                         <div id="salesform2">
                             {% for sale in sales %}
                             <div class="form-check">
-                                <label for="sale2_{{ sale.salestype }}" class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="sale2"
+                                <label for="sale2_{{ sale.salestype }}" class="form-check-label form-label">
+                                    <input type="radio" class="form-check-input form-control" name="sale2"
                                         value="{{ sale.dispsalesname }}" id="sale2_{{ sale.salestype }}"
                                         content="{{ sale.salestype }}" onclick="changeTicketSelect(this,2)">
                                     {{ sale.dispsalesname }}
@@ -199,10 +199,10 @@
                         <div id="floorform2">
                             {% for floor in floors %}
                             <div class="form-check">
-                                <label for="floor2_{{ floor.floorname }}">
-                                    <input type="radio" class="form-check-input" id="floor2_{{ floor.floorname }}"
-                                        name="floor2" value="{{ floor.floorname }}" onclick="changefloorSelect(this,2)"
-                                        priority="{{ floor.priority }}">
+                                <label for="floor2_{{ floor.floorname }}" class="form-label">
+                                    <input type="radio" class="form-check-input form-control"
+                                        id="floor2_{{ floor.floorname }}" name="floor2" value="{{ floor.floorname }}"
+                                        onclick="changefloorSelect(this,2)" priority="{{ floor.priority }}">
                                     {{ floor.floorname }}
                                 </label>
                             </div>

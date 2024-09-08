@@ -6,8 +6,8 @@ window.onload = function () {
     if (venues.length == 1) {
         venuetext =
             `
-        <label for="timeform1">
-            <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1) checked disabled>
+        <label for="timeform1" class="form-label">
+            <input type='checkbox' class='form-check-input venue form-control' id='timeform1' name='matinee' onclick=checkEvent(1) checked disabled>
             ${venues[0].value}
         </label>
         `
@@ -15,12 +15,12 @@ window.onload = function () {
     else if (venues.length == 2) {
         venuetext =
             `
-        <label for="timeform1">
-            <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1)>
+        <label for="timeform1" class="form-label">
+            <input type='checkbox' class='form-check-input venue form-control' id='timeform1' name='matinee' onclick=checkEvent(1)>
             ${venues[0].value}
         </label>
-        <label for="timeform2">
-            <input type='checkbox' class='form-check-input' class='venue' id='timeform2' name='evening' onclick=checkEvent(2)>
+        <label for="timeform2" class="form-label">
+            <input type='checkbox' class='form-check-input venue form-control' id='timeform2' name='evening' onclick=checkEvent(2)>
             ${venues[1].value}
         </label>
         `
@@ -75,8 +75,8 @@ function changeTicketSelect($this, time) {
         $ticketformtext =
             `
             <div class="form-check ${sale}">
-                    <label for="${id}" class="form-check-label">
-                        <input class="form-check-input ${formname}" type="${type}" name="${formname}"
+                    <label for="${id}" class="form-check-label form-label">
+                        <input class="form-check-input ${formname} form-control" type="${type}" name="${formname}"
                     id="${id}" value="${ticketval}" onclick="changeSheetSelect('${sale}','${tickettype}',${time})">
                     ${ticketval}
                 </label>
@@ -121,8 +121,8 @@ function changeSheetSelect(salestype, tickettype, time) {
         id = `${formname}_${sheetval}`;
         $ticketformtext =
             `<div class="form-check">
-                    <label for="${id}" class="form-check-label">
-                        <input class="form-check-input ${formname}" type="${type}" name="${formname}"
+                    <label for="${id}" class="form-check-label form-label">
+                        <input class="form-check-input ${formname} form-control" type="${type}" name="${formname}"
                     id="${id}" value="${sheetval}">
                     ${sheetval}
                 </label>
@@ -332,34 +332,34 @@ function sheetvalfunc(val, i) {
     //1桁のアルファベットで定義づけられたブロックで使用します
 
     const val_101 =
-        ` <input pattern="[A-Za-z]{1}" class="col-3 block position"  id="block_r${i}"  name="block_r${i}" oninput="inputChange(${i})" placeholder="英字1文字"> `
+        ` <input pattern="[A-Za-z]{1}" class="col-3 block position form-control"  id="block_r${i}"  name="block_r${i}" oninput="inputChange(${i})" placeholder="英字1文字"> `
 
     const val_102 =
-        `<input pattern="[A-Za-z]{1}" class="col-3 block position"  id="block_r${i}" name="block_r${i}" oninput="inputChange(${i})" placeholder="英字1文字">
+        `<input pattern="[A-Za-z]{1}" class="col-3 block position form-control"  id="block_r${i}" name="block_r${i}" oninput="inputChange(${i})" placeholder="英字1文字">
         <input type="number" min="1" max="99" class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字"> `
 
     const val_103 =
-        `<input type="number" min="1" max="9" class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字"> `
+        `<input type="number" min="1" max="9" class="col-3 number position form-control" id="block_c${i}" name="block_c${i}" placeholder="半角数字"> `
 
     const val_201 =
-        ` <input type="number" min="1" max="99" class="col-3 number position" id="row${i}" name="row${i}" placeholder="半角数字">`
+        ` <input type="number" min="1" max="99" class="col-3 number position form-control" id="row${i}" name="row${i}" placeholder="半角数字">`
 
     const val_301 =
-        `<input type="number" min="1" max="999" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字"> `
+        `<input type="number" min="1" max="999" class="col-3 number position form-control" id="number${i}" name="number${i}" placeholder="半角数字"> `
 
     //横アリスタンド用
     const val_1002 =
-        `<select id="block_r${i}" name="block_r${i}" class="col-3 block postion">
+        `<select id="block_r${i}" name="block_r${i}" class="col-3 block postion form-control">
         <option value="A">A</option>
         <option value="B">B</option>
         <option value="C">C</option>
         <option value="D">D</option>
         <option value="E">E</option>
         <option value="F">F</option>
-    </select><input type="number" min="1" max="99" class="col-3 number position" id="row${i}" name="row${i}" placeholder="半角数字"> `
+    </select><input type="number" min="1" max="99" class="col-3 number position form-control" id="row${i}" name="row${i}" placeholder="半角数字"> `
 
     const val_1003 =
-        `<select id="block_r${i}" name="block_r${i}" class="col-3 block postion">
+        `<select id="block_r${i}" name="block_r${i}" class="col-3 block postion form-control">
             <option value="東">東ブロック</option>
             <option value="西">西ブロック</option>
             <option value="南">南ブロック</option>
