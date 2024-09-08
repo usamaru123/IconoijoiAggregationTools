@@ -105,7 +105,7 @@
                         <div id="errorform1_1" class="errorform"></div>
                         <div id="salesform1">
                             {% for sale in sales %}
-                            <div class="form-check">
+                            <div class="form-check my-2">
                                 <label>
                                     <input type="radio" class="form-check-input" name="sale1"
                                         value="{{ sale.dispsalesname }}" id="sale1_{{ sale.salestype }}"
@@ -139,7 +139,7 @@
                         <div id="errorform1_4" class="errorform"></div>
                         <div id="floorform1">
                             {% for floor in floors %}
-                            <div class="form-check">
+                            <div class="form-check my-2">
                                 <label>
                                     <input type="radio" class="form-check-input" id="floor1_{{ floor.floorname }}"
                                         name="floor1" value="{{ floor.floorname }}" onclick="changefloorSelect(this,1)"
@@ -154,7 +154,7 @@
                     <div class="numberform alert alert-light shadow" id="form1_5">
                         <div id="formtitle1_5"></div>
                         <div id="errorform1_5" class="errorform"></div>
-                        <div id="numberform1"></div>
+                        <div id="numberform1 my-2"></div>
                     </div>
                 </div>
             </div>
@@ -169,7 +169,7 @@
                         <div id="errorform2_1"></div>
                         <div id="salesform2">
                             {% for sale in sales %}
-                            <div class="form-check">
+                            <div class="form-check my-2">
                                 <label>
                                     <input type="radio" class="form-check-input" name="sale2"
                                         value="{{ sale.dispsalesname }}" id="sale2_{{ sale.salestype }}"
@@ -198,7 +198,7 @@
                         <div id="errorform2_4"></div>
                         <div id="floorform2">
                             {% for floor in floors %}
-                            <div class="form-check">
+                            <div class="form-check my-2">
                                 <label>
                                     <input type="radio" class="form-check-input" id="floor2_{{ floor.floorname }}"
                                         name="floor2" value="{{ floor.floorname }}" onclick="changefloorSelect(this,2)"
@@ -212,7 +212,7 @@
 
                     <div class="numberform alert alert-light shadow" id="form2_5">
                         <div id="errorform2_5"></div>
-                        <div id="numberform2"></div>
+                        <div id="numberform2 my-2"></div>
                     </div>
                 </div>
             </div>

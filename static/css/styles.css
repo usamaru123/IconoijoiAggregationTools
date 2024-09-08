@@ -25,6 +25,9 @@ body {
     display: none;
 }
 
+.form-check .form-check-input {
+    margin-left: 1.5em;
+}
 
 .errorform {
     color: red;

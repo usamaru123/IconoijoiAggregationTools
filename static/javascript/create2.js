@@ -79,7 +79,7 @@ function changeTicketSelect($this, time) {
 
         $ticketformtext =
             `
-                <div class="form-check ${sale}">
+                <div class="form-check ${sale} my-2">
                     <label> 
                     <input class="form-check-input ${formname}" type="${type}" name="${formname}"
                         id="${id}" value="${ticketval}" onclick="changeSheetSelect('${sale}','${tickettype}',${time})">
@@ -127,7 +127,7 @@ function changeSheetSelect(salestype, tickettype, time) {
         id = `${formname}_${sheetval}`;
         $ticketformtext =
             `
-                <div class="form-check">
+                <div class="form-check my-2">
                     <label>
                         <input class="form-check-input ${formname}" type="${type}" name="${formname}"
                         id="${id}" value="${sheetval}">
