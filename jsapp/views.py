@@ -210,6 +210,8 @@ class ThanksView(ListView):
 class ContactCreate(CreateView):
     template_name = 'contact_create.html'
     models = t_answer
+    fields = ('__all__')
+    success_url =('hallinfocreate')
     
 def csv_export(request,num):
     No = 1
