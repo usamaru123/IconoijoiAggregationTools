@@ -43,14 +43,14 @@
         <script>
         </script>
         <header class="header container-fluid">
-            {% block header %}
-            {% endblock header %}
-        </header>
-        <div class="main container-fluid">
             <div class="container">
-                {% block content %}
-                {% endblock content %}
+                {% block header %}
+                {% endblock header %}
             </div>
+        </header>
+        <div class="container-fluid">
+            {% block content %}
+            {% endblock content %}
         </div>
     </div>
 </body>
