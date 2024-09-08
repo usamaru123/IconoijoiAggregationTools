@@ -16,7 +16,7 @@
 
 
 <div class="header_inner inner">
-
+    {% block content %}
     <p class="header_title" name="eventtitle">{{ title.event.eventtitle }}</p>
 
     {% if title.event.eventtype.eventtypeid == 1 %}
@@ -33,7 +33,7 @@
     </p>
 
 
-    {% block content %}
+
     <div class=" eventform text-dark form-control-lg" id="eventform">
         <form action="" method="POST" name="formtag">{% csrf_token %}
             <div class="formcheck alert alert-light shadow ">
