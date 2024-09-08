@@ -14,17 +14,17 @@
 {% endblock header %}
 
 {% block content %}
-<div class="text-dark form-control-lg" id="">
+<div class="text-dark container" id="">
     <form action="" method="POST" name="formtag">{% csrf_token %}
         <div class="alert alert-light shadow ">
             <p class="info_text">＊印は必須です</p>
-            <div class="mb-3 row">
-                <label for="name" class="col-auto">お名前：</label>
-                <input id="name" name="nam" type="text" class="col-5">
+            <div class="my-3">
+                <label for="name" class="form-label">お名前：</label>
+                <input id="name" name="nam" type="text" class="form-control">
             </div>
-            <div class="mb-3 row">
-                <label for="contact_text" class="col-auto"> 内容*：</label>
-                <textarea class="form-control col-10" name="contact_text" id="contact_text" rows="5"></textarea>
+            <div class="my-3">
+                <label for="contact_text" class="form-label"> 内容*：</label>
+                <textarea class="form-control" name="contact_text" id="contact_text" rows="5"></textarea>
             </div>
         </div>
         <div class="container">

@@ -41,8 +41,6 @@ body {
 label {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    padding-left: 30px;
-    padding-right: 30px;
     font-size: calc(100vw/20);
     color: #000;
 }
