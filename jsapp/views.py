@@ -214,7 +214,7 @@ class ContactCreate(CreateView):
     fields = ('__all__')
     success_url =('contact_thanks')
 
-class ContactThanksView(View):
+class ContactThanks(View):
     template_name = 'contact_thanks.html'
     
 def csv_export(request,num):
