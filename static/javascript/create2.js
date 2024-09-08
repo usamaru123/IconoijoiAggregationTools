@@ -25,7 +25,7 @@ window.onload = function () {
                 <div class="form-check form-check-inline">
                     <label>
                         <input type='checkbox' class='form-check-input' class='venue' id='timeform2' name='evening' onclick=checkEvent(2)>
-                        <label for="timeform2" class="form-check-label"> ${venues[1].value}
+                        ${venues[1].value}
                     </label>
                 </div>
             `
@@ -80,9 +80,11 @@ function changeTicketSelect($this, time) {
         $ticketformtext =
             `
                 <div class="form-check ${sale}">
+                    <label> 
                     <input class="form-check-input ${formname}" type="${type}" name="${formname}"
                         id="${id}" value="${ticketval}" onclick="changeSheetSelect('${sale}','${tickettype}',${time})">
-                    <label for="${id}" class="form-check-label"> ${ticketval}</label>
+                    ${ticketval}
+                    </label>
                 </div>
             `;
         $ticketformlabel.append($ticketformtext);
@@ -126,9 +128,11 @@ function changeSheetSelect(salestype, tickettype, time) {
         $ticketformtext =
             `
                 <div class="form-check">
-                    <input class="form-check-input ${formname}" type="${type}" name="${formname}"
-                    id="${id}" value="${sheetval}">
-                    <label for="${id}" class="form-check-label">${sheetval}</label>
+                    <label>
+                        <input class="form-check-input ${formname}" type="${type}" name="${formname}"
+                        id="${id}" value="${sheetval}">
+                        ${sheetval}
+                    </label>
                 </div>
             `;
 
