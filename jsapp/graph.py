@@ -199,7 +199,7 @@ def Floor_HeatMap(rows,columns,sheets,rowmax,columnmax):
 def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns):
     columnlist = []
     rowlist = []
-    logging.error(venueid+venue_sheet+rowmax+columnmax+rows+columns)
+    logging.error(str(venueid)+venue_sheet+rowmax+columnmax+rows+columns)
 
     row = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 

@@ -155,3 +155,34 @@ class MenberModel(models.Model): #アンケート回答結果を保存するフ�
    def __str__(self):
       return "id:"+ str(self.id) + ",timedate" + str(self.timedate)
 
+
+
+class m_contact_typ(models.Model):
+   contact_typ = models.IntegerField(primary_key=True)
+   contact_nam = models.CharField(max_length=30)
+
+   def __str__(self):
+      return str(self.contact_typ) + "_" + self.contact_nam
+
+
+class t_answer(models.Model):
+   answer_id = models.BigIntegerField(primary_key=True)
+   nam = models.CharField(max_length=100)
+   answer_text = models.TextField()
+   datetime = models.DateTimeField(auto_now_add=True)
+
+   def __str__(self):
+      return str(self.answer_id) + "_" + self.answer_text
+
+class t_contact(models.Model):
+   contact_id = models.BigIntegerField(primary_key=True)
+   contact_typ = models.ForeignKey(m_contact_typ,on_delete=models.CASCADE)
+   nam = models.CharField(max_length=100)
+   contact_text = models.TextField()
+   answer_id = models.ForeignKey(t_answer,on_delete=models.CASCADE)
+   venue_id = models.ForeignKey(VenueModel,on_delete=models.CASCADE)
+   disp_flg = models.IntegerField()
+   datetime = models.DateTimeField(auto_now_add=True)
+
+   def __str__(self):
+      return str(self.contact_id) + "_" + self.contact_text
