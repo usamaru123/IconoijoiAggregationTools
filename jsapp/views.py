@@ -210,6 +210,7 @@ class ThanksView(ListView):
 class ContactCreate(CreateView):
     template_name = 'contact_create.html'
     models = t_answer
+    queryset = t_answer.objects.all()
     fields = ('__all__')
     success_url =('hallinfocreate')
     
