@@ -212,7 +212,10 @@ class ContactCreate(CreateView):
     models = t_answer
     queryset = t_answer.objects.all()
     fields = ('__all__')
-    success_url =('hallinfocreate')
+    success_url =('contact_thanks')
+
+class ContactThanksView(ListView):
+    template_name = 'contact_thanks.html'
     
 def csv_export(request,num):
     No = 1
