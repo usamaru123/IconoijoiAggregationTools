@@ -148,7 +148,7 @@
                         <div id="formtitle{{forloop.counter}}_3"></div>
                         <div id="errorform{{forloop.counter}}_3" class="errorform"></div>
 
-                        {% for ticket in performtime.tickettype.all %}
+                        {% for ticket in performtime.tickettype.all|dictsort:"priority" %}
                         <div id="sheetform{{forloop.counter}}" class="{{ticket.tickettype}}">
                             {%for sheet in ticket.sheettype.all|dictsort:"priority" %}
                             <p>{{ sheet.sheet }}</p>
