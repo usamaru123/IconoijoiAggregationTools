@@ -242,8 +242,7 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns):
 
     #すべてのリストでフィールドを参照し，一番集計数が多い座席種別をblocksheetに代入する
 
-    logging.error(str(venueid)+'row:'+str(int_rows))
-    logging.error(str(venueid)+'columns:'+str(int_columns))
+
     logging.error(str(venueid)+'block:'+str(block))
 
     blockdf = pd.DataFrame(block)
@@ -257,10 +256,11 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns):
         (
             z=blockdf.values.tolist(),
             x=blockdf.columns.tolist(),
-            y=blockdf.index.tolist(),
-            colorscale='Edge',   
-            zmax = 2,
-            zmin = -2,
+            y=blockdf.index.tolist(),        
+            texttemplate="%{z}",
+            colorscale='Blues',   
+            zmax = 10,
+            zmin = 0,
             xgap=2,
             ygap=2,
         )
