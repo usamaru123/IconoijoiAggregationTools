@@ -234,7 +234,7 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns,time):
 
 
     if len(int_columns)==0 or len(int_rows)==0:
-        logging.info(time+'_'+str(venueid) + '_' + venue_sheet+ '_' +  str(int_rows)+":データ数が０になっています")
+        logging.warning(time+'_'+str(venueid) + '_' + venue_sheet+ '_' +  str(int_rows)+":データ数が０になっています")
         return 
     
             
@@ -285,7 +285,7 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns,time):
     fig.update_xaxes(dtick=1,title=time+'　現在')
 
     fig.write_image("/home/shun/IconoijoiAggregationTools/temp/"+str(venueid)+"_arena_"+venue_sheet+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
-    logging.warning(time+'_'+str(venueid) + '_' + venue_sheet+":出力完了")
+    logging.info(time+'_'+str(venueid) + '_' + venue_sheet+":出力完了")
 
     return 
  
