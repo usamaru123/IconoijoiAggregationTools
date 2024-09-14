@@ -230,11 +230,11 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns,time):
             if (columns[i] != ''):        
                     int_columns.append(int(columns[i]))
     except:
-        logging.error(time+venue_sheet+ str(int_rows)+"int型に変換できませんでした")
+        logging.error(time+'_'+str(venueid) + '_' + venue_sheet+ '_' +  str(int_rows[i])+":int型に変換できませんでした")
 
 
     if len(int_columns)==0 or len(int_rows)==0:
-        logging.warning(time+venue_sheet+ str(int_rows)+"データ数が０になっています")
+        logging.warning(time+'_'+str(venueid) + '_' + venue_sheet+ '_' +  str(int_rows)+":データ数が０になっています")
         return 
     
             
@@ -246,7 +246,7 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns,time):
         try:
             block[int_columns[i]][int_rows[i]] +=1
         except:
-            logging.error(time+venue_sheet+ str(int_rows)+"座席がリスト外です")
+            logging.error(time+'_'+str(venueid) + '_' + venue_sheet+ '_' +  str(int_rows[i])+'_' + str(int_columns[i])+ ":座席がリスト外です")
 
     #すべてのリストでフィールドを参照し，一番集計数が多い座席種別をblocksheetに代入する
 
@@ -285,6 +285,8 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns,time):
     fig.update_xaxes(dtick=1,title=time+'　現在')
 
     fig.write_image("/home/shun/IconoijoiAggregationTools/temp/"+str(venueid)+"_arena_"+venue_sheet+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
+    logging.warning(time+'_'+str(venueid) + '_' + venue_sheet+":出力完了")
+
     return 
  
 
