@@ -17,7 +17,7 @@ window.onload = function () {
     };
 
     //画面初期化
-    //checkEvent(1);
+    checkEvent(1);
     $('#ticket1_FC先行').click();
 
 
