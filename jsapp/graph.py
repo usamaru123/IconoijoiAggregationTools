@@ -197,8 +197,7 @@ def Floor_HeatMap(rows,columns,sheets,rowmax,columnmax):
     graph = fig.to_html(include_plotlyjs=False)
     return graph
 
-def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns):
-    time = datetime.datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')
+def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns,time):
     columnlist = []
     rowlist = []
 
@@ -231,11 +230,12 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns):
             if (columns[i] != ''):        
                     int_columns.append(int(columns[i]))
     except:
-        print("")
+        logging.error(time+venue_sheet+ str(int_rows)+"int型に変換できませんでした")
 
 
     if len(int_columns)==0 or len(int_rows)==0:
-        return 0
+        logging.warning(time+venue_sheet+ str(int_rows)+"データ数が０になっています")
+        return 
     
             
 
@@ -246,7 +246,7 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns):
         try:
             block[int_columns[i]][int_rows[i]] +=1
         except:
-            print("座席がリスト外")
+            logging.error(time+venue_sheet+ str(int_rows)+"座席がリスト外です")
 
     #すべてのリストでフィールドを参照し，一番集計数が多い座席種別をblocksheetに代入する
 
@@ -285,7 +285,7 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns):
     fig.update_xaxes(dtick=1,title=time+'　現在')
 
     fig.write_image("/home/shun/IconoijoiAggregationTools/temp/"+str(venueid)+"_arena_"+venue_sheet+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
-    return 1
+    return 
  
 
 def listcreate(rowlist,columnlist):
