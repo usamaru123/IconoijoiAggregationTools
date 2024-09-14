@@ -9,7 +9,7 @@ window.onload = function () {
             `
             <div class="form-check form-check">
                 <label>
-                <input type='radio' class='form-check-input venue' id='timeform${i + 1}' name='venueform' onclick=checkEvent()>
+                <input type='checkbox' class='form-check-input venue' id='timeform${i + 1}' name='venueform' onclick=checkEvent()>
                 ${venues[i].value}</label>
             </div>
         `;
