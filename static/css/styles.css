@@ -89,15 +89,11 @@ h3 {
 
 .box {
     transition: max-height 1s, overflow 1s, visibility 1s;
-    max-height: 0;
-    visibility: hidden;
-    overflow: hidden;
-}
-
-.box.is-show {
     max-height: 2000px;
     visibility: visible;
 }
+
+
 
 .inner {
     max-width: 1000px;
