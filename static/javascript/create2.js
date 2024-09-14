@@ -119,6 +119,9 @@ function changesheet($this) {
     for (i = 0; i < $sheetforms.length; i++) {
         if ($sheetforms[i].classList.contains('sheet_' + ticket)) {
             $sheetforms[i].classList.remove('display-none');
+            if ($sheetforms.eq(i).find('input').length == 1) {
+                $sheetforms.eq(i).find('input').prop('checked', true);
+            }
         } else {
             $sheetforms[i].classList.add('display-none');
         };
