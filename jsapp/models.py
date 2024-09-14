@@ -89,7 +89,6 @@ class SalesType(models.Model):
    priority = models.IntegerField(default=1)
    salestype = models.CharField(max_length=20,blank=True)
    dispsalesname = models.CharField(max_length=20)
-   tickettype = models.ManyToManyField(TicketTypeModel,default=[1])
    def __str__(self):
       return str(self.priority) + "." + self.salestype
    
@@ -103,6 +102,7 @@ class BlockType(models.Model): #１階席の座席集計種別を設定します
 class m_PerformTime(models.Model): #公演時間を保存するマスタです
    disp_priority = models.IntegerField()
    perform_time = models.CharField(max_length=100)
+   tickettype = models.ManyToManyField(TicketTypeModel,default=[1])
    def __str__(self):
       return str(self.disp_priority) + "." + self.perform_time
 
