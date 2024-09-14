@@ -121,13 +121,19 @@
                     </div>
 
                     <!--チケット区分-->
-                    {% for tickettype in performtime.tickettype.all %}
+
                     <div class="sheetform alert alert-light shadow" id="form{{forloop.parentloop.counter}}_2">
                         <div id="formtitle{{forloop.parentloop.counter}}_2"></div>
                         <div id="errorform{{forloop.parentloop.counter}}_2" class="errorform"></div>
-                        <div id="ticketform{{forloop.parentloop.counter}}"></div>
+
+                        <div id="ticketform{{forloop.parentloop.counter}}">
+                            {% for tickettype in performtime.tickettype.all %}
+                            <p>{{tickettype}}</p>
+                            {% endfor %}
+                        </div>
+
                     </div>
-                    {% endfor %}
+
 
                     <!--座席区分-->
                     <div class="sheetform alert alert-light shadow" id="form{{forloop.counter}}_3">
