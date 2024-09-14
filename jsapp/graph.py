@@ -268,6 +268,7 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns):
             zmin = 0,
             xgap=2,
             ygap=2,
+            x_title=time+'現在'
         )
     )
 
@@ -275,7 +276,9 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns):
         height=500,
         margin_l=0,
         margin_r=0,
-        title='ブロックごとの集計結果：'+venue_sheet+time +'現在'
+        title=dict(text='<b>ブロックごとの集計結果：'+venue_sheet,
+                   font=dict(size=20)
+                 )
     )
 
     fig.update_traces(showscale=False)
