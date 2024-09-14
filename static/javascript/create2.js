@@ -77,8 +77,18 @@ function changeTicketSelect($this) {
 
 }
 
-function changesheet(this) {
-    return;
+function changesheet($this) {
+    var ticket = $this.getAttribute('content');
+    var num = $this.getAttribute('form-num');
+    var $sheetforms = $(`#sheetform${num} > div`);
+
+    for (i = 0; i < $sheetforms.length; i++) {
+        if ($sheetforms[i].classList.contains(ticket)) {
+            $sheetforms[i].classList.remove('display-none');
+        } else {
+            $sheetforms[i].classList.add('display-none');
+        };
+    }
 };
 
 
