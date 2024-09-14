@@ -19,10 +19,10 @@ window.onload = function () {
     //画面初期化
     checkEvent(1);
 
-    var $formarea = $('.formarea');
+    var $formarea = document.getElementsByClassName('formarea');
     for (i = 0; i < $formarea.length; i++) {
-        if ($formarea[i].children().length = 1) {
-            $formarea[i].find('input').checked = true;
+        if ($formarea[i].getElementsByTagName('div').length == 1) {
+            $formarea[i].getElementsByTagName('input').checked = true;
             $formarea[i].disabled;
         }
     }
@@ -32,6 +32,7 @@ window.onload = function () {
 function checkEvent() {
     const $timeform = $(`.timeform > div`).find('input');
     const $answerform = $('.answerform');
+
 
     if ($timeform[2].checked) {
         $timeform[0].checked = false;
