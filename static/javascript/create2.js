@@ -18,7 +18,6 @@ window.onload = function () {
 
     //画面初期化
     checkEvent(1);
-    initializecheckbox();
 
 
 
@@ -53,6 +52,8 @@ function checkEvent() {
             $answerform[i].classList.remove('is-show');
         };
     }
+    initializecheckbox();
+
 };
 
 //販売区分に応じたチケット区分に変化させるファンクション
