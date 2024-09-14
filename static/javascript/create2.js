@@ -24,8 +24,8 @@ window.onload = function () {
 
 }
 
-function initializecheckbox() {
-    var $formarea = $('#form1 .formarea');
+function initializecheckbox(formnum) {
+    var $formarea = $(`#form${formnum} .formarea`);
     for (let i = 0; i < $formarea.length; i++) {
         if ($formarea.eq(i).find('div').length == 1 && $formarea.eq(i).find('input[type=radio]').length > 0) {
             $formarea.eq(i).find('input').click();
@@ -48,11 +48,11 @@ function checkEvent() {
     for (i = 0; i < $timeform.length; i++) {
         if ($timeform[i].checked) {
             $answerform[i].classList.add('is-show');
+            initializecheckbox(i);
         } else {
             $answerform[i].classList.remove('is-show');
         };
     }
-    //initializecheckbox();
 
 };
 
