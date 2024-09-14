@@ -93,7 +93,7 @@ h3 {
     visibility: hidden;
 }
 
-.box .is-show {
+.box.is-show {
     max-height: 2000px;
     visibility: visible;
 }
