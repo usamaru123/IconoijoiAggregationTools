@@ -92,7 +92,7 @@
             <input type="hidden" id="largeblock_r1" name="block_r1" value>
             <input type="hidden" id="largeblock_r2" name="block_r2" value>
         </div>
-        {% for performtime in performtimes %}
+        {% for performtime in performtimes.all %}
         <div id="answerform{{forloop.counter}}" class="box answerform">
             <div class="container">
 
