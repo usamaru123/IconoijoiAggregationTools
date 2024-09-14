@@ -10,7 +10,6 @@ import logging
 import datetime
 
 today = datetime.date.today().strftime('%Y%m%d')
-time = datetime.datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')
 
 logfile = "./logs/graph_"+today+".log"
 logging.basicConfig(filename=logfile,level=logging.WARNING)
@@ -199,6 +198,7 @@ def Floor_HeatMap(rows,columns,sheets,rowmax,columnmax):
     return graph
 
 def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns):
+    time = datetime.datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')
     columnlist = []
     rowlist = []
 
