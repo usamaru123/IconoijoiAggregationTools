@@ -133,7 +133,8 @@
                                     <input type="radio" class="form-check-input"
                                         name="floor{{forloop.parentloop.counter}}" value="{{ ticket.dispticketname }}"
                                         id="sale{{forloop.parentloop.counter}}_{{ ticket.tickettype }}"
-                                        content="{{ ticket.tickettype }}" form-num="{{forloop.parentloop.counter}}">
+                                        content="{{ ticket.tickettype }}" form-num="{{forloop.parentloop.counter}}"
+                                        onclick="changesheet(this)">
                                     {{ticket.dispticketname }}
                                 </label>
                             </div>
@@ -149,7 +150,7 @@
                         <div id="errorform{{forloop.counter}}_3" class="errorform"></div>
 
                         {% for ticket in performtime.tickettype.all|dictsort:"priority" %}
-                        <div id="sheetform{{forloop.counter}}" class="{{ticket.tickettype}}">
+                        <div id="sheetform{{forloop.counter}}" class="{{ticket.tickettype}} display-none">
                             {%for sheet in ticket.sheettype.all|dictsort:"priority" %}
                             <div class="form-check my-2">
                                 <label>

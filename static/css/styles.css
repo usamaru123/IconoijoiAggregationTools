@@ -98,7 +98,9 @@ h3 {
     visibility: visible;
 }
 
-
+.display-none {
+    display: none;
+}
 
 .inner {
     max-width: 1000px;
