@@ -93,26 +93,26 @@
             <input type="hidden" id="largeblock_r2" name="block_r2" value>
         </div>
         {% for performtime in performtimes %}
-        <div id="answerform{{forloop.counter}}" class="box answerform">
+        {{forloop.counter as loop}}
+        <div id="answerform{{loop}}" class="box answerform">
             <div class="container">
 
-                <div id="form{{forloop.counter}}" class="">
+                <div id="form{{loop}}" class="">
                     <p class="time">{{ perform_time }}</p>
                     <!--販売区分-->
-                    <div class="salesform alert alert-light shadow" id="form{{forloop.counter}}_1">
+                    <div class="salesform alert alert-light shadow" id="form{{loop}}_1">
                         <div class="formtitle">
                             <h3>チケットの購入区分</h3>
                         </div>
-                        <div id="errorform{{forloop.counter}}_1" class="errorform"></div>
-                        <div id="salesform{{forloop.counter}}">
+                        <div id="errorform{{loop}}_1" class="errorform"></div>
+                        <div id="salesform{{loop}}">
                             {% for sale in sales %}
                             <div class="form-check my-2">
                                 <label>
                                     <input type="radio" class="form-check-input" name="sale1"
                                         value="{{ sale.dispsalesname }}"
                                         id="sale{{forloop.parentloop.counter}}_{{ sale.salestype }}"
-                                        content="{{ sale.salestype }}"
-                                        onclick="changeTicketSelect(this,{{forloop.counter}})">
+                                        content="{{ sale.salestype }}" onclick="changeTicketSelect(this,`{{loop}}`)">
                                     {{ sale.dispsalesname }}
                                 </label>
                             </div>
@@ -121,33 +121,33 @@
                     </div>
 
                     <!--チケット区分-->
-                    <div class="sheetform alert alert-light shadow" id="form{{forloop.counter}}_2">
-                        <div id="formtitle{{forloop.counter}}_2"></div>
-                        <div id="errorform{{forloop.counter}}_2" class="errorform"></div>
-                        <div id="ticketform{{forloop.counter}}"></div>
+                    <div class="sheetform alert alert-light shadow" id="form{{loop}}_2">
+                        <div id="formtitle{{loop}}_2"></div>
+                        <div id="errorform{{loop}}_2" class="errorform"></div>
+                        <div id="ticketform{{loop}}"></div>
                     </div>
 
                     <!--座席区分-->
-                    <div class="sheetform alert alert-light shadow" id="form{{forloop.counter}}_3">
-                        <div id="formtitle{{forloop.counter}}_3"></div>
-                        <div id="errorform{{forloop.counter}}_3" class="errorform"></div>
-                        <div id="sheetform{{forloop.counter}}"></div>
+                    <div class="sheetform alert alert-light shadow" id="form{{loop}}_3">
+                        <div id="formtitle{{loop}}_3"></div>
+                        <div id="errorform{{loop}}_3" class="errorform"></div>
+                        <div id="sheetform{{loop}}"></div>
                     </div>
 
                     <!--階層区分-->
-                    <div class="floorform alert alert-light shadow" id="form{{forloop.counter}}_4">
-                        <div class="formtitle{{forloop.counter}}_4">
+                    <div class="floorform alert alert-light shadow" id="form{{loop}}_4">
+                        <div class="formtitle{{loop}}_4">
                             <h3>座席階数</h3>
                         </div>
-                        <div id="errorform{{forloop.counter}}_4" class="errorform"></div>
-                        <div id="floorform{{forloop.counter}}">
+                        <div id="errorform{{loop}}_4" class="errorform"></div>
+                        <div id="floorform{{loop}}">
                             {% for floor in floors %}
                             <div class="form-check my-2">
                                 <label>
                                     <input type="radio" class="form-check-input"
                                         id="floor{{forloop.parentloop.counter}}_{{ floor.floorname }}" name="floor1"
                                         value="{{ floor.floorname }}"
-                                        onclick="changefloorSelect(this,{{forloop.counter}})""
+                                        onclick="changefloorSelect(this,{{forloop.counter0}})""
                                         priority=" {{ floor.priority }}">
                                     {{ floor.floorname }}
                                 </label>
@@ -156,10 +156,10 @@
                         </div>
                     </div>
 
-                    <div class="numberform alert alert-light shadow" id="form{{forloop.counter}}_5">
-                        <div id="formtitle{{forloop.counter}}_5"></div>
-                        <div id="errorform{{forloop.counter}}_5" class="errorform"></div>
-                        <div id="numberform{{forloop.counter}}" class="my-2"></div>
+                    <div class="numberform alert alert-light shadow" id="form{{loop}}_5">
+                        <div id="formtitle{{loop}}_5"></div>
+                        <div id="errorform{{loop}}_5" class="errorform"></div>
+                        <div id="numberform{{loop}}" class="my-2"></div>
                     </div>
                 </div>
             </div>
