@@ -145,7 +145,8 @@
                                 <label>
                                     <input type="radio" class="form-check-input"
                                         id="floor{{forloop.parentloop.counter}}_{{ floor.floorname }}" name="floor1"
-                                        value="{{ floor.floorname }}" onclick="changefloorSelect(this,1)"
+                                        value="{{ floor.floorname }}"
+                                        onclick=`changefloorSelect(this,{{forloop.counter}})`
                                         priority="{{ floor.priority }}">
                                     {{ floor.floorname }}
                                 </label>
@@ -163,131 +164,6 @@
             </div>
         </div>
         {% endfor %}
-
-        <div id="answerform2" class="box answerform">
-            <div class="container">
-                <div id="form2" class="">
-                    <p class="time">{{ performtimes.1.perform_time }}</p>
-                    <!--販売区分-->
-                    <div class="salesform alert alert-light shadow" id="form2_1">
-                        <div id="formtitle2_1"></div>
-                        <div id="errorform2_1"></div>
-                        <div id="salesform2">
-                            {% for sale in sales %}
-                            <div class="form-check my-2">
-                                <label>
-                                    <input type="radio" class="form-check-input" name="sale2"
-                                        value="{{ sale.dispsalesname }}" id="sale2_{{ sale.salestype }}"
-                                        content="{{ sale.salestype }}" onclick="changeTicketSelect(this,2)">
-                                    {{ sale.dispsalesname }}
-                                </label>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-
-                    <!--チケット区分-->
-                    <div class="sheetform alert alert-light shadow" id="form2_2">
-                        <div id="formtitle2_2"></div>
-                        <div id="errorform2_2"></div>
-                        <div id="ticketform2"></div>
-                    </div>
-
-                    <!--座席区分-->
-                    <div class="sheetform alert alert-light shadow" id="form2_3">
-                        <div id="formtitle2_3"></div>
-                        <div id="errorform2_3"></div>
-                        <div id="sheetform2"></div>
-                    </div>
-
-                    <!--階層区分-->
-                    <div class="floorform alert alert-light shadow" id="form2_4">
-                        <div id="formtitle2_4"></div>
-                        <div id="errorform2_4"></div>
-                        <div id="floorform2">
-                            {% for floor in floors %}
-                            <div class="form-check my-2">
-                                <label>
-                                    <input type="radio" class="form-check-input" id="floor2_{{ floor.floorname }}"
-                                        name="floor2" value="{{ floor.floorname }}" onclick="changefloorSelect(this,2)"
-                                        priority="{{ floor.priority }}">
-                                    {{ floor.floorname }}
-                                </label>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-
-                    <div class="numberform alert alert-light shadow" id="form2_5">
-                        <div id="formtitle2_5"></div>
-                        <div id="errorform2_5"></div>
-                        <div id="numberform2" class="my-2"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="answerform3" class="box answerform">
-            <div class="container">
-                <div id="form3" class="">
-                    <p class="time">{{ performtimes.2.perform_time }}</p>
-                    <!--販売区分-->
-                    <div class="salesform alert alert-light shadow" id="form3_1">
-                        <div id="formtitle3_1"></div>
-                        <div id="errorform3_1"></div>
-                        <div id="salesform3">
-                            {% for sale in sales %}
-                            <div class="form-check my-2">
-                                <label>
-                                    <input type="radio" class="form-check-input" name="sale3"
-                                        value="{{ sale.dispsalesname }}" id="sale3_{{ sale.salestype }}"
-                                        content="{{ sale.salestype }}" onclick="changeTicketSelect(this,3)">
-                                    {{ sale.dispsalesname }}
-                                </label>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-
-                    <!--チケット区分-->
-                    <div class="sheetform alert alert-light shadow" id="form3_2">
-                        <div id="formtitle3_2"></div>
-                        <div id="errorform3_2"></div>
-                        <div id="ticketform3"></div>
-                    </div>
-
-                    <!--座席区分-->
-                    <div class="sheetform alert alert-light shadow" id="form3_3">
-                        <div id="formtitle3_3"></div>
-                        <div id="errorform3_3"></div>
-                        <div id="sheetform3"></div>
-                    </div>
-
-                    <!--階層区分-->
-                    <div class="floorform alert alert-light shadow" id="form3_4">
-                        <div id="formtitle3_4"></div>
-                        <div id="errorform3_4"></div>
-                        <div id="floorform3">
-                            {% for floor in floors %}
-                            <div class="form-check my-2">
-                                <label>
-                                    <input type="radio" class="form-check-input" id="floor3_{{ floor.floorname }}"
-                                        name="floor3" value="{{ floor.floorname }}" onclick="changefloorSelect(this,3)"
-                                        priority="{{ floor.priority }}">
-                                    {{ floor.floorname }}
-                                </label>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-
-                    <div class="numberform alert alert-light shadow" id="form3_5">
-                        <div id="formtitle3_5"></div>
-                        <div id="errorform3_5"></div>
-                        <div id="numberform3" class="my-2"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="container">
             <input type="submit" value="回答" class="shadow border border-light" id="submitbt"
                 onclick="return valueCheck()">
