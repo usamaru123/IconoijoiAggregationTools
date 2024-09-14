@@ -108,8 +108,8 @@
                             {% for sale in sales %}
                             <div class="form-check my-2">
                                 <label>
-                                    <input type="radio" class="form-check-input" name="sale1"
-                                        value="{{ sale.dispsalesname }}"
+                                    <input type="radio" class="form-check-input"
+                                        name="sale{{forloop.parentloop.counter}}" value="{{ sale.dispsalesname }}"
                                         id="sale{{forloop.parentloop.counter}}_{{ sale.salestype }}"
                                         content="{{ sale.salestype }}" form-num="{{forloop.parentloop.counter}}"
                                         onclick="changeTicketSelect(this)">
@@ -127,8 +127,12 @@
                         <div id="errorform{{forloop.parentloop.counter}}_2" class="errorform"></div>
 
                         <div id="ticketform{{forloop.parentloop.counter}}">
-                            {% for tickettype in performtime.tickettype.all %}
-                            <p>{{tickettype}}</p>
+                            {% for ticket in performtime.tickettype.all %}
+                            <input type="radio" class="form-check-input" name="floor{{forloop.parentloop.counter}}"
+                                value="{{ ticket.dispticketname }}"
+                                id="sale{{forloop.parentloop.counter}}_{{ ticket.tickettype }}"
+                                content="{{ ticket.tickettype }}" form-num="{{forloop.parentloop.counter}}">
+                            {{ticket.dispticketname }}
                             {% endfor %}
                         </div>
 
