@@ -128,13 +128,15 @@
 
                         <div id="ticketform{{forloop.parentloop.counter}}">
                             {% for ticket in performtime.tickettype.all %}
-                            <label>
-                                <input type="radio" class="form-check-input" name="floor{{forloop.parentloop.counter}}"
-                                    value="{{ ticket.dispticketname }}"
-                                    id="sale{{forloop.parentloop.counter}}_{{ ticket.tickettype }}"
-                                    content="{{ ticket.tickettype }}" form-num="{{forloop.parentloop.counter}}">
-                                {{ticket.dispticketname }}
-                            </label>
+                            <div class="form-check my-2">
+                                <label>
+                                    <input type="radio" class="form-check-input"
+                                        name="floor{{forloop.parentloop.counter}}" value="{{ ticket.dispticketname }}"
+                                        id="sale{{forloop.parentloop.counter}}_{{ ticket.tickettype }}"
+                                        content="{{ ticket.tickettype }}" form-num="{{forloop.parentloop.counter}}">
+                                    {{ticket.dispticketname }}
+                                </label>
+                            </div>
                             {% endfor %}
                         </div>
 
