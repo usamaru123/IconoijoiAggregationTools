@@ -9,7 +9,7 @@ window.onload = function () {
             `
             <div class="form-check form-check">
                 <label>
-                <input type='radio' class='form-check-input venue' id='timeform${i + 1}' name='venueform' onclick=checkEvent(${i + 1})>
+                <input type='radio' class='form-check-input venue' id='timeform${i + 1}' name='venueform' onclick=checkEvent()>
                 ${venues[i].value}</label>
             </div>
         `;
@@ -182,16 +182,15 @@ function changefloorSelect($this) {
 
 
 //公演を選択した際にアコーディオンメニューを表示するファンクションです。
-function checkEvent(num) {
-    const $timeform = document.querySelectorAll(`.timeform > div`);
-    const $answerform = document.querySelector(`#answerform${num}`);
-    const $timeformcheck = document.querySelector(`#timeformcheck${num}`)
+function checkEvent() {
+    const $timeform = $(`.timeform > div`);
+    const $answerform = $('.answerform');
 
     for (i = 0; i < $timeform.length; i++) {
-        if ($timeform[i].checked) {
-            $answerform.classList.add('is-show');
+        if ($timeform[i].find('input').checked) {
+            $answerform[i].classList.add('is-show');
         } else {
-            $answerform.classList.remove('is-show');
+            $answerform[i].classList.remove('is-show');
         };
     }
 };
