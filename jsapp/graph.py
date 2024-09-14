@@ -267,8 +267,7 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns):
             zmax = 10,
             zmin = 0,
             xgap=2,
-            ygap=2,
-            x_title=time+'現在'
+            ygap=2
         )
     )
 
@@ -283,7 +282,7 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns):
 
     fig.update_traces(showscale=False)
     fig.update_yaxes(autorange='reversed',dtick=1)
-    fig.update_xaxes(dtick=1)
+    fig.update_xaxes(dtick=1,title=time+'　現在')
 
     fig.write_image("/home/shun/IconoijoiAggregationTools/temp/"+str(venueid)+"_arena_"+venue_sheet+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
     return 
