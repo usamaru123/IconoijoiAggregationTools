@@ -47,11 +47,11 @@ function checkEvent(clickvenue) {
     const $answerform = $('.answerform');
 
     if (clickvenue == 0 || clickvenue == 1) {
-        $timeform[2].checked = false;
+        $timeform[2].prop('checked', false);
     }
     if (clickvenue == 2) {
-        $timeform[0].checked = false;
-        $timeform[1].checked = false;
+        $timeform[0].prop('checked', false);
+        $timeform[1].prop('checked', false);
     }
 
 
