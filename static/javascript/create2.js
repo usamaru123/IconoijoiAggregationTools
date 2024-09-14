@@ -9,7 +9,7 @@ window.onload = function () {
             `
             <div class="form-check">
                 <label>
-                <input type='checkbox' class='form-check-input venue' id='timeform${i + 1}' name='venueform' >
+                <input type='checkbox' class='form-check-input venue' id='timeform${i + 1}' name='venueform' onclick=checkEvent()>
                 ${venues[i].value}</label>
             </div>
         `;
@@ -46,7 +46,7 @@ function checkEvent() {
     for (i = 0; i < $timeform.length; i++) {
         if ($timeform[i].checked) {
             $answerform[i].classList.add('is-show');
-            initializecheckbox(i + 1);
+            // initializecheckbox(i + 1);
         } else {
             $answerform[i].classList.remove('is-show');
         };
