@@ -152,7 +152,7 @@
                         <div id="sheetform{{forloop.counter}}" class="{{ticket.tickettype}}">
                             {%for sheet in ticket.sheettype.all|dictsort:"priority" %}
                             <p>{{ sheet.sheet }}</p>
-                            {% end for %}
+                            {% endfor %}
                         </div>
                         {% endfor %}
                     </div>
