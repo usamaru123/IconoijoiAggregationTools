@@ -28,7 +28,7 @@ function initializecheckbox(formnum) {
     let $venuecheck = $('.timeform').find('input')
 
     for (let j = 0; j < $venuecheck.length; j++) {
-        if ($venuecheck.eq(j).checked == true) {
+        if ($venuecheck[j].checked == true) {
             var $formarea = $(`#form${j} .formarea`);
             for (let i = 0; i < $formarea.length; i++) {
                 if ($formarea.eq(i).find('div').length == 1 && $formarea.eq(i).find('input[type=radio]').length > 0) {
