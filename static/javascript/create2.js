@@ -4,7 +4,7 @@ window.onload = function () {
     const $venueformlabel = $('.timeform')
     const venues = document.querySelectorAll('.venue')
 
-    for (i = 0; i < venues.length; i++) {
+    for (let i = 0; i < venues.length; i++) {
         venuetext =
             `
             <div class="form-check form-check">
@@ -27,7 +27,7 @@ window.onload = function () {
 
 function initializecheckbox() {
     var $formarea = $('.formarea');
-    for (i = 0; i < $formarea.length; i++) {
+    for (let i = 0; i < $formarea.length; i++) {
         if ($formarea.eq(i).find('div').length == 1 && $formarea.eq(i).find('input[type=radio]').length > 0) {
             $formarea.eq(i).find('input').prop('checked', true);
             $formarea.eq(i).find('input').disabled;
