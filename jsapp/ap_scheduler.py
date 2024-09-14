@@ -10,6 +10,7 @@ from . import graph
 import datetime
 
 today = datetime.date.today().strftime('%Y%m%d')
+time = datetime.datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')
 logfile = "./logs/scheduler_"+today+".log"
 logging.basicConfig(filename=logfile,level=logging.WARNING)
 
@@ -17,6 +18,7 @@ logging.basicConfig(filename=logfile,level=logging.WARNING)
 def periodic_execution():
 
     venues = VenueModel.objects.all()
+    returns_val = 0
     
     
 
@@ -45,14 +47,14 @@ def periodic_execution():
                         for j in range(len(venue_sheets)):
                             sheet_results = floor_results.filter(sheet1=venue_sheets[j])
                             item[venue_sheets[j]] = [int(row.row1 or 0) for row in sheet_results]
-                            histgrams[venue_floors[i]] = graph.Floor_Histgram(venue_id,item,venue_floors[i])
+                            returns_val +=  graph.Floor_Histgram(venue_id,item,venue_floors[i])
                         
         elif(block_type==2):
             title = '合計'
             results_arena = results.filter(floor1=venue_floors[0])
             block  = [item.block_r1 for item in results_arena]
             column = [item.block_c1 for item in results_arena]
-            graph.Arena_HeatMap(venue_id,title,row_max,column_max,block,column)
+            returns_val +=  graph.Arena_HeatMap(venue_id,title,row_max,column_max,block,column)
 
             for venue_sheet in venue_sheets:
                 results_sheet = results_arena.filter(sheet1=venue_sheet)
@@ -69,7 +71,7 @@ def periodic_execution():
                             sheet_results = floor_results.filter(sheet1=venue_sheets[j])
                             item[venue_sheets[j]] = [int(row.row1 or 0) for row in sheet_results]
                             histgrams[venue_floors[i]] = graph.Floor_Histgram(venue_id,item,venue_floors[i])
-
+    logging.warning(time +'_graphreturn_' + str(returns_val))
     return
 
 

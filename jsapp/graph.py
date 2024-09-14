@@ -205,10 +205,10 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns):
     row = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 
     if (rows is None):
-        return
+        return 0
     
     if(len(rows) != len(columns)):
-        return
+        return 0
         
     for i in range(0,columnmax):
         columnlist.append(i+1)
@@ -235,7 +235,7 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns):
 
 
     if len(int_columns)==0 or len(int_rows)==0:
-        return
+        return 0
     
             
 
@@ -285,7 +285,7 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns):
     fig.update_xaxes(dtick=1,title=time+'　現在')
 
     fig.write_image("/home/shun/IconoijoiAggregationTools/temp/"+str(venueid)+"_arena_"+venue_sheet+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
-    return 
+    return 1
  
 
 def listcreate(rowlist,columnlist):
