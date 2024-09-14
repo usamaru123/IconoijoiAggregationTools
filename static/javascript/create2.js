@@ -18,10 +18,35 @@ window.onload = function () {
 
     //画面初期化
     checkEvent(1);
-    $('#ticket1_FC先行').click();
 
-
+    var $formarea = $('.formarea');
+    for (i = 0; i < $formarea.length; i++) {
+        if ($formarea[i].children().length = 1) {
+            $formarea[i].find('input').checked = true;
+            $formarea[i].disabled;
+        }
+    }
 }
+
+//公演を選択した際にアコーディオンメニューを表示するファンクションです。
+function checkEvent() {
+    const $timeform = $(`.timeform > div`).find('input');
+    const $answerform = $('.answerform');
+
+    if ($timeform[2].checked) {
+        $timeform[0].checked = false;
+        $timeform[1].checked = false;
+    }
+
+    for (i = 0; i < $timeform.length; i++) {
+        if ($timeform[i].checked) {
+            $answerform[i].classList.add('is-show');
+        } else {
+            $answerform[i].classList.remove('is-show');
+        };
+    }
+};
+
 //販売区分に応じたチケット区分に変化させるファンクション
 //input1:object
 //input2:time
@@ -181,19 +206,7 @@ function changefloorSelect($this) {
 
 
 
-//公演を選択した際にアコーディオンメニューを表示するファンクションです。
-function checkEvent() {
-    const $timeform = $(`.timeform > div`).find('input');
-    const $answerform = $('.answerform');
 
-    for (i = 0; i < $timeform.length; i++) {
-        if ($timeform[i].checked) {
-            $answerform[i].classList.add('is-show');
-        } else {
-            $answerform[i].classList.remove('is-show');
-        };
-    }
-};
 
 //小文字のアルファベットを入力した際に大文字に自動変換するファンクションです。
 function inputChange(i) {

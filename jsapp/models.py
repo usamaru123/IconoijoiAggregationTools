@@ -123,6 +123,9 @@ class VenueModel(models.Model): #公演の情報を保存するフィールド�
    #floorset = models.ForeignKey(FloorSetModel,on_delete=models.CASCADE)
    floor = models.ManyToManyField(FloorModel,default="")
    hall = models.ManyToManyField(HallTypeModel,default="")
+   comment1 = models.TextField(blank=True)
+   comment2 = models.TextField(blank=True)
+   comment3 = models.TextField(blank=True)
 
    def __str__(self):
       return str(self.venueid) + "." + self.event.eventtitle + self.hallinfo.hallname 
