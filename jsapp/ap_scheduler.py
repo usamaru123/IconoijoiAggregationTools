@@ -47,7 +47,7 @@ def periodic_execution():
                         for j in range(len(venue_sheets)):
                             sheet_results = floor_results.filter(sheet1=venue_sheets[j])
                             item[venue_sheets[j]] = [int(row.row1 or 0) for row in sheet_results]
-                            logging.WARNING(graph.Floor_Histgram(venue_id,item,venue_floors[i]))
+                            graph.Floor_Histgram(venue_id,item,venue_floors[i])
                         
         elif(block_type==2):
             title = '合計'
