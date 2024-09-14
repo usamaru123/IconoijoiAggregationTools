@@ -127,7 +127,7 @@
                         <div id="errorform{{forloop.parentloop.counter}}_2" class="errorform"></div>
 
                         <div id="ticketform{{forloop.parentloop.counter}}">
-                            {% for ticket in performtime.tickettype.all %}
+                            {% for ticket in performtime.tickettype.all|dictsort:"priority" %}
                             <div class="form-check my-2">
                                 <label>
                                     <input type="radio" class="form-check-input"
@@ -151,7 +151,16 @@
                         {% for ticket in performtime.tickettype.all|dictsort:"priority" %}
                         <div id="sheetform{{forloop.counter}}" class="{{ticket.tickettype}}">
                             {%for sheet in ticket.sheettype.all|dictsort:"priority" %}
-                            <p>{{ sheet.sheet }}</p>
+                            <div class="form-check my-2">
+                                <label>
+                                    <input type="radio" class="form-check-input"
+                                        name="sheet{{forloop.parentloop.parentloop.counter}}" value="{{ sheet.sheet }}"
+                                        id="sale{{forloop.parentloop.parentloop.counter}}_{{ ticket.tickettype }}"
+                                        content="{{ sheet.sheet }}"
+                                        form-num="{{forloop.parentloop.parentloop.counter}}">
+                                    {{ sheet.sheet }}
+                                </label>
+                            </div>
                             {% endfor %}
                         </div>
                         {% endfor %}
