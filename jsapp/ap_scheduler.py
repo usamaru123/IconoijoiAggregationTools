@@ -12,7 +12,7 @@ import datetime
 today = datetime.date.today().strftime('%Y%m%d')
 time = datetime.datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')
 logfile = "./logs/scheduler_"+today+".log"
-logging.basicConfig(filename=logfile,level=logging.WARNING)
+logging.basicConfig(filename=logfile,level=logging.INFO)
 
 
 def periodic_execution():
