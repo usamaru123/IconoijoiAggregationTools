@@ -83,7 +83,7 @@ function changesheet($this) {
     var $sheetforms = $(`#sheetform${num} > div`);
 
     for (i = 0; i < $sheetforms.length; i++) {
-        if ($sheetforms[i].classList.contains(ticket)) {
+        if ($sheetforms[i].classList.contains('sheet_' + ticket)) {
             $sheetforms[i].classList.remove('display-none');
         } else {
             $sheetforms[i].classList.add('display-none');
