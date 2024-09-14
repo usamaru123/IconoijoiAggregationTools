@@ -9,7 +9,7 @@ window.onload = function () {
             `
             <div class="form-check">
                 <label>
-                <input type='checkbox' class='form-check-input venue' id='timeform${i + 1}' name='venueform' onclick=checkEvent()>
+                <input type='checkbox' class='form-check-input venue' id='timeform${i + 1}' name='venueform' onclick=checkEvent(${i})>
                 ${venues[i].value}</label>
             </div>
         `;
@@ -29,9 +29,16 @@ function initializecheckbox() {
 }
 
 //公演を選択した際にアコーディオンメニューを表示するファンクションです。
-function checkEvent() {
+function checkEvent(checkno) {
     const $timeform = $(`.timeform > div`).find('input');
     const $answerform = $('.answerform');
+
+    if (checkno == 2) {
+        $timeform[0].checked = false;
+        $timeform[1].checked = false;
+    } else {
+        $timeform[2].checked = false;
+    }
 
     for (i = 0; i < $timeform.length; i++) {
         if ($timeform[i].checked) {
