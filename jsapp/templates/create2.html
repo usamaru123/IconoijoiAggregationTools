@@ -123,10 +123,10 @@
                     <!--チケット区分-->
 
                     <div class="ticketform alert alert-light shadow" id="form{{forloop.parentloop.counter}}_2">
-                        <div id="formtitle{{forloop.parentloop.counter}}_2"></div>
-                        <div id="errorform{{forloop.parentloop.counter}}_2" class="errorform"></div>
+                        <div id="formtitle{{forloop.counter}}_2"></div>
+                        <div id="errorform{{forloop.counter}}_2" class="errorform"></div>
 
-                        <div id="ticketform{{forloop.parentloop.counter}}" class="formarea">
+                        <div id="ticketform{{forloop.counter}}" class="formarea">
                             {% for ticket in performtime.tickettype.all|dictsort:"priority" %}
                             <div class="form-check my-2">
                                 <label>

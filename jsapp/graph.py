@@ -234,7 +234,7 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns,time):
 
 
     if len(int_columns)==0 or len(int_rows)==0:
-        logging.warning(time+'_'+str(venueid) + '_' + venue_sheet+ '_' +  str(int_rows)+":データ数が０になっています")
+        logging.info(time+'_'+str(venueid) + '_' + venue_sheet+ '_' +  str(int_rows)+":データ数が０になっています")
         return 
     
             
