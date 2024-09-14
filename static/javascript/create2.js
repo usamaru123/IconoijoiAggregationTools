@@ -183,16 +183,17 @@ function changefloorSelect($this) {
 
 //公演を選択した際にアコーディオンメニューを表示するファンクションです。
 function checkEvent(num) {
-    const $this_timeform = document.querySelector(`#timeform${num}`);
+    const $timeform = document.querySelectorAll(`#timeform > div`);
     const $answerform = document.querySelector(`#answerform${num}`);
     const $timeformcheck = document.querySelector(`#timeformcheck${num}`)
 
-    if ($this_timeform.checked) {
-        $answerform.classList.add('is-show');
-    } else {
-        $answerform.classList.remove('is-show');
-    };
-
+    for (i = 0; i < $timeform.length; i++) {
+        if ($timeform[i].checked) {
+            $answerform.classList.add('is-show');
+        } else {
+            $answerform.classList.remove('is-show');
+        };
+    }
 };
 
 //小文字のアルファベットを入力した際に大文字に自動変換するファンクションです。
