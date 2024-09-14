@@ -8,7 +8,7 @@ window.onload = function () {
             `
                 <div class="form-check form-check">
                     <label>
-                    <input type='radio' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1) checked disabled>
+                    <input type='radio' class='form-check-input venue' id='timeform1' name='venueform' onclick=checkEvent(1) checked disabled>
                     ${venues[0].value}</label>
                 </div>
             `
@@ -18,13 +18,13 @@ window.onload = function () {
             `
                 <div class="form-check form-check-inline">
                     <label>
-                        <input type='radio' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1)>
+                        <input type='radio' class='form-check-input venue' id='timeform1' name='venueform' onclick=checkEvent(1)>
                         ${venues[0].value}
                      </label>
                 </div>
                 <div class="form-check form-check-inline">
                     <label>
-                        <input type='radio' class='form-check-input' class='venue' id='timeform2' name='evening' onclick=checkEvent(2)>
+                        <input type='radio' class='form-check-input venue' id='timeform2' name='venueform' onclick=checkEvent(2)>
                         ${venues[1].value}
                     </label>
                 </div>
@@ -35,19 +35,19 @@ window.onload = function () {
             `
                 <div class="form-check form-check-inline">
                     <label>
-                        <input type='radio' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1)>
+                        <input type='radio' class='form-check-input venue' id='timeform1' name='venueform' onclick=checkEvent(1)>
                         ${venues[0].value}
                      </label>
                 </div>
                 <div class="form-check form-check-inline">
                     <label>
-                        <input type='radio' class='form-check-input' class='venue' id='timeform2' name='evening' onclick=checkEvent(2)>
+                        <input type='radio' class='form-check-input venue' id='timeform2' name='venueform' onclick=checkEvent(2)>
                         ${venues[1].value}
                     </label>
                 </div>
                                 <div class="form-check form-check-inline">
                     <label>
-                        <input type='radio' class='form-check-input' class='venue' id='timeform3' name='day' onclick=checkEvent(3)>
+                        <input type='radio' class='form-check-input venue' id='timeform3' name='venueform' onclick=checkEvent(3)>
                         ${venues[2].value}
                     </label>
                 </div>
