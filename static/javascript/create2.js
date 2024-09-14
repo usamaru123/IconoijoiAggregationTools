@@ -218,10 +218,8 @@ function checkEvent(num) {
 
     if ($this_timeform.checked) {
         $answerform.classList.add('is-show');
-        $timeformcheck.value = 'true'
     } else {
         $answerform.classList.remove('is-show');
-        $timeformcheck.value = 'false'
     };
 
 };
