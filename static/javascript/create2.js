@@ -77,6 +77,9 @@ function changeTicketSelect($this) {
 
 }
 
+function changesheet(this) {
+    return;
+};
 
 
 //チケット区分に応じた座席区分に変化させるファンクション
