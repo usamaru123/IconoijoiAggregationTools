@@ -19,21 +19,13 @@ window.onload = function () {
 
 }
 
-function initializecheckbox(formnum) {
-    let $venuecheck = $('.timeform').find('input')
-
-    for (let j = 0; j < $venuecheck.length; j++) {
-        if ($venuecheck[j].checked == true) {
-            var $formarea = $(`#form${j + 1} .formarea`);
-            for (let i = 0; i < $formarea.length; i++) {
-                if ($formarea.eq(i).find('div').length == 1 && $formarea.eq(i).find('input[type=radio]').length > 0) {
-                    $formarea.eq(i).find('input').click();
-                    $formarea.eq(i).find('input').disabled;
-                }
-            }
+function initializecheckbox() {
+    var $formarea = $(`.formarea`);
+    for (let i = 0; i < $formarea.length; i++) {
+        if ($formarea.eq(i).find('div').length == 1 && $formarea.eq(i).find('input[type=radio]').length > 0) {
+            $formarea.eq(i).find('input').click();
         }
     }
-
 }
 
 //公演を選択した際にアコーディオンメニューを表示するファンクションです。
@@ -46,7 +38,7 @@ function checkEvent() {
     for (i = 0; i < $timeform.length; i++) {
         if ($timeform[i].checked) {
             $answerform[i].classList.add('is-show');
-            // initializecheckbox(i + 1);
+            initializecheckbox();
         } else {
             $answerform[i].classList.remove('is-show');
         };
