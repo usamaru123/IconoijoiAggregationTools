@@ -54,7 +54,7 @@ def periodic_execution():
             results_arena = results.filter(floor1=venue_floors[0])
             block  = [item.block_r1 for item in results_arena]
             column = [item.block_c1 for item in results_arena]
-            logging.WARNING(graph.Arena_HeatMap(venue_id,title,row_max,column_max,block,column))
+            logging.WARNING(str(graph.Arena_HeatMap(venue_id,title,row_max,column_max,block,column)))
 
             for venue_sheet in venue_sheets:
                 results_sheet = results_arena.filter(sheet1=venue_sheet)
@@ -62,7 +62,7 @@ def periodic_execution():
                 block  = [item.block_r1 for item in results_sheet]
                 column = [item.block_c1 for item in results_sheet]
 
-                logging.WARNING(graph.Arena_HeatMap(venue_id,venue_sheet,row_max,column_max,block,column))
+                graph.Arena_HeatMap(venue_id,venue_sheet,row_max,column_max,block,column)
 
             for i in range(1,len(venue_floors)):
                 floor_results = results_row.filter(floor1=venue_floors[i])
@@ -70,7 +70,7 @@ def periodic_execution():
                         for j in range(len(venue_sheets)):
                             sheet_results = floor_results.filter(sheet1=venue_sheets[j])
                             item[venue_sheets[j]] = [int(row.row1 or 0) for row in sheet_results]
-                            logging.WARNING(graph.Floor_Histgram(venue_id,item,venue_floors[i]))
+                            graph.Floor_Histgram(venue_id,item,venue_floors[i])
     #logging.WARNING(time +'_graphreturn_' + str(returns_val))
     return
 
