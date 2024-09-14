@@ -16,11 +16,6 @@ window.onload = function () {
         $venueformlabel.append(venuetext);
     };
 
-    //画面初期化
-    checkEvent(1);
-
-
-
 
 }
 
