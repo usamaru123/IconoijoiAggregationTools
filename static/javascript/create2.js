@@ -27,7 +27,7 @@ window.onload = function () {
 function initializecheckbox(formnum) {
     let $venuecheck = $('.timeform').find('input')
 
-    for (let j = 0; j < $venuecheck.length; j++) {
+    for (let j = 1; j < $venuecheck.length + 1; j++) {
         if ($venuecheck[j].checked == true) {
             var $formarea = $(`#form${j} .formarea`);
             for (let i = 0; i < $formarea.length; i++) {
