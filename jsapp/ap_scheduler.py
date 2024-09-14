@@ -54,7 +54,7 @@ def periodic_execution():
             results_arena = results.filter(floor1=venue_floors[0])
             block  = [item.block_r1 for item in results_arena]
             column = [item.block_c1 for item in results_arena]
-            logging.WARNING(time +'_graphreturn_' +str(graph.Arena_HeatMap(venue_id,title,row_max,column_max,block,column)))
+            logging.warning(time +'_graphreturn_' +str(graph.Arena_HeatMap(venue_id,title,row_max,column_max,block,column)))
 
             for venue_sheet in venue_sheets:
                 results_sheet = results_arena.filter(sheet1=venue_sheet)
