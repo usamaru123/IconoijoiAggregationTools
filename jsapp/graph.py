@@ -227,7 +227,7 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns):
 
         for i in range(len(columns)):
             if (columns[i] != ''):        
-                    int_columns.append(columns[i])
+                    int_columns.append(int(columns[i]))
     except:
         print("")
 
