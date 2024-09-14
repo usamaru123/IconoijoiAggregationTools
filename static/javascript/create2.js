@@ -25,7 +25,7 @@ window.onload = function () {
 }
 
 function initializecheckbox() {
-    var $formarea = $('.formarea');
+    var $formarea = $('#form1 .formarea');
     for (let i = 0; i < $formarea.length; i++) {
         if ($formarea.eq(i).find('div').length == 1 && $formarea.eq(i).find('input[type=radio]').length > 0) {
             $formarea.eq(i).find('input').prop('checked', true);
