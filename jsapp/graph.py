@@ -232,6 +232,12 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns):
         print("")
 
 
+    if len(int_columns)==0 or len(int_rows)==0:
+        return
+    
+            
+
+
     
     #座席種別ごとのリストに集計
     for i in range(len(int_rows)):
