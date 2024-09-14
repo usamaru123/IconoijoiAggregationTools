@@ -33,17 +33,15 @@ function checkEvent() {
     const $timeform = $(`.timeform > div`).find('input');
     const $answerform = $('.answerform');
 
-
-
     for (i = 0; i < $timeform.length; i++) {
         if ($timeform[i].checked) {
             $answerform[i].classList.add('is-show');
-            initializecheckbox();
+
         } else {
             $answerform[i].classList.remove('is-show');
         };
     }
-
+    initializecheckbox();
 };
 
 //販売区分に応じたチケット区分に変化させるファンクション
