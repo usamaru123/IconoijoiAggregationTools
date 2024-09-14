@@ -166,9 +166,6 @@ function changefloorSelect($this) {
     return;
 };
 
-function changesheet(this) {
-
-}
 
 
 //公演を選択した際にアコーディオンメニューを表示するファンクションです。
