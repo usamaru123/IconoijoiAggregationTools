@@ -255,7 +255,7 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns):
             z=blockdf.values.tolist(),
             x=blockdf.columns.tolist(),
             y=blockdf.index.tolist(),
-            text = venue_sheet,
+            title = venue_sheet,
             colorscale='Edge',   
             zmax = 2,
             zmin = -2,
