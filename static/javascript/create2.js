@@ -8,7 +8,7 @@ window.onload = function () {
             `
                 <div class="form-check form-check">
                     <label>
-                    <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1) checked disabled>
+                    <input type='radio' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1) checked disabled>
                     ${venues[0].value}</label>
                 </div>
             `
@@ -18,13 +18,13 @@ window.onload = function () {
             `
                 <div class="form-check form-check-inline">
                     <label>
-                        <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1)>
+                        <input type='radio' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1)>
                         ${venues[0].value}
                      </label>
                 </div>
                 <div class="form-check form-check-inline">
                     <label>
-                        <input type='checkbox' class='form-check-input' class='venue' id='timeform2' name='evening' onclick=checkEvent(2)>
+                        <input type='radio' class='form-check-input' class='venue' id='timeform2' name='evening' onclick=checkEvent(2)>
                         ${venues[1].value}
                     </label>
                 </div>
@@ -35,19 +35,19 @@ window.onload = function () {
             `
                 <div class="form-check form-check-inline">
                     <label>
-                        <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1)>
+                        <input type='radio' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1)>
                         ${venues[0].value}
                      </label>
                 </div>
                 <div class="form-check form-check-inline">
                     <label>
-                        <input type='checkbox' class='form-check-input' class='venue' id='timeform2' name='evening' onclick=checkEvent(2)>
+                        <input type='radio' class='form-check-input' class='venue' id='timeform2' name='evening' onclick=checkEvent(2)>
                         ${venues[1].value}
                     </label>
                 </div>
                                 <div class="form-check form-check-inline">
                     <label>
-                        <input type='checkbox' class='form-check-input' class='venue' id='timeform3' name='day' onclick=checkEvent(3)>
+                        <input type='radio' class='form-check-input' class='venue' id='timeform3' name='day' onclick=checkEvent(3)>
                         ${venues[2].value}
                     </label>
                 </div>
@@ -212,17 +212,18 @@ function changefloorSelect($this) {
 
 //公演を選択した際にアコーディオンメニューを表示するファンクションです。
 function checkEvent(num) {
-    const timeform = document.querySelector(`#timeform${num}`);
-    const answerform = document.querySelector(`#answerform${num}`);
-    const timeformcheck = document.querySelector(`#timeformcheck${num}`)
+    const $this_timeform = document.querySelector(`#timeform${num}`);
+    const $answerform = document.querySelector(`#answerform${num}`);
+    const $timeformcheck = document.querySelector(`#timeformcheck${num}`)
 
-    if (timeform.checked) {
-        answerform.classList.add('is-show');
-        timeformcheck.value = 'true'
+    if ($this_timeform.checked) {
+        $answerform.classList.add('is-show');
+        $timeformcheck.value = 'true'
     } else {
-        answerform.classList.remove('is-show');
-        timeformcheck.value = 'false'
+        $answerform.classList.remove('is-show');
+        $timeformcheck.value = 'false'
     };
+
 };
 
 //小文字のアルファベットを入力した際に大文字に自動変換するファンクションです。
@@ -428,4 +429,3 @@ function sheetvalfunc(val, i) {
 
     return text
 }
-
