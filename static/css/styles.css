@@ -23,6 +23,7 @@ body {
 
 .hidden {
     display: none;
+    font-family: serif;
 }
 
 .form-check .form-check-input {
