@@ -1,19 +1,19 @@
 //ページロード時に参照するファンクション
 window.onload = function () {
 
-    const venueformlabel = document.querySelector('.timeform')
+    const $venueformlabel = $('.timeform')
     const venues = document.querySelectorAll('.venue')
 
-    for (i = 1; i < venues.length; i++) {
+    for (i = 0; i < venues.length; i++) {
         venuetext =
             `
             <div class="form-check form-check">
                 <label>
-                <input type='radio' class='form-check-input venue' id='timeform${i}' name='venueform' onclick=checkEvent(${i}+1) checked disabled>
+                <input type='radio' class='form-check-input venue' id='timeform${i}' name='venueform' onclick=checkEvent(${i + 1}) checked disabled>
                 ${venues[i].value}</label>
             </div>
         `;
-        venueformlabel.append(venuetext);
+        $venueformlabel.append(venuetext);
     };
 
     //画面初期化
