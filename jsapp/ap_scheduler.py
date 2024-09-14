@@ -49,7 +49,7 @@ def periodic_execution():
                         
         elif(block_type==2):
             for venue_sheet in venue_sheets:
-                results_sheet = results.filter(sheet1=venue_sheet)
+                results_sheet = results.filter(sheet1=venue_sheet , floor1=venue_sheet[1])
 
                 block  = [item.block_r1 for item in results_sheet]
                 column = [item.block_c1 for item in results_sheet]
