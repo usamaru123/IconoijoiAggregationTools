@@ -146,7 +146,7 @@
                                     <input type="radio" class="form-check-input"
                                         id="floor{{forloop.parentloop.counter}}_{{ floor.floorname }}" name="floor1"
                                         value="{{ floor.floorname }}"
-                                        onclick="changefloorSelect(this,{{forloop.counter}})"
+                                        onclick=`changefloorSelect(this,{{forloop.counter}})`
                                         priority="{{ floor.priority }}">
                                     {{ floor.floorname }}
                                 </label>
