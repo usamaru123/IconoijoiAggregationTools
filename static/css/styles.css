@@ -88,7 +88,6 @@ h3 {
 }
 
 .box {
-    transition: max-height 1s, overflow 1s, visibility 1s;
     max-height: 2000px;
     visibility: visible;
 }
