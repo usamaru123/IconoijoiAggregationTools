@@ -111,7 +111,7 @@
                                     <input type="radio" class="form-check-input" name="sale1"
                                         value="{{ sale.dispsalesname }}"
                                         id="sale{{forloop.parentloop.counter}}_{{ sale.salestype }}"
-                                        content="{{ sale.salestype }}" form-nam="{{forloop.counter}}"
+                                        content="{{ sale.salestype }}" form-num="{{forloop.counter}}"
                                         onclick="changeTicketSelect(this)">
                                     {{ sale.dispsalesname }}
                                 </label>
@@ -146,9 +146,8 @@
                                 <label>
                                     <input type="radio" class="form-check-input"
                                         id="floor{{forloop.parentloop.counter}}_{{ floor.floorname }}" name="floor1"
-                                        value="{{ floor.floorname }}"
-                                        onclick="changefloorSelect(this,{{forloop.counter0}})""
-                                        priority=" {{ floor.priority }}">
+                                        value="{{ floor.floorname }}" onclick="changefloorSelect(this)"
+                                        priority=" {{ floor.priority }}" form-num="{{forloop.counter}}">
                                     {{ floor.floorname }}
                                 </label>
                             </div>

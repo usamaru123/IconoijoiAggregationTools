@@ -69,8 +69,9 @@ window.onload = function () {
 //input1:object
 //input2:time
 //output:void
-function changeTicketSelect($this, time) {
+function changeTicketSelect($this) {
     const type = 'radio';
+    var time = $this.getAttribute('form-num')
 
     var sale = $this.getAttribute('content')
     var $tickets = $(`#ticketTypeInput > .${sale} > input`);
@@ -170,8 +171,8 @@ function changeSheetSelect(salestype, tickettype, time) {
 //input1:object
 //input2:time
 //output:void
-function changefloorSelect($this, time) {
-
+function changefloorSelect($this) {
+    var time = $this.getAttribute('form-num')
     var priority = $this.getAttribute('priority');
     var $sheets = $(`#sheetTypeInput > .fr${priority}`).find('div')
 
