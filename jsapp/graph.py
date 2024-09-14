@@ -10,6 +10,8 @@ import logging
 import datetime
 
 today = datetime.date.today().strftime('%Y%m%d')
+time = datetime.datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')
+
 logfile = "./logs/graph_"+today+".log"
 logging.basicConfig(filename=logfile,level=logging.WARNING)
 
@@ -273,7 +275,7 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns):
         height=500,
         margin_l=0,
         margin_r=0,
-        title='ブロックごとの集計結果：'+venue_sheet
+        title='ブロックごとの集計結果：'+venue_sheet+time +'現在'
     )
 
     fig.update_traces(showscale=False)
