@@ -47,10 +47,10 @@ function checkEvent(clickvenue) {
     const $answerform = $('.answerform');
 
 
-    if (clickvenue == 2) { //通しチケットクリックの場合、個別公演はチェックを外す
+    if (clickvenue == 2 && ($timeform[0].checked == true || $timeform[1].checked == true)) { //通しチケットクリックの場合、個別公演はチェックを外す
         $timeform[0].checked = false;
         $timeform[1].checked = false;
-    } else {
+    } else if ($timeform[2].checked == true) {
         $timeform[2].checked = false;
     }
 
