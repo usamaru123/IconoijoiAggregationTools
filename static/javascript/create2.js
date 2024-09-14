@@ -48,7 +48,7 @@ function checkEvent() {
     for (i = 0; i < $timeform.length; i++) {
         if ($timeform[i].checked) {
             $answerform[i].classList.add('is-show');
-            initializecheckbox(i);
+            initializecheckbox(i + 1);
         } else {
             $answerform[i].classList.remove('is-show');
         };
