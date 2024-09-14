@@ -248,9 +248,6 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns):
 
     #すべてのリストでフィールドを参照し，一番集計数が多い座席種別をblocksheetに代入する
 
-
-    logging.error(str(venueid)+'block:'+str(block))
-
     blockdf = pd.DataFrame(block)
 
     fig = go.Figure(

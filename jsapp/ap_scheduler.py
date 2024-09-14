@@ -48,8 +48,14 @@ def periodic_execution():
                             histgrams[venue_floors[i]] = graph.Floor_Histgram(venue_id,item,venue_floors[i])
                         
         elif(block_type==2):
+            title = '合計'
+            results_arena = results.filter(floor1=venue_floors[0])
+            block  = [item.block_r1 for item in results_arena]
+            column = [item.block_c1 for item in results_arena]
+            graph.Arena_HeatMap(venue_id,title,row_max,column_max,block,column)
+
             for venue_sheet in venue_sheets:
-                results_sheet = results.filter(sheet1=venue_sheet , floor1=venue_floors[0])
+                results_sheet = results_arena.filter(sheet1=venue_sheet)
 
                 block  = [item.block_r1 for item in results_sheet]
                 column = [item.block_c1 for item in results_sheet]
