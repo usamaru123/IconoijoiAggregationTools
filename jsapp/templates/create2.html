@@ -131,8 +131,8 @@
                             <div class="form-check my-2">
                                 <label>
                                     <input type="radio" class="form-check-input"
-                                        name="floor{{forloop.parentloop.counter}}" value="{{ ticket.dispticketname }}"
-                                        id="sale{{forloop.parentloop.counter}}_{{ ticket.tickettype }}"
+                                        name="ticket{{forloop.parentloop.counter}}" value="{{ ticket.dispticketname }}"
+                                        id="ticket{{forloop.parentloop.counter}}_{{ ticket.tickettype }}"
                                         content="{{ ticket.tickettype }}" form-num="{{forloop.parentloop.counter}}"
                                         onclick="changesheet(this)">
                                     {{ticket.dispticketname }}
