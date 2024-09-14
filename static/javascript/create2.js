@@ -3,64 +3,21 @@ window.onload = function () {
 
     const venueformlabel = document.querySelector('.timeform')
     const venues = document.querySelectorAll('.venue')
-    if (venues.length == 1) {
-        venuetext =
-            `
-                <div class="form-check form-check">
-                    <label>
-                    <input type='radio' class='form-check-input venue' id='timeform1' name='venueform' onclick=checkEvent(1) checked disabled>
-                    ${venues[0].value}</label>
-                </div>
-            `
-    }
-    else if (venues.length == 2) {
-        venuetext =
-            `
-                <div class="form-check form-check-inline">
-                    <label>
-                        <input type='radio' class='form-check-input venue' id='timeform1' name='venueform' onclick=checkEvent(1)>
-                        ${venues[0].value}
-                     </label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <label>
-                        <input type='radio' class='form-check-input venue' id='timeform2' name='venueform' onclick=checkEvent(2)>
-                        ${venues[1].value}
-                    </label>
-                </div>
-            `
-    }
-    else if (venues.length == 3) {
-        venuetext =
-            `
-                <div class="form-check form-check-inline">
-                    <label>
-                        <input type='radio' class='form-check-input venue' id='timeform1' name='venueform' onclick=checkEvent(1)>
-                        ${venues[0].value}
-                     </label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <label>
-                        <input type='radio' class='form-check-input venue' id='timeform2' name='venueform' onclick=checkEvent(2)>
-                        ${venues[1].value}
-                    </label>
-                </div>
-                                <div class="form-check form-check-inline">
-                    <label>
-                        <input type='radio' class='form-check-input venue' id='timeform3' name='venueform' onclick=checkEvent(3)>
-                        ${venues[2].value}
-                    </label>
-                </div>
-            `
-    }
-    else {
-        venuetext = ''
-    }
 
-    venueformlabel.innerHTML = venuetext
+    for (i = 1; i < venues.length; i++) {
+        venuetext =
+            `
+            <div class="form-check form-check">
+                <label>
+                <input type='radio' class='form-check-input venue' id='timeform${i}' name='venueform' onclick=checkEvent(${i}+1) checked disabled>
+                ${venues[i].value}</label>
+            </div>
+        `;
+        venueformlabel.append(venuetext);
+    };
 
     //画面初期化
-    checkEvent(1);
+    //checkEvent(1);
     $('#ticket1_FC先行').click();
 
 
