@@ -30,6 +30,29 @@ window.onload = function () {
                 </div>
             `
     }
+    else if (venues.length == 3) {
+        venuetext =
+            `
+                <div class="form-check form-check-inline">
+                    <label>
+                        <input type='checkbox' class='form-check-input' class='venue' id='timeform1' name='matinee' onclick=checkEvent(1)>
+                        ${venues[0].value}
+                     </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <label>
+                        <input type='checkbox' class='form-check-input' class='venue' id='timeform2' name='evening' onclick=checkEvent(2)>
+                        ${venues[1].value}
+                    </label>
+                </div>
+                                <div class="form-check form-check-inline">
+                    <label>
+                        <input type='checkbox' class='form-check-input' class='venue' id='timeform3' name='day' onclick=checkEvent(3)>
+                        ${venues[2].value}
+                    </label>
+                </div>
+            `
+    }
     else {
         venuetext = ''
     }
