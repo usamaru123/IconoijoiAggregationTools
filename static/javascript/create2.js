@@ -7,7 +7,7 @@ window.onload = function () {
     for (let i = 0; i < venues.length; i++) {
         venuetext =
             `
-            <div class="form-check form-check">
+            <div class="form-check">
                 <label>
                 <input type='checkbox' class='form-check-input venue' id='timeform${i + 1}' name='venueform' onclick=checkEvent(${i})>
                 ${venues[i].value}</label>
@@ -25,13 +25,20 @@ window.onload = function () {
 }
 
 function initializecheckbox(formnum) {
-    var $formarea = $(`#form${formnum} .formarea`);
-    for (let i = 0; i < $formarea.length; i++) {
-        if ($formarea.eq(i).find('div').length == 1 && $formarea.eq(i).find('input[type=radio]').length > 0) {
-            $formarea.eq(i).find('input').click();
-            $formarea.eq(i).find('input').disabled;
+    let $venuecheck = $('.timeform').find('input')
+
+    for (let j = 0; j < $venuecheck.length; j++) {
+        if ($venuecheck[i].checked) {
+            var $formarea = $(`#form${j} .formarea`);
+            for (let i = 0; i < $formarea.length; i++) {
+                if ($formarea.eq(i).find('div').length == 1 && $formarea.eq(i).find('input[type=radio]').length > 0) {
+                    $formarea.eq(i).find('input').click();
+                    $formarea.eq(i).find('input').disabled;
+                }
+            }
         }
     }
+
 }
 
 //公演を選択した際にアコーディオンメニューを表示するファンクションです。
