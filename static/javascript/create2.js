@@ -19,11 +19,11 @@ window.onload = function () {
     //画面初期化
     checkEvent(1);
 
-    var $formarea = document.getElementsByClassName('formarea');
+    var $formarea = $('.formarea');
     for (i = 0; i < $formarea.length; i++) {
-        if ($formarea[i].getElementsByTagName('div').length == 1) {
-            $formarea[i].getElementsByTagName('input').checked = true;
-            $formarea[i].disabled;
+        if ($formarea.eq(i).find('div').length == 1 && $formarea.eq(i).find('input[type=radio]').length > 0) {
+            $formarea.eq(i).find('input').prop('checked', true);
+            $formarea.eq(i).find('input').disabled;
         }
     }
 }
