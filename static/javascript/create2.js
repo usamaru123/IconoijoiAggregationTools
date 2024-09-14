@@ -37,14 +37,11 @@ function initializecheckbox(formnum) {
 }
 
 //公演を選択した際にアコーディオンメニューを表示するファンクションです。
-function checkEvent(this) {
-    var id = this.attr('id')
+function checkEvent() {
     const $timeform = $(`.timeform > div`).find('input');
     const $answerform = $('.answerform');
 
-    if (id == 'timeform3') {
-        $timeform[2].checked = false;
-    }
+
 
     for (i = 0; i < $timeform.length; i++) {
         if ($timeform[i].checked) {
