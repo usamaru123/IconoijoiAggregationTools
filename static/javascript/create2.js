@@ -183,11 +183,11 @@ function changefloorSelect($this) {
 
 //公演を選択した際にアコーディオンメニューを表示するファンクションです。
 function checkEvent() {
-    const $timeform = $(`.timeform > div`);
+    const $timeform = $(`.timeform > div`).find('input');
     const $answerform = $('.answerform');
 
     for (i = 0; i < $timeform.length; i++) {
-        if ($timeform[i].find('input').checked) {
+        if ($timeform[i].checked) {
             $answerform[i].classList.add('is-show');
         } else {
             $answerform[i].classList.remove('is-show');
