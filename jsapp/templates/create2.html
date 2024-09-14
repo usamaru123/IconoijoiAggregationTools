@@ -167,41 +167,42 @@
                             </div>
                             {% endfor %}
                         </div>
+                    </div>
 
-                        <!--階層区分-->
-                        <div class="floorform alert alert-light shadow" id="form{{forloop.counter}}_4">
-                            <div class="formtitle{{forloop.counter}}_4">
-                                <h3>座席階数</h3>
-                            </div>
-                            <div id="errorform{{forloop.counter}}_4" class="errorform"></div>
-                            <div id="floorform{{forloop.counter}}">
-                                {% for floor in floors %}
-                                <div class="form-check my-2">
-                                    <label>
-                                        <input type="radio" class="form-check-input"
-                                            id="floor{{forloop.parentloop.counter}}_{{ floor.floorname }}" name="floor1"
-                                            value="{{ floor.floorname }}" onclick="changefloorSelect(this)"
-                                            priority="{{ floor.priority }}" form-num="{{forloop.parentloop.counter}}">
-                                        {{ floor.floorname }}
-                                    </label>
-                                </div>
-                                {% endfor %}
-                            </div>
+                    <!--階層区分-->
+                    <div class="floorform alert alert-light shadow" id="form{{forloop.counter}}_4">
+                        <div class="formtitle{{forloop.counter}}_4">
+                            <h3>座席階数</h3>
                         </div>
+                        <div id="errorform{{forloop.counter}}_4" class="errorform"></div>
+                        <div id="floorform{{forloop.counter}}">
+                            {% for floor in floors %}
+                            <div class="form-check my-2">
+                                <label>
+                                    <input type="radio" class="form-check-input"
+                                        id="floor{{forloop.parentloop.counter}}_{{ floor.floorname }}" name="floor1"
+                                        value="{{ floor.floorname }}" onclick="changefloorSelect(this)"
+                                        priority="{{ floor.priority }}" form-num="{{forloop.parentloop.counter}}">
+                                    {{ floor.floorname }}
+                                </label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
 
-                        <div class="numberform alert alert-light shadow" id="form{{forloop.counter}}_5">
-                            <div id="formtitle{{forloop.counter}}_5"></div>
-                            <div id="errorform{{forloop.counter}}_5" class="errorform"></div>
-                            <div id="numberform{{forloop.counter}}" class="my-2"></div>
-                        </div>
+                    <div class="numberform alert alert-light shadow" id="form{{forloop.counter}}_5">
+                        <div id="formtitle{{forloop.counter}}_5"></div>
+                        <div id="errorform{{forloop.counter}}_5" class="errorform"></div>
+                        <div id="numberform{{forloop.counter}}" class="my-2"></div>
                     </div>
                 </div>
             </div>
-            {% endfor %}
-            <div class="container">
-                <input type="submit" value="回答" class="shadow border border-light" id="submitbt"
-                    onclick="return valueCheck()">
-            </div>
+        </div>
+        {% endfor %}
+        <div class="container">
+            <input type="submit" value="回答" class="shadow border border-light" id="submitbt"
+                onclick="return valueCheck()">
+        </div>
     </form>
 </div>
 
