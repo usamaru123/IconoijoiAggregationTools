@@ -38,7 +38,7 @@ def periodic_execution():
         item = {}
         histgrams = {}
 
-        venue_salesobj = venue.salestype.order_by('disp_priority')
+        venue_salesobj = venue.salestype.order_by('priority')
         venue_floorobj = venue.floor.order_by('priority')
         venue_sheetobj = venue.sheettype.order_by('priority')  
 
