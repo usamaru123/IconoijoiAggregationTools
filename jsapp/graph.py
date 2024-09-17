@@ -204,10 +204,12 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns,time,color):
     row = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 
     if (rows is None):
-        return 0
+        logging.info('<arenacreate>'+time+'_'+str(venueid) + '_' + venue_sheet+ '_' +  str(int_rows)+":データ数が０です。")
+        return
     
     if(len(rows) != len(columns)):
-        return 0
+        logging.info('<arenacreate>'+time+'_'+str(venueid) + '_' + venue_sheet+ '_' +  str(int_rows)+":データ数が０です。")
+        return 
         
     for i in range(0,columnmax):
         columnlist.append(i+1)
@@ -230,11 +232,11 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns,time,color):
             if (columns[i] != ''):        
                     int_columns.append(int(columns[i]))
     except:
-        logging.error(time+'_'+str(venueid) + '_' + venue_sheet+ '_' +  str(int_rows[i])+":int型に変換できませんでした")
+        logging.error('<arenacreate>'+time+'_'+str(venueid) + '_' + venue_sheet+ '_' +  str(int_rows[i])+":int型に変換できませんでした。")
 
 
     if len(int_columns)==0 or len(int_rows)==0:
-        logging.warning(time+'_'+str(venueid) + '_' + venue_sheet+ '_' +  str(int_rows)+":データ数が０になっています")
+        logging.info('<arenacreate>'+time+'_'+str(venueid) + '_' + venue_sheet+ '_' +  str(int_rows)+":データ数が０です。")
         return 
     
             
@@ -246,7 +248,7 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns,time,color):
         try:
             block[int_columns[i]][int_rows[i]] +=1
         except:
-            logging.error(time+'_'+str(venueid) + '_' + venue_sheet+ '_' +  str(int_rows[i])+'_' + str(int_columns[i])+ ":座席がリスト外です")
+            logging.warning('<arenacreate>'+time+'_'+str(venueid) + '_' + venue_sheet+ '_' +  str(int_rows[i])+'_' + str(int_columns[i])+ ":座席がリスト外です。拡張してください。")
 
     #すべてのリストでフィールドを参照し，一番集計数が多い座席種別をblocksheetに代入する
 
@@ -295,7 +297,7 @@ def Arena_HeatMap(venueid,venue_sheet,rowmax,columnmax,rows,columns,time,color):
 		
 
     fig.write_image("/home/shun/IconoijoiAggregationTools/media/"+str(venueid)+"_arena_"+venue_sheet+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
-    logging.info(time+'_'+str(venueid) + '_' + venue_sheet+":出力完了")
+    logging.info('<arenacreate>'+time+'_'+str(venueid) + '_' + venue_sheet+":出力完了")
 
     return 
  
@@ -310,14 +312,14 @@ def textlistcreate(rowlist,columnlist):
     
 
 
-def ticketchart(ticket,list):
-
-    
-    return piecreate(list,val,title)
 
 
 
-def piecreate(items,list,title):
+def piecreate(venueid,items,list,title,time):
+
+    if(len(items)==0):
+        logging.info('<piecreate>'+time+'_'+str(venueid) + '_' + title + ":データ数が０です。")
+        return
     value = []
 
     for i in range(0,len(list)):
@@ -346,12 +348,13 @@ def piecreate(items,list,title):
         hole = .4,
     )
 
-    graph = plot(fig, output_type='div', include_plotlyjs=False)
-    return graph
+    fig.write_image("/home/shun/IconoijoiAggregationTools/media/"+str(venueid)+'_割合_'+title+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
 
-def Floor_Histgram(venueid,item,title):
+    return 
+
+def Floor_Histgram(venueid,item,title,time):
     if (item is None):
-        return
+        logging.info('<floorhistgram>'+time+'_'+str(venueid) + '_' + title + ":データ数が０です。")
 
     itemlist = list(item.keys())
 

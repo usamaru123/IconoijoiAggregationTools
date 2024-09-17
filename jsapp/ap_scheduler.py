@@ -1,7 +1,7 @@
 from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
 
-from .models import MenberModel , VenueModel
+from .models import MenberModel , VenueModel ,TicketTypeModel
 
 import plotly.graph_objects as go
 import kaleido
@@ -13,22 +13,22 @@ import datetime
 
 
 def periodic_execution():
-    today = datetime.date.today().strftime('%Y%m%d')
-    time = datetime.datetime.now().strftime('%Y年%m月%d日 %H:%M')
-
-    venues = VenueModel.objects.all()
-    returns_val = 0
-
     logfile = "./logs/scheduler_"+today+".log"
     logging.basicConfig(filename=logfile,level=logging.INFO)
 
     colors     = ['tempo','PuRd','Oranges','Blues','BuGn','Purples']
     colorcount = 0
+
+    today = datetime.date.today().strftime('%Y%m%d')
+    time = datetime.datetime.now().strftime('%Y年%m月%d日 %H:%M')
+
+    ticketmodel = TicketTypeModel.objects.order_by('priority').all()
+    venuemodel = VenueModel.objects.all()
+    returns_val = 0
+
+    venue_ticket = [ticket.dispticketname for ticket in ticketmodel]
     
-    for venue in venues:
-        
-
-
+    for venue in venuemodel:
         venue_id   = venue.venueid
         block_type = venue.blocktype.id
         row_max    = venue.rowmax
@@ -37,14 +37,27 @@ def periodic_execution():
         item = {}
         histgrams = {}
 
+        venue_salesobj = venue.salestype.order_by('disp_priority')
         venue_floorobj = venue.floor.order_by('priority')
-        venue_sheetobj = venue.sheettype.order_by('priority')
+        venue_sheetobj = venue.sheettype.order_by('priority')  
 
+        venue_sales  = [item.dispsalesname for item in venue_salesobj]
         venue_floors = [item.floorname for item in venue_floorobj]
         venue_sheets = [item.sheet for item in venue_sheetobj]
 
         results = MenberModel.objects.filter(venueid=venue_id).all()
         results_row = results.exclude(row1__exact="")
+
+        salesval   = [item.sale1   for item in results]
+        ticketsval = [item.ticket1 for item in results]
+        sheetsval  = [item.sheet1  for item in results]
+        floorsval  = [item.floor1  for item in results]
+
+        graph.piecreate(venue_id,salesval,venue_sales,'販売種別割合',time)
+        graph.piecreate(venue_id,ticketsval,venue_ticket,'チケット割合',time)
+        graph.piecreate(venue_id,sheetsval,venue_sheet,'座席割合',time)
+        graph.piecreate(venue_id,floorsval,venue_floors,'階層割合',time)
+
 
         if(len(results) == 1):
             logging.warning(time + '_' + str(venue_id) + ':新規公演に回答が追加されました。')
@@ -61,7 +74,7 @@ def periodic_execution():
                         for j in range(len(venue_sheets)):
                             sheet_results = floor_results.filter(sheet1=venue_sheets[j])
                             item[venue_sheets[j]] = [int(row.row1 or 0) for row in sheet_results]
-                            graph.Floor_Histgram(venue_id,item,venue_floors[i])
+                            graph.Floor_Histgram(venue_id,item,venue_floors[i],time)
 
                         
         elif(block_type==2):
@@ -89,7 +102,7 @@ def periodic_execution():
                         for j in range(len(venue_sheets)):
                             sheet_results = floor_results.filter(sheet1=venue_sheets[j])
                             item[venue_sheets[j]] = [int(row.row1 or 0) for row in sheet_results]
-                            graph.Floor_Histgram(venue_id,item,venue_floors[i])
+                            graph.Floor_Histgram(venue_id,item,venue_floors[i],time)
     #logging.WARNING(time +'_graphreturn_' + str(returns_val))
     return
 
