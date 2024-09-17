@@ -108,11 +108,10 @@
                             {% for sale in sales %}
                             <div class="form-check my-2">
                                 <label>
-                                    <input type="radio" class="form-check-input"
-                                        name="sale{{forloop.parentloop.counter}}" value="{{ sale.dispsalesname }}"
+                                    <input type="radio" class="form-check-input" value="{{ sale.dispsalesname }}"
                                         id="sale{{forloop.parentloop.counter}}_{{ sale.salestype }}"
                                         content="{{ sale.salestype }}" form-num="{{forloop.parentloop.counter}}"
-                                        onclick="">
+                                        name="inp_sale{{forloop.parentloop.counter}}" onclick="">
                                     {{ sale.dispsalesname }}
                                 </label>
                             </div>
@@ -122,19 +121,20 @@
 
                     <!--チケット区分-->
 
-                    <div class="ticketform alert alert-light shadow" id="form{{forloop.parentloop.counter}}_2">
-                        <div id="formtitle{{forloop.counter}}_2">{{ title.comment3 }}</div>
+                    <div class="ticketform alert alert-light shadow" id="form{{forloop.counter}}_2">
+                        <div id="formtitle{{forloop.counter}}_2">
+                            <h3>チケットの種類{{ title.comment3 }}</h3>
+                        </div>
                         <div id="errorform{{forloop.counter}}_2" class="errorform"></div>
 
                         <div id="ticketform{{forloop.counter}}" class="formarea">
                             {% for ticket in performtime.tickettype.all|dictsort:"priority" %}
                             <div class="form-check my-2">
                                 <label>
-                                    <input type="radio" class="form-check-input"
-                                        name="ticket{{forloop.parentloop.counter}}" value="{{ ticket.dispticketname }}"
+                                    <input type="radio" class="form-check-input" value="{{ ticket.dispticketname }}"
                                         id="ticket{{forloop.parentloop.counter}}_{{ ticket.tickettype }}"
                                         content="{{ ticket.tickettype }}" form-num="{{forloop.parentloop.counter}}"
-                                        onclick="changesheet(this)">
+                                        name="inp_ticket{{forloop.parentloop.counter}}" onclick="changesheet(this)">
                                     {{ticket.dispticketname }}
                                 </label>
                             </div>
@@ -146,7 +146,9 @@
 
                     <!--座席区分-->
                     <div class="sheetform alert alert-light shadow" id="form{{forloop.counter}}_3">
-                        <div id="formtitle{{forloop.counter}}_3">{{ title.comment3 }}</div>
+                        <div id="formtitle{{forloop.counter}}_3">
+                            <h3>座席の種類{{ title.comment3 }}</h3>
+                        </div>
                         <div id="errorform{{forloop.counter}}_3" class="errorform"></div>
                         <div id="sheetform{{forloop.counter}}" class="formarea">
                             {% for ticket in performtime.tickettype.all|dictsort:"priority" %}
@@ -154,10 +156,9 @@
                                 {%for sheet in ticket.sheettype.all|dictsort:"priority" %}
                                 <div class="form-check my-2">
                                     <label>
-                                        <input type="radio" class="form-check-input"
-                                            name="sheet{{forloop.parentloop.parentloop.counter}}"
-                                            value="{{ sheet.sheet }}"
-                                            id="sale{{forloop.parentloop.parentloop.counter}}_{{ ticket.tickettype }}_{{ sheet.sheet }}"
+                                        <input type="radio" class="form-check-input" value="{{ sheet.sheet }}"
+                                            id="sheet{{forloop.parentloop.parentloop.counter}}_{{ ticket.tickettype }}_{{ sheet.sheet }}"
+                                            name="inp_sheet{{forloop.parentloop.parentloop.counter}}"
                                             content="{{ sheet.sheet }}"
                                             form-num="{{forloop.parentloop.parentloop.counter}}">
                                         {{ sheet.sheet }}
@@ -181,7 +182,7 @@
                                 <label>
                                     <input type="radio" class="form-check-input"
                                         id="floor{{forloop.parentloop.counter}}_{{ floor.floorname }}"
-                                        name="floor{{forloop.parentloop.counter}}" value="{{ floor.floorname }}"
+                                        name="inp_floor{{forloop.parentloop.counter}}" value="{{ floor.floorname }}"
                                         onclick="changefloorSelect(this)" priority="{{ floor.priority }}"
                                         form-num="{{forloop.parentloop.counter}}">
                                     {{ floor.floorname }}
@@ -196,6 +197,20 @@
                         <div id="errorform{{forloop.counter}}_5" class="errorform"></div>
                         <div id="numberform{{forloop.counter}}" class="my-2 formarea"></div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="submit_contents">
+            <div class="form{{forloop.counter}}">
+                <div>
+                    <input type="hidden" id="submit_{{forloop.counter}}_1" name="sale{{forloop.counter}}">
+                    <input type="hidden" id="submit_{{forloop.counter}}_2" name="ticket{{forloop.counter}}">
+                    <input type="hidden" id="submit_{{forloop.counter}}_3" name="sheet{{forloop.counter}}">
+                    <input type="hidden" id="submit_{{forloop.counter}}_4" name="floor{{forloop.counter}}">
+                    <input type="hidden" id="submit_{{forloop.counter}}_5" name="row{{forloop.counter}}">
+                    <input type="hidden" id="submit_{{forloop.counter}}_6" name="block_c{{forloop.counter}}">
+                    <input type="hidden" id="submit_{{forloop.counter}}_7" name="block_r{{forloop.counter}}">
+                    <input type="hidden" id="submit_{{forloop.counter}}_8" name="number{{forloop.counter}}">
                 </div>
             </div>
         </div>

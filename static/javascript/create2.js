@@ -17,6 +17,8 @@ window.onload = function () {
     };
 
 
+
+
 }
 
 function initializecheckbox() {
@@ -33,12 +35,15 @@ function checkEvent(checkno) {
     const $timeform = $(`.timeform > div`).find('input');
     const $answerform = $('.answerform');
 
-    if (checkno == 2) {
-        $timeform[0].checked = false;
-        $timeform[1].checked = false;
-    } else {
-        $timeform[2].checked = false;
+    if ($timeform.length == 3) {
+        if (checkno == 2) {
+            $timeform[0].checked = false;
+            $timeform[1].checked = false;
+        } else {
+            $timeform[2].checked = false;
+        }
     }
+
 
     for (i = 0; i < $timeform.length; i++) {
         if ($timeform[i].checked) {
@@ -107,9 +112,9 @@ function changeTicketSelect($this) {
 }
 
 function changesheet($this) {
+    var formnum = $this.getAttribute('form-num');
     var ticket = $this.getAttribute('content');
-    var num = $this.getAttribute('form-num');
-    var $sheetforms = $(`#sheetform${num} > div`);
+    var $sheetforms = $(`#sheetform${formnum} > div`);
 
     for (i = 0; i < $sheetforms.length; i++) {
         if ($sheetforms[i].classList.contains('sheet_' + ticket)) {
@@ -240,15 +245,18 @@ function positionform_change(num) {
 function valueCheck() {
     const matinee = document.querySelector('#timeform1');
     const evening = document.querySelector('#timeform2');
-    const errorform1 = document.querySelector("#errorform1");
+    const allday = document.querySelector('#timeform3');
 
+    const errorform1 = document.querySelector("#errorform1");
     const errormsg1 = '参加公演にチェックを入れてください';
 
     var is_matinee = true; //公演が存在しないかチェックが入っていればtrue
     var is_evening = true;
+    var is_allday = true;
 
     var form1 = true; //公演ごとの回答項目がすべて入力されていればtrue
     var form2 = true;
+    var form3 = true;
 
 
 
@@ -256,8 +264,7 @@ function valueCheck() {
         is_matinee = matinee.checked;
         if (is_matinee) {
             form1 = formcheck(1);
-        }
-        else {
+        } else {
             form1 = true;
         }
     }
@@ -266,19 +273,27 @@ function valueCheck() {
         is_evening = evening.checked;
         if (is_evening) {
             form2 = formcheck(2);
-        }
-        else {
+        } else {
             form2 = true;
         }
     }
 
-    if (is_matinee == false && is_evening == false) { //どちらか一方でも公演が存在してチェックしてないとfalse
+    if (allday) {
+        is_allday = allday.checked;
+        if (is_allday) {
+            form3 = formcheck(3);
+        } else {
+            form3 = true;
+        }
+    }
+
+    if (is_matinee == false && is_evening == false && is_allday == false) { //どちらか一方でも公演が存在してチェックしてないとfalse
         errorform1.innerHTML = errormsg1;
         return false;
     }
 
 
-    if (form1 == false || form2 == false) {
+    if (form1 == false || form2 == false || form3 == false) {
         return false;
     }
 
@@ -286,23 +301,23 @@ function valueCheck() {
 }
 
 //全ての質問を回答しているか確認をするファンクションです。
-function formcheck(i) {
+function formcheck(formnum) {
     const errormsg2 = '入力してください';
 
-    var is_sales = $(`#salesform${i} input:checked`).length;
-    var is_ticket = $(`#ticketform${i} input:checked`).length;
-    var is_sheets = $(`#sheetform${i} input:checked`).length;
-    var is_floors = $(`#floorform${i} input:checked`).length;
-    var $numberform = $(`#numberform${i} input`)
+    var is_sales = $(`#salesform${formnum} input:checked`).length;
+    var is_ticket = $(`#ticketform${formnum} input:checked`).length;
+    var is_sheets = $(`#sheetform${formnum} input:checked`).length;
+    var is_floors = $(`#floorform${formnum} input:checked`).length;
+    var $numberform = $(`#numberform${formnum} input`)
 
     var is_numbers = true;
 
 
-    const error1 = $(`#errorform${i}_1`);
-    const error2 = $(`#errorform${i}_2`);
-    const error3 = $(`#errorform${i}_3`);
-    const error4 = $(`#errorform${i}_4`);
-    const error5 = $(`#errorform${i}_5`);
+    const error1 = $(`#errorform${formnum}_1`);
+    const error2 = $(`#errorform${formnum}_2`);
+    const error3 = $(`#errorform${formnum}_3`);
+    const error4 = $(`#errorform${formnum}_4`);
+    const error5 = $(`#errorform${formnum}_5`);
 
     error1.empty();
     error2.empty();
@@ -310,7 +325,7 @@ function formcheck(i) {
     error4.empty();
     error5.empty();
 
-    for (i = 0; i < $numberform.length; i++) {
+    for (let i = 0; i < $numberform.length; i++) {
         if ($numberform[i].value == "") {
             is_numbers = false;
         }
@@ -341,11 +356,51 @@ function formcheck(i) {
 
 
     if (is_sales == 1 && is_ticket == 1 && is_sheets == 1 && is_floors == 1 && is_numbers == true) {
+        submit_values(formnum);
         return true;
     } else {
         return false;
     }
 
+}
+
+function submit_values(formnum) {
+    const inp_sale = $(`#form${formnum}_1`).find('input:checked').val();
+    const inp_ticket = $(`#form${formnum}_2`).find('input:checked').val();
+    const inp_sheet = $(`#form${formnum}_3`).find('input:checked').val();
+    const inp_floor = $(`#form${formnum}_4`).find('input:checked').val();
+    const inp_row = $(`#row${formnum}`).val() || '';
+    const inp_block_c = $(`#block_c${formnum}`).val() || '';
+    const inp_block_r = $(`#block_r${formnum}`).val() || '';
+    const inp_number = $(`#number${formnum}`).val();
+
+    for (let a = 1; a < 4; a++) { //登録値を初期化する
+        for (let b = 1; b < 9; b++) {
+            $(`#sumbit_${a}_${b}`).val('');
+        }
+    }
+
+    if (formnum == 3) {
+        for (let i = 1; i < 3; i++) {
+            $(`#submit_${i}_1`).val(inp_sale);
+            $(`#submit_${i}_2`).val(inp_ticket);
+            $(`#submit_${i}_3`).val(inp_sheet);
+            $(`#submit_${i}_4`).val(inp_floor);
+            $(`#submit_${i}_5`).val(inp_row);
+            $(`#submit_${i}_6`).val(inp_block_c);
+            $(`#submit_${i}_7`).val(inp_block_r);
+            $(`#submit_${i}_8`).val(inp_number);
+        }
+    } else {
+        $(`#submit_${formnum}_1`).val(inp_sale);
+        $(`#submit_${formnum}_2`).val(inp_ticket);
+        $(`#submit_${formnum}_3`).val(inp_sheet);
+        $(`#submit_${formnum}_4`).val(inp_floor);
+        $(`#submit_${formnum}_5`).val(inp_row);
+        $(`#submit_${formnum}_6`).val(inp_block_c);
+        $(`#submit_${formnum}_7`).val(inp_block_r);
+        $(`#submit_${formnum}_8`).val(inp_number);
+    }
 }
 
 //座席位置の入力規則を呼び出すファンクションです。
@@ -354,34 +409,34 @@ function sheetvalfunc(val, i) {
     //1桁のアルファベットで定義づけられたブロックで使用します
 
     const val_101 =
-        ` <input pattern="[A-Za-z]{1}" class="col-3 block position"  id="block_r${i}"  name="block_r${i}" oninput="inputChange(${i})" placeholder="英字1文字"> `
+        ` <input pattern="[A-Za-z]{1}" class="col-3 block position"  id="block_r${i}"   oninput="inputChange(${i})" placeholder="英字1文字"> `
 
     const val_102 =
-        `<input pattern="[A-Za-z]{1}" class="col-3 block position"  id="block_r${i}" name="block_r${i}" oninput="inputChange(${i})" placeholder="英字1文字">
-        <input type="number" min="1" max="99" class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字"> `
+        `<input pattern="[A-Za-z]{1}" class="col-3 block position"  id="block_r${i}" oninput="inputChange(${i})" placeholder="英字1文字">
+        <input type="number" min="1" max="99" class="col-3 number position" id="block_c${i}" placeholder="半角数字"> `
 
     const val_103 =
-        `<input type="number" min="1" max="9" class="col-3 number position" id="block_c${i}" name="block_c${i}" placeholder="半角数字"> `
+        `<input type="number" min="1" max="9" class="col-3 number position" id="block_c${i}" placeholder="半角数字"> `
 
     const val_201 =
-        ` <input type="number" min="1" max="99" class="col-3 number position" id="row${i}" name="row${i}" placeholder="半角数字">`
+        ` <input type="number" min="1" max="99" class="col-3 number position" id="row${i}"placeholder="半角数字">`
 
     const val_301 =
-        `<input type="number" min="1" max="999" class="col-3 number position" id="number${i}" name="number${i}" placeholder="半角数字"> `
+        `<input type="number" min="1" max="999" class="col-3 number position" id="number${i}"  placeholder="半角数字"> `
 
     //横アリスタンド用
     const val_1002 =
-        `<select id="block_r${i}" name="block_r${i}" class="col-3 block postion">
+        `<select id="block_r${i}" class="col-3 block postion">
         <option value="A">A</option>
         <option value="B">B</option>
         <option value="C">C</option>
         <option value="D">D</option>
         <option value="E">E</option>
         <option value="F">F</option>
-    </select><input type="number" min="1" max="99" class="col-3 number position" id="row${i}" name="row${i}" placeholder="半角数字"> `
+    </select><input type="number" min="1" max="99" class="col-3 number position" id="row${i}"  placeholder="半角数字"> `
 
     const val_1003 =
-        `<select id="block_r${i}" name="block_r${i}" class="col-3 block postion">
+        `<select id="block_r${i}" class="col-3 block postion">
             <option value="東">東ブロック</option>
             <option value="西">西ブロック</option>
             <option value="南">南ブロック</option>
