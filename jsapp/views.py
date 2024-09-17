@@ -91,19 +91,13 @@ class AnswerList(ListView): #回答一覧ページ
             sheet  = [sheet.sheet1 for sheet in qs ]
 
 
-        salechart   = graph.piecreate(sale,salesval,'販売種別')
-        ticketchart = graph.piecreate(ticket,ticketsval,'チケット種別')
-        sheetchart  = graph.piecreate(sheet,sheetsval,'座席種別')
-        floorchart  = graph.piecreate(floor,floorsval,'階層種別')
+
 
 
         results = qs.order_by("timedate").reverse()[0:100]
         
         performcount = performtimes.count()
-        ctx['salechart'] = salechart
-        ctx['ticketchart'] = ticketchart
-        ctx['sheetchart'] = sheetchart
-        ctx['floorchart'] = floorchart
+
 
        # ctx['sheetratio1'] = sheetratio1
         ctx['results'] = results
