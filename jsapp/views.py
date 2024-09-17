@@ -42,20 +42,15 @@ class AnswerList(ListView): #回答一覧ページ
 
 
     def get_context_data(self,*args,**kwargs,):
-        paginate = 20
-        
+
         ctx = super().get_context_data(**kwargs)
         qsmodel = MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         venuemodel = VenueModel.objects.get(venueid=self.kwargs['num'])
-        ticketmodel = TicketTypeModel.objects.order_by('priority').all()
 
         performtimes = venuemodel.perform_time.order_by('disp_priority')
-        salevalobj = venuemodel.salestype.order_by('priority')
         floorvalobj = venuemodel.floor.order_by('priority')
         sheetvalobj = venuemodel.sheettype.order_by('priority')
 
-        salesval   = [sale.dispsalesname for sale in salevalobj]
-        ticketsval = [ticket.dispticketname for ticket in ticketmodel]
         floorsval = [floor.floorname for floor in floorvalobj]
         sheetsval = [sheet.sheet for sheet in sheetvalobj]
 
@@ -71,27 +66,9 @@ class AnswerList(ListView): #回答一覧ページ
            
         if time == 'evening':
             qs = qsmodel.exclude(ticket2__exact="")
-            qsfloor = qs.exclude(floor2__exact="")
-
-            sale   = [sale.sale2 for sale in qs]
-            ticket = [ticket.ticket2 for ticket in qs]
-
-
-            floor = [floor.floor2 for floor in qsfloor]
-            sheet = [sheet.sheet2 for sheet in qs ]
-
-
 
         else:
             qs = qsmodel.exclude(ticket1__exact="")
-            qsfloor = qs.exclude(floor1__exact="")
-            sale   = [sale.sale1 for sale in qs]
-            ticket = [ticket.ticket1 for ticket in qs]
-            floor  = [floor.floor1 for floor in qsfloor]
-            sheet  = [sheet.sheet1 for sheet in qs ]
-
-
-
 
 
         results = qs.order_by("timedate").reverse()[0:100]

@@ -341,6 +341,8 @@ def piecreate(venueid,items,list,title,time):
         margin=dict(
             t=5,b=5,l=0,r=0
         ),
+        font=dict(size=20),
+        
     )
 
     fig.update_traces(
@@ -348,7 +350,7 @@ def piecreate(venueid,items,list,title,time):
         hole = .4,
     )
 
-    fig.write_image("/home/shun/IconoijoiAggregationTools/media/"+str(venueid)+'_'+title+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
+    fig.write_image("/home/shun/IconoijoiAggregationTools/media/"+str(venueid)+'_'+title+".jpg",format='jpeg',scale=4,validate=False,engine='kaleido')
 
     return 
 
