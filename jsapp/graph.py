@@ -348,7 +348,7 @@ def piecreate(venueid,items,list,title,time):
         hole = .4,
     )
 
-    fig.write_image("/home/shun/IconoijoiAggregationTools/media/"+str(venueid)+'_割合_'+title+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
+    fig.write_image("/home/shun/IconoijoiAggregationTools/media/"+str(venueid)+'_'+title+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
 
     return 
 
