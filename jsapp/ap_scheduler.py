@@ -27,7 +27,7 @@ def periodic_execution():
     venuemodel = VenueModel.objects.all()
     returns_val = 0
 
-    venue_ticket = [ticket.dispticketname for ticket in ticketmodel]
+    venue_tickets = [ticket.dispticketname for ticket in ticketmodel]
     
     for venue in venuemodel:
         venue_id   = venue.venueid
@@ -55,8 +55,8 @@ def periodic_execution():
         floorsval  = [item.floor1  for item in results]
 
         graph.piecreate(venue_id,salesval,venue_sales,'販売種別割合',time)
-        graph.piecreate(venue_id,ticketsval,venue_ticket,'チケット割合',time)
-        graph.piecreate(venue_id,sheetsval,venue_sheet,'座席割合',time)
+        graph.piecreate(venue_id,ticketsval,venue_tickets,'チケット割合',time)
+        graph.piecreate(venue_id,sheetsval,venue_sheets,'座席割合',time)
         graph.piecreate(venue_id,floorsval,venue_floors,'階層割合',time)
 
 
