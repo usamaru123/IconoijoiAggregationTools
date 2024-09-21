@@ -11,6 +11,8 @@ import csv,urllib
 import datetime
 from django.db.models import Q
 
+
+
 import logging
 
 
@@ -185,7 +187,7 @@ class ContactCreate(CreateView):
     models = t_answer
     queryset = t_answer.objects.all()
     fields = ('__all__')
-    success_url =('contact_thanks')
+    success_url = reverse_lazy("list")
 
 class ContactThanks(TemplateView):
     template_name = 'contact_thanks.html'
