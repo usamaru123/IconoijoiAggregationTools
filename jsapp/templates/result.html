@@ -32,7 +32,7 @@
             {% if request.GET.time == 'matinee' %}
             昼の部
             {% elif request.GET.time == 'evening' %}
-            夜の部
+            夜の部{{ performtimes.1 }}
             {% endif %}
         </h2>
         <h2>
@@ -45,7 +45,7 @@
     </div>
 
     {% autoescape off %}
-    {% if performcount = 1 %}
+    {% if performcount == 1 %}
     {% if title.blocktype.id == 2 %}
     <div class="alert alert-light">
         <h2></h2>
