@@ -376,7 +376,7 @@ function submit_values(formnum) {
     const inp_block_r = $(`#block_r${formnum}`).val() || '';
     const inp_number = $(`#number${formnum}`).val();
 
-    const inp_venue = document.querySelector(`#timeform${formnum}`).checked;
+    const inp_venue = String(document.querySelector(`#timeform${formnum}`).checked);
 
 
 
@@ -411,7 +411,7 @@ function submit_values(formnum) {
         $(`#submit_${formnum}_6`).val(inp_block_c);
         $(`#submit_${formnum}_7`).val(inp_block_r);
         $(`#submit_${formnum}_8`).val(inp_number);
-        $(`#sumbit_${venue_nam}`).val(string(inp_venue));
+        $(`#sumbit_${venue_nam}`).val(inp_venue);
     }
 }
 
