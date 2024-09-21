@@ -399,7 +399,7 @@ function submit_values(formnum) {
             $(`#submit_${i}_6`).val(inp_block_c);
             $(`#submit_${i}_7`).val(inp_block_r);
             $(`#submit_${i}_8`).val(inp_number);
-            $(`#sumbit_${venue_nam}`).val('true');
+            $(`#submit_${venue_nam}`).val('true');
         }
     } else {
         var venue_nam = venue_list[formnum - 1];
@@ -411,7 +411,7 @@ function submit_values(formnum) {
         $(`#submit_${formnum}_6`).val(inp_block_c);
         $(`#submit_${formnum}_7`).val(inp_block_r);
         $(`#submit_${formnum}_8`).val(inp_number);
-        $(`#sumbit_${venue_nam}`).val(inp_venue);
+        $(`#submit_${venue_nam}`).val(inp_venue);
     }
 }
 
