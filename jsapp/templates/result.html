@@ -30,15 +30,17 @@
         {% if performcount > 1 %}
         <h2>
             {% if request.GET.time == 'matinee' %}
-            昼の部
+            {{ performtimes.0.perform_time }}
             {% elif request.GET.time == 'evening' %}
-            夜の部{{ performtimes }}
+            {{ performtimes.1.perform_time }}
             {% endif %}
         </h2>
         <h2>
             <form action="" method="GET">
-                <button type="submit" class="btn btn-lg btn-primary" name="time" value="matinee">昼の部</button>
-                <button type="submit" class="btn btn-lg btn-primary" name="time" value="evening">夜の部</button>
+                <button type="submit" class="btn btn-lg btn-primary" name="time" value="matinee">
+                    {{ performtimes.0.perform_time }} </button>
+                <button type="submit" class="btn btn-lg btn-primary" name="time" value="evening">
+                    {{ performtimes.1.perform_time }} </button>
             </form>
         </h2>
         {% endif %}
