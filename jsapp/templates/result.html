@@ -45,23 +45,6 @@
     </div>
 
     {% autoescape off %}
-    <div class="alert alert-light">
-        <h2>販売種別割合</h2>
-        <img src="https://ico-graph.com/media/{{ title.venueid }}_販売種別割合.jpg" class="img-fluid" alt="">
-    </div>
-    <div class="alert alert-light">
-        <h2>チケット種別割合</h2>
-        <img src="https://ico-graph.com/media/{{ title.venueid }}_チケット割合.jpg" class="img-fluid" alt="">
-    </div>
-    <div class="alert alert-light">
-        <h2>座席種別割合</h2>
-        <img src="https://ico-graph.com/media/{{ title.venueid }}_座席割合.jpg" class="img-fluid" alt="">
-    </div>
-    <div class="alert alert-light">
-        <h2>座席階層割合</h2>
-        <img src="https://ico-graph.com/media/{{ title.venueid }}_階層割合.jpg" class="img-fluid" alt="">
-    </div>
-
     {% if title.blocktype.id == 2 %}
     <div class="alert alert-light">
         <h2></h2>
@@ -83,6 +66,25 @@
     </div>
     {% endfor %}
     {% endif %}
+
+    <div class="alert alert-light">
+        <h2>販売種別割合</h2>
+        <img src="https://ico-graph.com/media/{{ title.venueid }}_販売種別割合.jpg" class="img-fluid" alt="">
+    </div>
+    <div class="alert alert-light">
+        <h2>チケット種別割合</h2>
+        <img src="https://ico-graph.com/media/{{ title.venueid }}_チケット割合.jpg" class="img-fluid" alt="">
+    </div>
+    <div class="alert alert-light">
+        <h2>座席種別割合</h2>
+        <img src="https://ico-graph.com/media/{{ title.venueid }}_座席割合.jpg" class="img-fluid" alt="">
+    </div>
+    <div class="alert alert-light">
+        <h2>座席階層割合</h2>
+        <img src="https://ico-graph.com/media/{{ title.venueid }}_階層割合.jpg" class="img-fluid" alt="">
+    </div>
+
+
 
 
     <div class="alert alert-light">
