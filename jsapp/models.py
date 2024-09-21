@@ -107,6 +107,7 @@ class m_PerformTime(models.Model): #公演時間を保存するマスタです
    def __str__(self):
       return str(self.disp_priority) + "." + self.perform_time
 
+
 class VenueModel(models.Model): #公演の情報を保存するフィールドです
    venueid = models.IntegerField(primary_key=True)
    venuedateFROM = models.DateField()
@@ -123,6 +124,7 @@ class VenueModel(models.Model): #公演の情報を保存するフィールド�
    #floorset = models.ForeignKey(FloorSetModel,on_delete=models.CASCADE)
    floor = models.ManyToManyField(FloorModel,default="")
    hall = models.ManyToManyField(HallTypeModel,default="")
+   batchflag = models.BooleanField(default=False)
    comment1 = models.TextField(blank=True)
    comment2 = models.TextField(blank=True)
    comment3 = models.TextField(blank=True)
