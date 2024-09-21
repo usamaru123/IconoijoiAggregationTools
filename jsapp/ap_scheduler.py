@@ -58,7 +58,7 @@ def periodic_execution():
             graph.piecreate(venue_id,floorsval,venue_floors,'階層割合',time)
 
 
-            if(perform_times.count()==1):
+            if(len(perform_times)==1):
                 createHistgrams(venue,venue_floors,venue_sheets,perform_times[i],results ,time)
             else:
                 for i in range(2):
