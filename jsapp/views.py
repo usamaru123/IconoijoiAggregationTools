@@ -82,6 +82,7 @@ class AnswerList(ListView): #回答一覧ページ
         ctx['count'] = count
         ctx['num'] = self.kwargs['num']
         ctx['performcount'] = performcount
+        ctx['performtimes'] = performtimes
         ctx['floorsval'] = floorsval
         ctx['sheetsval'] = sheetsval
 
@@ -96,7 +97,7 @@ class AnswerCreate(CreateView): #回答作成フォーム
         ctx = super().get_context_data(**kwargs)
         answerObj =  MenberModel.objects.filter(venueid=self.kwargs['num']).all()
         venueObj = VenueModel.objects.get(venueid=self.kwargs['num'])
-        performtimes = venueObj.perform_time.all().order_by('disp_priority')
+        performtimes = venueObj.perform_time.order_by('disp_priority')
         hall = venueObj.hall.order_by('priority')
         floor = venueObj.floor.order_by('priority')
         sheets = venueObj.sheettype.order_by('priority')
