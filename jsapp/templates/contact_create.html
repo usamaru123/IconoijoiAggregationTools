@@ -16,6 +16,7 @@
 {% block content %}
 <div class="text-dark container" id="">
     <form action="" method="POST" name="formtag">{% csrf_token %}
+        <!--
         <div class="alert alert-light shadow ">
             <p class="info_text">＊印は必須です</p>
             <div class="my-3">
@@ -27,6 +28,8 @@
                 <textarea class="form-control" name="contact_text" id="contact_text" rows="5"></textarea>
             </div>
         </div>
+        -->
+        {{ form.as_p }}
         <div class="container">
             <input type="submit" value="送信する" class="shadow border border-light" id="submitbt">
         </div>
