@@ -185,8 +185,8 @@ class t_contact(models.Model):
    contact_typ = models.ForeignKey(m_contact_typ,on_delete=models.CASCADE,default=1)
    nam = models.CharField(max_length=100,blank=True)
    contact_text = models.TextField(max_length=5000)
-   answer_id = models.ForeignKey(t_answer,on_delete=models.CASCADE,blank=True)
-   venue_id = models.ForeignKey(VenueModel,on_delete=models.CASCADE,blank=True)
+   answer_id = models.ForeignKey(t_answer,on_delete=models.CASCADE,blank=True,null=True)
+   venue_id = models.ForeignKey(VenueModel,on_delete=models.CASCADE,blank=True,null=True)
    disp_flg = models.IntegerField(default=1)
    datetime = models.DateTimeField(auto_now_add=True)
 
