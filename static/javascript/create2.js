@@ -376,7 +376,7 @@ function submit_values(formnum) {
     const inp_block_r = $(`#block_r${formnum}`).val() || '';
     const inp_number = $(`#number${formnum}`).val();
 
-    const inp_venue = document.querySelector(`#timeform${formnum}`);
+    const inp_venue = document.querySelector(`#timeform${formnum}`).checked;
 
 
 
