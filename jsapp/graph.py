@@ -111,7 +111,7 @@ def Arena_HeatMap(venueid,perform_time ,venue_sheet,rowmax,columnmax,rows,column
     
 		
 
-    fig.write_image("/home/shun/IconoijoiAggregationTools/media/"+str(venueid)+"_arena_"+perform_time+venue_sheet+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
+    fig.write_image("/home/shun/IconoijoiAggregationTools/media/" + str(venueid) + "_arena_" + perform_time +'_' + venue_sheet+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
     logging.info('<arenacreate>'+time+'_'+str(venueid) + '_' +perform_time + '_'+ venue_sheet+":出力完了")
 
     return 
@@ -151,7 +151,7 @@ def Floor_Histgram(venueid,perform_time ,item,title,time):
     )
     fig.update_yaxes(autorange='reversed')
     
-    fig.write_image("/home/shun/IconoijoiAggregationTools/media/"+str(venueid)+perform_time+"_"+title+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
+    fig.write_image("/home/shun/IconoijoiAggregationTools/media/"+str(venueid)+"_"+perform_time+"_"+title+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
     return 
 
 def piecreate(venueid,items,list,title,time):
