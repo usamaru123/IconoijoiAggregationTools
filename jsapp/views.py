@@ -183,11 +183,6 @@ class ThanksView(ListView):
     
 
 class ContactCreate(CreateView):
-    def get_context_data(self, **kwargs):
-        ctx=  super().get_context_data(**kwargs)
-        ctx['contact']  = t_contact.objects.all()
-        return ctx
-
     template_name = 'contact_create.html'
     model = t_contact
 
