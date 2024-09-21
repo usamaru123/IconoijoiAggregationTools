@@ -386,6 +386,8 @@ function submit_values(formnum) {
             $(`#sumbit_${a}_${b}`).val('');
         }
     }
+    $(`#submit_matinee`).val('false');
+    $(`#submit_evening`).val('false');
 
     if (formnum == 3) {
         for (let i = 1; i < 3; i++) {
