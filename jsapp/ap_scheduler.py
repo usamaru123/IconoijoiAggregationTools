@@ -30,8 +30,8 @@ def periodic_execution():
     venue_tickets = [ticket.dispticketname for ticket in ticketmodel]
     
     for venue in venuemodel:
+        venue_id   = venue.venueid
         if(venue.batchflag):
-            venue_id   = venue.venueid
             block_type = venue.blocktype.id
             row_max    = venue.rowmax
             column_max = venue.columnmax
