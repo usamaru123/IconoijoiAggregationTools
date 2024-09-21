@@ -44,14 +44,14 @@
             </div>
             <div class="timeform form-check"></div>
 
-            <!--公演情報送信-->
+            <!--公演情報入力-->
             {% for performtime in performtimes %}
             <label for="timeform1">
                 <input type="hidden" class="venue" value="{{ performtime.perform_time }}">
             </label>
             {% endfor %}
 
-            <!--チケット情報送信-->
+            <!--チケット情報入力-->
             <div id="ticketTypeInput">
                 {% for sale in sales.all|dictsort:"priority" %}
                 <div class="{{ sale.salestype }}">
@@ -68,7 +68,7 @@
             </div>
 
 
-            <!--座席情報送信-->
+            <!--座席情報入力-->
             <div id="sheetTypeInput">
                 {% for block in blocks.all %}
                 <input type="hidden" id="{{ block.blockname }}" class="blocks" value="{{ block.blockname }}">
@@ -84,13 +84,17 @@
                 {% endfor %}
             </div>
 
-            <!--会場詳細情報送信-->
+            <!--会場詳細情報入力-->
             <input type="hidden" id="titlename" name="title" value="{{ title }}">
             <input type="hidden" id="venueid" name="venueid" value="{{ title.venueid }}">
             <input type="hidden" id="timeformcheck1" name="matinee" value>
             <input type="hidden" id="timeformcheck2" name="evening" value>
             <input type="hidden" id="largeblock_r1" name="block_r1" value>
             <input type="hidden" id="largeblock_r2" name="block_r2" value>
+
+            <!--参加公演出力-->
+            <input type="hidden" id="submit_matinee" name="matinee">
+            <input type="hidden" id="submit_evening" name="evening">
         </div>
         {% for performtime in performtimes.all %}
         <div id="answerform{{forloop.counter}}" class="box answerform">

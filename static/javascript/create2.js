@@ -3,6 +3,7 @@ window.onload = function () {
 
     const $venueformlabel = $('.timeform')
     const venues = document.querySelectorAll('.venue')
+    const venue_nam = ['matinee', 'evening']
 
     for (let i = 0; i < venues.length; i++) {
         venuetext =
@@ -365,6 +366,7 @@ function formcheck(formnum) {
 }
 
 function submit_values(formnum) {
+    const venue_list = ['matinee', 'evening'];
     const inp_sale = $(`#form${formnum}_1`).find('input:checked').val();
     const inp_ticket = $(`#form${formnum}_2`).find('input:checked').val();
     const inp_sheet = $(`#form${formnum}_3`).find('input:checked').val();
@@ -373,6 +375,11 @@ function submit_values(formnum) {
     const inp_block_c = $(`#block_c${formnum}`).val() || '';
     const inp_block_r = $(`#block_r${formnum}`).val() || '';
     const inp_number = $(`#number${formnum}`).val();
+
+    const inp_venue = document.querySelector(`#timeform${formnum}`);
+
+
+
 
     for (let a = 1; a < 4; a++) { //登録値を初期化する
         for (let b = 1; b < 9; b++) {
@@ -390,6 +397,7 @@ function submit_values(formnum) {
             $(`#submit_${i}_6`).val(inp_block_c);
             $(`#submit_${i}_7`).val(inp_block_r);
             $(`#submit_${i}_8`).val(inp_number);
+            $(`#sumbit_${venue_list[formnum - 1]}`).val('true');
         }
     } else {
         $(`#submit_${formnum}_1`).val(inp_sale);
@@ -400,6 +408,7 @@ function submit_values(formnum) {
         $(`#submit_${formnum}_6`).val(inp_block_c);
         $(`#submit_${formnum}_7`).val(inp_block_r);
         $(`#submit_${formnum}_8`).val(inp_number);
+        $(`#sumbit_${venue_list[formnum - 1]}`).val(inp_venue);
     }
 }
 

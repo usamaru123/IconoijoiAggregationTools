@@ -31,6 +31,8 @@ def periodic_execution():
     for venue in venuemodel:
         venue_id   = venue.venueid
         if(venue.batchflag):
+            logging.info( '[PROCESS:'+str(venue_id) + '_定期画像出力_' + time + ']' +  ':出力開始しました')
+
             venue_salesobj  = venue.salestype.order_by('priority')
             venue_floorobj  = venue.floor.order_by('priority')
             venue_sheetobj  = venue.sheettype.order_by('priority')
@@ -56,12 +58,13 @@ def periodic_execution():
 
 
             if(len(perform_times)==1):
-                createHistgrams(venue,venue_floors,venue_sheets,perform_times[i],results ,time)
+                createHistgrams(venue,venue_floors,venue_sheets,perform_times[0],results ,time)
             else:
-                for i in range(2):
-                    createHistgrams(venue,venue_floors,venue_sheets,perform_times[i],results,time)
-  
-            logging.info( '[PROCESS:'+str(venue_id) + '_定期画像出力_' + time + ']' +  ':実行完了しました')
+                matinee_results = results.filter(matinee=True)
+                evening_results = results.filter(evening=True)
+                
+                createHistgrams(venue,venue_floors,venue_sheets,perform_times[0],matinee_results,time)
+                createHistgrams(venue,venue_floors,venue_sheets,perform_times[1],evening_results,time)
         else: 
             logging.info( '[PROCESS:'+str(venue_id) + '_定期画像出力_' + time + ']' +  ':Batchflag=Falseのため実行しませんでした')
     return
@@ -115,6 +118,8 @@ def createHistgrams(venue,venue_floors,venue_sheets,perform_time,results,time):
                         sheet_results = floor_results.filter(sheet1=venue_sheets[j])
                         item[venue_sheets[j]] = [int(row.row1 or 0) for row in sheet_results]
                         graph.Floor_Histgram(venue_id,perform_time ,item,venue_floors[i],time)
+
+    logging.info( '[PROCESS:'+str(venue_id) +  + '_定期画像出力_' + ']' + time + 'に出力完了しました')
     
 
 def start():
