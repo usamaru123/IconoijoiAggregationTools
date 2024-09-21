@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block header %}
+<div class="header_inner inner">
+    <p class="header_title" name="title">会場登録マスタ</p>
+    </p>
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="alert alert-light form-control">
+    <div class="container">
+        <form action="" method="POST">{% csrf_token %}
+            <p>hallid:{{ form.hallid }}</p>
+            <p>会場名:{{ form.hallname }}</p>
+            <p>階層設定:{{ form.halltype|add_class:'selector' }}</p>
+            <button type="submit" class="btn btn-primary" value="登録">登録</button>
+        </form>
+    </div>
+</div>
+
+<div class="alert alert-light form-control">
+    <div class="container">
+        <h4>登録済み会場</h4>
+        <table class="table">
+            <tr>
+                <th>hallid</th>
+                <th>会場名</th>
+                <th>都道府県</th>
+                <th>詳細</th>
+            </tr>
+            {% for post in hallinfo|dictsort:"hallid" %}
+            <tr>
+                <td>{{ post.hallid }}</td>
+                <td>{{ post.hallname }}</td>
+                <td>{{ post.hallprefecture }}</td>
+                <td>
+                    {% for halltype in post.halltype.all %}
+                    {{ halltype.blockname }}
+                    {% endfor %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+<div class="linkbox">
+    <h3>管理ページ</h3>
+    <a href="https://ico-graph.com/admin_page"></a>
+</div>
+{% endblock %}

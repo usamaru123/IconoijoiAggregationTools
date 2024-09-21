@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>venuelist</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+    {% load static %}
+
+    <div>
+        <table class="table container">
+            <thead>
+                <tr>
+                    <th>イベント日時</th>
+                    <th>公演ID</th>
+                    <th>グループ</th>
+                    <th>イベントタイプ</th>
+                    <th>タイトル</th>
+                    <th>都道府県</th>
+                    <th>会場名</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in venue %}
+                <tr>
+                    <td>{{ post.venuedate|date:"Y年m月j日" }}</td>
+                    <td>{{ post.venueid }}</td>
+                    <td>{{ post.event.group }}</td>
+                    <td>{{ post.event.eventtype }}</td>
+                    <td>{{ post.event.eventtitle }}</td>
+
+                    <td>{{ post.prefecture }}</td>
+                    <td>{{ post.venue }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+    </div>
+</body>
+
+</html>
