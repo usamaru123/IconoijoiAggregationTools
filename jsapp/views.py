@@ -183,9 +183,14 @@ class ThanksView(ListView):
     
 
 class ContactCreate(CreateView):
+    def get_context_data(self, **kwargs):
+        ctx=  super().get_context_data(**kwargs)
+        ctx['answer']  = t_answer.objects.all()
+
     template_name = 'contact_create.html'
-    models = t_answer
-    fields='__all__'
+    model = t_answer
+
+    fields=  ('__all__')
     success_url = reverse_lazy("contact_thanks")
 
 class ContactThanks(TemplateView):
