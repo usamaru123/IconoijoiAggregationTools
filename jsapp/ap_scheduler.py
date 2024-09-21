@@ -62,7 +62,7 @@ def periodic_execution():
             else:
                 matinee_results = results.filter(matinee=True)
                 evening_results = results.filter(evening=True)
-                
+
                 createHistgrams(venue,venue_floors,venue_sheets,perform_times[0],matinee_results,time)
                 createHistgrams(venue,venue_floors,venue_sheets,perform_times[1],evening_results,time)
         else: 
@@ -119,7 +119,7 @@ def createHistgrams(venue,venue_floors,venue_sheets,perform_time,results,time):
                         item[venue_sheets[j]] = [int(row.row1 or 0) for row in sheet_results]
                         graph.Floor_Histgram(venue_id,perform_time ,item,venue_floors[i],time)
 
-    logging.info( '[PROCESS:'+str(venue_id) +  + '_定期画像出力_' + ']' + time + 'に出力完了しました')
+    logging.info( '[PROCESS:'+str(venue_id)  + '_定期画像出力_' + ']' + time + 'に出力完了しました')
     
 
 def start():
