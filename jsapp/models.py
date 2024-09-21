@@ -186,7 +186,7 @@ class t_contact(models.Model):
    nam = models.CharField(max_length=100,blank=True)
    contact_text = models.TextField(max_length=5000)
    answer_id = models.ForeignKey(t_answer,on_delete=models.CASCADE,blank=True,null=True)
-   venue_id = models.ForeignKey(VenueModel,on_delete=models.CASCADE,blank=True,null=False)
+   venue_id = models.ForeignKey(VenueModel,on_delete=models.CASCADE,blank=True,null=True)
    disp_flg = models.BooleanField(default=True)
    datetime = models.DateTimeField(auto_now_add=True)
 
