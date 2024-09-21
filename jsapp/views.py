@@ -191,7 +191,7 @@ class ContactCreate(CreateView):
     template_name = 'contact_create.html'
     model = t_contact
 
-    fields=  ( 'contact_id', 'nam', 'contact_text', 'disp_flg',  'answer_id_id', 'contact_typ_id', 'venue_id_id')
+    fields=  ('nam', 'contact_text', 'disp_flg',  'answer_id_id', 'contact_typ_id', 'venue_id_id')
     success_url = reverse_lazy("contact_thanks")
 
 class ContactThanks(TemplateView):
