@@ -31,9 +31,6 @@ def periodic_execution():
     for venue in venuemodel:
         venue_id   = venue.venueid
         if(venue.batchflag):
-
-
-
             venue_salesobj  = venue.salestype.order_by('priority')
             venue_floorobj  = venue.floor.order_by('priority')
             venue_sheetobj  = venue.sheettype.order_by('priority')
@@ -92,32 +89,32 @@ def createHistgrams(venue,venue_floors,venue_sheets,perform_time,results,time):
                         graph.Floor_Histgram(venue_id,perform_time,item,venue_floors[i],time)
 
                             
-            elif(block_type==2):
-                colorcount = 1
-                title = '合計'
-                results_arena = results.filter(floor1=venue_floors[0])
-                block  = [item.block_r1 for item in results_arena]
-                column = [item.block_c1 for item in results_arena]
-                graph.Arena_HeatMap(venue_id,perform_time,title,row_max,column_max,block,column,time,colors[0])
+    elif(block_type==2):
+        colorcount = 1
+        title = '合計'
+        results_arena = results.filter(floor1=venue_floors[0])
+        block  = [item.block_r1 for item in results_arena]
+        column = [item.block_c1 for item in results_arena]
+        graph.Arena_HeatMap(venue_id,perform_time,title,row_max,column_max,block,column,time,colors[0])
 
 
-                for venue_sheet in venue_sheets:
-                    results_sheet = results_arena.filter(sheet1=venue_sheet)
+        for venue_sheet in venue_sheets:
+            results_sheet = results_arena.filter(sheet1=venue_sheet)
 
-                    block  = [item.block_r1 for item in results_sheet]
-                    column = [item.block_c1 for item in results_sheet]
+            block  = [item.block_r1 for item in results_sheet]
+            column = [item.block_c1 for item in results_sheet]
 
-                    graph.Arena_HeatMap(venue_id,perform_time,venue_sheet,row_max,column_max,block,column,time,colors[colorcount])
+            graph.Arena_HeatMap(venue_id,perform_time,venue_sheet,row_max,column_max,block,column,time,colors[colorcount])
 
-                    colorcount += 1
+            colorcount += 1
 
-                for i in range(1,len(venue_floors)):
-                    floor_results = results_row.filter(floor1=venue_floors[i])
-                    if len(floor_results) > 0:
-                            for j in range(len(venue_sheets)):
-                                sheet_results = floor_results.filter(sheet1=venue_sheets[j])
-                                item[venue_sheets[j]] = [int(row.row1 or 0) for row in sheet_results]
-                                graph.Floor_Histgram(venue_id,perform_time ,item,venue_floors[i],time)
+        for i in range(1,len(venue_floors)):
+            floor_results = results_row.filter(floor1=venue_floors[i])
+            if len(floor_results) > 0:
+                    for j in range(len(venue_sheets)):
+                        sheet_results = floor_results.filter(sheet1=venue_sheets[j])
+                        item[venue_sheets[j]] = [int(row.row1 or 0) for row in sheet_results]
+                        graph.Floor_Histgram(venue_id,perform_time ,item,venue_floors[i],time)
     
 
 def start():
