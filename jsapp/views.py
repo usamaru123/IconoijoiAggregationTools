@@ -191,7 +191,7 @@ class ContactCreate(CreateView):
     template_name = 'contact_create.html'
     model = t_contact
 
-    fields=  ('nam', 'contact_text', 'disp_flg')
+    fields=  ('nam', 'contact_text')
     success_url = ("contact-thanks")
 
 class ContactThanks(TemplateView):
