@@ -186,7 +186,7 @@ class ContactCreate(CreateView):
     template_name = 'contact_create.html'
     models = t_answer
     queryset = t_answer.objects.all()
-    fields = ['nam','contact_text']
+    fields = ['nam']
     success_url = reverse_lazy("list")
 
 class ContactThanks(TemplateView):
