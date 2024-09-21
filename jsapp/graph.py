@@ -12,7 +12,7 @@ import datetime
 today = datetime.date.today().strftime('%Y%m%d')
 
 logfile = "./logs/graph_"+today+".log"
-logging.basicConfig(filename=logfile,level=logging.WARNING)
+logging.basicConfig(filename=logfile,level=logging.INFO)
 
 
 def Arena_HeatMap(venueid,perform_time ,venue_sheet,rowmax,columnmax,rows,columns,time,color):
