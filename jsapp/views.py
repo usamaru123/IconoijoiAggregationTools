@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView,UpdateView,View
+from django.views.generic import ListView, DetailView, CreateView,UpdateView,TemplateView
 from .models import MenberModel,EventModel,VenueModel,HallTypeModel,HallInfoModel,TicketTypeModel,m_contact_typ,t_contact,t_answer
 from django.urls import reverse_lazy
 from django.http import HttpResponse
@@ -187,7 +187,7 @@ class ContactCreate(CreateView):
     fields = ('__all__')
     success_url =('contact_thanks')
 
-class ContactThanks(View):
+class ContactThanks(TemplateView):
     template_name = 'contact_thanks.html'
     
 def csv_export(request,num):
