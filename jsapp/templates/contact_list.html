@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+ご意見・ご要望一覧
+{% endblock title %}
+
+{% block header %}
+<h2 class="title">ご意見・ご要望一覧</h2>
+{% endblock header %}
+
+{% block content %}
+<div>
+    <h2>リスト</h2>
+    <ul class="list-group">
+        {% for contact in object_list %}
+        <li class="list-group-item">
+            <div class="p-2">
+                <p class="m-2 text-primary">{{ contact.contact_id }}.{{ contact.nam }}
+                    {{ contact.datetime|date:"Y-m-j H:i:s"}}</p>
+                <h5 class="m-2 ">{{ contact.contact_text }}</h5>
+                {% if contact.email %}
+                <p class="text-end">{{ contact.email }} </p>
+                {% endif %}
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}

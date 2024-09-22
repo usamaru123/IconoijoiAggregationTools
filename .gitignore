@@ -1,0 +1,7 @@
+jsproject/settings.py
+jsapp/__pycache__/
+jsapp/migrations/
+logs/
+media/
+db.sqlite3
+jsproject/__pycache__/
