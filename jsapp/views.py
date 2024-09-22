@@ -193,14 +193,24 @@ class ContactCreate(CreateView):
     model = t_contact
 
     fields=  ('nam', 'contact_text','email')
-    success_url = ("contact-thanks")
 
-    def sendemail():
-        subject = '題名'
-        message = '本文'
+    def form_valid(self,form):
+        self.object = form.save()
+        nam = self.request.POST['nam']
+        contact_text = self.request.POST['contact_text']
+        email = self.request.POST['email']
+
+        subject = 'お問い合わせフォーム投稿通知'
+        message = f'送信者名：{nam}\n\nメールアドレス：{email}\n\n内容：{contact_text}'
         from_email = 'ico-graph@ico-graph.sakura.ne.jp'
-        recipient_list =['ico-graph@ico-graph.sakura.ne.jp']
+        recipient_list =['icograph.notice@gmail.com']
         send_mail(subject,message,from_email,recipient_list,fail_silently=False)
+        return super().form_valid(form)
+
+    def get_success_url(self):
+
+        return reverse_lazy('jsapp:contact_thanks')
+    
 
 
 class ContactThanks(TemplateView):
