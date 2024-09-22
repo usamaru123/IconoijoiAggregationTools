@@ -15,6 +15,7 @@ from django.db.models import Q
 from .forms import LoginForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from django.core.mail import send_mail
 
 
 
@@ -193,6 +194,14 @@ class ContactCreate(CreateView):
 
     fields=  ('nam', 'contact_text','email')
     success_url = ("contact-thanks")
+
+    def sendemail():
+        subject = '題名'
+        message = '本文'
+        from_email = 'ico-graph@ico-graph.sakura.ne.jp'
+        recipient_list =['ico-graph@ico-graph.sakura.ne.jp']
+        send_mail(subject,message,from_email,recipient_list,fail_silently=False)
+
 
 class ContactThanks(TemplateView):
     template_name = 'contact_thanks.html'
