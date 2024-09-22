@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %}
+Icographプライバシーポリシー
+{% endblock title %}
+
+{% block meta %}
+<script src="{% static '/javascript/contact_create.js' %}"></script>
+{% endblock meta %}
+
+{% block header %}
+<h2 class="title">Icograph　プライバシーポリシー</h2>
+{% endblock header %}
+
+{% block content %}
+<div class="text-dark container" id="">
+
+    <div class="alert alert-light shadow ">
+        <h3 class="my-3 mx-0">取得するユーザー情報と目的</h3>
+        <p class="my-3">
+            Icograph(以下、本アプリと表す）は端末に関する情報(デバイスの種類、モデル、メーカー、OS、キャリア情報、IPアドレス、IDFA、AAID、GAID)
+            、アンケートの回答内容(公演情報、座席の位置情報、回答時刻)、お問い合わせ情報(ニックネーム、Eメールアドレス、質問内容)を収集します。
+        </p>
+        <h3 class="my-3 mx-0">情報の取得方法</h3>
+        <p class="my-3">
+            本アプリで収集される情報の取得方法は下記の通りとなります
+        </p>
+        <ul class="list-group">
+            <li class="list-group-item">本アプリは、アンケート回答フォームを介してアンケート回答内容を取得します。</li>
+            <li class="list-group-item">本アプリは、お問い合わせフォームを介してお問い合わせ情報を取得します。お問い合わせの際に利用者情報の一部を送信します。</li>
+            <li class="list-group-item">本アプリは、情報収集モジュールを内蔵したアプリケーションにより、端末に関する情報を自動的に取得します。</li>
+        </ul>
+        <h3 class="my-3 mx-0">利用目的</h3>
+        <p class="my-3">利用者情報はそれぞれ下記目的に利用されます。</p>
+        <ul class="list-group">
+            <li class="list-group-item">本アプリに関連して、個人を識別できない形式に加工した統計データを作成するため</li>
+            <li class="list-group-item">本アプリの品質向上、お問い合わせへの対応のため</li>
+        </ul>
+    </div>
+
+</div>
+
+{% endblock content %}

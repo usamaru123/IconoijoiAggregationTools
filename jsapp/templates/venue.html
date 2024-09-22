@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>公演登録マスタ</title>
+{% endblock head %}
+
+{% block header %}
+<div class="header_inner inner">
+    <p class="header_title" name="title">公演登録マスタ</p>
+    </p>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="alert alert-light form-control">
+    <div class="container">
+        <h4>登録済みイベント</h4>
+        <table class="table">
+            <tr>
+                <th>EVENT.ID</th>
+                <th>グループ</th>
+                <th>イベントタイトル</th>
+                <th>イベントタイプ</th>
+            </tr>
+            {% for post in events|dictsort:"eventid" %}
+            <tr>
+                <td>{{ post.eventid }} </td>
+                <td>
+                    {% for group in post.group.all %}
+                    {{ group.group }}
+                    {% endfor %}
+                </td>
+                <td>{{ post.eventtitle }}</td>
+                <td>{{ post.eventtype.eventtype }} </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+<div>
+    <form action="" method="POST">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary" value="登録">登録</button>
+    </form>
+</div>
+
+<div class="alert alert-light form-control">
+    <div class="container">
+        <h4>登録済み公演</h4>
+        <table class="table">
+            <tr>
+                <th>VENUE.ID</th>
+                <th>日付</th>
+                <th>イベントタイトル</th>
+                <th>会場名</th>
+                <th>縦最大値</th>
+                <th>横最大値</th>
+            </tr>
+            {% for post in venues|dictsort:"venuedate" %}
+            <tr>
+                <td>{{ post.venueid }} </td>
+                <td>{{ post.venuedate|date:"Y年m月d日" }}</td>
+                <td>{{ post.event.eventtitle }}</td>
+                <td>
+                    {{ post.hallinfo.hallname }}
+                </td>
+                <td>{{ post.rowmax }}</td>
+                <td>{{ post.columnmax }}</td>
+                <td>{% for time in post.perform_time.all %}
+                    {{ time.perform_time }}
+                    {% endfor %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+<div class="linkbox">
+    <h3>管理ページ</h3>
+    <a href="https://ico-graph.com/admin_page"></a>
+</div>
+{% endblock %}
