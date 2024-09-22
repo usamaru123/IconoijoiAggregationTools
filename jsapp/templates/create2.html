@@ -113,7 +113,7 @@
                         <div id="errorform{{forloop.counter}}_1" class="errorform"></div>
                         <div id="salesform{{forloop.counter}}" class="formarea">
                             {% for sale in sales %}
-                            <div class="form-check my-2">
+                            <div class="form-check mb-3">
                                 <label>
                                     <input type="radio" class="form-check-input" value="{{ sale.dispsalesname }}"
                                         id="sale{{forloop.parentloop.counter}}_{{ sale.salestype }}"
@@ -136,7 +136,7 @@
 
                         <div id="ticketform{{forloop.counter}}" class="formarea">
                             {% for ticket in performtime.tickettype.all|dictsort:"priority" %}
-                            <div class="form-check my-2">
+                            <div class="form-check mb-3">
                                 <label>
                                     <input type="radio" class="form-check-input" value="{{ ticket.dispticketname }}"
                                         id="ticket{{forloop.parentloop.counter}}_{{ ticket.tickettype }}"
@@ -161,7 +161,7 @@
                             {% for ticket in performtime.tickettype.all|dictsort:"priority" %}
                             <div class="sheet_{{ticket.tickettype}} display-none">
                                 {%for sheet in ticket.sheettype.all|dictsort:"priority" %}
-                                <div class="form-check my-2">
+                                <div class="form-check mb-3">
                                     <label>
                                         <input type="radio" class="form-check-input" value="{{ sheet.sheet }}"
                                             id="sheet{{forloop.parentloop.parentloop.counter}}_{{ ticket.tickettype }}_{{ sheet.sheet }}"
@@ -185,7 +185,7 @@
                         <div id="errorform{{forloop.counter}}_4" class="errorform"></div>
                         <div id="floorform{{forloop.counter}}" class="formarea">
                             {% for floor in floors %}
-                            <div class="form-check my-2">
+                            <div class="form-check mb-3">
                                 <label>
                                     <input type="radio" class="form-check-input"
                                         id="floor{{forloop.parentloop.counter}}_{{ floor.floorname }}"
