@@ -54,7 +54,7 @@ def Arena_HeatMap(venueid,perform_time ,venue_sheet,rowmax,columnmax,rows,column
 
 
     if len(int_columns)==0 or len(int_rows)==0:
-        logging.info('<arenacreate>'+time+'_'+str(venueid)+ '_' +perform_time + '_' + venue_sheet+ '_' +  str(int_rows)+":データ数が０です。")
+        logging.debug('<arenacreate>'+time+'_'+str(venueid)+ '_' +perform_time + '_' + venue_sheet+ '_' +  str(int_rows)+":データ数が０です。")
         return 
     
             
@@ -112,7 +112,7 @@ def Arena_HeatMap(venueid,perform_time ,venue_sheet,rowmax,columnmax,rows,column
 		
 
     fig.write_image("/home/shun/IconoijoiAggregationTools/media/" + str(venueid) + "_arena_" + perform_time +'_' + venue_sheet+".jpg",format='jpeg',scale=2,validate=False,engine='kaleido')
-    logging.info('<arenacreate>'+time+'_'+str(venueid) + '_' +perform_time + '_'+ venue_sheet+":出力完了")
+    logging.debug('<arenacreate>'+time+'_'+str(venueid) + '_' +perform_time + '_'+ venue_sheet+":出力完了")
 
     return 
  
@@ -122,7 +122,7 @@ def Arena_HeatMap(venueid,perform_time ,venue_sheet,rowmax,columnmax,rows,column
 
 def Floor_Histgram(venueid,perform_time ,item,title,time):
     if (item is None):
-        logging.info('<floorhistgram>'+time+'_'+str(venueid)+ '_' +perform_time + '_' + title + ":データ数が０です。")
+        logging.debug('<floorhistgram>'+time+'_'+str(venueid)+ '_' +perform_time + '_' + title + ":データ数が０です。")
 
     itemlist = list(item.keys())
 
@@ -157,7 +157,7 @@ def Floor_Histgram(venueid,perform_time ,item,title,time):
 def piecreate(venueid,items,list,title,time):
 
     if(len(items)==0):
-        logging.info('<piecreate>'+time+'_'+str(venueid) + '_' + title + ":データ数が０です。")
+        logging.debug('<piecreate>'+time+'_'+str(venueid) + '_' + title + ":データ数が０です。")
         return
     value = []
 

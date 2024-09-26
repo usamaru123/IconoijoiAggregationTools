@@ -16,7 +16,7 @@ def periodic_execution():
     exec_control = m_exec_control.objects.first()
     execflag = exec_control.execflag #定期実行判定
     if execflag == False:
-        logging.info('定期実行がキャンセルされています')
+        logging.debug('定期実行がキャンセルされています')
         return
     
     today = datetime.date.today().strftime('%Y%m%d')
@@ -37,7 +37,7 @@ def periodic_execution():
     for venue in venuemodel:
         venue_id   = venue.venueid
         if(venue.batchflag):
-            logging.info( '[PROCESS:'+str(venue_id) + '_定期画像出力_' + time + ']' +  ':出力開始しました')
+            logging.debug( '[PROCESS:'+str(venue_id) + '_定期画像出力_' + time + ']' +  ':出力開始しました')
 
             venue_salesobj  = venue.salestype.order_by('priority')
             venue_floorobj  = venue.floor.order_by('priority')
@@ -72,7 +72,7 @@ def periodic_execution():
                 createHistgrams(venue,venue_floors,venue_sheets,perform_times[0],matinee_results,time)
                 createHistgrams(venue,venue_floors,venue_sheets,perform_times[1],evening_results,time)
         else: 
-            logging.info( '[PROCESS:'+str(venue_id) + '_定期画像出力_' + time + ']' +  ':Batchflag=Falseのため実行しませんでした')
+            logging.debug( '[PROCESS:'+str(venue_id) + '_定期画像出力_' + time + ']' +  ':Batchflag=Falseのため実行しませんでした')
     return
 
 
@@ -125,13 +125,13 @@ def createHistgrams(venue,venue_floors,venue_sheets,perform_time,results,time):
                         item[venue_sheets[j]] = [int(row.row1 or 0) for row in sheet_results]
                         graph.Floor_Histgram(venue_id,perform_time ,item,venue_floors[i],time)
 
-    logging.info( '[PROCESS:'+str(venue_id)  + '_定期画像出力_' + ']' + time + 'に出力完了しました')
+    logging.debug( '[PROCESS:'+str(venue_id)  + '_定期画像出力_' + ']' + time + 'に出力完了しました')
     
 
 def start():
     exec_control = m_exec_control.objects.first()
     exectime = exec_control.exectime
-    logging.info(str(exectime))
+    logging.debug(str(exectime))
     scheduler = BackgroundScheduler()
     scheduler.add_job(periodic_execution,'interval',seconds=exectime)
     scheduler.start()
