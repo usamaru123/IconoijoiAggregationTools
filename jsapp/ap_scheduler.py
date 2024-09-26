@@ -16,6 +16,7 @@ def periodic_execution():
     exec_control = m_exec_control.objects.first()
     execflag = exec_control.execflag #定期実行判定
     if execflag == False:
+        logging.info('定期実行がキャンセルされています')
         return
     
     today = datetime.date.today().strftime('%Y%m%d')
