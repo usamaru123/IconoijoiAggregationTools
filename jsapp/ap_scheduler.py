@@ -127,7 +127,9 @@ def createHistgrams(venue,venue_floors,venue_sheets,perform_time,results,time):
     
 
 def start():
-    exectime = m_exec_control.exectime #実行間隔(s)
+    exec_control = m_exec_control.objects.first()
+    exectime = exec_control.exectime
+    logging.info(str(exectime))
     scheduler = BackgroundScheduler()
     scheduler.add_job(periodic_execution,'interval',seconds=exectime)
     scheduler.start()
