@@ -13,7 +13,8 @@ import datetime
 
 
 def periodic_execution():
-    execflag = m_exec_control.execflag #定期実行判定
+    exec_control = m_exec_control.objects.first()
+    execflag = exec_control.execflag #定期実行判定
     if execflag == False:
         return
     
