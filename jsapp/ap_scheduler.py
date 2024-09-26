@@ -1,7 +1,7 @@
 from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
 
-from .models import MenberModel , VenueModel ,TicketTypeModel
+from .models import MenberModel , VenueModel ,TicketTypeModel , m_exec_control
 
 import plotly.graph_objects as go
 import kaleido
@@ -13,6 +13,10 @@ import datetime
 
 
 def periodic_execution():
+    execflag = m_exec_control.execflag #定期実行判定
+    if execflag == False:
+        return
+    
     today = datetime.date.today().strftime('%Y%m%d')
     time = datetime.datetime.now().strftime('%Y年%m月%d日 %H:%M')
 
@@ -123,6 +127,7 @@ def createHistgrams(venue,venue_floors,venue_sheets,perform_time,results,time):
     
 
 def start():
+    exectime = m_exec_control.exectime #実行間隔(s)
     scheduler = BackgroundScheduler()
-    scheduler.add_job(periodic_execution,'interval',seconds=30)
+    scheduler.add_job(periodic_execution,'interval',seconds=exectime)
     scheduler.start()

@@ -193,3 +193,9 @@ class t_contact(models.Model):
 
    def __str__(self):
       return str(self.contact_id) + "_" + self.contact_text
+   
+
+
+class m_exec_control(models.Model):
+   execflag = models.BooleanField(default=False)
+   exectime = models.IntegerField()
