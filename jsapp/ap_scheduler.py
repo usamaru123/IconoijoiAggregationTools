@@ -69,14 +69,17 @@ def periodic_execution():
                 matinee_results = results.filter(matinee=True)
                 evening_results = results.filter(evening=True)
 
-                createHistgrams(venue,venue_floors,venue_sheets,perform_times[0],matinee_results,time)
-                createHistgrams(venue,venue_floors,venue_sheets,perform_times[1],evening_results,time)
+                #logging.error(str(evening_results))
+							
+
+                createHistgrams1(venue,venue_floors,venue_sheets,perform_times[0],matinee_results,time)
+                createHistgrams2(venue,venue_floors,venue_sheets,perform_times[1],evening_results,time)
         else: 
             logging.debug( '[PROCESS:'+str(venue_id) + '_定期画像出力_' + time + ']' +  ':Batchflag=Falseのため実行しませんでした')
     return
 
 
-def createHistgrams(venue,venue_floors,venue_sheets,perform_time,results,time):
+def createHistgrams1(venue,venue_floors,venue_sheets,perform_time,results,time):
     colors     = ['tempo','PuRd','Oranges','Blues','BuGn','Purples']
     colorcount = 0
 
@@ -122,6 +125,58 @@ def createHistgrams(venue,venue_floors,venue_sheets,perform_time,results,time):
             if len(floor_results) > 0:
                     for j in range(len(venue_sheets)):
                         sheet_results = floor_results.filter(sheet1=venue_sheets[j])
+                        item[venue_sheets[j]] = [int(row.row1 or 0) for row in sheet_results]
+                        graph.Floor_Histgram(venue_id,perform_time ,item,venue_floors[i],time)
+
+    logging.debug( '[PROCESS:'+str(venue_id)  + '_定期画像出力_' + ']' + time + 'に出力完了しました')
+
+
+def createHistgrams2(venue,venue_floors,venue_sheets,perform_time,results,time):
+    colors     = ['tempo','PuRd','Oranges','Blues','BuGn','Purples']
+    colorcount = 0
+
+    item = {}
+    histgrams = {}
+    venue_id    = venue.venueid
+    block_type = venue.blocktype.id
+    row_max    = venue.rowmax
+    column_max = venue.columnmax
+    results_row = results.exclude(row1__exact="")
+
+    if(block_type==1): #座席集計タイプ参照
+        for i in range(len(venue_floors)):
+            floor_results = results_row.filter(floor2=venue_floors[i])
+            if len(floor_results) > 0:
+                    for j in range(len(venue_sheets)):
+                        sheet_results = floor_results.filter(sheet2=venue_sheets[j])
+                        item[venue_sheets[j]] = [int(row.row1 or 0) for row in sheet_results]
+                        graph.Floor_Histgram(venue_id,perform_time,item,venue_floors[i],time)
+
+                            
+    elif(block_type==2):
+        colorcount = 1
+        title = '合計'
+        results_arena = results.filter(floor2=venue_floors[0])
+        block  = [item.block_r2 for item in results_arena]
+        column = [item.block_c2 for item in results_arena]
+        graph.Arena_HeatMap(venue_id,perform_time,title,row_max,column_max,block,column,time,colors[0])
+
+
+        for venue_sheet in venue_sheets:
+            results_sheet = results_arena.filter(sheet2=venue_sheet)
+
+            block  = [item.block_r2 for item in results_sheet]
+            column = [item.block_c2 for item in results_sheet]
+
+            graph.Arena_HeatMap(venue_id,perform_time,venue_sheet,row_max,column_max,block,column,time,colors[colorcount])
+
+            colorcount += 1
+
+        for i in range(1,len(venue_floors)):
+            floor_results = results_row.filter(floor2=venue_floors[i])
+            if len(floor_results) > 0:
+                    for j in range(len(venue_sheets)):
+                        sheet_results = floor_results.filter(sheet2=venue_sheets[j])
                         item[venue_sheets[j]] = [int(row.row1 or 0) for row in sheet_results]
                         graph.Floor_Histgram(venue_id,perform_time ,item,venue_floors[i],time)
 

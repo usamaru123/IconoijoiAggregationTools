@@ -63,7 +63,7 @@ def Arena_HeatMap(venueid,perform_time ,venue_sheet,rowmax,columnmax,rows,column
         try:
             block[int_columns[i]][int_rows[i]] +=1
         except:
-            logging.warning('<arenacreate>'+time+'_'+str(venueid)+ '_' +perform_time + '_' + venue_sheet+ '_' +  str(row[i])+'_' + str(columns[i])+ ":座席がリスト外です。拡張してください。")
+            logging.info('<arenacreate>'+time+'_'+str(venueid)+ '_' +perform_time + '_' + venue_sheet+ '_' +  ":座席がリスト外です。拡張してください。")
 
 
 
