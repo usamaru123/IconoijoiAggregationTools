@@ -24,7 +24,7 @@ def periodic_execution():
 
 
     logfile = "./logs/scheduler_"+today+".log"
-    logging.basicConfig(filename=logfile,level=logging.INFO)
+    logging.basicConfig(filename=logfile,level=logging.error)
 
 
 
